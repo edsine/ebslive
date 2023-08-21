@@ -11,6 +11,7 @@ use Laracasts\Flash\Flash;
 use Modules\Shared\Repositories\BranchRepository;
 use App\Repositories\UserRepository;
 use Modules\Shared\Repositories\DepartmentHeadRepository;
+use Modules\Shared\Models\Department;
 
 
 class DepartmentController extends AppBaseController
@@ -44,6 +45,16 @@ class DepartmentController extends AppBaseController
 
         return view('shared::departments.index')
             ->with('departments', $departments);
+    }
+
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('term');
+
+        $departments = Department::where('department_unit', 'like', '%' . $searchTerm . '%')
+            ->get(['id', 'department_unit']);
+
+        return response()->json($departments);
     }
 
     /**

@@ -13,6 +13,7 @@ use Modules\DocumentManager\Http\Requests\UpdateDocumentRequest;
 use Modules\DocumentManager\Repositories\DocumentVersionRepository;
 use Modules\DocumentManager\Http\Requests\CreateDocumentVersionRequest;
 use Illuminate\Support\Facades\Storage;
+use Modules\Shared\Models\Department;
 
 class DocumentController extends AppBaseController
 {

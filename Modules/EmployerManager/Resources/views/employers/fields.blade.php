@@ -64,6 +64,11 @@
                         'placeholder' => 'Enter Company Email',
                     ]) !!}
                 </div>
+
+                <div class="d-flex flex-column col-md-6 mb-8 fv-row">
+                    {!! Form::label('certificate_of_incorporation ', 'Certificate Of Incorporation:') !!}
+                    {!! Form::file('certificate_of_incorporation',null, ['class' =>'form-control','accept' => 'application/pdf','readonly' => true]) !!}
+                </div>
             </div>
             <!--end::Row-->
         </div>

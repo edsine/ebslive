@@ -18,11 +18,18 @@ class ClaimstypeTableSeeder extends Seeder
         // Model::unguard();
         DB::table('claimstypes')->delete();
 
-        $thetype=[
-"name"=>"ACCIDENT",
-"name"=> "OCCUPATIONAL DISEASE",
-"name"=> "DEALTH"
+        $thetype = [
+            [
+                'name' => 'Accident',
+            ],
+            [
+                'name' => 'Occupational Disease',
+            ],
+            [
+                'name' => 'Death',
+            ],
         ];
+        
 
         DB::table('claimstypes')->insert($thetype);
         // $this->call("OthersTableSeeder");

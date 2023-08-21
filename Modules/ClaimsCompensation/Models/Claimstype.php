@@ -9,13 +9,14 @@ class Claimstype extends Model
 {
     use HasFactory;
 
+    protected $table='claimstypes';
     protected $fillable = [
         'name'
     ];
     
     public function claims()
     {
-        return $this->hasOne(claimstype::class);
+        return $this->hasOne(claimstype::class,'claimstype_id','id');
     }
     // protected static function newFactory()
     // {

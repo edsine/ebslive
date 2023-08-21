@@ -3,6 +3,7 @@
         <table class="table" id="departments-table">
             <thead>
             <tr>
+                {{-- <th>Claim Type</th> --}}
                 <th>Name</th>
                 <th>Description</th>
                 <th>Branch</th>
@@ -13,9 +14,11 @@
                 <th colspan="3">Action</th>
             </tr>
             </thead>
+            
             <tbody>
             @foreach($claimscompensations as $claimscompensation)
                 <tr>
+                    <td>{{$claimscompensation->claims? $claimscompensation->claims->name:'no type1 found'}}</td>
                     <td>{{ $claimscompensation->name }}</td>
                     <td>{{ $claimscompensation->description }}</td>
                     <td>{{ $claimscompensation->branch ? $claimscompensation->branch->branch_name : '' }}</td>

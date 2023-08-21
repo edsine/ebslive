@@ -42,7 +42,7 @@ class HomeController extends Controller
         $pending_employees = Employee::where('status', 2)->count();
         $data = Employer::where('status', 1);
         $data = $data->paginate(10);
-        return view('layouts/hradmin', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
+        return view('hradmin', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
     }
     public function financeadmin()
     {

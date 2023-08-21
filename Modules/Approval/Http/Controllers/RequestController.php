@@ -15,7 +15,11 @@ class RequestController extends Controller
      */
     public function index()
     {
-        $requests = ModelsRequest::where('staff_id', auth()->user()->staff->id)->paginate(10);
+        if (auth()->user()->staff == null) {
+            $requests = [];
+        } else {
+            $requests = ModelsRequest::where('staff_id', auth()->user()->staff->id)->paginate(10);
+        }
         return view('approval::request.index', compact('requests'));
     }
 

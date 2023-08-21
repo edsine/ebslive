@@ -7,14 +7,14 @@
                 <div class="col-sm-6">
                     <h1>Employees</h1>
                 </div>
-                <div class="col-sm-6 float-end">
+                {{-- <div class="col-sm-6 float-end">
                     <a class="btn btn-primary float-left"
                        href="{{ route('employer.create-employees',  $employer->id) }}">
                         Add New
                     </a>
                     <a class="btn btn-default float-right"
                        href="{{ route('employers.index') }}">Back</a>
-                </div>
+                </div> --}}
 
             </div>
             <div class="row mb-2">

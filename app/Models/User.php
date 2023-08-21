@@ -17,6 +17,8 @@ use Modules\WorkflowEngine\Models\Staff;
 use Illuminate\Notifications\Notification;
 use Modules\UnitManager\Models\UnitHead;
 use Modules\DTARequests\Notifications\UnitHeadNotification;
+use Modules\ClaimsCompensation\Models\DeathClaim;
+use Modules\EmployerManager\Models\Employer;
 
 
 class User extends Authenticatable implements Auditable
@@ -104,5 +106,15 @@ class User extends Authenticatable implements Auditable
     public function sendUnitHeadNotification()
     {
         $this->notify(new UnitHeadNotification());
+    }
+
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class);
+    }
+
+    public function death_claims()
+    {
+        return $this->hasMany(DeathClaim::class);
     }
 }

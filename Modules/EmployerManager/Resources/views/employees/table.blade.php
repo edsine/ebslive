@@ -25,8 +25,8 @@
                 <th class="min-w-200px">Monthly Renumeration</th>
                 <th class="min-w-200px">Status</th>
                 <th class="min-w-120px" colspan="1">Action</th>
-            															<th class="min-w-200px text-end rounded-end"></th>
-														</tr>
+            	<th class="min-w-200px text-end rounded-end"></th>
+				</tr>
             </thead>
             <tbody>
             @foreach($employees as $employee)

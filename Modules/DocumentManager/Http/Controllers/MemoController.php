@@ -20,31 +20,32 @@ use Modules\DocumentManager\Notifications\MemoAssignedToDepartment;
 use Modules\DocumentManager\Repositories\DocumentVersionRepository;
 use Modules\DocumentManager\Repositories\MemoHasDepartmentRepository;
 use Illuminate\Support\Facades\Storage;
+use Modules\DocumentManager\Models\Memo;
 
 class MemoController extends AppBaseController
 {
-    /* @var MemoRepository $memoRepository */
+    /** @var MemoRepository $memoRepository*/
     private $memoRepository;
 
-    /* @var MemoHasDepartmentRepository $memoHasDepartmentRepository*/
+    /** @var MemoHasDepartmentRepository $memoHasDepartmentRepository*/
     private $memoHasDepartmentRepository;
 
-    /* @var MemoHasUserRepository $memoHasUserRepository*/
+    /** @var MemoHasUserRepository $memoHasUserRepository*/
     private $memoHasUserRepository;
 
-    /* @var DocumentRepository $documentRepository*/
+    /** @var DocumentRepository $documentRepository*/
     private $documentRepository;
 
-    /* @var DocumentVersionRepository $documentVersionRepository*/
+    /** @var DocumentVersionRepository $documentVersionRepository*/
     private $documentVersionRepository;
 
-    /* @var FolderRepository $folderRepository*/
+    /** @var FolderRepository $folderRepository*/
     private $folderRepository;
 
     /** @var $userRepository UserRepository */
     private $userRepository;
 
-    /* @var DepartmentRepository $departmentRepository*/
+    /** @var DepartmentRepository $departmentRepository*/
     private $departmentRepository;
 
 
@@ -70,7 +71,7 @@ class MemoController extends AppBaseController
 
             return redirect()->back();
         }
-
+        /* $memos = $this->memoRepository->paginate(10); */
         $memos = $this->memoRepository->paginate(10);
 
         return view('documentmanager::memos.index')
@@ -101,7 +102,7 @@ class MemoController extends AppBaseController
         }
 
         $departments = $this->departmentRepository->all()->pluck('department_unit', 'id');
-        $departments->prepend('Select department', '');
+       // $departments->prepend('Select department', '');
         $users1 = $this->userRepository->all();
 
 $userData = $users1->map(function ($user) {
@@ -112,7 +113,7 @@ $userData = $users1->map(function ($user) {
 });
 
         $users = $userData->pluck('name', 'id');
-        $users->prepend('Select user', '');
+        //$users->prepend('Select user', '');
         return view('documentmanager::memos.create', compact(['departments','users']));
     }
 
@@ -176,7 +177,7 @@ $userData = $users1->map(function ($user) {
     $fileName = $title . 'v1' . rand() . '.' . $file->getClientOriginalExtension();
 
     // Upload the file to the S3 bucket
-    $documentUrl = Storage::disk('s3')->putFileAs($path, $file, $fileName);
+    //$documentUrl = Storage::disk('s3')->putFileAs($path, $file, $fileName);
         /* $path_folder = public_path($path);
 
         // Save file
@@ -185,12 +186,12 @@ $userData = $users1->map(function ($user) {
 
         $title = str_replace(' ', '', $input['title']);
 
-        $file_name = $title . '' . 'v1' . '' . rand() . '.' . $file->getClientOriginalExtension();
+        $file_name = $title . '_' . 'v1' . '_' . rand() . '.' . $file->getClientOriginalExtension();
         $file->move($path_folder, $file_name);
 
         $document_url = $path . "/" . $file_name;
  */
-        $document_input['document_url'] = $documentUrl;
+        $document_input['document_url'] = "0";//$documentUrl;
 
         $document = $this->documentRepository->create($document_input);
 
@@ -522,7 +523,7 @@ $userData = $users1->map(function ($user) {
 
         $title = str_replace(' ', '', $document->title);
 
-        $file_name = $title . '' . 'v' . $new_count . '' . rand() . '.' . $file->getClientOriginalExtension();
+        $file_name = $title . '_' . 'v' . $new_count . '_' . rand() . '.' . $file->getClientOriginalExtension();
         $file->move($path_folder, $file_name);
 
         $document_url = $path . "/" . $file_name;

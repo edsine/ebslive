@@ -79,8 +79,10 @@ $departmentData = getDepartmentData();
                     <span class="menu-arrow"></span>
                 </a>
                 <div class="menu-sub menu-sub-accordion menu-active-bg">
-                    @include('employermanager::layouts.menu')
+                    @if (in_array($departmentData['sessionDepartmentId'], $departmentData['departmentIdsToCheck1']))
 
+                    @include('employermanager::layouts.menu')
+                    @endif
                 </div>
             </div>
             <!--End Main Menu 2: Operational Tasks -->
@@ -130,7 +132,7 @@ $departmentData = getDepartmentData();
                    {{--  @if (in_array($departmentData['sessionDepartmentId'], $departmentData['hrIdToCheck'])) --}}
                     @include('dtarequests::layouts.menu')
                    {{--  @endif --}}
-                   
+
                     @include('humanresource::layouts.menu')
 
                     @if (in_array($departmentData['sessionDepartmentId'], $departmentData['hrIdToCheck']) || $departmentData['loggedInUserId'] == 1)

@@ -114,6 +114,16 @@ class UserController extends AppBaseController
     
         return view('users.index', compact('users', 'norole'));
     }
+
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('term');
+
+        $users = User::where('first_name', 'like', '%' . $searchTerm . '%')
+            ->get(['id', 'first_name']);
+
+        return response()->json($users);
+    }
     
     public function html_email() {
         $mailData = [

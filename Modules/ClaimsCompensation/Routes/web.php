@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +18,11 @@ Route::prefix('claimscompensation')->group(function() {
 });
 
 Route::middleware(['auth'])->group(function () {
+    
+    Route::resource('claim/accident', AccidentClaimController::class);
+    Route::resource('claim/death', DeathClaimController::class);
+    Route::resource('claim/disease', DiseaseClaimController::class);
+
     Route::prefix('claimscompensation')->group(function () {
         Route::resource('claimscompensation', Modules\ClaimsCompensation\Http\Controllers\ClaimsCompensationController::class);
     });

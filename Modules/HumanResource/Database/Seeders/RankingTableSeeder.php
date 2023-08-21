@@ -48,16 +48,7 @@ class RankingTableSeeder extends Seeder
         ];
         DB::table('rankings')->insert($rank);
 
-        // Ranking::create('name','');
-        // Ranking::create('name','Deputy General Manager');
-        // Ranking::create('name','General Manager');
-        // Ranking::create('name','Principal Manager');
-        // Ranking::create('name',' Senior Manager');
-        // Ranking::create('name','Manager');
-        // Ranking::create('name','Assistant Manager');
-        // Ranking::create('name','Officer 1');
-        // Ranking::create('name','Officer 2');
-        // $this->call("OthersTableSeeder");
+     
        
     }
 }
