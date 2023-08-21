@@ -30,19 +30,19 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class DTARequestsController extends AppBaseController
 {
 
-    /* @var DTARequestsRepository $dtaRequestsRepository/
+    /** @var DTARequestsRepository $dtaRequestsRepository*/
     private $dtaRequestsRepository;
 
-    /* @var BranchRepository $branchRepository/
+    /** @var BranchRepository $branchRepository*/
     private $branchRepository;
 
-    /* @var DTAReviewRepository $dtaReviewRepository/
+    /** @var DTAReviewRepository $dtaReviewRepository*/
     private $dtaReviewRepository;
 
-    /* @var StaffRepository $staffRepository/
+    /** @var StaffRepository $staffRepository*/
     private $staffRepository;
 
-    /* @var UnitHeadRepository $unitHeadRepository/
+    /** @var UnitHeadRepository $unitHeadRepository*/
     private $unitHeadRepository;
 
     /** @var $userRepository UserRepository */

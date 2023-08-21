@@ -45,6 +45,7 @@ class Employer extends Model implements Auditable
         'created_by',
         'updated_by',
         'deleted_by',
+        'certificate_of_incorporation',
     ];
 
     protected $casts = [

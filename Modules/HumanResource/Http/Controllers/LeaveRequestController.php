@@ -19,12 +19,12 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Notification;
 use Modules\Shared\Repositories\BranchRepository;
-use Modules\HumanResource\Repositories\leavetyperepository;
+use Modules\HumanResource\Repositories\LeavetypeRepository;
 
 use Modules\HumanResource\Http\Requests\createleaverequests;
 use Modules\HumanResource\Http\Requests\updateleaverequests;
 use Modules\HumanResource\Notifications\Leaverequest;
-use Modules\HumanResource\Repositories\leaverequestrepository;
+use Modules\HumanResource\Repositories\LeaveRequestRepository;
 
 use Modules\UnitManager\Repositories\UnitHeadRepository;
 use Modules\UnitManager\Models\UnitHead;
@@ -42,7 +42,7 @@ class LeaveRequestController extends  AppBaseController
     private $unitHeadRepository;
 
     /** @var LeaveRequestController $leaverequest*/
-    private $leaverequestrepository;
+    private $leaverequestRepository;
 
     /** @var BranchRepository $branchRepository*/
     private $branchRepository;
@@ -61,7 +61,7 @@ private $staffRepository;
 
 public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $userRepo, LeaveRequestrepository $leaverequestRepo, BranchRepository $branchRepo, StaffRepository $staffRepo ,LeavetypeRepository $leavetypeRepo)
     {
-        $this->leaverequestrepository = $leaverequestRepo;
+        $this->leaverequestRepository = $leaverequestRepo;
         $this->branchRepository = $branchRepo;
         $this->staffRepository = $staffRepo;
         $this->leavetypeRepository = $leavetypeRepo;
@@ -90,10 +90,10 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
 
         if(!empty($user_id) && $user_id !=1){
             // $leaverequest=$this->leaverequestrepository->getByUserId($user_id);
-            $leaverequest=$this->leaverequestrepository->paginate(10);
+            $leaverequest=$this->leaverequestRepository->paginate(10);
         } else {
 
-            $leaverequest=$this->leaverequestrepository->paginate(10);
+            $leaverequest=$this->leaverequestRepository->paginate(10);
 
         }
 
@@ -182,7 +182,7 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
             $input['signature_path'] = $fileName;
         }
 
-        $leaveRequest = $this->leaverequestrepository->create($input);
+        $leaveRequest = $this->leaverequestRepository->create($input);
 
         // sending a notification to the user that he has created a leave request
         //Notification::send($user,new Leaverequest($input));
@@ -261,7 +261,7 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
     public function update($id, updateleaverequests $request)
     {
        // $user= Auth::user();
-        $leaverequest = $this->leaverequestrepository->find($id);
+        $leaverequest = $this->leaverequestRepository->find($id);
 
         if (empty($leaverequest)) {
             Flash::error('leave request not found');
@@ -284,7 +284,7 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
             unset($input['signature_path']);
         }
 
-        $leaverequest = $this->leaverequestrepository->update($input, $id);
+        $leaverequest = $this->leaverequestRepository->update($input, $id);
 
         //Notification::send($user,new Leaverequest($input));
 
@@ -300,7 +300,7 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
      */
     public function destroy($id)
     {
-        $dtarequests = $this->leaverequestrepository->find($id);
+        $dtarequests = $this->leaverequestRepository->find($id);
 
         if (empty($dtarequests)) {
             Flash::error('LEAVE Requests not found');
@@ -308,7 +308,7 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
             return redirect(route('leave_request.index'));
         }
 
-        $this->leaverequestrepository->delete($id);
+        $this->leaverequestRepository->delete($id);
 
         Flash::success('LEAVE REQUEST DISCARDED SUCCESSFULLY.');
 

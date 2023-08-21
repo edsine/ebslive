@@ -26,10 +26,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-	
-	$this->configureRateLimiting();
-
+        $this->configureRateLimiting();
 
         $this->routes(function () {
             Route::middleware('api')
@@ -47,9 +44,6 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-
-   
-  
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {

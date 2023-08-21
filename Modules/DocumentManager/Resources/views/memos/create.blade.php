@@ -32,7 +32,7 @@
 
                     <div class="col-sm-12 row mb-3">
                         <!-- department Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('departments', 'Department(s):') !!}
     {!! Form::select('departments[]', $departments, null, ['class' => 'form-control','id'=>'departmentSelect','multiple']) !!}
 </div>
@@ -41,7 +41,18 @@
 <div class="form-group col-sm-6">
     {!! Form::label('users', 'User(s):') !!}
     {!! Form::select('users[]', $users, null, ['class' => 'form-control multiple','id'=>'userSelect','multiple']) !!}
+</div> --}}
+<div class="form-group col-sm-6">
+    {!! Form::label('departments', 'Department(s):') !!}
+    {!! Form::select('departments[]', $departments, null, ['class' => 'form-control', 'id' => 'departmentSelect', 'multiple' => 'multiple']) !!}
 </div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('users', 'User(s):') !!}
+    {!! Form::select('users[]', $users, null, ['class' => 'form-control', 'id' => 'userSelect', 'multiple' => 'multiple']) !!}
+</div>
+
+
                     </div>
                 </div>
 
@@ -57,9 +68,44 @@
         </div>
     </div>
 @endsection
-
-
 @push('page_scripts')
+{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> --}}
+<style>
+    textarea.select2-search__field{
+       width: 100%;
+       
+    }
+    .select2-container .select2-search--inline .select2-search__field {
+    box-sizing: border-box;
+    border: none;
+    font-size: 100%;
+    margin-top: 0px;
+    margin-left: 5px;
+    padding: 0;
+    max-width: 300px;
+    resize: none;
+    height: 25px;
+    vertical-align: top;
+    font-family: sans-serif;
+    overflow: hidden;
+    word-break: keep-all;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('.form-control[multiple]').select2({
+            theme: 'bootstrap',
+            //placeholder: 'Select options',
+            allowClear: true
+        });
+    });
+</script>
+
+
+@endpush
+
+{{-- @push('page_scripts')
     <script>
         $(document).ready(function() {
             $("#user_select").select2({
@@ -137,4 +183,4 @@
             });
         })
     </script>
-@endpush
+@endpush --}}

@@ -3,7 +3,11 @@
 namespace Modules\EmployerManager\Models;
 
 use Illuminate\Database\Eloquent\Model;
- use Illuminate\Database\Eloquent\SoftDeletes; use Illuminate\Database\Eloquent\Factories\HasFactory;
+ use Illuminate\Database\Eloquent\SoftDeletes; 
+ use Illuminate\Database\Eloquent\Factories\HasFactory;
+ use Modules\ClaimsCompensation\Models\DeathClaim;
+ use Modules\ClaimsCompensation\Models\AccidentClaim;
+ use Modules\ClaimsCompensation\Models\DiseaseClaim;
 /**
  * @OA\Schema(
  *      schema="Employee",
@@ -241,5 +245,20 @@ use Illuminate\Database\Eloquent\Model;
     public function employer(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(\Modules\EmployerManager\Models\Employer::class, 'employer_id', 'id');
+    }
+
+    public function accident_claims()
+    {
+        return $this->hasMany(AccidentClaim::class);
+    }
+
+    public function death_claims()
+    {
+        return $this->hasMany(DeathClaim::class);
+    }
+
+    public function disease_claims()
+    {
+        return $this->hasMany(DiseaseClaim::class);
     }
 }

@@ -1,29 +1,35 @@
 {{-- COMPANY NAME --}}
 
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('company_name', 'COMPANY NAME:') !!}
-    {!! Form::text('company_name', null, ['class' => 'form-control', 'required']) !!}
-</div>
-{{-- COMPANY EMAIL --}}
-<div class="form-group col-sm-6">
-    {!! Form::label('company_email', 'COMPANY EMAIL:') !!}
-    {!! Form::text('company_email', null, ['class' => 'form-control', 'required']) !!}
-</div>
-{{-- COMPANY ADDRESS --}}
-<div class="form-group col-sm-6">
-    {!! Form::label('company_address', 'COMPANY ADDRESS:') !!}
-    {!! Form::text('company_address', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::text('company_name', , null, ['class' => 'form-control form-control-md required']) !!}
+</div> --}}
+<div class="card">
+    <div class="card-body mb-6">
+        <h1>EMPLOYER NAME : {{$employer->company_name}} </h1>
+        <h1>COMPANY ADDRESS : {{$employer->company_address}} </h1>
+        <h1>COMPANY  EMAIL : {{$employer->company_email}} </h1>
+        
+    </div>
 </div>
 
-{{-- CLAIMS TYPE --}}
-{!! Form::label('claimstype_id', 'CLAIMTYPE')  !!}
-{!! Form::select('claimstype_id, ') !!}
+
+
+<div class="d-flex flex-column col-md-6 mb-2 fv-row">
+    {!! Form::label('claimstype_id', 'TYPE OF CLAIM') !!}
+    {!! Form::select('claimstype_id', $claimstype, null, ['class' => 'form-control form-control-solid border border-2 form-select']) !!}
+</div>
+
+
+
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('name', 'Name:') !!}
+    {!! Form::label('name', 'Name Of Employee :') !!}
     {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
 </div>
+{{-- the claimstype --}}
+
 
 <!-- Description Field -->
 <div class="form-group col-sm-12 col-lg-12">
@@ -34,7 +40,7 @@
 <!-- Branch Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('branch_id', 'Branch:') !!}
-    {!! Form::select('branch_id', $branches, null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('branch_id', $branches, null, ['class' => 'form-control form-control-solid border border-2 form-select']) !!}
 </div>
 
 <!-- Image Field -->

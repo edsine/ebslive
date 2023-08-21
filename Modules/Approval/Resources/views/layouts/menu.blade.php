@@ -1,3 +1,4 @@
+@if(auth()->user()->hasRole('super-admin'))
 <!--begin:Menu sub-->
 <!--begin:Menu item-->
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
@@ -23,6 +24,7 @@
 </div>
 <!--end:Menu item-->
 <!--end:Menu sub-->
+@endif
 
 <!--begin:Menu sub-->
 <!--begin:Menu item-->

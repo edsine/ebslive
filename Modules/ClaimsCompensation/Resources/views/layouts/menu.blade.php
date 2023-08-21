@@ -43,3 +43,26 @@
     </span>
     <span class="menu-title">Claims Notificatons</span>
 </a>
+
+   <a href="{{ route('death.index') }}" class="menu-link">
+    <span class="menu-bullet">
+        <span class="bullet bullet-dot"></span>
+    </span>
+    <span
+            class="nk-menu-text">Death
+            Claims</span></a>
+
+    <a href="{{ route('accident.index') }}" class="menu-link">
+        <span class="menu-bullet">
+            <span class="bullet bullet-dot"></span>
+        </span>
+        <span
+            class="nk-menu-text">Accident
+            Claims</span></a>
+
+    <a href="{{route('disease.index')}}" class="menu-link">
+        <span class="menu-bullet">
+            <span class="bullet bullet-dot"></span>
+        </span>
+        <span class="nk-menu-text">Occupations
+            Disease Claims</span></a>

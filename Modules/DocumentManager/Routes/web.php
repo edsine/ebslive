@@ -15,7 +15,11 @@ Route::prefix('documentmanager')->group(function () {
     Route::get('/', 'DocumentManagerController@index');
 });
 
+Route::get('departments/search', [Modules\Shared\Http\Controllers\DepartmentController::class, 'search'])->name('departments.search');
+Route::get('users/search', [App\Http\Controllers\UserController::class, 'search'])->name('users.search');
+
 Route::middleware(['auth'])->group(function () {
+    
     Route::prefix('documentmanager')->group(function () {
         Route::resource('folders', Modules\DocumentManager\Http\Controllers\FolderController::class);
 

@@ -73,13 +73,13 @@
         <div class="fv-row">
             <div class="row">
                 <div class="form-group col-sm-6">
-                    {!! Form::label('home_address', 'HOME ADDRESS:') !!}
+                    {!! Form::label('home_address', 'LEAVE DESTINATION ADDRESS:') !!}
                     {!! Form::text('home_address', null, ['class' => 'form-control form-control-solid border border-2 ']) !!}
                 </div>
-                <div class="form-group col-sm-6">
+                {{-- <div class="form-group col-sm-6">
                     {!! Form::label('home_number', 'HOUSE NUMBER:') !!}
                     {!! Form::text('home_number', null, ['class' => 'form-control form-control-solid border border-2 ']) !!}
-                </div>
+                </div> --}}
 
 
                 <div class="form-group col-sm-6">
@@ -219,11 +219,11 @@
     $(document).ready(function() {
         $('#leave_type').on('click', function() {
             const selectedId = $(this).val();
-            const atp = location.protocol + '//' + location.host;
+            const port = location.protocol + '//' + location.host;
 
             if (selectedId !== '') {
                 $.ajax({
-                    url: `${atp}/leave_request_data/get-data/${selectedId}`,
+                    url: `${port}/leave_request_data/get-data/${selectedId}`,
                     type: 'GET',
                     data: {
                         id: selectedId

@@ -40,9 +40,9 @@ use OwenIt\Auditing\Contracts\Auditable;
         'branch_id' => 'required'
     ];
 
-    public function claimstypes():\Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function claimscompensation():\Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongTo(claimstype::class);
+        return $this->belongTo(claimstype::class,'claimstype_id','id');
     }
     public function branch(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

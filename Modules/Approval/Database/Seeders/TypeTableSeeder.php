@@ -10,14 +10,13 @@ class TypeTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-i     *
+     *
      * @return void
      */
     public function run()
     {
         Model::unguard();
 
-        DB::table('types')->truncate();
         // $this->call("OthersTableSeeder");
         $types = [
             [
