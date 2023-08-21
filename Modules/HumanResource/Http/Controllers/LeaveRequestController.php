@@ -182,7 +182,7 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
             $input['signature_path'] = $fileName;
         }
 
-        $leaveRequest = $this->leaverequestRepository->create($input);
+        $leaveRequest = $this->leaverequestrepository->create($input);
 
         // sending a notification to the user that he has created a leave request
         //Notification::send($user,new Leaverequest($input));
@@ -190,7 +190,7 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
         //INITIATE APPROVAL FLOW || ALSO FOR UPDATING create|update
         $approval_request = $leaveRequest->request()->create([
             'staff_id' => $user->staff->id,
-            'type_id' => 4,//for casual leave requests
+            'type_id' => 2,//for casual leave requests
             'order' => 1,//order/step of the flow
             'action_id' => 1,//action taken id 1= create
         ]);

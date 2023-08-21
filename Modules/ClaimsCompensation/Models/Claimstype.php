@@ -5,7 +5,7 @@ namespace Modules\ClaimsCompensation\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class claimstype extends Model
+class Claimstype extends Model
 {
     use HasFactory;
 

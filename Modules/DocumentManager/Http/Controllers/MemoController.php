@@ -19,31 +19,32 @@ use Modules\DocumentManager\Repositories\MemoHasUserRepository;
 use Modules\DocumentManager\Notifications\MemoAssignedToDepartment;
 use Modules\DocumentManager\Repositories\DocumentVersionRepository;
 use Modules\DocumentManager\Repositories\MemoHasDepartmentRepository;
+use Illuminate\Support\Facades\Storage;
 
 class MemoController extends AppBaseController
 {
-    /** @var MemoRepository $memoRepository*/
+    /* @var MemoRepository $memoRepository */
     private $memoRepository;
 
-    /** @var MemoHasDepartmentRepository $memoHasDepartmentRepository*/
+    /* @var MemoHasDepartmentRepository $memoHasDepartmentRepository*/
     private $memoHasDepartmentRepository;
 
-    /** @var MemoHasUserRepository $memoHasUserRepository*/
+    /* @var MemoHasUserRepository $memoHasUserRepository*/
     private $memoHasUserRepository;
 
-    /** @var DocumentRepository $documentRepository*/
+    /* @var DocumentRepository $documentRepository*/
     private $documentRepository;
 
-    /** @var DocumentVersionRepository $documentVersionRepository*/
+    /* @var DocumentVersionRepository $documentVersionRepository*/
     private $documentVersionRepository;
 
-    /** @var FolderRepository $folderRepository*/
+    /* @var FolderRepository $folderRepository*/
     private $folderRepository;
 
     /** @var $userRepository UserRepository */
     private $userRepository;
 
-    /** @var DepartmentRepository $departmentRepository*/
+    /* @var DepartmentRepository $departmentRepository*/
     private $departmentRepository;
 
 
@@ -154,6 +155,8 @@ $userData = $users1->map(function ($user) {
         }
 
         // Prepare document input
+        $document_input = [];
+
         $document_input['folder_id'] = $memo_folder->id;
         $document_input['title'] = $input['title'];
         $document_input['description'] = $input['description'];
@@ -162,7 +165,19 @@ $userData = $users1->map(function ($user) {
         $path .= $memo_folder->name;
 
 
-        $path_folder = public_path($path);
+        $file = $request->file('file');
+
+    // Define the destination folder inside the S3 bucket
+    
+    // Generate a unique file name
+    $document_url = $path . "/" . $file;
+    
+    $title = str_replace(' ', '', $input['title']);
+    $fileName = $title . 'v1' . rand() . '.' . $file->getClientOriginalExtension();
+
+    // Upload the file to the S3 bucket
+    $documentUrl = Storage::disk('s3')->putFileAs($path, $file, $fileName);
+        /* $path_folder = public_path($path);
 
         // Save file
 
@@ -170,12 +185,12 @@ $userData = $users1->map(function ($user) {
 
         $title = str_replace(' ', '', $input['title']);
 
-        $file_name = $title . '_' . 'v1' . '_' . rand() . '.' . $file->getClientOriginalExtension();
+        $file_name = $title . '' . 'v1' . '' . rand() . '.' . $file->getClientOriginalExtension();
         $file->move($path_folder, $file_name);
 
         $document_url = $path . "/" . $file_name;
-
-        $document_input['document_url'] = $document_url;
+ */
+        $document_input['document_url'] = $documentUrl;
 
         $document = $this->documentRepository->create($document_input);
 
@@ -186,7 +201,7 @@ $userData = $users1->map(function ($user) {
         $version_input['document_id'] = $document->id;
         $version_input['created_by'] = Auth::user()->id;
         $version_input['version_number'] = 1;
-        $version_input['document_url'] = $document_url;
+        $version_input['document_url'] = $documentUrl;
 
         $documentVersion = $this->documentVersionRepository->create($version_input);
 
@@ -507,7 +522,7 @@ $userData = $users1->map(function ($user) {
 
         $title = str_replace(' ', '', $document->title);
 
-        $file_name = $title . '_' . 'v' . $new_count . '_' . rand() . '.' . $file->getClientOriginalExtension();
+        $file_name = $title . '' . 'v' . $new_count . '' . rand() . '.' . $file->getClientOriginalExtension();
         $file->move($path_folder, $file_name);
 
         $document_url = $path . "/" . $file_name;

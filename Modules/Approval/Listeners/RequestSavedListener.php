@@ -52,8 +52,8 @@ class RequestSavedListener
         if ($event->request && $event->request->action_id == 1) {
             //notify request creator
             $email = $request->staff->user->email;
-            Notification::route('mail', $email)
-                ->notify(new RequestSavedNotification($event->request));
+         ///   Notification::route('mail', $email)
+            ///    ->notify(new RequestSavedNotification($event->request));
         }
 
 
@@ -82,8 +82,8 @@ class RequestSavedListener
                         //if ($last_step->approval_order == $request->order) {
                         //send email to creator about completion
                         $email = $request->staff->user->email;
-                        Notification::route('mail', $email)
-                            ->notify(new RequestApprovedNotification($event->request));
+               ///         Notification::route('mail', $email)
+                  ///          ->notify(new RequestApprovedNotification($event->request));
                     }
 
                     //if has next step
@@ -135,7 +135,7 @@ class RequestSavedListener
 
                         //notify request receiver | next step scope
                         //-send notification
-                        Notification::send($all_users, new RequestSavedNotification($event->request, 0));
+                     ///   Notification::send($all_users, new RequestSavedNotification($event->request, 0));
                     }
                 };
                 break;
@@ -205,7 +205,7 @@ dd($prev_step ? $next_step->approval_order : $request->order);
                                 ->get();
                         }
 
-                        Notification::send($all_users, new RequestSavedNotification($event->request, 0));
+                        ///Notification::send($all_users, new RequestSavedNotification($event->request, 0));
                     }
                 };
                 break;
@@ -216,8 +216,8 @@ dd($prev_step ? $next_step->approval_order : $request->order);
 
                     //notify creator of declined status
                     $email = $request->staff->user->email;
-                    Notification::route('mail', $email)
-                        ->notify(new RequestDeclinedNotification($event->request));
+                    ///Notification::route('mail', $email)
+                       /// ->notify(new RequestDeclinedNotification($event->request));
                 };
                 break;
             default: {

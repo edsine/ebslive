@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 
 class EmployerController extends AppBaseController
 {
-    /** @var EmployerRepository $employerRepository*/
+    /* @var EmployerRepository $employerRepository/
     private $employerRepository;
 
     /** @var $branchRepository BranchRepository */
@@ -39,10 +39,10 @@ class EmployerController extends AppBaseController
 
         $state = State::where('status', 1)->get();
         $local_govt = LocalGovt::where('status', 1)->get();
-        
+
         $s_branchId = intval(session('branch_id'));
         $employers = Employer::where('branch_id', $s_branchId)->orderBy('created_at', 'DESC');
-        
+
         if ($request->filled('search')) {
             $employers->where('ecs_number', 'like', '%' . $request->search . '%')
                 ->orWhere('company_name', 'like', '%' . $request->search . '%')
@@ -56,12 +56,12 @@ class EmployerController extends AppBaseController
                 ->orWhere('status', 'like', '%' . $request->search . '%');
         }
 
-        $pendingstaff= Employer::where('status',0)->paginate(10);
-        $activestaff=Employer::where('status',1)->paginate(10);
+        $pendingstaff = Employer::where('status', 0)->paginate(10);
+        $activestaff = Employer::where('status', 1)->paginate(10);
         // shehu comment down
         // $employers = $this->employerRepository->paginate(10);
         $employers = $employers->paginate(10);
-        return view('employermanager::employers.index', compact('employers', 'state', 'local_govt','pendingstaff','activestaff'));
+        return view('employermanager::employers.index', compact('employers', 'state', 'local_govt', 'pendingstaff', 'activestaff'));
     }
 
     /**
@@ -72,12 +72,14 @@ class EmployerController extends AppBaseController
         $state = State::where('status', 1)->get();
         $local_govt = LocalGovt::where('status', 1)->get();
 
-        $employers = User::get();
+        $employers = User::whereHas('staff', function($query){
+            $query->where('branch_id', auth()->user()->staff->branch_id);
+        })->get();
 
         $branches = $this->branchRepository->all()->pluck('branch_name', 'id');
         $branches->prepend('Select branch', '');
 
-        return view('employermanager::employers.create', compact('employers','state', 'local_govt', 'branches'));
+        return view('employermanager::employers.create', compact('employers', 'state', 'local_govt', 'branches'));
     }
 
     /**
@@ -87,6 +89,20 @@ class EmployerController extends AppBaseController
     {
         $input = $request->all();
         $input['created_by'] =  Auth::user()->id;
+
+        $last_ecs = Employer::get()->last();
+
+        if ($last_ecs) {
+            //if selected ecs belongs to another employer
+            do {
+                $ecs = $last_ecs['ecs_number'] + 1;
+                $employer_exists = Employer::where('ecs_number', $ecs)->get()->last();
+            } while ($employer_exists);
+        } else {
+            $ecs = '1000000001';
+        }
+
+        $input['ecs_number'] = $ecs;
 
         $employer = $this->employerRepository->create($input);
 
@@ -134,7 +150,7 @@ class EmployerController extends AppBaseController
         $branches = $this->branchRepository->all()->pluck('branch_name', 'id');
         $branches->prepend('Select branch', '');
 
-        return view('employermanager::employers.edit', compact('branches','employer','employers','state', 'local_govt'));
+        return view('employermanager::employers.edit', compact('branches', 'employer', 'employers', 'state', 'local_govt'));
     }
 
     /**
@@ -206,5 +222,4 @@ class EmployerController extends AppBaseController
 
         return view('employermanager::employers.employee', compact('employer', 'employees'));
     }
-
 }

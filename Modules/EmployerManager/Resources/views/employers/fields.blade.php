@@ -26,7 +26,7 @@
                 <div class="col-md-6 fv-row">
                     <label class="required fs-6 fw-semibold mb-2">@lang('Staff') ( <small
                             class="help-block text-success">@lang('Select a staff')</small>) </label>
-                    <select name="user_id" class="form-select form-select-solid" data-hide-search="true"
+                    <select name="user_id" class="form-select form-select-solid select-box" data-hide-search="true"
                         data-placeholder="Select a Team Member">
                         @foreach ($employers as $item)
                             <option value="{{ $item->id }}">
@@ -38,13 +38,13 @@
                 <!-- Ecs Number Field -->
 
                 <!--begin::ECS Number-->
-                <div class="d-flex flex-column col-md-6 mb-8 fv-row">
+                {{-- <div class="d-flex flex-column col-md-6 mb-8 fv-row">
                     {!! Form::label('ecs_number', 'ECS Number:', ['class' => 'required fs-6 fw-semibold mb-2']) !!}
                     {!! Form::text('ecs_number', null, [
                         'class' => 'form-control form-control-solid border',
                         'placeholder' => 'Enter ECS Number',
                     ]) !!}
-                </div>
+                </div> --}}
                 <!--end::ECS Number-->
 
                 <!-- Company Name Field -->
@@ -108,13 +108,27 @@
             ]) !!}
         </div>
 
-        <!-- Company Contact person Field -->
-        <div class="d-flex flex-column col-md-12 mb-8 fv-row">
-            {!! Form::label('contact_person', 'Company Contact Person:', ['class' => 'required fs-6 fw-semibold mb-2']) !!}
-            {!! Form::text('contact_person', null, [
-                'class' => 'form-control form-control-solid border',
-                'placeholder' => 'Enter Company Contact Person',
-            ]) !!}
+        <div class="row">
+            <!-- Company Contact person Field -->
+            <div class=" col-md-6 mb-8">
+                {!! Form::label('contact_firstname', 'Company Contact Person First name:', [
+                    'class' => 'required fs-6 fw-semibold mb-2',
+                ]) !!}
+                {!! Form::text('contact_firstname', null, [
+                    'class' => 'form-control form-control-solid border',
+                    'placeholder' => 'Enter Company Contact Person First name',
+                ]) !!}
+            </div>
+            <!-- Company Contact person Field -->
+            <div class="col-md-6 mb-8">
+                {!! Form::label('contact_surname', 'Company Contact Person Surname:', [
+                    'class' => 'required fs-6 fw-semibold mb-2',
+                ]) !!}
+                {!! Form::text('contact_surname', null, [
+                    'class' => 'form-control form-control-solid border',
+                    'placeholder' => 'Enter Company Contact Person Surname',
+                ]) !!}
+            </div>
         </div>
     </div>
     <!--end::Wrapper-->
@@ -401,21 +415,21 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $('#state').on('change', function () {
+    $(document).ready(function() {
+        $('#state').on('change', function() {
             var idState = this.value;
             $("#local-dd").html('');
             $.ajax({
-                url: "{{url('api/fetch-locals')}}",
+                url: "{{ url('api/fetch-locals') }}",
                 type: "POST",
                 data: {
                     state_id: idState,
-                    _token: '{{csrf_token()}}'
+                    _token: '{{ csrf_token() }}'
                 },
                 dataType: 'json',
-                success: function (result) {
+                success: function(result) {
                     $('#local-dd').html('<option value="">Select Local</option>');
-                    $.each(result.local_govts, function (key, value) {
+                    $.each(result.local_govts, function(key, value) {
                         $("#local-dd").append('<option value="' + value
                             .id + '">' + value.name + '</option>');
                     });

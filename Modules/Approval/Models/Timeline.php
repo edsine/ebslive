@@ -12,7 +12,7 @@ class Timeline extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'flow_id', 'request_id', 'action_id', 'staff_id',
+        'flow_id', 'request_id', 'action_id', 'staff_id','comments',
     ];
 
     protected static function newFactory()

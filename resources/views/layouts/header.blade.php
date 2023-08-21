@@ -42,9 +42,11 @@ use Illuminate\Support\Facades\Auth;
                  <div class="d-flex flex-column">
                      <div class="fw-bold d-flex align-items-center fs-5 mt-5 pt-3">{{'Hello,'. ' '. $user->first_name. ' ' . $user->last_name}}
                          <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">
-                            @isset($user->ranking->name)
-                            {{ $user->ranking->name }}
-                            @endisset
+                            @if($user->staff && $user->staff->ranking_id)
+                             {{Modules\HumanResource\Models\Ranking::find( $user->staff->ranking_id)->name }}
+                             @else
+                             No Rank
+                             @endif
                         </span>
                      </div>
                      <!-- <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a> -->

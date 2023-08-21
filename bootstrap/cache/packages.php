@@ -1,4 +1,15 @@
 <?php return array (
+  'aws/aws-sdk-php-laravel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Aws\\Laravel\\AwsServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'AWS' => 'Aws\\Laravel\\AwsFacade',
+    ),
+  ),
   'darkaonline/l5-swagger' => 
   array (
     'providers' => 

@@ -94,6 +94,8 @@
             <div class="card-foot pb-5">{{-- {{ $types->links() }} --}}</div>
         </div>
 
+
+
         <div class="card mb-5">
             <div class="card-body p-5">
                 <h2>Request Timeline</h2>
@@ -107,6 +109,7 @@
                             <th>Staff</th>
                             <th>Action</th>
                             <th>Date</th>
+                            <th>Comments</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -124,6 +127,39 @@
                                         class="badge bg-{{ $timeline->action->name == 'Approve' ? 'success' : ($timeline->action->name == 'Decline' ? 'danger' : ($timeline->action->name == 'Return' ? 'warning' : ($timeline->action->name == 'Modify' ? 'info' : 'primary'))) }}  text-white fs-6">{{ $timeline->action->status }}</span>
                                 </td>
                                 <td>{{ date('F jS, Y', strtotime($timeline->created_at)) }}</td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#modal{{ $timeline->id }}">
+                                        <i class="fa fa-comment"></i>
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="modal{{ $timeline->id }}" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                        Comments</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="fs-5">
+                                                        {{ $timeline->comments }}
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -132,13 +168,15 @@
         </div>
 
 
+
         <div class="card mb-5">
             <form action="{{ route('appraisal.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" id="id" value="{{ $request->id }}">
 
                 @php
-                    $next_step = $request->type->flows()
+                    $next_step = $request->type
+                        ->flows()
                         ->where('approval_order', '>', $request->order)
                         ->where('status', 1)
                         ->orderBy('approval_order', 'ASC')
@@ -173,10 +211,10 @@
                                     ->where('approval_order', $request->next_step)
                                     ->first()->actions;
                             @endphp
-                            <input type="hidden" name="actions" id="actions" value="{{ implode(',', $actions->pluck('id')->toArray()) }}">
+                            <input type="hidden" name="actions" id="actions"
+                                value="{{ implode(',', $actions->pluck('id')->toArray()) }}">
                             @foreach ($actions as $key => $action)
-                                <button name="action_id"
-                                value="{{$action->id}}"
+                                <button name="action_id" value="{{ $action->id }}"
                                     class="btn btn-{{ $action->name == 'Approve' ? 'success' : ($action->name == 'Decline' ? 'danger' : ($action->name == 'Return' ? 'warning' : ($action->name == 'Modify' ? 'info' : 'primary'))) }}">
                                     <i
                                         class="fa fa-{{ $action->name == 'Approve' ? 'check' : ($action->name == 'Decline' ? 'close' : ($action->name == 'Return' ? 'refresh' : ($action->name == 'Modify' ? 'edit' : 'send'))) }}"></i>
