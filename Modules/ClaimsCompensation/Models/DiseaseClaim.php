@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\EmployerManager\Models\Employee;
+use App\Traits\Approval;
 
 class DiseaseClaim extends Model
 {
     use HasFactory, SoftDeletes;
+    use Approval;
 
     protected $fillable = [
         'employer_id', 'employee_id', 'nature_of_work', 'nature_of_disease', 'date_disease_diagnosed',
@@ -27,5 +29,5 @@ class DiseaseClaim extends Model
     public function employee()
     {
         return $this->belongsTo(Employee::class);
-    } 
+    }
 }

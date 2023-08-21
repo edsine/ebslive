@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\EmployerManager\Models\Employee;
+use App\Traits\Approval;
 
 class DeathClaim extends Model
 {
     use HasFactory, SoftDeletes;
+    use Approval;
 
     protected $fillable = [
         'employer_id', 'employee_id', 'last_salary', 'monthly_contribution',
@@ -27,5 +29,5 @@ class DeathClaim extends Model
     public function employee()
     {
         return $this->belongsTo(Employee::class);
-    } 
+    }
 }

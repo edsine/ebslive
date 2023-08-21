@@ -19,6 +19,7 @@ class CreateTimelinesTable extends Migration
             $table->foreignId('flow_id');
             $table->foreignId('action_id');
             $table->foreignId('staff_id');//approver's id
+            $table->text('comments')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

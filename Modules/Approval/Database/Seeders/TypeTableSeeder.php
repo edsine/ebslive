@@ -17,6 +17,8 @@ class TypeTableSeeder extends Seeder
     {
         Model::unguard();
 
+        DB::table('types')->truncate();
+
         // $this->call("OthersTableSeeder");
         $types = [
             [
@@ -65,12 +67,30 @@ class TypeTableSeeder extends Seeder
                 'status' => true,
             ],
             [
-                'name' => 'Claim Notification',
-                'cycle' => 'Periodically',
+                'name' => 'Death Claim',
+                'cycle' => 'Annually',
                 'scopeable_type' => null,
                 'scopeable_id' => null,
                 'metric' => 'Months',
-                'duration' => 2,
+                'duration' => 3,
+                'status' => true,
+            ],
+            [
+                'name' => 'Accident Claim',
+                'cycle' => 'Annually',
+                'scopeable_type' => null,
+                'scopeable_id' => null,
+                'metric' => 'Months',
+                'duration' => 3,
+                'status' => true,
+            ],
+            [
+                'name' => 'Disease Claim',
+                'cycle' => 'Annually',
+                'scopeable_type' => null,
+                'scopeable_id' => null,
+                'metric' => 'Months',
+                'duration' => 3,
                 'status' => true,
             ],
         ];
