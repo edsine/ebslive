@@ -52,6 +52,7 @@
                             <th>Current Step</th>
                             <th>Status</th>
                             <th>Next Step</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -87,6 +88,17 @@
                                     }
                                 @endphp
                             </td>
+                            <td>
+                                @if($request->requestable::class == 'Modules\DTARequests\Models\DTARequests')
+                                    <a href="/dtarequests/dtarequests/{{$request->requestable->id}}" target="_blank" class="btn">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                @elseif($request->requestable::class == 'Modules\HumanResource\Models\LeaveRequest')
+                                    <a href="/leave_request/leave_request/{{$request->requestable->id}}" target="_blank" class="btn">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                @endif
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -121,7 +133,7 @@
                                     <br />
                                     <small>
                                         {{ $timeline->staff->user->roles->pluck('name') }}
-                                    </small </td>
+                                    </small> </td>
                                 <td>
                                     <span
                                         class="badge bg-{{ $timeline->action->name == 'Approve' ? 'success' : ($timeline->action->name == 'Decline' ? 'danger' : ($timeline->action->name == 'Return' ? 'warning' : ($timeline->action->name == 'Modify' ? 'info' : 'primary'))) }}  text-white fs-6">{{ $timeline->action->status }}</span>
