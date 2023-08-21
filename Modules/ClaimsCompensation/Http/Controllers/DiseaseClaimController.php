@@ -6,6 +6,9 @@ use Modules\ClaimsCompensation\Http\Requests\StoreDiseaseClaimRequest;
 use Modules\ClaimsCompensation\Http\Requests\UpdateDiseaseClaimRequest;
 use Modules\ClaimsCompensation\Models\DiseaseClaim;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Http\Request;
+use Modules\EmployerManager\Models\Employee;
+use Flash;
 
 class DiseaseClaimController extends AppBaseController
 {
@@ -59,10 +62,22 @@ class DiseaseClaimController extends AppBaseController
     /**
      * Update the specified resource in storage.
      */
-    /* public function update(UpdateDiseaseClaimRequest $request, DiseaseClaim $diseaseClaim)
+    public function update(Request $request, DiseaseClaim $diseaseClaim)
     {
-        //
-    } */
+        $deathClaim = DiseaseClaim::find($request->id);
+
+        //INITIATE APPROVAL FLOW || ALSO FOR UPDATING create|update
+        $approval_request = $deathClaim->request()->create([
+            'staff_id' => auth()->user()->staff->id,
+            'type_id' => 8, //for disease claim flow
+            'order' => 1, //order/step of the flow
+            'action_id' => 1, //action taken id 1= create
+        ]);
+
+        Flash::success('Disease Claim request initiated successfully.');
+
+        return redirect(route('request.index'));
+    }
 
     /**
      * Remove the specified resource from storage.

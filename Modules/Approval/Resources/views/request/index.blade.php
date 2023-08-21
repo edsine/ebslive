@@ -86,7 +86,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="card-foot pb-5">{{-- {{ $types->links() }} --}}</div>
+            <div class="card-foot pb-5">{{ $requests->links() }}</div>
         </div>
     </div>
 @endsection

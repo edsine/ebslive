@@ -6,7 +6,9 @@ use Modules\ClaimsCompensation\Http\Requests\StoreAccidentClaimRequest;
 use Modules\ClaimsCompensation\Http\Requests\UpdateAccidentClaimRequest;
 use Modules\ClaimsCompensation\Models\AccidentClaim;
 use Modules\EmployerManager\Models\Employer;
+use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Flash;
 
 class AccidentClaimController extends AppBaseController
 {
@@ -60,10 +62,22 @@ class AccidentClaimController extends AppBaseController
     /**
      * Update the specified resource in storage.
      */
-    /* public function update(UpdateAccidentClaimRequest $request, AccidentClaim $accidentClaim)
+    public function update(Request $request, AccidentClaim $accidentClaim)
     {
-        //
-    } */
+        $deathClaim = AccidentClaim::find($request->id);
+
+        //INITIATE APPROVAL FLOW || ALSO FOR UPDATING create|update
+        $approval_request = $deathClaim->request()->create([
+            'staff_id' => auth()->user()->staff->id,
+            'type_id' => 7, //for accident claim flow
+            'order' => 1, //order/step of the flow
+            'action_id' => 1, //action taken id 1= create
+        ]);
+
+        Flash::success('Accident Claim request initiated successfully.');
+
+        return redirect(route('request.index'));
+    }
 
     /**
      * Remove the specified resource from storage.

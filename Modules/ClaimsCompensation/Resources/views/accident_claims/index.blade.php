@@ -45,6 +45,7 @@
                             <th>Claim Date</th>
                             <th>Approval Status</th>
                            {{--  <th>Manage</th> --}}
+                           <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,7 +54,23 @@
                                 <td>{{ $claim->employee->last_name }} {{ $claim->employee->first_name }} {{ $claim->employee->middle_name }}</td>
                                 <td>{{ $claim->employee->gender }}</td>
                                 <td>{{ date('M d, Y', strtotime($claim->created_at)) }}</td>
-                                <td><span class="tb-status text-{{$claim->status ==0 ? 'warning' : 'success'}}">{{$claim->status ? 'APPROVED' : 'PENDING'}}</span></td>
+                                <td>
+                                    <span class="tb-status text-{{$claim->status ==0 ? 'warning' : 'success'}}">{{$claim->status ? 'APPROVED' : 'PENDING'}}</span>
+                                </td>
+                                <td>
+                                    @if (!$claim->request && $claim->status == 0)
+                                        <a class="btn btn-primary"
+                                            onclick="event.preventDefault();
+                                        document.getElementById('process-claim-form').submit();">Initiate
+                                            Processing</a>
+                                        <form id="process-claim-form" action="/claim/accident/{{ $claim->id }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" name="id" id="id" value="{{ $claim->id }}">
+                                        </form>
+                                    @endif
+                                </td>
                                 {{-- <td>
                                     <a href="/approval/request/timeline"><span class="nk-menu-icon text-info"><em
                                                 class="icon ni ni-eye"></em></span></a>
