@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Modules\EmployerManager\Models\Employee;
 use Modules\EmployerManager\Models\Employer;
 
@@ -25,13 +26,19 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+    
+        $claims_table = 'death_claims';
+    $claims_death_count = DB::table($claims_table)->count();
+
         $registered_employers = Employer::where('status', 1)->count();
         $pending_employers = Employer::where('status', 2)->count();
         $registered_employees = Employee::where('status', 1)->count();
         $pending_employees = Employee::where('status', 2)->count();
         $data = Employer::where('status', 1);
         $data = $data->paginate(10);
-        return view('home', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
+        return view('home', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees',
+        'claims_death_count', 'data'));
     }
     public function hradmin()
     {
@@ -42,7 +49,7 @@ class HomeController extends Controller
         $pending_employees = Employee::where('status', 2)->count();
         $data = Employer::where('status', 1);
         $data = $data->paginate(10);
-        return view('hradmin', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
+        return view('layouts/hradmin', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
     }
     public function financeadmin()
     {
@@ -55,17 +62,28 @@ class HomeController extends Controller
         $data = $data->paginate(10);
         return view('financeadmin', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
     }
+
+
     public function claimsadmin()
-    {
-        
-        $registered_employers = Employer::where('status', 1)->count();
-        $pending_employers = Employer::where('status', 2)->count();
-        $registered_employees = Employee::where('status', 1)->count();
-        $pending_employees = Employee::where('status', 2)->count();
-        $data = Employer::where('status', 1);
-        $data = $data->paginate(10);
-        return view('claimsadmin', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
-    }
+{
+    $registered_employers = Employer::where('status', 1)->count();
+    $pending_employers = Employer::where('status', 2)->count();
+    $registered_employees = Employee::where('status', 1)->count();
+    $pending_employees = Employee::where('status', 2)->count();
+    
+    $data = Employer::where('status', 1);
+    $data = $data->paginate(10);
+    
+    return view('claimsadmin', compact(
+        'registered_employers', 
+        'pending_employers', 
+        'registered_employees', 
+        'pending_employees', 
+        'data'
+    ));
+}
+
+
     public function itmadmin()
     {
         
