@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +16,10 @@
 Route::prefix('employermanager')->group(function() {
     Route::get('/', 'EmployerManagerController@index');
 });
+
+Route::get('certificate/{certificateId}/details', 'EmployerController@displayCertificateDetails')->name('certificate.details');
+Route::get('certificate/{certificateId}/approve', 'EmployerController@approveCertificate')->name('certificate.approve');
+Route::get('certificates', 'EmployerController@certificates')->name('certificates');
 
 Route::resource('employers', Modules\EmployerManager\Http\Controllers\EmployerController::class);
 

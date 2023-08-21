@@ -17,6 +17,10 @@ use Modules\EmployerManager\Models\Employer;
 use Modules\Shared\Repositories\BranchRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Modules\EmployerManager\Models\Certificate;
+use Illuminate\Support\Carbon;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Modules\EmployerManager\Models\Payment;
 
 class EmployerController extends AppBaseController
 {
@@ -89,6 +93,57 @@ class EmployerController extends AppBaseController
         $employers = $employers->paginate(10);
         return view('employermanager::employers.index', compact('employers', 'state', 'local_govt', 'pendingstaff', 'activestaff'));
     }
+
+    public function certificates()
+    {
+        /* $id = Auth::user()->staff->branch_id; */
+        $certificates = Certificate::where('payment_status', 1)->paginate(10);
+        $pending = Certificate::where('payment_status', 0)->paginate(10);
+
+        
+        return view('employermanager::certificates.index', compact('certificates', 'pending'));
+    }
+
+    public function approveCertificate($certificateId){
+        
+    }
+    public function displayCertificateDetails($certificateId)
+{
+    $certificate = Certificate::with(['employer', 'employer.employees', 'employer.payments'])->find($certificateId);
+
+    // Get the last recent 3 years
+    $currentYear = now()->year;
+    $lastThreeYears = [$currentYear - 2, $currentYear - 1, $currentYear];
+
+    $totalEmployees = [];
+    $paymentsAmount = [];
+
+    foreach ($lastThreeYears as $year) {
+        $totalEmployees[$year] = DB::table('employees')
+            ->where('employer_id', $certificate->employer->id)
+            ->whereYear('created_at', '=', $year) // Update the whereYear condition 
+            ->count();
+
+        $paymentsAmount[$year] = DB::table('payments')
+            ->where('employer_id', $certificate->employer->id)
+            ->whereYear('invoice_generated_at', '=', $year) // Update the whereYear condition
+            ->sum('amount');
+    }
+
+    $currentYearExpiration1 = Payment::where('employer_id', $certificate->employer->id)
+        ->whereYear('invoice_generated_at','=', $currentYear)
+        ->value('invoice_duration');
+
+    $currentYearExpiration = Carbon::createFromFormat('Y-m-d', $currentYearExpiration1)->format('F d, Y');
+
+    // Generate a QR code for the data 'NSITF'
+    $qrCode = QrCode::generate('http://ebsnsitf.com.ng/');
+
+
+    return view('employermanager::certificates.details', compact('certificate', 'totalEmployees', 'paymentsAmount', 'currentYearExpiration', 'lastThreeYears', 'qrCode'));
+
+}
+
 
     /**
      * Show the form for creating a new Employer.

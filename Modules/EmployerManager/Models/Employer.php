@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\DB;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
 use OwenIt\Auditing\Contracts\Auditable;
+use Modules\EmployerManager\Models\Payment;
+use Modules\EmployerManager\Models\Employee;
 
 class Employer extends Model implements Auditable
 {
@@ -102,4 +104,15 @@ class Employer extends Model implements Auditable
     {
         return $this->belongsTo('app\Models\LocalGovt','company_localgovt');
     }
+
+    public function employees()
+    {
+        return $this->hasMany(Employee::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
 }

@@ -41,7 +41,7 @@
             </a>
             @endif
             @if (in_array($departmentData['sessionDepartmentId'], $departmentData['departmentIdsToCheck']))
-            <a href="{{ route('employers.index') }}" class="menu-link {{ Request::is('employers*') ? 'active' : '' }}">
+            <a href="{{ route('certificates') }}" class="menu-link {{ Request::is('employers*') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
