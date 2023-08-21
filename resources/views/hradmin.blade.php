@@ -40,7 +40,7 @@
                     <!--begin::Info-->
                     <div class="d-flex align-items-center mb-2">
                       <!--begin::Value-->
-                      <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{$registered_employees}}</span>
+                      <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{$staff_count}}</span>
                       <!--end::Value-->
                       <!--begin::Label-->
                       <span class="badge badge-light-success fs-base">
