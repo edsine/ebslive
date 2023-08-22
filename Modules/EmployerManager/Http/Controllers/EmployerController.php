@@ -120,7 +120,7 @@ class EmployerController extends AppBaseController
     $certificate->processing_status = 1;
     $certificate->save();
 
-    return redirect()->route('certificates', ['certificateId' => $certificateId])->with('success', 'Certificate approved successfully.');
+    return redirect()->route('certificates')->with('success', 'Certificate approved successfully.');
 }
     public function displayCertificateDetails($certificateId)
 {
