@@ -11,8 +11,7 @@
                     alt="logo">
                 <p
                     style="font-size: 1.5rem; font-family: Nunito, sans-serif; font-weight: 700; line-height: 1.2; color: #364a63; padding-top: 12px; text-align: center">
-                    Nigeria Social Insurance Trust Fund<br />Employer Self
-                    Service Portal</p>
+                    Nigeria Social Insurance Trust Fund<br />Entreprise Business Suite</p>
             @endif
         </a>
     </td>
