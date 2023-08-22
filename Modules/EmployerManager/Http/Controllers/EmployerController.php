@@ -104,9 +104,24 @@ class EmployerController extends AppBaseController
         return view('employermanager::certificates.index', compact('certificates', 'pending'));
     }
 
-    public function approveCertificate($certificateId){
-        
+    public function approveCertificate($certificateId)
+{
+    $certificate = Certificate::find($certificateId);
+
+    if (!$certificate) {
+        // Certificate not found, handle accordingly
+        // For example, show an error message or redirect
+        return redirect()->route('certificates', ['certificateId' => $certificateId])->with('error', 'Certificate not found.');
+
     }
+
+    // Update the payment_status and processing_status columns
+    $certificate->payment_status = 1;
+    $certificate->processing_status = 1;
+    $certificate->save();
+
+    return redirect()->route('certificates')->with('success', 'Certificate approved successfully.');
+}
     public function displayCertificateDetails($certificateId)
 {
     $certificate = Certificate::with(['employer', 'employer.employees', 'employer.payments'])->find($certificateId);
