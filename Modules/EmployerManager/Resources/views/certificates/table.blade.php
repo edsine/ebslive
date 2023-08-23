@@ -1,4 +1,15 @@
 <div class="card-body p-5">
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+@if (session('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
+
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
         <a class="nav-link active" id="pending-tab" data-bs-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Pending Certificates</a>
@@ -35,10 +46,15 @@
                         </td>
                         <td><a href="{{ route('certificate.details', ['certificateId' => $certificate->id]) }}">View Certificate Details</a>
                         </td>
-                        <td>
+                        {{-- <td>
                             <a href="/approval/request/timeline"><span class="nk-menu-icon text-info"><em
                                         class="icon ni ni-eye"></em></span></a>
+                        </td> --}}
+                        <td>
+                            <a href="{{ route('certificate.approve', ['certificateId' => $certificate->id]) }}"
+                               onclick="return confirm('Are you sure you want to approve this certificate?')">Approve</a>
                         </td>
+                        
                     </tr>
                 @endforeach
             </tbody>
@@ -65,7 +81,7 @@
                     <th>Payment Status</th>
                     <th>Processing Status</th>
                     <th>Download Certificate</th>
-                    <th>Manage</th>
+                   {{--  <th>Manage</th> --}}
                 </tr>
             </thead>
             <tbody>
