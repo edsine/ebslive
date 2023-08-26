@@ -85,6 +85,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('myedit/{id}', [UserController::class, 'myupdate'])->name('myupdate');
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
+    Route::get('/minister','Minister@index')->name('minister');
     
  Route::get('users/{id}', 'UserController@show')->name('users.show');
 Route::get('certicate',[CertificateController::class,'index'])->name('certicate');
