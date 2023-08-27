@@ -34,7 +34,7 @@ class LeaveRequestRepository extends BaseRepository
     {
         return DB::table('leave_request')->where('user_id', $id)->paginate(10);
     }
-    
+
     public function getByUnitHeadId($id)
     {
         return DB::table('leave_request')->where('unit_head_id', $id)->paginate(10);
@@ -43,7 +43,7 @@ class LeaveRequestRepository extends BaseRepository
 
     public function isUnitHeadInSameDepartment($loggedInUserId, $departmentId)
     {
-        
+
         // Check if there is any other user with the role of 'unit_head' in the same department
         $unitHeadUserId = DB::table('unit_heads')
         ->select('staff.user_id')

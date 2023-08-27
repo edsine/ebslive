@@ -70,6 +70,7 @@
 </style>
 <script>
 document.getElementById("saveButton").addEventListener("click", function() {
+    
   // Hide the button
   this.style.display = "none";
   
