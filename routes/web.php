@@ -91,5 +91,7 @@ Route::get('certicate',[CertificateController::class,'index'])->name('certicate'
 
     Route::get('/active', [UserController::class,'getactive'])->name('active');
     Route::get('/pending', [UserController::class,'getpending'])->name('pending');
-    
+    Route::post('/upload', [UserController::class,'upload'])->name('upload');
+    Route::get('/bulkUpload', [UserController::class,'bulkUpload'])->name('bulkUpload');
+
 });

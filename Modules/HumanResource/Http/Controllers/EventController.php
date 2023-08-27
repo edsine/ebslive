@@ -8,6 +8,12 @@ use Illuminate\Routing\Controller;
 use Modules\Shared\Models\Department;
 use Modules\HumanResource\Models\Event;
 use Modules\HumanResource\Models\Ranking;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\EventCreatedNotification;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+
+
 
 class EventController extends Controller
 {
@@ -61,8 +67,29 @@ class EventController extends Controller
                     'department_id' => $departmentId,
                     'ranking_id' => $rankingId,
                 ]);
+        
             }
-        }        
+        }
+        
+        // Get staff member IDs with the selected department_ids and ranking_ids
+$staffMemberIds = DB::table('staff')
+    ->whereIn('department_id', $departmentIds)
+    ->whereIn('ranking_id', $rankingIds)
+    ->pluck('user_id');
+
+// Get users (staff members) with the selected department_ids and ranking_ids
+$staffMembers = User::whereIn('id', $staffMemberIds)
+    ->with("staff")
+    ->get();
+    
+
+// Send notifications to each staff member's associated user
+foreach ($staffMembers as $staffMember) {
+    $user = $staffMember->staff->user;
+    if ($user) {
+        Notification::send($user, new EventCreatedNotification($eventData));
+    }
+}
 
         return response()->json(['message' => 'Event created successfully']);
     }
@@ -96,6 +123,31 @@ foreach ($departmentIds as $departmentId) {
 }
 
 $event->departmentRankings()->createMany($departmentRankingData);
+
+$eventData = [
+    'title' => $request->input('title'),
+    'start' => $request->input('start'),
+    'end' => $request->input('end'),
+];
+
+ // Get staff member IDs with the selected department_ids and ranking_ids
+$staffMemberIds = DB::table('staff')
+->whereIn('department_id', $departmentIds)
+->whereIn('ranking_id', $rankingIds)
+->pluck('user_id');
+
+// Get users (staff members) with the selected department_ids and ranking_ids
+$staffMembers = User::whereIn('id', $staffMemberIds)
+->with("staff")
+->get();
+
+// Send notifications to each staff member's associated user
+foreach ($staffMembers as $staffMember) {
+ $user = $staffMember->staff->user;
+ if ($user) {
+     Notification::send($user, new EventCreatedNotification($eventData));
+ }
+}
 
 return response()->json(['message' => 'Event updated successfully']);
 

@@ -7,20 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class UserCreated extends Notification
+class EventCreatedNotification extends Notification
 {
     use Queueable;
-
-    private $_user;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($user)
+    protected $event;
+
+    public function __construct($event)
     {
-        $this->_user = $user;
+        $this->event = $event;
     }
 
     /**
@@ -43,13 +43,13 @@ class UserCreated extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Hello ' . $notifiable->first_name . ' ' . $notifiable->last_name . ',')
-            ->line('Please find below your user details!')
-            ->line('Email: ' . $this->_user['email'])
-            ->line('Password: ' . $this->_user['plain_password'])
-            ->line('You can use this details to login and access your dashboard.')
-            ->line('Thank you.')
-            ->line('E-NSITF');
+            ->subject('New Event Created')
+            ->line('A new event has been created with the following details:')
+            ->line('Title: ' . $this->event['title'])
+            ->line('Start Date: ' . $this->event['start'])
+            ->line('End Date: ' . $this->event['end'])
+            ->action('View Event', url('/events/'))
+            ->line('Thank you for using our application!');
     }
 
     /**

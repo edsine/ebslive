@@ -43,7 +43,51 @@
                          
                         </select>
                     </div>                    
-                    <button type="submit" class="btn btn-primary">Save</button>
+                   {{--  <button type="submit" class="btn btn-primary">Save</button> --}}
+                   <button id="saveButton" type="submit" class="btn btn-primary">Save</button>
+<div id="loadingAnimation" class="loading-animation"></div>
+
+<style>
+    .loading-animation {
+  display: none; /* Initially hide the loading animation */
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+</style>
+<script>
+document.getElementById("saveButton").addEventListener("click", function() {
+  // Hide the button
+  this.style.display = "none";
+  
+  // Show the loading animation
+  document.getElementById("loadingAnimation").style.display = "block";
+  
+  // Simulate a loading delay (replace with your actual AJAX call or operation)
+ /*  setTimeout(function() {
+    // Hide the loading animation when the operation is done
+    document.getElementById("loadingAnimation").style.display = "none";
+    
+    // Optionally, show the button again
+    document.getElementById("saveButton").style.display = "block";
+  }, 2000); */ // Replace with your desired delay in milliseconds
+});
+
+</script>
+
                 </form>
                 
                </div>
