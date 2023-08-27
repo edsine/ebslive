@@ -123,7 +123,10 @@ class HomeController extends Controller
         $data = $data->paginate(10);
         return view('hseadmin', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
     }
-
+    public function pamsec()
+    {
+        return view('pamsec');
+    }
     // Mail Demo UI
     public function composeMail()
     {
