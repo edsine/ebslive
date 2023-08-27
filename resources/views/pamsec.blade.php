@@ -52,7 +52,7 @@
 									</div>
 									<div class="col-xl-3">
 										<!--begin::Statistics Widget 5-->
-										<a href="#" class="card bg-warning hoverable card-xl-stretch mb-xl-8">
+										<a href="#" class="card bg-info hoverable card-xl-stretch mb-xl-8">
 											<!--begin::Body-->
 											<div class="card-body">
 												<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
@@ -127,7 +127,7 @@
 															</div>
 															<!--end::Info-->
 															<!--begin::Description-->
-															<span class="fs-6 fw-bold text-gray-400">Total Online Sales</span>
+															<span class="fs-6 fw-bold text-gray-400">Total Funds Staffs</span>
 															<!--end::Description-->
 														</div>
 														<!--end::Statistics-->
@@ -154,7 +154,7 @@
 															</div>
 															<!--end::Info-->
 															<!--begin::Subtitle-->
-															<span class="text-gray-400 pt-1 fw-bold fs-6">Total Sales</span>
+															<span class="text-gray-400 pt-1 fw-bold fs-6">Total Revenue</span>
 															<!--end::Subtitle-->
 														</div>
 														<!--end::Title-->
@@ -196,7 +196,7 @@
 															</div>
 															<!--end::Statistics-->
 															<!--begin::Description-->
-															<span class="fs-6 fw-bold text-gray-400">Total Online Visitors</span>
+															<span class="fs-6 fw-bold text-gray-400">Total Fund Staffs</span>
 															<!--end::Description-->
 														</div>
 														<!--end::Statistics-->
@@ -217,44 +217,14 @@
 															<span class="fs-2hx fw-bolder text-dark me-2 lh-1 ls-n2">6.3k</span>
 															<!--end::Amount-->
 															<!--begin::Subtitle-->
-															<span class="text-gray-400 pt-1 fw-bold fs-6">Total New Customers</span>
+															<span class="text-gray-400 pt-1 fw-bold fs-6">Net Income</span>
 															<!--end::Subtitle-->
 														</div>
 														<!--end::Title-->
 													</div>
 													<!--end::Header-->
 													<!--begin::Card body-->
-													<div class="card-body d-flex flex-column justify-content-end pe-0">
-														<!--begin::Title-->
-														<span class="fs-6 fw-boldest text-gray-800 d-block mb-2">Today’s Heroes</span>
-														<!--end::Title-->
-														<!--begin::Users group-->
-														<div class="symbol-group symbol-hover flex-nowrap">
-															<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-																<span class="symbol-label bg-warning text-inverse-warning fw-bolder">A</span>
-															</div>
-															<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Michael Eberon">
-																<img alt="Pic" src="assets/media/avatars/300-11.jpg" />
-															</div>
-															<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Susan Redwood">
-																<span class="symbol-label bg-primary text-inverse-primary fw-bolder">S</span>
-															</div>
-															<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Melody Macy">
-																<img alt="Pic" src="assets/media/avatars/300-2.jpg" />
-															</div>
-															<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Perry Matthew">
-																<span class="symbol-label bg-danger text-inverse-danger fw-bolder">P</span>
-															</div>
-															<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Barry Walter">
-																<img alt="Pic" src="assets/media/avatars/300-12.jpg" />
-															</div>
-															<a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal" data-bs-target="#kt_modal_view_users">
-																<span class="symbol-label bg-light text-gray-400 fs-8 fw-bolder">+42</span>
-															</a>
-														</div>
-														<!--end::Users group-->
-													</div>
-													<!--end::Card body-->
+													
 												</div>
 												<!--end::Card widget 7-->
 											</div>
@@ -270,7 +240,7 @@
 													<!--begin::Statistics-->
 													<div class="d-flex align-items-center mb-2">
 														<!--begin::Currency-->
-														<span class="fs-3 fw-bold text-gray-400 align-self-start me-1">$</span>
+														<span class="fs-3 fw-bold text-gray-400 align-self-start me-1">Total Expenses: </span>
 														<!--end::Currency-->
 														<!--begin::Value-->
 														<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1 ls-n2">3,274.94</span>
@@ -403,261 +373,20 @@
 													</div>
 													<!--end::Tap pane-->
 													<!--begin::Tap pane-->
-													<div class="tab-pane fade" id="kt_charts_widget_33_tab_content_2">
-														<!--begin::Chart-->
-														<div id="kt_charts_widget_33_chart_2" data-kt-chart-color="info" class="min-h-auto h-200px ps-3 pe-6"></div>
-														<!--end::Chart-->
-														<!--begin::Table container-->
-														<div class="table-responsive mx-9 mt-n6">
-															<!--begin::Table-->
-															<table class="table align-middle gs-0 gy-4">
-																<!--begin::Table head-->
-																<thead>
-																	<tr>
-																		<th class="min-w-100px"></th>
-																		<th class="min-w-100px text-end pe-0"></th>
-																		<th class="text-end min-w-50px"></th>
-																	</tr>
-																</thead>
-																<!--end::Table head-->
-																<!--begin::Table body-->
-																<tbody>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">2:30 PM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$2,756.26</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-success">+231.01</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">2:30 PM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$2,756.26</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-primary">+233.07</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">2:30 PM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$2,145.55</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-danger">+134.06</span>
-																		</td>
-																	</tr>
-																</tbody>
-																<!--end::Table body-->
-															</table>
-															<!--end::Table-->
-														</div>
-														<!--end::Table container-->
-													</div>
-													<!--end::Tap pane-->
-													<!--begin::Tap pane-->
-													<div class="tab-pane fade" id="kt_charts_widget_33_tab_content_3">
-														<!--begin::Chart-->
-														<div id="kt_charts_widget_33_chart_3" data-kt-chart-color="info" class="min-h-auto h-200px ps-3 pe-6"></div>
-														<!--end::Chart-->
-														<!--begin::Table container-->
-														<div class="table-responsive mx-9 mt-n6">
-															<!--begin::Table-->
-															<table class="table align-middle gs-0 gy-4">
-																<!--begin::Table head-->
-																<thead>
-																	<tr>
-																		<th class="min-w-100px"></th>
-																		<th class="min-w-100px text-end pe-0"></th>
-																		<th class="text-end min-w-50px"></th>
-																	</tr>
-																</thead>
-																<!--end::Table head-->
-																<!--begin::Table body-->
-																<tbody>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">12:40 AM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$2,346.25</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-warning">+134.57</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">11:30 PM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$1,565.26</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-danger">+155.03</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">4:25 PM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$2,756.26</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-success">+124.03</span>
-																		</td>
-																	</tr>
-																</tbody>
-																<!--end::Table body-->
-															</table>
-															<!--end::Table-->
-														</div>
-														<!--end::Table container-->
-													</div>
-													<!--end::Tap pane-->
-													<!--begin::Tap pane-->
-													<div class="tab-pane fade" id="kt_charts_widget_33_tab_content_4">
-														<!--begin::Chart-->
-														<div id="kt_charts_widget_33_chart_4" data-kt-chart-color="info" class="min-h-auto h-200px ps-3 pe-6"></div>
-														<!--end::Chart-->
-														<!--begin::Table container-->
-														<div class="table-responsive mx-9 mt-n6">
-															<!--begin::Table-->
-															<table class="table align-middle gs-0 gy-4">
-																<!--begin::Table head-->
-																<thead>
-																	<tr>
-																		<th class="min-w-100px"></th>
-																		<th class="min-w-100px text-end pe-0"></th>
-																		<th class="text-end min-w-50px"></th>
-																	</tr>
-																</thead>
-																<!--end::Table head-->
-																<!--begin::Table body-->
-																<tbody>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">3:20 PM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$3,756.26</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-danger">+234.03</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">10:30 AM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$1,474.04</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-info">-134.03</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">1:30 AM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$2,756.26</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-primary">+124.03</span>
-																		</td>
-																	</tr>
-																</tbody>
-																<!--end::Table body-->
-															</table>
-															<!--end::Table-->
-														</div>
-														<!--end::Table container-->
-													</div>
-													<!--end::Tap pane-->
-													<!--begin::Tap pane-->
-													<div class="tab-pane fade" id="kt_charts_widget_33_tab_content_5">
-														<!--begin::Chart-->
-														<div id="kt_charts_widget_33_chart_5" data-kt-chart-color="info" class="min-h-auto h-200px ps-3 pe-6"></div>
-														<!--end::Chart-->
-														<!--begin::Table container-->
-														<div class="table-responsive mx-9 mt-n6">
-															<!--begin::Table-->
-															<table class="table align-middle gs-0 gy-4">
-																<!--begin::Table head-->
-																<thead>
-																	<tr>
-																		<th class="min-w-100px"></th>
-																		<th class="min-w-100px text-end pe-0"></th>
-																		<th class="text-end min-w-50px"></th>
-																	</tr>
-																</thead>
-																<!--end::Table head-->
-																<!--begin::Table body-->
-																<tbody>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">3:30 PM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$1,756.25</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-primary">+144.04</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">2:30 PM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$2,756.26</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-danger">+124.03</span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>
-																			<a href="#" class="text-gray-600 fw-bolder fs-6">12:30 AM</a>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="text-gray-800 fw-bolder fs-6 me-1">$2,034.65</span>
-																		</td>
-																		<td class="pe-0 text-end">
-																			<span class="fw-bolder fs-6 text-success">+184.05</span>
-																		</td>
-																	</tr>
-																</tbody>
-																<!--end::Table body-->
-															</table>
-															<!--end::Table-->
-														</div>
-														<!--end::Table container-->
-													</div>
-													<!--end::Tap pane-->
-												</div>
-												<!--end::Tab Content-->
+												
+													
+													
+													
 											</div>
 											<!--end::Body-->
 										</div>
 										<!--end::Chart Widget 33-->
 										<!--begin::Chart widget 20-->
-										<div class="card card-flush h-50">
+										<!-- <div class="card card-flush h-50"> -->
 											<!--begin::Header-->
-											<div class="card-header py-5">
+											<div class="card-header card py-5">
 												<!--begin::Title-->
-												<h3 class="card-title fw-bolder text-gray-800">Monthly Targets</h3>
+												<!-- <h3 class="card-title fw-bolder text-gray-800">Monthly Targets</h3> -->
 												<!--end::Title-->
 												<!--begin::Toolbar-->
 												<div class="card-toolbar">
@@ -682,70 +411,7 @@
 											</div>
 											<!--end::Header-->
 											<!--begin::Card body-->
-											<div class="card-body d-flex justify-content-between flex-column pb-0 px-0 pt-1">
-												<!--begin::Items-->
-												<div class="d-flex flex-wrap d-grid gap-5 px-9 mb-5">
-													<!--begin::Item-->
-													<div class="me-md-2">
-														<!--begin::Statistics-->
-														<div class="d-flex mb-2">
-															<span class="fs-4 fw-bold text-gray-400 me-1">$</span>
-															<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1 ls-n2">12,706</span>
-														</div>
-														<!--end::Statistics-->
-														<!--begin::Description-->
-														<span class="fs-6 fw-bold text-gray-400">Targets for April</span>
-														<!--end::Description-->
-													</div>
-													<!--end::Item-->
-													<!--begin::Item-->
-													<div class="border-start-dashed border-end-dashed border-1 border-gray-300 px-5 ps-md-10 pe-md-7 me-md-5">
-														<!--begin::Statistics-->
-														<div class="d-flex mb-2">
-															<span class="fs-4 fw-bold text-gray-400 me-1">$</span>
-															<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1 ls-n2">8,035</span>
-														</div>
-														<!--end::Statistics-->
-														<!--begin::Description-->
-														<span class="fs-6 fw-bold text-gray-400">Actual for April</span>
-														<!--end::Description-->
-													</div>
-													<!--end::Item-->
-													<!--begin::Item-->
-													<div class="m-0">
-														<!--begin::Statistics-->
-														<div class="d-flex align-items-center mb-2">
-															<!--begin::Currency-->
-															<span class="fs-4 fw-bold text-gray-400 align-self-start me-1">$</span>
-															<!--end::Currency-->
-															<!--begin::Value-->
-															<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1 ls-n2">4,684</span>
-															<!--end::Value-->
-															<!--begin::Label-->
-															<span class="badge badge-success fs-base">
-															<!--begin::Svg Icon | path: icons/duotune/arrows/arr067.svg-->
-															<span class="svg-icon svg-icon-7 svg-icon-white ms-n1">
-																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-																	<path opacity="0.5" d="M13 9.59998V21C13 21.6 12.6 22 12 22C11.4 22 11 21.6 11 21V9.59998H13Z" fill="currentColor" />
-																	<path d="M5.7071 7.89291C5.07714 8.52288 5.52331 9.60002 6.41421 9.60002H17.5858C18.4767 9.60002 18.9229 8.52288 18.2929 7.89291L12.7 2.3C12.3 1.9 11.7 1.9 11.3 2.3L5.7071 7.89291Z" fill="currentColor" />
-																</svg>
-															</span>
-															<!--end::Svg Icon-->4.5%</span>
-															<!--end::Label-->
-														</div>
-														<!--end::Statistics-->
-														<!--begin::Description-->
-														<span class="fs-6 fw-bold text-gray-400">GAP</span>
-														<!--end::Description-->
-													</div>
-													<!--end::Item-->
-												</div>
-												<!--end::Items-->
-												<!--begin::Chart-->
-												<div id="kt_charts_widget_20" class="min-h-auto ps-4 pe-6" data-kt-chart-info="Revenue" style="height: 300px"></div>
-												<!--end::Chart-->
-											</div>
-											<!--end::Card body-->
+											
 										</div>
 										<!--end::Chart widget 20-->
 									</div>
