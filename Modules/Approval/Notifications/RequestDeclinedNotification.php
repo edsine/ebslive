@@ -49,6 +49,7 @@ class RequestDeclinedNotification extends Notification
         ->subject($this->request->type->name)
         ->greeting(new HtmlString('Hi <em>' . ($this->request->staff->user->first_name . ' ' . $this->request->staff->user->last_name) . '</em>,'))
         ->line(new HtmlString('Your <b>' . $this->request->type->name . '</b> request has been '. strtoupper(Action::find($this->request->action_id)->status) .', no further actions can be taken.'))
+        ->action('View Request', route('request.show', $this->request->id))
 
         ->line(new HtmlString('If you have any questions, please do not hesitate to
                 contact us at <a style="color: #0fac81; text-decoration:none;"
