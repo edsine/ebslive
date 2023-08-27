@@ -6,10 +6,10 @@ use Modules\HumanResource\Models\LeaveType;
 use App\Repositories\BaseRepository;
 use LeaveType as GlobalLeaveRequest;
 
-class LeavetypeRepository extends BaseRepository
+class LeaveTypeRepository extends BaseRepository
 {
      protected $fieldSearchable = [
-    
+
      ];
 
     public function getFieldsSearchable(): array
@@ -35,5 +35,5 @@ class LeavetypeRepository extends BaseRepository
 
         return $query->where('id', $id)->first();
     }
-    
+
 }

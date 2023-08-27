@@ -19,7 +19,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Notification;
 use Modules\Shared\Repositories\BranchRepository;
-use Modules\HumanResource\Repositories\LeavetypeRepository;
+use Modules\HumanResource\Repositories\LeaveTypeRepository;
 
 use Modules\HumanResource\Http\Requests\createleaverequests;
 use Modules\HumanResource\Http\Requests\updateleaverequests;
@@ -47,7 +47,7 @@ class LeaveRequestController extends  AppBaseController
     /** @var BranchRepository $branchRepository*/
     private $branchRepository;
 
-    /** @var LeavetypeRepository $branchRepository*/
+    /** @var LeaveTypeRepository $branchRepository*/
     private $leavetypeRepository ;
 
 
@@ -59,7 +59,7 @@ private $staffRepository;
 
 
 
-public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $userRepo, LeaveRequestrepository $leaverequestRepo, BranchRepository $branchRepo, StaffRepository $staffRepo ,LeavetypeRepository $leavetypeRepo)
+public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $userRepo, LeaveRequestrepository $leaverequestRepo, BranchRepository $branchRepo, StaffRepository $staffRepo ,LeaveTypeRepository $leavetypeRepo)
     {
         $this->leaverequestRepository = $leaverequestRepo;
         $this->branchRepository = $branchRepo;
@@ -153,7 +153,7 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
      * @param Request $request
      * @return Renderable
      */
-    public function store(CreateLeaveRequests $request, LeavetypeRepository $leavetype)
+    public function store(CreateLeaveRequests $request, LeaveTypeRepository $leavetype)
     {
 
         $input=$request->all();
