@@ -122,6 +122,7 @@ class EmployerController extends AppBaseController
 
     return redirect()->route('certificates')->with('success', 'Certificate approved successfully.');
 }
+
     public function displayCertificateDetails($certificateId)
 {
     $certificate = Certificate::with(['employer', 'employer.employees', 'employer.payments'])->find($certificateId);
