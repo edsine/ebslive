@@ -15,7 +15,7 @@ class CreateActionFlowTable extends Migration
     {
         Schema::create('action_flow', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('flow_id');
+            $table->foreignId('flow_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('action_id');
             $table->timestamps();
             $table->softDeletes();

@@ -15,7 +15,7 @@ class CreateTimelinesTable extends Migration
     {
         Schema::create('timelines', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('request_id');
+            $table->foreignId('request_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('flow_id');
             $table->foreignId('action_id');
             $table->foreignId('staff_id');//approver's id

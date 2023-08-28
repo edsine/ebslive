@@ -15,7 +15,7 @@ class CreateFlowRoleTable extends Migration
     {
         Schema::create('flow_role', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('flow_id');
+            $table->foreignId('flow_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('role_id');
             $table->string('scopeable_type')->nullable();
             $table->integer('scopeable_id')->nullable();

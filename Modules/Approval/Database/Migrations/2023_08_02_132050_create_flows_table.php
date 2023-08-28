@@ -15,7 +15,7 @@ class CreateFlowsTable extends Migration
     {
         Schema::create('flows', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_id');
+            $table->foreignId('type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->integer('approval_order');
             $table->string('approval_scopeable_type')->nullable();
             $table->integer('approval_scopeable_id')->nullable();

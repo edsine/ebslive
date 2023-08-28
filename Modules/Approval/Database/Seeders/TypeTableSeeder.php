@@ -31,7 +31,7 @@ class TypeTableSeeder extends Seeder
                 'status' => true,
             ],
             [
-                'name' => 'Casual Leave',
+                'name' => 'Leave',
                 'cycle' => 'Periodically',
                 'scopeable_type' => null,
                 'scopeable_id' => null,

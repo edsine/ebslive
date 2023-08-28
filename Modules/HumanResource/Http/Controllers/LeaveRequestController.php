@@ -190,7 +190,7 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
         //INITIATE APPROVAL FLOW || ALSO FOR UPDATING create|update
         $approval_request = $leaveRequest->request()->create([
             'staff_id' => $user->staff->id,
-            'type_id' => 2,//for casual leave requests
+            'type_id' => 2,//for leave requests
             'order' => 1,//order/step of the flow
             'action_id' => 1,//action taken id 1= create
         ]);
