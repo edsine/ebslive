@@ -35,6 +35,8 @@ class Employer extends Model implements Auditable
         'cac_reg_year',
         'number_of_employees',
         'status',
+        'password',
+        'paid_registration',
         'registered_date',
         'contact_surname',
         'contact_firstname',
@@ -48,9 +50,12 @@ class Employer extends Model implements Auditable
         'updated_by',
         'deleted_by',
         'certificate_of_incorporation',
+        'updated_at',
+        'created_at',
+        'account_officer_id',
     ];
 
-    protected $casts = [
+    /* protected $casts = [
         'id' => 'integer',
         'user_id' => 'integer',
         'ecs_number' => 'string',
@@ -71,7 +76,7 @@ class Employer extends Model implements Auditable
         'created_by' => 'integer',
         'updated_by' => 'integer',
         'deleted_by' => 'integer'
-    ];
+    ]; */
 
     public static array $rules = [];
 

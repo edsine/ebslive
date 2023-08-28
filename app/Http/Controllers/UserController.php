@@ -35,6 +35,7 @@ use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\UsersImport; // Create this import class
 use Illuminate\Support\Facades\Validator;
+use Modules\EmployerManager\Models\Employer;
 
 class UserController extends AppBaseController
 {
