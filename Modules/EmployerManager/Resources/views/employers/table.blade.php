@@ -44,7 +44,9 @@
                         <td>{{ $employer->company_phone }}</td>
                         <td>
                             @if($employer->company_localgovt)
-                            {{$employer->localGovernment->name}}
+                            {{isset($employer->localGovernment->name) ? $employer->localGovernment->name : null
+                                
+                            }}
                             @else
                             Not Specified
                             @endif
@@ -143,7 +145,9 @@
                         <td>{{ $employer->company_phone }}</td>
                         <td>
                             @if($employer->company_localgovt)
-                            {{$employer->localGovernment->name}}
+                            {{!empty($employer->localGovernment->name) ? $employer->localGovernment->name : null
+                                
+                            }}
                             @else
                             Not Specified
                             @endif

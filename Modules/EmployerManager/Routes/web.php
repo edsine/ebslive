@@ -23,6 +23,9 @@ Route::get('certificates', 'EmployerController@certificates')->name('certificate
 
 Route::resource('employers', Modules\EmployerManager\Http\Controllers\EmployerController::class);
 
+Route::post('/upload/employer', [Modules\EmployerManager\Http\Controllers\EmployerController::class,'uploadEmployer'])->name('upload.employer');
+Route::get('/bulk/employer/upload', [Modules\EmployerManager\Http\Controllers\EmployerController::class,'bulkEmployerUpload'])->name('bulk.employer.upload');
+
 Route::get('employer/employees/{id}', 'EmployerController@employees')->name('employer.employees');
 Route::resource('employees', Modules\EmployerManager\Http\Controllers\EmployeeController::class);
 

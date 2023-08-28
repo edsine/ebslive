@@ -21,6 +21,11 @@ use Modules\EmployerManager\Models\Certificate;
 use Illuminate\Support\Carbon;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Modules\EmployerManager\Models\Payment;
+use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\UsersImport; // Create this import class
+use Illuminate\Support\Facades\Validator;
+use Modules\EmployerManager\Imports\EmployersImport;
 
 class EmployerController extends AppBaseController
 {
@@ -48,9 +53,9 @@ class EmployerController extends AppBaseController
         $s_branchId = intval(session('branch_id'));
         $employers = Employer::where('branch_id', $s_branchId)->orderBy('created_at', 'DESC');
 
-        $pendingstaff1 = Employer::where('branch_id', $s_branchId)->where('status',0);
-        $activestaff1 = Employer::where('branch_id', $s_branchId)->where('status',1);
-        
+        $pendingstaff1 = Employer::where('branch_id', $s_branchId)->where('status', 0);
+        $activestaff1 = Employer::where('branch_id', $s_branchId)->where('status', 1);
+
         if ($request->filled('search')) {
             $employers->where('ecs_number', 'like', '%' . $request->search . '%')
                 ->orWhere('company_name', 'like', '%' . $request->search . '%')
@@ -73,8 +78,8 @@ class EmployerController extends AppBaseController
                 ->orWhere('company_state', 'like', '%' . $request->search . '%')
                 ->orWhere('business_area', 'like', '%' . $request->search . '%')
                 ->orWhere('status', 'like', '%' . $request->search . '%');
-                
-                $activestaff1->where('ecs_number', 'like', '%' . $request->search . '%')
+
+            $activestaff1->where('ecs_number', 'like', '%' . $request->search . '%')
                 ->orWhere('company_name', 'like', '%' . $request->search . '%')
                 ->orWhere('company_email', 'like', '%' . $request->search . '%')
                 ->orWhere('company_address', 'like', '%' . $request->search . '%')
@@ -86,8 +91,8 @@ class EmployerController extends AppBaseController
                 ->orWhere('status', 'like', '%' . $request->search . '%');
         }
 
-        $pendingstaff= $pendingstaff1->paginate(10);
-        $activestaff=  $activestaff1->paginate(10);
+        $pendingstaff = $pendingstaff1->paginate(10);
+        $activestaff =  $activestaff1->paginate(10);
         // shehu comment down
         // $employers = $this->employerRepository->paginate(10);
         $employers = $employers->paginate(10);
@@ -100,67 +105,106 @@ class EmployerController extends AppBaseController
         $certificates = Certificate::where('payment_status', 1)->paginate(10);
         $pending = Certificate::where('payment_status', 0)->paginate(10);
 
-        
+
         return view('employermanager::certificates.index', compact('certificates', 'pending'));
     }
 
     public function approveCertificate($certificateId)
-{
-    $certificate = Certificate::find($certificateId);
+    {
+        $certificate = Certificate::find($certificateId);
 
-    if (!$certificate) {
-        // Certificate not found, handle accordingly
-        // For example, show an error message or redirect
-        return redirect()->route('certificates', ['certificateId' => $certificateId])->with('error', 'Certificate not found.');
+        if (!$certificate) {
+            // Certificate not found, handle accordingly
+            // For example, show an error message or redirect
+            return redirect()->route('certificates', ['certificateId' => $certificateId])->with('error', 'Certificate not found.');
+        }
 
+        // Update the payment_status and processing_status columns
+        $certificate->payment_status = 1;
+        $certificate->processing_status = 1;
+        $certificate->save();
+
+        return redirect()->route('certificates')->with('success', 'Certificate approved successfully.');
     }
-
-    // Update the payment_status and processing_status columns
-    $certificate->payment_status = 1;
-    $certificate->processing_status = 1;
-    $certificate->save();
-
-    return redirect()->route('certificates')->with('success', 'Certificate approved successfully.');
-}
 
     public function displayCertificateDetails($certificateId)
-{
-    $certificate = Certificate::with(['employer', 'employer.employees', 'employer.payments'])->find($certificateId);
+    {
+        $certificate = Certificate::with(['employer', 'employer.employees', 'employer.payments'])->find($certificateId);
 
-    // Get the last recent 3 years
-    $currentYear = now()->year;
-    $lastThreeYears = [$currentYear - 2, $currentYear - 1, $currentYear];
+        // Get the last recent 3 years
+        $currentYear = now()->year;
+        $lastThreeYears = [$currentYear - 2, $currentYear - 1, $currentYear];
 
-    $totalEmployees = [];
-    $paymentsAmount = [];
+        $totalEmployees = [];
+        $paymentsAmount = [];
 
-    foreach ($lastThreeYears as $year) {
-        $totalEmployees[$year] = DB::table('employees')
-            ->where('employer_id', $certificate->employer->id)
-            ->whereYear('created_at', '=', $year) // Update the whereYear condition 
-            ->count();
+        foreach ($lastThreeYears as $year) {
+            $totalEmployees[$year] = DB::table('employees')
+                ->where('employer_id', $certificate->employer->id)
+                ->whereYear('created_at', '=', $year) // Update the whereYear condition 
+                ->count();
 
-        $paymentsAmount[$year] = DB::table('payments')
-            ->where('employer_id', $certificate->employer->id)
-            ->whereYear('invoice_generated_at', '=', $year) // Update the whereYear condition
-            ->sum('amount');
+            $paymentsAmount[$year] = DB::table('payments')
+                ->where('employer_id', $certificate->employer->id)
+                ->whereYear('invoice_generated_at', '=', $year) // Update the whereYear condition
+                ->sum('amount');
+        }
+
+        $currentYearExpiration1 = Payment::where('employer_id', $certificate->employer->id)
+            ->whereYear('invoice_generated_at', '=', $currentYear)
+            ->value('invoice_duration');
+
+        $currentYearExpiration = Carbon::createFromFormat('Y-m-d', $currentYearExpiration1)->format('F d, Y');
+
+        // Generate a QR code for the data 'NSITF'
+        $qrCode = QrCode::generate('http://ebsnsitf.com.ng/');
+
+
+        return view('employermanager::certificates.details', compact('certificate', 'totalEmployees', 'paymentsAmount', 'currentYearExpiration', 'lastThreeYears', 'qrCode'));
     }
 
-    $currentYearExpiration1 = Payment::where('employer_id', $certificate->employer->id)
-        ->whereYear('invoice_generated_at','=', $currentYear)
-        ->value('invoice_duration');
+    public function uploadEmployer(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'file' => 'required|file|mimes:csv',
+        ]);
 
-    $currentYearExpiration = Carbon::createFromFormat('Y-m-d', $currentYearExpiration1)->format('F d, Y');
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-    // Generate a QR code for the data 'NSITF'
-    $qrCode = QrCode::generate('http://ebsnsitf.com.ng/');
+       /*  if ($request->hasFile('file')) {
+            try {
+                $file = $request->file('file');
+
+                $import = new EmployersImport();
+               Excel::import($import, $file);
 
 
-    return view('employermanager::certificates.details', compact('certificate', 'totalEmployees', 'paymentsAmount', 'currentYearExpiration', 'lastThreeYears', 'qrCode'));
+                // Flash success message
+                flash('Bulk employer uploaded and data saved successfully.')->success();
+            } catch (\Exception $e) {
+                // Flash error message on exception
+                flash('An error occurred during file processing: ' . $e->getMessage())->error();
+                return redirect()->back();
+            }
+        } else {
+            // Flash error message for no file uploaded
+            flash('No file uploaded.')->error();
+        }
 
-}
+        return redirect(route('employers.index')); */
+           Excel::import(new EmployersImport(), request()->file('file'));
+               return redirect(route('employers.index')); 
+    }
 
+    public function bulkEmployerUpload()
+    {
 
+        return view('employermanager::employers.bulk-employer');
+    }
     /**
      * Show the form for creating a new Employer.
      */
@@ -169,7 +213,7 @@ class EmployerController extends AppBaseController
         $state = State::where('status', 1)->get();
         $local_govt = LocalGovt::where('status', 1)->get();
 
-        $employers = User::whereHas('staff', function($query){
+        $employers = User::whereHas('staff', function ($query) {
             $query->where('branch_id', auth()->user()->staff->branch_id);
         })->get();
 
@@ -187,16 +231,16 @@ class EmployerController extends AppBaseController
         $input = $request->all();
         $input['created_by'] =  Auth::user()->id;
 
-       // $document_url = $path . "/" . $file;
-       $file = $request->file('certificate_of_incorporation');
-       $path = "employer/";
+        // $document_url = $path . "/" . $file;
+        $file = $request->file('certificate_of_incorporation');
+        $path = "employer/";
         $title = str_replace(' ', '', $input['company_name']);
         $fileName = $title . 'v1' . rand() . '.' . $file->getClientOriginalExtension();
-    
-        // Upload the file to the S3 bucket
-       // $documentUrl = Storage::disk('s3')->putFileAs($path, $file, $fileName);
 
-        $input['certificate_of_incorporation'] =  "0";//$documentUrl;
+        // Upload the file to the S3 bucket
+        // $documentUrl = Storage::disk('s3')->putFileAs($path, $file, $fileName);
+
+        $input['certificate_of_incorporation'] =  "0"; //$documentUrl;
         $last_ecs = Employer::get()->last();
 
         if ($last_ecs) {

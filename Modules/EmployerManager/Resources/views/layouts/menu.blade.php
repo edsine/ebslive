@@ -33,6 +33,12 @@
                 </span>
                 <span class="menu-title">Employers</span>
             </a>
+            <a href="{{ route('bulk.employer.upload') }}" class="menu-link {{ Request::is('employers*') ? 'active' : '' }}">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Bulk Employers Upload</span>
+            </a>
             <a href="{{ route('employees.index') }}" class="menu-link {{ Request::is('employees*') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
