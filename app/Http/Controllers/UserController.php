@@ -32,6 +32,9 @@ use Modules\Shared\Repositories\BranchRepository;
 use Modules\Shared\Repositories\DepartmentRepository;
 use Modules\HumanResource\Repositories\RankingRepository;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\UsersImport; // Create this import class
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends AppBaseController
 {
@@ -60,9 +63,9 @@ class UserController extends AppBaseController
         $this->branchRepository = $branchRepo;
         $this->departmentRepository = $departmentRepo;
         $this->staffRepository = $staffRepo;
-        $this->rankRepository=$rankRepo;
+        $this->rankRepository = $rankRepo;
     }
-    
+
 
     /**
      * Display a listing of the User.
@@ -79,8 +82,8 @@ class UserController extends AppBaseController
             ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
             ->join('departments', 'staff.department_id', '=', 'departments.id')
             ->join('branches', 'staff.branch_id', '=', 'branches.id')
-            ->select('users.id', 'roles.name as role', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status','departments.department_unit','branches.branch_name');
-        
+            ->select('users.id', 'roles.name as role', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name');
+
         $noroleQuery = DB::table('users')
             ->leftJoin('staff', 'users.id', '=', 'staff.user_id')
             ->leftJoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
@@ -88,19 +91,19 @@ class UserController extends AppBaseController
             ->join('departments', 'staff.department_id', '=', 'departments.id')
             ->join('branches', 'staff.branch_id', '=', 'branches.id')
             ->select('users.id', DB::raw("NULL as role"), 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name');
-    
+
         $uid = Auth::user()->user_id;
-    
+
         if ($request->filled('search')) {
             $searchTerm = '%' . $request->search . '%';
-    
+
             $usersQuery->where(function ($query) use ($searchTerm) {
                 $query->where('first_name', 'like', $searchTerm)
                     ->orWhere('middle_name', 'like', $searchTerm)
                     ->orWhere('last_name', 'like', $searchTerm)
                     ->orWhere('email', 'like', $searchTerm);
             });
-    
+
             $noroleQuery->where(function ($query) use ($searchTerm) {
                 $query->where('first_name', 'like', $searchTerm)
                     ->orWhere('middle_name', 'like', $searchTerm)
@@ -108,11 +111,52 @@ class UserController extends AppBaseController
                     ->orWhere('email', 'like', $searchTerm);
             });
         }
-    
+
         $users = $usersQuery->paginate(10);
         $norole = $noroleQuery->paginate(10);
-    
+
         return view('users.index', compact('users', 'norole'));
+    }
+
+    public function upload(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'file' => 'required|file|mimes:csv,txt',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        if ($request->hasFile('file')) {
+            try {
+                $file = $request->file('file');
+
+                $import = new UsersImport();
+                Excel::import($import, $file);
+
+                // Flash success message
+                flash('Bulk staff uploaded and data saved successfully.')->success();
+            } catch (\Exception $e) {
+                // Flash error message on exception
+                flash('An error occurred during file processing: ' . $e->getMessage())->error();
+                return redirect()->back();
+            }
+        } else {
+            // Flash error message for no file uploaded
+            flash('No file uploaded.')->error();
+        }
+
+        return redirect(route('users.index'));
+    }
+
+
+    public function bulkUpload()
+    {
+
+        return view('users.bulk');
     }
 
     public function search(Request $request)
@@ -124,21 +168,21 @@ class UserController extends AppBaseController
 
         return response()->json($users);
     }
-    
-    public function html_email() {
+
+    public function html_email()
+    {
         $mailData = [
             'title' => 'Mail from nsitf.gov.ng',
             'body' => 'This is for testing email using smtp.'
         ];
-         
-       $send = Mail::to('tacticshustle@gmail.com')->send(new EBSMail($mailData));
-           
-        if($send){
+
+        $send = Mail::to('tacticshustle@gmail.com')->send(new EBSMail($mailData));
+
+        if ($send) {
             echo "Great!  mail successfully send!";
-        }else{
+        } else {
             echo "Sorry!  mail not sent!";
         }
-        
     }
 
     /**
@@ -147,17 +191,15 @@ class UserController extends AppBaseController
      * @return Response
      */
     public function create()
-
     {
-        
         // $rank=Ranking::pluck('name','id')->all();
-        $rank=$this->rankRepository->all()->pluck('name','id');
+        $rank = $this->rankRepository->all()->pluck('name', 'id');
         $roles = Role::pluck('name', 'id')->all();
         $roles = $this->roleRepository->all()->pluck('name', 'id');
         $roles->prepend('Select role', '');
         $branch = $this->branchRepository->all()->pluck('branch_name', 'id');
         $department = $this->departmentRepository->all()->pluck('department_unit', 'id');
-        return view('users.create', compact('roles', 'branch', 'department','rank'));
+        return view('users.create', compact('roles', 'branch', 'department', 'rank'));
     }
 
     /**
@@ -170,13 +212,15 @@ class UserController extends AppBaseController
 
     public function store(CreateUserRequest $request)
     {
- 
-       
+
+
         $input = $request->all();
-    
+
         $input['password'] = Hash::make($input['password']);
-       
-        
+
+        $input['plain_password'] = $input['password'];
+
+
         //Create a new user
         $user = $this->userRepository->create($input);
 
@@ -210,7 +254,7 @@ class UserController extends AppBaseController
 
         $user->assignRole($role);
         // Send notification to user about his account details
-       // Notification::send($user, new UserCreated($input));
+         Notification::send($user, new UserCreated($input));
 
         Flash::success('User saved successfully.');
 
@@ -239,8 +283,8 @@ class UserController extends AppBaseController
      * @return Response
      */
 
-    
-     
+
+
 
     //$rank= $this->rankRepository->all()->pluck('name','id');
     public function edit($id)
@@ -249,11 +293,11 @@ class UserController extends AppBaseController
         $user = $this->userRepository->getByUserId($id);
 
         $branch = $this->branchRepository->all()->pluck('branch_name', 'id');
-        
+
         $department = $this->departmentRepository->all()->pluck('department_unit', 'id');
 
-        
-        $rank= Ranking::all()->pluck('name','id');
+
+        $rank = Ranking::all()->pluck('name', 'id');
 
         if (empty($user)) {
             Flash::error('User not a staff so it can not be edited');
@@ -268,7 +312,7 @@ class UserController extends AppBaseController
 
         $roles->prepend('Select role', '');
 
-        return view('users.edit', compact('user', 'roles', 'branch', 'department', 'id','rank'));
+        return view('users.edit', compact('user', 'roles', 'branch', 'department', 'id', 'rank'));
     }
 
     /**
@@ -282,10 +326,10 @@ class UserController extends AppBaseController
     //bring out icon for approve
 
 
-    
+
     public function update($id, UpdateUserRequest $request)
     {
-    //    dd($request->all());
+        //    dd($request->all());
 
         $user = $this->userRepository->getByUserId($id);
 
@@ -340,7 +384,7 @@ class UserController extends AppBaseController
 
         //$user->assignRole($request->input('roles'));
 
-       $user->roles()->detach();
+        $user->roles()->detach();
         $user->assignRole($role);
 
 
@@ -359,7 +403,7 @@ class UserController extends AppBaseController
      * @return Response
      */
 
-    
+
 
 
     public function destroy($id)
@@ -390,5 +434,4 @@ class UserController extends AppBaseController
     {
         echo "I am here! " . $id;
     }
-
 }

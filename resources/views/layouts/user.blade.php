@@ -55,6 +55,16 @@
                                 </a>
                                 <!--end:Menu link-->
                             </div>
+                            <div class="menu-item">
+                                <!--begin:Menu link-->
+                                <a class="menu-link" class="btn btn-primary float-right" href="{{ route('bulkUpload') }}">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Bulk User Upload</span>
+                                </a>
+                                <!--end:Menu link-->
+                            </div>
                             <!--end:Menu item-->
                         </div>
                         

@@ -180,7 +180,27 @@
         </div>
 
 
+        @php
+            $user_can_appraise = false;
 
+            $user_roles = auth()->user()->roles->pluck('id');
+
+            $select = "select GROUP_CONCAT(flow_role.role_id) as `receivers`
+                from `flow_role` where `flow_role`.`flow_id` = ".$request->type->flows()->where('approval_order', $request->next_step)->first()->id."
+                group by `flow_id`";
+
+            $query = Illuminate\Support\Facades\DB::select($select);
+
+            foreach($user_roles as $role){
+                if( in_array($role, explode(',', $query[0]->receivers)) ){
+                    $user_can_appraise = true;
+                    break;
+                }
+            }
+        @endphp
+
+        @if($request->status != 1 && $user_can_appraise)
+        {{$request->type->flow}}
         <div class="card mb-5">
             <form action="{{ route('appraisal.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -238,6 +258,7 @@
                 </div>
             </form>
         </div>
+        @endif
 
     </div>
 @endsection

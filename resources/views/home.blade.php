@@ -20,6 +20,8 @@
                 @include('itmadmin')
             @elseif(auth()->user()->staff->department_id == 17)
                 @include('hseadmin')
+            @elseif(auth()->user()->staff->department_id == 4)
+                @include('legaladmin')
             @else
                 @include('defaultdashboard')
             @endif

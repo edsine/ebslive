@@ -55,7 +55,7 @@ class RequestSavedNotification extends Notification
                     new HtmlString('You have <em>' . strtoupper(Action::find($this->request->action_id)->status) . '</em> a <b>' . $this->request->type->name . '</b> request.')
                     : new HtmlString('Action required: Review and process the <b>' . $this->request->type->name . '</b> request from <em>' . ($this->request->staff->user->first_name . ' ' . $this->request->staff->user->last_name) . '</em> currently in your queue.')
             )
-            //->action('Notification Action', 'https://laravel.com')
+            ->action('View Request', $this->isCreator ? route('request.show', $this->request->id) : route('appraisal.show', $this->request->id))
 
             ->line(new HtmlString('If you have any questions, please do not hesitate to
                     contact us at <a style="color: #0fac81; text-decoration:none;"
