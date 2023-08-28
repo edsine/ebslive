@@ -3521,7 +3521,7 @@ var KTChartsWidget18 = function () {
                     colors: [labelColor]
                 },
                     formatter: function(val) {
-                        return val;// + "H";
+                        return val;// + "M";
                     }                           
             },
             stroke: {
@@ -3530,7 +3530,7 @@ var KTChartsWidget18 = function () {
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['QA Analysis', 'Marketing', 'Web Dev', 'Maths', 'Front-end Dev', 'Physics', 'Phylosophy'],
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
                 axisBorder: {
                     show: false,
                 },
