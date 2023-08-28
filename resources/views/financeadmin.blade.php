@@ -687,8 +687,8 @@
 						</div>
 						<!--end::Card body-->
 					</div>
-					<!--end::Chart widget 20-->
 				</div>
+					<!--end::Chart widget 20-->
 				<!--end::Col-->
 			</div>
 			<!--end::Row-->			

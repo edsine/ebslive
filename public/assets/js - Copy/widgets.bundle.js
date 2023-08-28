@@ -3521,7 +3521,7 @@ var KTChartsWidget18 = function () {
                     colors: [labelColor]
                 },
                     formatter: function(val) {
-                        return val;// + "H";
+                        return val;// + "M";
                     }                           
             },
             stroke: {
@@ -3530,7 +3530,7 @@ var KTChartsWidget18 = function () {
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['QA Analysis', 'Marketing', 'Web Dev', 'Maths', 'Front-end Dev', 'Physics', 'Phylosophy'],
+                categories: ['JANUARY', 'FEBUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY'],
                 axisBorder: {
                     show: false,
                 },
@@ -3559,7 +3559,7 @@ var KTChartsWidget18 = function () {
                         fontSize: '13px'
                     },
                     formatter: function(val) {
-                        return val + "H";
+                        return val + "M";
                     } 
                 }
             },
