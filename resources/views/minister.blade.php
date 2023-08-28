@@ -18,7 +18,7 @@
 								
 								<!--end::Navbar-->
 								<!--begin::Toolbar-->
-                                <center><h3 class="fw-bolder">Random Statistics
+                                <center><h3 class="fw-bolder">Fund Structural Composition
 									</h3></center>
 								
 								<div class="d-flex flex-wrap flex-stack mb-6">
@@ -29,7 +29,7 @@
 								<!--begin::Row-->		
 								<div class="row g-6 g-xl-9">
 
-                                <div class="col-xl-3">
+								<div class="col-xl-3">
 										<!--begin::Statistics Widget 5-->
 										<a href="#" class="card bg-body hoverable card-xl-stretch mb-xl-8">
 											<!--begin::Body-->
@@ -44,8 +44,8 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">50</div>
-												<div class="fw-bold text-gray-400">Total Branches</div>
+												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">57</div>
+												<div class="fw-bold" style="color:green"><b>Total No of Branch Offices</b></div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -67,8 +67,8 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">23</div>
-												<div class="fw-bold text-gray-400">Total Regions</div>
+												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">11</div>
+												<div class="fw-bold " style="color:green"><b>Total No of Regional Offices</b></div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -90,8 +90,8 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">17</div>
-												<div class="fw-bold text-gray-400">Total Departments</div>
+												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">19</div>
+												<div class="fw-bold" style="color:green"><b>Total No of Departments</b></div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -112,307 +112,557 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">78</div>
-												<div class="fw-bold text-gray-400">Total Units</div>
+												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">20</div>
+												<div class="fw-bold " style="color:green"><strong>DRCs</strong></div>
 											</div>
 											<!--end::Body-->
 										</a>
 										<!--end::Statistics Widget 5-->
 									</div>
-                                    <h3 class="fw-bolder my-2">Human Resources
+                                    <h3 class="fw-bolder my-2">Finanacial Analysis
 									<span class="fs-6 text-gray-400 fw-bold ms-1">30 Days</span></h3>
-									<!--begin::Col-->
-									<div class="col-sm-6 col-xl-3">
-										<!--begin::Card-->
-										<div class="card h-100">
-											<!--begin::Card header-->
-											<div class="card-header flex-nowrap border-0 pt-9">
-												<!--begin::Card title-->
-												<div class="card-title m-0">
-													<!--begin::Icon-->
-													<div class="symbol symbol-45px w-45px bg-light me-5">
-														<img src="assets/media/svg/brand-logos/twitch.svg" alt="image" class="p-3" />
-													</div>
-													<!--end::Icon-->
-													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total Fund's Staffs</a>
-													<!--end::Title-->
-												</div>
-												<!--end::Card title-->
-												<!--begin::Card toolbar-->
-												<div class="card-toolbar m-0">
-													<!--begin::Menu-->
-													<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
-														<span class="svg-icon svg-icon-3 svg-icon-primary">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<rect x="5" y="5" width="5" height="5" rx="1" fill="currentColor" />
-																	<rect x="14" y="5" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="5" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="14" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																</g>
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-													</button>
-													<!--begin::Menu 3-->
-													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
-														<!--begin::Heading-->
-														<div class="menu-item px-3">
-															<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
+
+
+
+									<div class="col-xl-4 mb-xl-10">
+										<!--begin::List widget 8-->
+										<div class="card card-flush">
+											<!--begin::Header-->
+											<div class="card-header pt-7 mb-5">
+												<!--begin::Title-->
+												<h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder text-gray-800">Revenue</span>
+													<!-- <span class="text-gray-400 mt-1 fw-bold fs-6">20 countries share 97% visits</span> -->
+												</h3>
+												<!--end::Title-->
+												<!--begin::Toolbar-->
+												
+												<!--end::Toolbar-->
+											</div>
+											<!--end::Header-->
+											<!--begin::Body-->
+											<div class="card-body pt-0">
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/united-states.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">E.C.S relative</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Direct link clicks</span> -->
+															<!--end::Desc-->
 														</div>
-														<!--end::Heading-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Create Invoice</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link flex-stack px-3">Create Payment
-															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Generate Bill</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-															<a href="#" class="menu-link px-3">
-																<span class="menu-title">Subscription</span>
-																<span class="menu-arrow"></span>
-															</a>
-															<!--begin::Menu sub-->
-															<div class="menu-sub menu-sub-dropdown w-175px py-4">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Plans</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Billing</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Statements</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu separator-->
-																<div class="separator my-2"></div>
-																<!--end::Menu separator-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<div class="menu-content px-3">
-																		<!--begin::Switch-->
-																		<label class="form-check form-switch form-check-custom form-check-solid">
-																			<!--begin::Input-->
-																			<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-																			<!--end::Input-->
-																			<!--end::Label-->
-																			<span class="form-check-label text-muted fs-6">Recuring</span>
-																			<!--end::Label-->
-																		</label>
-																		<!--end::Switch-->
-																	</div>
-																</div>
-																<!--end::Menu item-->
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">9,763</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+														
+																<!--end::Label-->
 															</div>
-															<!--end::Menu sub-->
+															<!--end::Label-->
 														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3 my-1">
-															<a href="#" class="menu-link px-3">Settings</a>
-														</div>
-														<!--end::Menu item-->
+														<!--end::Info-->
 													</div>
-													<!--end::Menu 3-->
-													<!--end::Menu-->
+													<!--end::Section-->
 												</div>
-												<!--end::Card toolbar-->
-											</div>
-											<!--end::Card header-->
-											<!--begin::Card body-->
-											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
-												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">314</div>
-												<!--end::Heading-->
-												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/Up-right.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-danger me-2">+40.5%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">more impressions</div>
-													<!--end::Label-->
-												</div>
-												<!--end::Stats-->
-												<!--begin::Indicator-->
-												<div class="d-flex align-items-center fw-bold">
-													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">0.5%</span>
-													<span class="text-gray-400 fs-7">MRR</span>
-													<i class="fas fa-exclamation-circle fs-7 ms-2" data-bs-toggle="tooltip" title="Recurring"></i>
-												</div>
-												<!--end::Indicator-->
-											</div>
-											<!--end::Card body-->
-										</div>
-										<!--end::Card-->
-									</div>
-									<!--end::Col-->
-									<!--begin::Col-->
-									<div class="col-sm-6 col-xl-3">
-										<!--begin::Card-->
-										<div class="card h-100">
-											<!--begin::Card header-->
-											<div class="card-header flex-nowrap border-0 pt-9">
-												<!--begin::Card title-->
-												<div class="card-title m-0">
-													<!--begin::Icon-->
-													<div class="symbol symbol-45px w-45px bg-light me-5">
-														<img src="assets/media/svg/brand-logos/twitch.svg" alt="image" class="p-3" />
-													</div>
-													<!--end::Icon-->
-													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Fund Retirement Approach Staff</a>
-													<!--end::Title-->
-												</div>
-												<!--end::Card title-->
-												<!--begin::Card toolbar-->
-												<div class="card-toolbar m-0">
-													<!--begin::Menu-->
-													<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
-														<span class="svg-icon svg-icon-3 svg-icon-primary">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<rect x="5" y="5" width="5" height="5" rx="1" fill="currentColor" />
-																	<rect x="14" y="5" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="5" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="14" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																</g>
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-													</button>
-													<!--begin::Menu 3-->
-													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
-														<!--begin::Heading-->
-														<div class="menu-item px-3">
-															<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/brazil.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Certificate Revenue</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">All Social Channels</span> -->
+															<!--end::Desc-->
 														</div>
-														<!--end::Heading-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Create Invoice</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link flex-stack px-3">Create Payment
-															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Generate Bill</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-															<a href="#" class="menu-link px-3">
-																<span class="menu-title">Subscription</span>
-																<span class="menu-arrow"></span>
-															</a>
-															<!--begin::Menu sub-->
-															<div class="menu-sub menu-sub-dropdown w-175px py-4">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Plans</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Billing</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Statements</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu separator-->
-																<div class="separator my-2"></div>
-																<!--end::Menu separator-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<div class="menu-content px-3">
-																		<!--begin::Switch-->
-																		<label class="form-check form-switch form-check-custom form-check-solid">
-																			<!--begin::Input-->
-																			<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-																			<!--end::Input-->
-																			<!--end::Label-->
-																			<span class="form-check-label text-muted fs-6">Recuring</span>
-																			<!--end::Label-->
-																		</label>
-																		<!--end::Switch-->
-																	</div>
-																</div>
-																<!--end::Menu item-->
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">4,062</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
 															</div>
-															<!--end::Menu sub-->
+															<!--end::Label-->
 														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3 my-1">
-															<a href="#" class="menu-link px-3">Settings</a>
-														</div>
-														<!--end::Menu item-->
+														<!--end::Info-->
 													</div>
-													<!--end::Menu 3-->
-													<!--end::Menu-->
+													<!--end::Section-->
 												</div>
-												<!--end::Card toolbar-->
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/turkey.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Registration Revenue</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Mailchimp Campaigns</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">1,680</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												
 											</div>
-											<!--end::Card header-->
-											<!--begin::Card body-->
-											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
-												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">807</div>
-												<!--end::Heading-->
-												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/arr007.svg.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-success me-2">+17.62%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">Followers growth</div>
-													<!--end::Label-->
-												</div>
-												<!--end::Stats-->
-												<!--begin::Indicator-->
-												<div class="d-flex align-items-center fw-bold">
-													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">5%</span>
-													<span class="text-gray-400 fs-7">New trials</span>
-												</div>
-												<!--end::Indicator-->
-											</div>
-											<!--end::Card body-->
+											<!--end::Body-->
 										</div>
-										<!--end::Card-->
+										<!--end::LIst widget 8-->
 									</div>
-									<!--end::Col-->
-									<!--begin::Col-->
 									
-									<div class="col-sm-6 col-xl-3">
+									<div class="col-xl-4 mb-xl-10">
+										<!--begin::List widget 8-->
+										<div class="card card-flush">
+											<!--begin::Header-->
+											<div class="card-header pt-7 mb-5">
+												<!--begin::Title-->
+												<h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder text-gray-800">Expenditure</span>
+													<!-- <span class="text-gray-400 mt-1 fw-bold fs-6">20 countries share 97% visits</span> -->
+												</h3>
+												<!--end::Title-->
+												<!--begin::Toolbar-->
+												
+												<!--end::Toolbar-->
+											</div>
+											<!--end::Header-->
+											<!--begin::Body-->
+											<div class="card-body pt-0">
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/united-states.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Emolument</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Direct link clicks</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">9,763</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																<span class="badge badge-success fs-base">
+																<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+																
+																<!--end::Label-->
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/brazil.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Salary</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">All Social Channels</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">4,062</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
+																<!--end::Label-->
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/turkey.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Capital</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Mailchimp Campaigns</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">1,680</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
+																<!--end::Label-->
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												
+											</div>
+											<!--end::Body-->
+										</div>
+										<!--end::LIst widget 8-->
+									</div>
+									
+									<!--begin::Col-->
+									<div class="col-sm-6 col-xl-2">
+										<!--begin::Card-->
+										<div class="card">
+										<div class="card-body d-flex justify-content-between align-items-start flex-column">
+												<!--begin::Icon-->
+												<div class="m-0">
+													<!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+													<span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="currentColor"></path>
+															<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="currentColor"></path>
+														</svg>
+													</span>
+													<!--end::Svg Icon-->
+												</div>
+												<!--end::Icon-->
+												<!--begin::Section-->
+												<div class="d-flex flex-column my-7">
+													<!--begin::Number-->
+													<span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">327</span>
+													<!--end::Number-->
+													<!--begin::Follower-->
+													<div class="m-0">
+														<span class="fw-bold fs-6 text-gray-400">Total Expenditure</span>
+													</div>
+													<!--end::Follower-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Badge-->
+												
+												<!--end::Badge-->
+											</div>
+
+
+
+
+
+
+
+
+
+
+
+											<!--begin::Card header-->
+											
+											<!--end::Card header-->
+											<!--begin::Card body-->
+										</div>
+										<!--end::Card-->
+									</div>
+									<!--end::Col-->
+									<!--begin::Col-->
+									<div class="col-sm-6 col-xl-2">
+										<!--begin::Card-->
+										<div class="card">
+										<div class="card-body d-flex justify-content-between align-items-start flex-column">
+												<!--begin::Icon-->
+												<div class="m-0">
+													<!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+													<span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="currentColor"></path>
+															<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="currentColor"></path>
+														</svg>
+													</span>
+													<!--end::Svg Icon-->
+												</div>
+												<!--end::Icon-->
+												<!--begin::Section-->
+												<div class="d-flex flex-column my-7">
+													<!--begin::Number-->
+													<span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">327</span>
+													<!--end::Number-->
+													<!--begin::Follower-->
+													<div class="m-0">
+														<span class="fw-bold fs-6 text-gray-400">Total Expenditure</span>
+													</div>
+													<!--end::Follower-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Badge-->
+												
+												<!--end::Badge-->
+											</div>
+
+
+
+
+
+
+
+
+
+
+
+											<!--begin::Card header-->
+											
+											<!--end::Card header-->
+											<!--begin::Card body-->
+										</div>
+										<!--end::Card-->
+									</div>
+
+									<div class="col-xxl-6">
+										<!--begin::Chart widget 23-->
+										<div class="card card-flush overflow-hidden h-md-100">
+											<!--begin::Header-->
+											<div class="card-header py-5">
+												<!--begin::Title-->
+												<h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder text-dark">Total Expenditure</span>
+													<span class="text-gray-400 mt-1 fw-bold fs-6">Firts 6 months</span>
+												</h3>
+												<!--end::Title-->
+												<!--begin::Toolbar-->
+												<div class="card-toolbar">
+													<!--begin::Menu-->
+													<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
+														<!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
+														<span class="svg-icon svg-icon-1">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="4" fill="currentColor" />
+																<rect x="11" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+																<rect x="15" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+																<rect x="7" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+															</svg>
+														</span>
+														<!--end::Svg Icon-->
+													</button>
+													<!--begin::Menu 2-->
+													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px" data-kt-menu="true">
+														<!--begin::Menu item-->
+														<div class="menu-item px-3">
+															<div class="menu-content fs-6 text-dark fw-bolder px-3 py-4">Quick Actions</div>
+														</div>
+														<!--end::Menu item-->
+														<!--begin::Menu separator-->
+														<div class="separator mb-3 opacity-75"></div>
+														<!--end::Menu separator-->
+														<!--begin::Menu item-->
+														<div class="menu-item px-3">
+															<a href="#" class="menu-link px-3">New Ticket</a>
+														</div>
+														<!--end::Menu item-->
+														<!--begin::Menu item-->
+														<div class="menu-item px-3">
+															<a href="#" class="menu-link px-3">New Customer</a>
+														</div>
+														<!--end::Menu item-->
+														<!--begin::Menu item-->
+														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
+															<!--begin::Menu item-->
+															<a href="#" class="menu-link px-3">
+																<span class="menu-title">New Group</span>
+																<span class="menu-arrow"></span>
+															</a>
+															<!--end::Menu item-->
+															<!--begin::Menu sub-->
+															<div class="menu-sub menu-sub-dropdown w-175px py-4">
+																<!--begin::Menu item-->
+																<div class="menu-item px-3">
+																	<a href="#" class="menu-link px-3">Admin Group</a>
+																</div>
+																<!--end::Menu item-->
+																<!--begin::Menu item-->
+																<div class="menu-item px-3">
+																	<a href="#" class="menu-link px-3">Staff Group</a>
+																</div>
+																<!--end::Menu item-->
+																<!--begin::Menu item-->
+																<div class="menu-item px-3">
+																	<a href="#" class="menu-link px-3">Member Group</a>
+																</div>
+																<!--end::Menu item-->
+															</div>
+															<!--end::Menu sub-->
+														</div>
+														<!--end::Menu item-->
+														<!--begin::Menu item-->
+														<div class="menu-item px-3">
+															<a href="#" class="menu-link px-3">New Contact</a>
+														</div>
+														<!--end::Menu item-->
+														<!--begin::Menu separator-->
+														<div class="separator mt-3 opacity-75"></div>
+														<!--end::Menu separator-->
+														<!--begin::Menu item-->
+														<div class="menu-item px-3">
+															<div class="menu-content px-3 py-3">
+																<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
+															</div>
+														</div>
+														<!--end::Menu item-->
+													</div>
+													<!--end::Menu 2-->
+													<!--end::Menu-->
+												</div>
+												<!--end::Toolbar-->
+											</div>
+											<!--end::Header-->
+											<!--begin::Card body-->
+											<div class="card-body pt-4">
+												<!--begin::Chart-->
+												<div id="kt_charts_widget_23" class="h-400px w-100"></div>
+												<!--end::Chart-->
+											</div>
+											<!--end::Card body-->
+										</div>
+										<!--end::Chart widget 23-->
+									</div>
+									<div class="col-xxl-6 mb-5 mb-xl-10">
+										<!--begin::Chart widget 13-->
+										<div class="card card-flush h-md-100">
+											<!--begin::Header-->
+											<div class="card-header pt-7">
+												<!--begin::Title-->
+												<h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder text-dark">Total Expenditure</span>
+													<span class="text-gray-400 pt-2 fw-bold fs-6">Firts 6 months</span>
+												</h3>
+												<!--end::Title-->
+												<!--begin::Toolbar-->
+												<div class="card-toolbar">
+													<!--begin::Menu-->
+													<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
+														<!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
+														<span class="svg-icon svg-icon-1 svg-icon-gray-300 me-n1">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="4" fill="currentColor" />
+																<rect x="11" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+																<rect x="15" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+																<rect x="7" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+															</svg>
+														</span>
+														<!--end::Svg Icon-->
+													</button>
+													<!--begin::Menu-->
+													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold w-100px py-4" data-kt-menu="true">
+														<!--begin::Menu item-->
+														
+														<!--end::Menu item-->
+													</div>
+													<!--end::Menu-->
+													<!--end::Menu-->
+												</div>
+												<!--end::Toolbar-->
+											</div>
+											<!--end::Header-->
+											<!--begin::Body-->
+											<div class="card-body pt-5">
+												<!--begin::Chart container-->
+												<div id="kt_charts_widget_13_chart" class="w-100 h-325px"></div>
+												<!--end::Chart container-->
+											</div>
+											<!--end::Body-->
+										</div>
+										<!--end::Chart widget 13-->
+									</div>
+									<!--end::Col-->
+									<!--begin::Col-->
+									<h3 class="fw-bolder my-2">Human Resources Management Data
+									</h3>
+									<br>
+									<div class="col-sm-6 col-xl-4">
 										<!--begin::Card-->
 										<div class="card h-100">
 											<!--begin::Card header-->
@@ -425,7 +675,7 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Promotions this Month</a>
+													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total No of Funds Staffs</a>
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -533,15 +783,7 @@
 												<div class="fs-2tx fw-bolder mb-3">1,073</div>
 												<!--end::Heading-->
 												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/arr005.svg.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-danger me-2">+10.45%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">Less comments than usual</div>
-													<!--end::Label-->
-												</div>
+												
 												<!--end::Stats-->
 												<!--begin::Indicator-->
 												<div class="d-flex align-items-center fw-bold">
@@ -558,7 +800,7 @@
 									<!--end::Col-->
 									<!--begin::Col-->
 									
-									<div class="col-sm-6 col-xl-3">
+									<div class="col-sm-6 col-xl-4">
 										<!--begin::Card-->
 										<div class="card h-100">
 											<!--begin::Card header-->
@@ -571,7 +813,7 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Active Loans</a>
+													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total No Of GM</a>
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -676,19 +918,10 @@
 											<!--begin::Card body-->
 											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
 												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">97</div>
+												<div class="fs-2tx fw-bolder mb-3">11</div>
 												<!--end::Heading-->
 												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/arr007.svg.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-success me-2">+26.1%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">More posts</div>
-													<!--end::Label-->
-												</div>
-												<!--end::Stats-->
+												
 												<!--begin::Indicator-->
 												<div class="d-flex align-items-center fw-bold">
 													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">10%</span>
@@ -702,12 +935,8 @@
 									</div>
 									<!--end::Col-->
 									<!--begin::Col-->
-                                    <br>
-									<br>
-									<h3 class="fw-bolder my-2">Finance Statistics
-										
-										</h3>
-									<div class="col-sm-6 col-xl-3">
+									
+									<div class="col-sm-6 col-xl-4">
 										<!--begin::Card-->
 										<div class="card h-100">
 											<!--begin::Card header-->
@@ -720,7 +949,7 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total Revenue</a>
+													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total No DGM</a>
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -825,19 +1054,10 @@
 											<!--begin::Card body-->
 											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
 												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">4,109</div>
+												<div class="fs-2tx fw-bolder mb-3">21</div>
 												<!--end::Heading-->
 												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/arr005.svg.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-danger me-2">+32.8%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">Less contributions</div>
-													<!--end::Label-->
-												</div>
-												<!--end::Stats-->
+												
 												<!--begin::Indicator-->
 												<div class="d-flex align-items-center fw-bold">
 													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">40%</span>
@@ -852,7 +1072,7 @@
 									</div>
 									<!--end::Col-->
 									<!--begin::Col-->
-									<div class="col-sm-6 col-xl-3">
+									<div class="col-sm-6 col-xl-4">
 										<!--begin::Card-->
 										<div class="card h-100">
 											<!--begin::Card header-->
@@ -865,7 +1085,7 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total Expenses</a>
+													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total No of Employers</a>
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -975,17 +1195,7 @@
 												<!--begin::Heading-->
 												<div class="fs-2tx fw-bolder mb-3">354</div>
 												<!--end::Heading-->
-												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/arr007.svg.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-success me-2">+29.45%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">Subscribers growth</div>
-													<!--end::Label-->
-												</div>
-												<!--end::Stats-->
+												
 												<!--begin::Indicator-->
 												<div class="d-flex align-items-center fw-bold">
 													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">40%</span>
@@ -999,7 +1209,7 @@
 									</div>
 
 									
-									<div class="col-sm-6 col-xl-3">
+									<div class="col-sm-6 col-xl-4">
 										<!--begin::Card-->
 										<div class="card h-100">
 											<!--begin::Card header-->
@@ -1012,7 +1222,7 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Net Income</a>
+													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total No of Certificate Issued</a>
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -1120,16 +1330,7 @@
 												<div class="fs-2tx fw-bolder mb-3">4,109</div>
 												<!--end::Heading-->
 												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/arr005.svg.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-danger me-2">+32.8%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">Less contributions</div>
-													<!--end::Label-->
-												</div>
-												<!--end::Stats-->
+											
 												<!--begin::Indicator-->
 												<div class="d-flex align-items-center fw-bold">
 													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">40%</span>
@@ -1144,7 +1345,7 @@
 									</div>
 									<!--end::Col-->
 
-									<div class="col-sm-6 col-xl-3">
+									<div class="col-sm-6 col-xl-4">
 										<!--begin::Card-->
 										<div class="card h-100">
 											<!--begin::Card header-->
@@ -1266,609 +1467,20 @@
 												<div class="fs-2tx fw-bolder mb-3">4,109</div>
 												<!--end::Heading-->
 												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/arr005.svg.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-danger me-2">+32.8%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">Less contributions</div>
-													<!--end::Label-->
-												</div>
-												<!--end::Stats-->
-												<!--begin::Indicator-->
-												<div class="d-flex align-items-center fw-bold">
-													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">40%</span>
-													<span class="text-gray-400 fs-7">Dispute</span>
-													<i class="fas fa-exclamation-circle fs-7 ms-2" data-bs-toggle="tooltip" title="This is the total number of new non-trial"></i>
-												</div>
-												<!--end::Indicator-->
-											</div>
-											<!--end::Card body-->
-										</div>
-										<!--end::Card-->
-									</div>
-                                    <h3 class="fw-bolder my-2">Employers Compliance Scheme
-										
-                                        </h3>
-
-									<div class="col-sm-6 col-xl-3">
-										<!--begin::Card-->
-										<div class="card h-100">
-											<!--begin::Card header-->
-											<div class="card-header flex-nowrap border-0 pt-9">
-												<!--begin::Card title-->
-												<div class="card-title m-0">
-													<!--begin::Icon-->
-													<div class="symbol symbol-45px w-45px bg-light me-5">
-														<img src="assets/media/svg/brand-logos/twitch.svg" alt="image" class="p-3" />
-													</div>
-													<!--end::Icon-->
-													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total Registered Employeres</a>
-													<!--end::Title-->
-												</div>
-												<!--end::Card title-->
-												<!--begin::Card toolbar-->
-												<div class="card-toolbar m-0">
-													<!--begin::Menu-->
-													<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
-														<span class="svg-icon svg-icon-3 svg-icon-primary">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<rect x="5" y="5" width="5" height="5" rx="1" fill="currentColor" />
-																	<rect x="14" y="5" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="5" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="14" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																</g>
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-													</button>
-													<!--begin::Menu 3-->
-													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
-														<!--begin::Heading-->
-														<div class="menu-item px-3">
-															<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
-														</div>
-														<!--end::Heading-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Create Invoice</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link flex-stack px-3">Create Payment
-															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Generate Bill</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-															<a href="#" class="menu-link px-3">
-																<span class="menu-title">Subscription</span>
-																<span class="menu-arrow"></span>
-															</a>
-															<!--begin::Menu sub-->
-															<div class="menu-sub menu-sub-dropdown w-175px py-4">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Plans</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Billing</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Statements</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu separator-->
-																<div class="separator my-2"></div>
-																<!--end::Menu separator-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<div class="menu-content px-3">
-																		<!--begin::Switch-->
-																		<label class="form-check form-switch form-check-custom form-check-solid">
-																			<!--begin::Input-->
-																			<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-																			<!--end::Input-->
-																			<!--end::Label-->
-																			<span class="form-check-label text-muted fs-6">Recuring</span>
-																			<!--end::Label-->
-																		</label>
-																		<!--end::Switch-->
-																	</div>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu sub-->
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3 my-1">
-															<a href="#" class="menu-link px-3">Settings</a>
-														</div>
-														<!--end::Menu item-->
-													</div>
-													<!--end::Menu 3-->
-													<!--end::Menu-->
-												</div>
-												<!--end::Card toolbar-->
-											</div>
-											<!--end::Card header-->
-											<!--begin::Card body-->
-											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
-												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">4,109</div>
-												<!--end::Heading-->
-												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/arr005.svg.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-danger me-2">+32.8%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">Less contributions</div>
-													<!--end::Label-->
-												</div>
-												<!--end::Stats-->
-												<!--begin::Indicator-->
-												<div class="d-flex align-items-center fw-bold">
-													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">40%</span>
-													<span class="text-gray-400 fs-7">Dispute</span>
-													<i class="fas fa-exclamation-circle fs-7 ms-2" data-bs-toggle="tooltip" title="This is the total number of new non-trial"></i>
-												</div>
-												<!--end::Indicator-->
-											</div>
-											<!--end::Card body-->
-										</div>
-										<!--end::Card-->
-									</div>
-									<!--begin::Col-->
-									<div class="col-sm-6 col-xl-3">
-										<!--begin::Card-->
-										<div class="card h-100">
-											<!--begin::Card header-->
-											<div class="card-header flex-nowrap border-0 pt-9">
-												<!--begin::Card title-->
-												<div class="card-title m-0">
-													<!--begin::Icon-->
-													<div class="symbol symbol-45px w-45px bg-light me-5">
-                                                    <img src="assets/media/svg/brand-logos/twitch.svg" alt="image" class="p-3" />
-													</div>
-													<!--end::Icon-->
-													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total Issued Certificates</a>
-													<!--end::Title-->
-												</div>
-												<!--end::Card title-->
-												<!--begin::Card toolbar-->
-												<div class="card-toolbar m-0">
-													<!--begin::Menu-->
-													<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
-														<span class="svg-icon svg-icon-3 svg-icon-primary">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<rect x="5" y="5" width="5" height="5" rx="1" fill="currentColor" />
-																	<rect x="14" y="5" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="5" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="14" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																</g>
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-													</button>
-													<!--begin::Menu 3-->
-													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
-														<!--begin::Heading-->
-														<div class="menu-item px-3">
-															<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
-														</div>
-														<!--end::Heading-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Create Invoice</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link flex-stack px-3">Create Payment
-															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Generate Bill</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-															<a href="#" class="menu-link px-3">
-																<span class="menu-title">Subscription</span>
-																<span class="menu-arrow"></span>
-															</a>
-															<!--begin::Menu sub-->
-															<div class="menu-sub menu-sub-dropdown w-175px py-4">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Plans</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Billing</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Statements</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu separator-->
-																<div class="separator my-2"></div>
-																<!--end::Menu separator-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<div class="menu-content px-3">
-																		<!--begin::Switch-->
-																		<label class="form-check form-switch form-check-custom form-check-solid">
-																			<!--begin::Input-->
-																			<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-																			<!--end::Input-->
-																			<!--end::Label-->
-																			<span class="form-check-label text-muted fs-6">Recuring</span>
-																			<!--end::Label-->
-																		</label>
-																		<!--end::Switch-->
-																	</div>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu sub-->
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3 my-1">
-															<a href="#" class="menu-link px-3">Settings</a>
-														</div>
-														<!--end::Menu item-->
-													</div>
-													<!--end::Menu 3-->
-													<!--end::Menu-->
-												</div>
-												<!--end::Card toolbar-->
-											</div>
-											<!--end::Card header-->
-											<!--begin::Card body-->
-											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
-												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">566</div>
-												<!--end::Heading-->
-												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/arr007.svg.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-success me-2">+11.4%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">more clicks</div>
-													<!--end::Label-->
-												</div>
-												<!--end::Stats-->
-												<!--begin::Indicator-->
-												<div class="d-flex align-items-center fw-bold">
-													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">40%</span>
-													<span class="text-gray-400 fs-7">Profit</span>
-												</div>
-												<!--end::Indicator-->
-											</div>
-											<!--end::Card body-->
-										</div>
-										<!--end::Card-->
-									</div>
-									<!--end::Col-->
-                                    <div class="col-sm-6 col-xl-3">
-										<!--begin::Card-->
-										<div class="card h-100">
-											<!--begin::Card header-->
-											<div class="card-header flex-nowrap border-0 pt-9">
-												<!--begin::Card title-->
-												<div class="card-title m-0">
-													<!--begin::Icon-->
-													<div class="symbol symbol-45px w-45px bg-light me-5">
-														<img src="assets/media/svg/brand-logos/telegram.svg" alt="image" class="p-3" />
-													</div>
-													<!--end::Icon-->
-													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">New Certificate Requests</a>
-													<!--end::Title-->
-												</div>
-												<!--end::Card title-->
-												<!--begin::Card toolbar-->
-												<div class="card-toolbar m-0">
-													<!--begin::Menu-->
-													<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
-														<span class="svg-icon svg-icon-3 svg-icon-primary">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<rect x="5" y="5" width="5" height="5" rx="1" fill="currentColor" />
-																	<rect x="14" y="5" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="5" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="14" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																</g>
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-													</button>
-													<!--begin::Menu 3-->
-													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
-														<!--begin::Heading-->
-														<div class="menu-item px-3">
-															<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
-														</div>
-														<!--end::Heading-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Create Invoice</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link flex-stack px-3">Create Payment
-															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Generate Bill</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-															<a href="#" class="menu-link px-3">
-																<span class="menu-title">Subscription</span>
-																<span class="menu-arrow"></span>
-															</a>
-															<!--begin::Menu sub-->
-															<div class="menu-sub menu-sub-dropdown w-175px py-4">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Plans</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Billing</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Statements</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu separator-->
-																<div class="separator my-2"></div>
-																<!--end::Menu separator-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<div class="menu-content px-3">
-																		<!--begin::Switch-->
-																		<label class="form-check form-switch form-check-custom form-check-solid">
-																			<!--begin::Input-->
-																			<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-																			<!--end::Input-->
-																			<!--end::Label-->
-																			<span class="form-check-label text-muted fs-6">Recuring</span>
-																			<!--end::Label-->
-																		</label>
-																		<!--end::Switch-->
-																	</div>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu sub-->
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3 my-1">
-															<a href="#" class="menu-link px-3">Settings</a>
-														</div>
-														<!--end::Menu item-->
-													</div>
-													<!--end::Menu 3-->
-													<!--end::Menu-->
-												</div>
-												<!--end::Card toolbar-->
-											</div>
-											<!--end::Card header-->
-											<!--begin::Card body-->
-											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
-												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">566</div>
-												<!--end::Heading-->
-												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/arr007.svg.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-success me-2">+11.4%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">more clicks</div>
-													<!--end::Label-->
-												</div>
-												<!--end::Stats-->
-												<!--begin::Indicator-->
-												<div class="d-flex align-items-center fw-bold">
-													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">40%</span>
-													<span class="text-gray-400 fs-7">Profit</span>
-												</div>
-												<!--end::Indicator-->
-											</div>
-											<!--end::Card body-->
-										</div>
-										<!--end::Card-->
-									</div>
-									<!--begin::Col-->
-									<div class="col-sm-6 col-xl-3">
-										<!--begin::Card-->
-										<div class="card h-100">
-											<!--begin::Card header-->
-											<div class="card-header flex-nowrap border-0 pt-9">
-												<!--begin::Card title-->
-												<div class="card-title m-0">
-													<!--begin::Icon-->
-													<div class="symbol symbol-45px w-45px bg-light me-5">
-													<img src="assets/media/svg/brand-logos/twitch.svg" alt="image" class="p-3" />
-													</div>
-													<!--end::Icon-->
-													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total Defaulters</a>
-													<!--end::Title-->
-												</div>
-												<!--end::Card title-->
-												<!--begin::Card toolbar-->
-												<div class="card-toolbar m-0">
-													<!--begin::Menu-->
-													<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
-														<span class="svg-icon svg-icon-3 svg-icon-primary">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
-																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																	<rect x="5" y="5" width="5" height="5" rx="1" fill="currentColor" />
-																	<rect x="14" y="5" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="5" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																	<rect x="14" y="14" width="5" height="5" rx="1" fill="currentColor" opacity="0.3" />
-																</g>
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-													</button>
-													<!--begin::Menu 3-->
-													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
-														<!--begin::Heading-->
-														<div class="menu-item px-3">
-															<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
-														</div>
-														<!--end::Heading-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Create Invoice</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link flex-stack px-3">Create Payment
-															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Generate Bill</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-															<a href="#" class="menu-link px-3">
-																<span class="menu-title">Subscription</span>
-																<span class="menu-arrow"></span>
-															</a>
-															<!--begin::Menu sub-->
-															<div class="menu-sub menu-sub-dropdown w-175px py-4">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Plans</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Billing</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Statements</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu separator-->
-																<div class="separator my-2"></div>
-																<!--end::Menu separator-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<div class="menu-content px-3">
-																		<!--begin::Switch-->
-																		<label class="form-check form-switch form-check-custom form-check-solid">
-																			<!--begin::Input-->
-																			<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-																			<!--end::Input-->
-																			<!--end::Label-->
-																			<span class="form-check-label text-muted fs-6">Recuring</span>
-																			<!--end::Label-->
-																		</label>
-																		<!--end::Switch-->
-																	</div>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu sub-->
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3 my-1">
-															<a href="#" class="menu-link px-3">Settings</a>
-														</div>
-														<!--end::Menu item-->
-													</div>
-
-													
-													<!--end::Menu 3-->
-													<!--end::Menu-->
-												</div>
-												
-												<!--end::Card toolbar-->
-											</div>
-
 											
-											<!--end::Card header-->
-											<!--begin::Card body-->
-											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
-												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">2.1M</div>
-												<!--end::Heading-->
-												<!--begin::Stats-->
-												<div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-													<!--SVG file not found: icons/duotune/arrows/arr007.svg.svg-->
-													<!--begin::Number-->
-													<div class="fw-bolder text-success me-2">-46.7%</div>
-													<!--end::Number-->
-													<!--begin::Label-->
-													<div class="fw-bold text-gray-400">more adds</div>
-													<!--end::Label-->
-												</div>
-												<!--end::Stats-->
 												<!--begin::Indicator-->
 												<div class="d-flex align-items-center fw-bold">
-													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">0.0%</span>
-													<span class="text-gray-400 fs-7">Retention</span>
-													<i class="fas fa-exclamation-circle fs-7 ms-2" data-bs-toggle="tooltip" title="This table displays revenue retention"></i>
+													<span class="badge bg-light text-gray-700 px-3 py-2 me-2">40%</span>
+													<span class="text-gray-400 fs-7">Dispute</span>
+													<i class="fas fa-exclamation-circle fs-7 ms-2" data-bs-toggle="tooltip" title="This is the total number of new non-trial"></i>
 												</div>
 												<!--end::Indicator-->
 											</div>
 											<!--end::Card body-->
 										</div>
 										<!--end::Card-->
+									</div>
+                                    
 									</div>
 
                                     <br>
