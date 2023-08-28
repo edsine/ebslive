@@ -60,7 +60,7 @@ Route::get('/claimsadmin', [HomeController::class, 'claimsadmin'])->name('claims
 Route::get('/itmadmin', [HomeController::class, 'itmadmin'])->name('itmadmin');
 Route::get('/complianceadmin', [HomeController::class, 'complianceadmin'])->name('complianceadmin');
 Route::get('/hseadmin', [HomeController::class, 'hseadmin'])->name('hseadmin');
-
+Route::get('/pamsec', [HomeController::class, 'pamsec'])->name('pamsec');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/view-profile', [ProfileController::class, 'showProfile'])->name('view-profile');
