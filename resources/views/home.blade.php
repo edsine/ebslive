@@ -20,6 +20,10 @@
                 @include('itmadmin')
             @elseif(auth()->user()->staff->department_id == 17)
                 @include('hseadmin')
+            @elseif (auth()->user()->hasRole('minister'))
+                @include('minister')
+            @elseif (auth()->user()->hasRole('permsec'))
+                @include('pamsec')
             @elseif(auth()->user()->staff->department_id == 4)
                 @include('legaladmin')
             @else
@@ -28,6 +32,8 @@
         @else
             @include('defaultdashboard')
         @endif 
+
+
       
     </div>
     @endsection
