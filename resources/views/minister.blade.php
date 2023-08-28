@@ -152,7 +152,7 @@
 														<!--begin::Content-->
 														<div class="me-5">
 															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">E.C.S relative</a>
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">E.C.S Revenue</a>
 															<!--end::Title-->
 															<!--begin::Desc-->
 															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Direct link clicks</span> -->
@@ -422,7 +422,7 @@
 													<!--end::Number-->
 													<!--begin::Follower-->
 													<div class="m-0">
-														<span class="fw-bold fs-6 text-gray-400">Total Expenditure</span>
+														<span class="fw-bold fs-6 text-gray-400">Total Revenue</span>
 													</div>
 													<!--end::Follower-->
 												</div>
@@ -509,7 +509,7 @@
                                             
                                             <div class="card-header py-5">
                                                 <!--begin::Title-->
-                                                <h3 class="card-title fw-bold text-gray-800">Total expenditure</h3>
+                                                <h3 class="card-title fw-bold text-gray-800">Total Expenditure</h3>
                                                 <!--end::Title-->
                                                 <!--begin::Toolbar-->
                                                 <div class="card-toolbar">
