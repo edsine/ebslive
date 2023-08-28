@@ -18,7 +18,7 @@
 								
 								<!--end::Navbar-->
 								<!--begin::Toolbar-->
-                                <center><h3 class="fw-bolder">Fund Structural Composition
+                                <center><h3 class="fw-bolder">Funds  Structural Composition
 									</h3></center>
 								
 								<div class="d-flex flex-wrap flex-stack mb-6">
@@ -113,13 +113,13 @@
 												</span>
 												<!--end::Svg Icon-->
 												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">20</div>
-												<div class="fw-bold " style="color:green"><strong>DRCs</strong></div>
+												<div class="fw-bold " style="color:green"><strong>Digital Registration Center</strong></div>
 											</div>
 											<!--end::Body-->
 										</a>
 										<!--end::Statistics Widget 5-->
 									</div>
-                                    <h3 class="fw-bolder my-2">Finanacial Analysis
+                                    <h3 class="fw-bolder my-2">Financial Analysis
 									<span class="fs-6 text-gray-400 fw-bold ms-1">30 Days</span></h3>
 
 
@@ -152,7 +152,7 @@
 														<!--begin::Content-->
 														<div class="me-5">
 															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">E.C.S Revenue</a>
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6"> Revenue from E.C.S</a>
 															<!--end::Title-->
 															<!--begin::Desc-->
 															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Direct link clicks</span> -->
@@ -190,7 +190,7 @@
 														<!--begin::Content-->
 														<div class="me-5">
 															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Certificate Revenue</a>
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Revenue from Certificate </a>
 															<!--end::Title-->
 															<!--begin::Desc-->
 															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">All Social Channels</span> -->
@@ -227,7 +227,7 @@
 														<!--begin::Content-->
 														<div class="me-5">
 															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Registration Revenue</a>
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Revenue from Registration </a>
 															<!--end::Title-->
 															<!--begin::Desc-->
 															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Mailchimp Campaigns</span> -->
@@ -287,7 +287,7 @@
 														<!--begin::Content-->
 														<div class="me-5">
 															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Emolument</a>
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Staff Emolument</a>
 															<!--end::Title-->
 															<!--begin::Desc-->
 															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Direct link clicks</span> -->
@@ -327,7 +327,7 @@
 														<!--begin::Content-->
 														<div class="me-5">
 															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Salary</a>
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Overhead Cost</a>
 															<!--end::Title-->
 															<!--begin::Desc-->
 															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">All Social Channels</span> -->
@@ -365,7 +365,7 @@
 														<!--begin::Content-->
 														<div class="me-5">
 															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Capital</a>
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Capital Expenditure</a>
 															<!--end::Title-->
 															<!--begin::Desc-->
 															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Mailchimp Campaigns</span> -->
@@ -546,7 +546,7 @@
                                                         </div>
                                                         <!--end::Statistics-->
                                                         <!--begin::Description-->
-                                                        <span class="fs-6 fw-semibold text-gray-400">Targets for April</span>
+                                                        <span class="fs-6 fw-semibold text-gray-400">Budget for April</span>
                                                         <!--end::Description-->
                                                     </div>
                                                     <!--end::Item-->
@@ -568,7 +568,7 @@
                                                         <!--begin::Statistics-->
                                                         <div class="d-flex align-items-center mb-2">
                                                             <!--begin::Currency-->
-                                                            {{-- <span class="fs-4 fw-semibold text-gray-400 align-self-start me-1">%</span> --}}
+                                                             {{-- <span class="fs-4 fw-semibold text-gray-400 align-self-start me-1">%</span> --}}
                                                             <!--end::Currency-->
                                                             <!--begin::Value-->
                                                        {{-- <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">40</span> --}}
