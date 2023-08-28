@@ -163,8 +163,7 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
 
 
 
-        // $staff_id = $this->staffRepository->getByUserId($uid);
-         // $input['staff_id'] = $staff_id->id;
+    
 
          $input['supervisor_approval'] = 0;
          $input['hr_approval'] = 0;

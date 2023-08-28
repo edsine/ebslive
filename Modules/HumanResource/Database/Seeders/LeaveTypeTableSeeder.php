@@ -27,6 +27,10 @@ class LeaveTypeTableSeeder extends Seeder
                 'name'=> 'CASUAL LEAVE',
                 'duration' => 7
             ],
+            [
+                'name'=> "ANNUAL LEAVE ",
+                'duration' => 30
+            ],
             
             [
                 'name' =>'SICK LEAVE',
