@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Flash;
+use Modules\Shared\Models\Branch;
 
 class ProfileController extends Controller
 {
@@ -35,7 +36,25 @@ class ProfileController extends Controller
     
     public function showProfile()
     {
-        return view('users.show_profile');
+        $id= auth()->id();
+       $data= \DB::table('users')
+       ->join('staff','users.id','=','staff.user_id')
+       ->join('model_has_roles','users.id','=','model_has_roles.model_id')
+       ->join('roles','model_has_roles.role_id','=','roles.id')
+       ->join('departments', 'staff.department_id', '=', 'departments.id')
+       ->join('branches', 'staff.branch_id', '=', 'branches.id')
+       ->where('users.id','=',$id) 
+       ->get();
+      
+
+
+
+     
+      
+
+        $role=Auth::user()->roles->pluck('name');
+       
+        return view('users.show_profile',compact('role','data'));
     }
 
     public function update(Request $request, $id)

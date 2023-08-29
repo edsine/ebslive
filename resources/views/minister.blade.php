@@ -1,4 +1,4 @@
-<h1>minister</h1>@extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -18,7 +18,7 @@
 								
 								<!--end::Navbar-->
 								<!--begin::Toolbar-->
-                                <center><h3 class="fw-bolder">Fund's  Structural Composition
+                                <center><h3 class="fw-bolder">Funds'  Structural Composition
 									</h3></center>
 								
 								<div class="d-flex flex-wrap flex-stack mb-6">
@@ -33,7 +33,7 @@
 										<!--begin::Statistics Widget 5-->
 										<a href="#" class="card bg-body hoverable card-xl-stretch mb-xl-8">
 											<!--begin::Body-->
-											<div class="card-body" data-toggle="modal" data-target="#exampleModalCenter">
+											<div class="card-body">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
 												<span class="svg-icon svg-icon-primary svg-icon-3x ms-n1">
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -113,162 +113,396 @@
 												</span>
 												<!--end::Svg Icon-->
 												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">20</div>
-												<div class="fw-bold " style="color:green"><strong>DIGITAL REGISTRATION CENTER</strong></div>
+
+												<div class="fw-bold " style="color:green"><strong>Digital Registration Centers</strong></div>
+
 											</div>
 											<!--end::Body-->
 										</a>
 										<!--end::Statistics Widget 5-->
 									</div>
-                                   <center><h3 class="fw-bolder">Financial Analysis
-									</h3></center> 
-									<div class="row g-5 g-xl-8 pt-5">
-
-									<div class="col-sm-6 col-xl-4">
-        <!--begin: Statistics Widget 6-->
-        <div class="card  shadow bg-light-success card-xl-stretch mb-xl-8">
-            <!--begin::Body-->
-            <div class="card-body my-3">
-                <span class="float-end">
-                    <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5">Revenue from ECS</div>
-                </span>
-                <a href="#" class="card-title fw-bold text-success fs-5 mb-3 d-block">ECS</a>
-
-                <div class="py-1">
-                    <span class="text-dark fs-1 fw-bold me-2">3,2017</span>
-                    <!-- <span class="fw-semibold text-muted fs-7">Avarage</span> -->
-                </div>
-                <div class="progress h-7px bg-success bg-opacity-50 mt-7">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-            </div>
-            <!--end:: Body-->
-        </div>
-        <!--end: Statistics Widget 6-->
-    </div>
-    <div class="col-sm-6 col-xl-4">
-        <!--begin: Statistics Widget 6-->
-        <div class="card  shadow bg-light-warning card-xl-stretch mb-xl-8">
-            <!--begin::Body-->
-            <div class="card-body my-3">
-                <span class="float-end">
-                    <div class="text-white fw-bold fs-2 mb-2 mt-5">Revenue from Certificate</div>
-                </span>
-                <a href="#" class="card-title fw-bold text-warning fs-5 mb-3 d-block">Certs</a>
-                <div class="py-1">
-                    <span class="text-white fs-1 fw-bold me-2">987</span>
-                    <!-- <span class="fw-semibold text-muted fs-7">Average</span> -->
-                </div>
-                <div class="progress h-7px bg-white bg-opacity-50 mt-7">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-            </div>
-            <!--end:: Body-->
-        </div>
-        <!--end: Statistics Widget 6-->
-    </div>
-    <div class="col-sm-6 col-xl-4">
-        <!--begin: Statistics Widget 6-->
-        <div class="card  shadow bg-light-primary card-xl-stretch mb-5 mb-xl-8">
-            <!--begin::Body-->
-            <div class="card-body my-3">
-                <span class="float-end">
-                    <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5">Revenue from Registration</div>
-                </span>
-                <a href="#" class="card-title fw-bold text-primary fs-5 mb-3 d-block">New</a>
-                <div class="py-1">
-                    <span class="text-dark fs-1 fw-bold me-2">3,1273</span>
-                    <!-- <span class="fw-semibold text-muted fs-7">High Compared to existing</span> -->
-                </div>
-                <div class="progress h-7px bg-secondary bg-opacity-50 mt-7">
-                    <div class="progress-bar bg-secondry" role="progressbar" style="width: 76%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-            </div>
-            <!--end:: Body-->
-        </div>
-        <!--end: Statistics Widget 6-->
-    </div>
-</div>
-<!--end::Row-->
-
-    <div class="col-sm-6 col-xl-4">
-        <!--begin::Statistics Widget 5-->
-        <a href="#" class="card shadow bg-body hoverable card-xl-stretch mb-xl-8">
-            <!--begin::Body-->
-            <div class="card-body">
-                <!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
-                <span class="svg-icon svg-icon-primary svg-icon-3x ms-n1">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="8" y="9" width="3" height="10" rx="1.5" fill="currentColor"></rect>
-                        <rect opacity="0.5" x="13" y="5" width="3" height="14" rx="1.5" fill="currentColor"></rect>
-                        <rect x="18" y="11" width="3" height="8" rx="1.5" fill="currentColor"></rect>
-                        <rect x="3" y="13" width="3" height="6" rx="1.5" fill="currentColor"></rect>
-                    </svg>
-                </span>
-                <span class="float-end">
-                    <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5">Staff Emolument</div>
-                </span>
-                <!--end::Svg Icon-->
-                <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5" id="incrementingNumberw"></div>
-                <div class="fw-semibold text-gray-400">Total Issued</div>
-            </div>
-            <!--end::Body-->
-        </a>
-        <!--end::Statistics Widget 5-->
-    </div>
-    <div class="col-sm-6 col-xl-4">
-        <!--begin::Statistics Widget 5-->
-        <a href="#" class="card shadow bg-dark hoverable card-xl-stretch mb-xl-8">
-            <!--begin::Body-->
-            <div class="card-body">
-                <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
-                <span class="svg-icon svg-icon-gray-100 svg-icon-3x ms-n1">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity="0.3" d="M18 21.6C16.3 21.6 15 20.3 15 18.6V2.50001C15 2.20001 14.6 1.99996 14.3 2.19996L13 3.59999L11.7 2.3C11.3 1.9 10.7 1.9 10.3 2.3L9 3.59999L7.70001 2.3C7.30001 1.9 6.69999 1.9 6.29999 2.3L5 3.59999L3.70001 2.3C3.50001 2.1 3 2.20001 3 3.50001V18.6C3 20.3 4.3 21.6 6 21.6H18Z" fill="currentColor"></path>
-                        <path d="M12 12.6H11C10.4 12.6 10 12.2 10 11.6C10 11 10.4 10.6 11 10.6H12C12.6 10.6 13 11 13 11.6C13 12.2 12.6 12.6 12 12.6ZM9 11.6C9 11 8.6 10.6 8 10.6H6C5.4 10.6 5 11 5 11.6C5 12.2 5.4 12.6 6 12.6H8C8.6 12.6 9 12.2 9 11.6ZM9 7.59998C9 6.99998 8.6 6.59998 8 6.59998H6C5.4 6.59998 5 6.99998 5 7.59998C5 8.19998 5.4 8.59998 6 8.59998H8C8.6 8.59998 9 8.19998 9 7.59998ZM13 7.59998C13 6.99998 12.6 6.59998 12 6.59998H11C10.4 6.59998 10 6.99998 10 7.59998C10 8.19998 10.4 8.59998 11 8.59998H12C12.6 8.59998 13 8.19998 13 7.59998ZM13 15.6C13 15 12.6 14.6 12 14.6H10C9.4 14.6 9 15 9 15.6C9 16.2 9.4 16.6 10 16.6H12C12.6 16.6 13 16.2 13 15.6Z" fill="currentColor"></path>
-                        <path d="M15 18.6C15 20.3 16.3 21.6 18 21.6C19.7 21.6 21 20.3 21 18.6V12.5C21 12.2 20.6 12 20.3 12.2L19 13.6L17.7 12.3C17.3 11.9 16.7 11.9 16.3 12.3L15 13.6V18.6Z" fill="currentColor"></path>
-                    </svg>
-                </span>
-                <!--end::Svg Icon-->
-                <span class="float-end">
-                    <div class="text-white fw-bold fs-2 mb-2 mt-5">Overhead Cost</div>
-                </span>
-                <div class="text-gray-100 fw-bold fs-2 mb-2 mt-5" id="incrementingNumber">
-</div>
-                <div class="fw-semibold text-gray-100">New Request</div>
-            </div>
-            <!--end::Body-->
-        </a>
-        <!--end::Statistics Widget 5-->
-    </div>
-    <div class="col-sm-6 col-xl-4">
-        <!--begin::Statistics Widget 5-->
-        <a href="#" class="card shadow bg-warning hoverable card-xl-stretch mb-xl-8">
-            <!--begin::Body-->
-            <div class="card-body">
-                <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
-                <span class="svg-icon svg-icon-white svg-icon-3x ms-n1">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity="0.3" d="M20 15H4C2.9 15 2 14.1 2 13V7C2 6.4 2.4 6 3 6H21C21.6 6 22 6.4 22 7V13C22 14.1 21.1 15 20 15ZM13 12H11C10.5 12 10 12.4 10 13V16C10 16.5 10.4 17 11 17H13C13.6 17 14 16.6 14 16V13C14 12.4 13.6 12 13 12Z" fill="currentColor"></path>
-                        <path d="M14 6V5H10V6H8V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V6H14ZM20 15H14V16C14 16.6 13.5 17 13 17H11C10.5 17 10 16.6 10 16V15H4C3.6 15 3.3 14.9 3 14.7V18C3 19.1 3.9 20 5 20H19C20.1 20 21 19.1 21 18V14.7C20.7 14.9 20.4 15 20 15Z" fill="currentColor"></path>
-                    </svg>
-                </span>
-                <!--end::Svg Icon-->
-                <span class="float-end">
-                    <div class="text-white fw-bold fs-2 mb-2 mt-5">Capital Expenditure</div>
-                </span>
-                <div class="text-white fw-bold fs-2 mb-2 mt-5">31,27
-</div>
-                <div class="fw-semibold text-white">Total Defaulters</div>
-            </div>
-            <!--end::Body-->
-        </a>
-        <!--end::Statistics Widget 5-->
-    </div>
+                                    <h3 class="fw-bolder my-2">Financial Analysis
+									<span class="fs-6 text-gray-400 fw-bold ms-1">30 Days</span></h3>
 
 
 
-					
-								
+									<div class="col-xl-4 mb-xl-10">
+										<!--begin::List widget 8-->
+										<div class="card card-flush">
+											<!--begin::Header-->
+											<div class="card-header pt-7 mb-5">
+												<!--begin::Title-->
+												<h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder text-gray-800">Revenue</span>
+													<!-- <span class="text-gray-400 mt-1 fw-bold fs-6">20 countries share 97% visits</span> -->
+												</h3>
+												<!--end::Title-->
+												<!--begin::Toolbar-->
+												
+												<!--end::Toolbar-->
+											</div>
+											<!--end::Header-->
+											<!--begin::Body-->
+											<div class="card-body pt-0">
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/united-states.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6"> Revenue from ECS</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Direct link clicks</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">9,763</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+														
+																<!--end::Label-->
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/brazil.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Revenue from Certificate </a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">All Social Channels</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">4,062</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/turkey.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Revenue from Registration </a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Mailchimp Campaigns</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">1,680</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												
+											</div>
+											<!--end::Body-->
+										</div>
+										<!--end::LIst widget 8-->
+									</div>
+									
+									<div class="col-xl-4 mb-xl-10">
+										<!--begin::List widget 8-->
+										<div class="card card-flush">
+											<!--begin::Header-->
+											<div class="card-header pt-7 mb-5">
+												<!--begin::Title-->
+												<h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder text-gray-800">Expenditure</span>
+													<!-- <span class="text-gray-400 mt-1 fw-bold fs-6">20 countries share 97% visits</span> -->
+												</h3>
+												<!--end::Title-->
+												<!--begin::Toolbar-->
+												
+												<!--end::Toolbar-->
+											</div>
+											<!--end::Header-->
+											<!--begin::Body-->
+											<div class="card-body pt-0">
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/united-states.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Staff Emolument</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Direct link clicks</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">9,763</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																<span class="badge badge-success fs-base">
+																<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+																
+																<!--end::Label-->
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/brazil.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Overhead Cost</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">All Social Channels</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">4,062</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
+																<!--end::Label-->
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/turkey.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Capital Expenditure</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Mailchimp Campaigns</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">1,680</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
+																<!--end::Label-->
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												
+											</div>
+											<!--end::Body-->
+										</div>
+										<!--end::LIst widget 8-->
+									</div>
+									
+									<!--begin::Col-->
+									<div class="col-sm-6 col-xl-2">
+										<!--begin::Card-->
+										<div class="card">
+										<div class="card-body d-flex justify-content-between align-items-start flex-column">
+												<!--begin::Icon-->
+												<div class="m-0">
+													<!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+													<span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="currentColor"></path>
+															<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="currentColor"></path>
+														</svg>
+													</span>
+													<!--end::Svg Icon-->
+												</div>
+												<!--end::Icon-->
+												<!--begin::Section-->
+												<div class="d-flex flex-column my-7">
+													<!--begin::Number-->
+													<span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">327</span>
+													<!--end::Number-->
+													<!--begin::Follower-->
+													<div class="m-0">
+														<span class="fw-bold fs-6 text-gray-400">Total Revenue</span>
+													</div>
+													<!--end::Follower-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Badge-->
+												
+												<!--end::Badge-->
+											</div>
+
+
+
+
+
+
+
+
+
+
+
+											<!--begin::Card header-->
+											
+											<!--end::Card header-->
+											<!--begin::Card body-->
+										</div>
+										<!--end::Card-->
+									</div>
+									<!--end::Col-->
+									<!--begin::Col-->
+									<div class="col-sm-6 col-xl-2">
+										<!--begin::Card-->
+										<div class="card">
+										<div class="card-body d-flex justify-content-between align-items-start flex-column">
+												<!--begin::Icon-->
+												<div class="m-0">
+													<!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+													<span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="currentColor"></path>
+															<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="currentColor"></path>
+														</svg>
+													</span>
+													<!--end::Svg Icon-->
+												</div>
+												<!--end::Icon-->
+												<!--begin::Section-->
+												<div class="d-flex flex-column my-7">
+													<!--begin::Number-->
+													<span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">327</span>
+													<!--end::Number-->
+													<!--begin::Follower-->
+													<div class="m-0">
+														<span class="fw-bold fs-6 text-gray-400">Total Expenditure</span>
+													</div>
+													<!--end::Follower-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Badge-->
+												
+												<!--end::Badge-->
+											</div>
+
+
+
+
+
+
+
+
+
+
+
+											<!--begin::Card header-->
+											
+											<!--end::Card header-->
+											<!--begin::Card body-->
+										</div>
+										<!--end::Card-->
+									</div>
 
 									<div class="col-xxl-6">
 										<!--begin::Chart widget 23-->
@@ -833,7 +1067,7 @@
 									</div>
 									<!--end::Col-->
 									<!--begin::Col-->
-									<div class="col-sm-6 col-xl-4" data-toggle="modal" data-target="#exampleModalCenterxx">
+									<div class="col-sm-6 col-xl-4">
 										<!--begin::Card-->
 										<div class="card h-100">
 											<!--begin::Card header-->
@@ -846,7 +1080,9 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
+
 													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">TOTAL NO OF REGISTERED EMPLOYERS</a>
+
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -983,7 +1219,9 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
+
 													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">TOTAL NO. OF REGISTERED EMPLOYEES</a>
+
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -1257,207 +1495,12 @@
                                   
 									<!--end::Col-->
 								</div>
-								
+								<!--end::Row-->
+								<!--begin::Pagination-->
 
-								<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		  <div class="modal-dialog modal-dialog-centered" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true" class="ion-ios-close"></span>
-		        </button>
-		      </div>
-		      <div class="modal-body p-4 py-5 p-md-5">
-		      	<h3 class="text-center mb-3">Total Number of branch ofiicers</h3>
-		      
-										<!--begin::Chart widget 25-->
-										<div class="card card-flush h-md-100">
-											<!--begin::Header-->
-											<div class="card-header pt-7">
-												<!--begin::Title-->
-												<h3 class="card-title align-items-start flex-column">
-													<span class="card-label fw-bolder text-dark">Brach Circulation Analysis Charts</span>
-													<span class="text-gray-400 pt-2 fw-bold fs-6">57 branches Visisbl;e</span>
-												</h3>
-												<!--end::Title-->
-												<!--begin::Toolbar-->
-												<div class="card-toolbar">
-													<!--begin::Nav-->
-													<ul class="nav" id="kt_chart_widget_19_tabs">
-														<li class="nav-item">
-															<a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light fw-bolder px-4 me-1" data-bs-toggle="tab" id="kt_chart_widget_25_tab_1" href="#kt_chart_widget_25_tab_content_1">2023</a>
-														</li>
-														<li class="nav-item">
-															<a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light active fw-bolder px-4" data-bs-toggle="tab" id="kt_chart_widget_25_tab_2" href="#kt_chart_widget_25_tab_content_2">Month</a>
-														</li>
-													</ul>
-												</div>
-												<!--end::Toolbar-->
-											</div>
-											<!--end::Header-->
-											<!--begin::Body-->
-											<div class="card-body pt-0">
-												<!--begin::Tab Content (ishlamayabdi)-->
-												<div class="tab-content">
-													<!--begin::Tap pane-->
-													<div class="tab-pane fade" id="kt_chart_widget_25_tab_content_1">
-														<!--begin::Chart-->
-														<div id="kt_charts_widget_25_chart_1" class="w-100 h-400px"></div>
-														<!--end::Chart-->
-													</div>
-													<!--end::Tap pane-->
-													<!--begin::Tap pane-->
-													<div class="tab-pane fade active show" id="kt_chart_widget_25_tab_content_2">
-														<!--begin::Chart-->
-														<div id="kt_charts_widget_25_chart_2" class="w-100 h-400px"></div>
-														<!--end::Chart-->
-													</div>
-													<!--end::Tap pane-->
-												</div>
-												<!--end::Tab Content-->
-											</div>
-											<!--end::Body-->
-										</div>
-										<!--end::Chart widget 25-->
-								
-		      
-		      </div>
-		    </div>
-		  </div>
-		</div>
-
-
-
-
-
-
-		<div class="modal fade" id="exampleModalCenterxx" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		  <div class="modal-dialog modal-dialog-centered" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true" class="ion-ios-close"></span>
-		        </button>
-		      </div>
-		      <div class="modal-body p-4 py-5 p-md-5">
-		      	<h3 class="text-center mb-3">Total Number oF Registered Employers</h3>
-		      
-				  <div class="card card-flush overflow-hidden h-md-100">
-											<!--begin::Header-->
-											<div class="card-header py-5">
-												<!--begin::Title-->
-												<h3 class="card-title align-items-start flex-column">
-													<span class="card-label fw-bolder text-dark">Human Resources</span>
-													<span class="text-gray-400 mt-1 fw-bold fs-6">Reports by states and ganders</span>
-												</h3>
-												<!--end::Title-->
-												<!--begin::Toolbar-->
-												<div class="card-toolbar">
-													<!--begin::Menu-->
-													<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
-														<span class="svg-icon svg-icon-1">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-																<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="4" fill="currentColor" />
-																<rect x="11" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
-																<rect x="15" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
-																<rect x="7" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-													</button>
-													<!--begin::Menu 2-->
-													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px" data-kt-menu="true">
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<div class="menu-content fs-6 text-dark fw-bolder px-3 py-4">Quick Actions</div>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu separator-->
-														<div class="separator mb-3 opacity-75"></div>
-														<!--end::Menu separator-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">New Ticket</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">New Customer</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
-															<!--begin::Menu item-->
-															<a href="#" class="menu-link px-3">
-																<span class="menu-title">New Group</span>
-																<span class="menu-arrow"></span>
-															</a>
-															<!--end::Menu item-->
-															<!--begin::Menu sub-->
-															<div class="menu-sub menu-sub-dropdown w-175px py-4">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Admin Group</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Staff Group</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Member Group</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu sub-->
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">New Contact</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu separator-->
-														<div class="separator mt-3 opacity-75"></div>
-														<!--end::Menu separator-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<div class="menu-content px-3 py-3">
-																<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
-															</div>
-														</div>
-														<!--end::Menu item-->
-													</div>
-													<!--end::Menu 2-->
-													<!--end::Menu-->
-												</div>
-												<!--end::Toolbar-->
-											</div>
-											<!--end::Header-->
-											<!--begin::Card body-->
-											<div class="card-body pt-0">
-												<!--begin::Chart-->
-												<div id="kt_charts_widget_24" class="min-h-auto" style="height: 400px"></div>
-												<!--end::Chart-->
-											</div>
-											<!--end::Card body-->
-										</div>
-		      
-		      </div>
-		    </div>
-		  </div>
-		</div>
-
-
-
-
-
-
-
-
+								<!--end::Pagination-->
+								<!--begin::Modals-->
+								<!--begin::Modal - Offer A Deal-->
 								<div class="modal fade" id="kt_modal_offer_a_deal" tabindex="-1" aria-hidden="true">
 									<!--begin::Modal dialog-->
 									<div class="modal-dialog modal-dialog-centered mw-1000px">
@@ -1906,45 +1949,6 @@
 							<!--end::Container-->
 						</div>
 						<!--end::Post-->
-
-						<script>
-    let currentNumber = 11043; // Initial number
-    let increment = 1; // Initial increment
-    let interval = 5000; // Initial interval in milliseconds (5 seconds)
-
-    function updateNumber() {
-      const incrementingNumberElement = document.getElementById('incrementingNumber');
-      incrementingNumberElement.textContent = currentNumber.toLocaleString(); // Format the number
-      currentNumber += increment; // Increment the number
-      
-      if (interval === 5000) {
-        increment = 3; // After 5 seconds, change increment to 3
-        interval = 10000; // Change interval to 10 seconds
-      } else {
-        increment = 1; // After 10 seconds, change increment back to 1
-        interval = 5000; // Change interval back to 5 seconds
-      }
-    }
-
-    updateNumber(); // Display initial number
-
-    setInterval(updateNumber, interval); // Update based on interval
-  </script>
-
-<script>
-    let currentNumberq = 923; // Initial number
-    const intervalq = 20000; // Interval in milliseconds (20 seconds)
-
-    function updateNumber() {
-      const incrementingNumberwElement = document.getElementById('incrementingNumberw');
-      incrementingNumberwElement.textContent = currentNumber;
-      currentNumber++; // Increment the number
-    }
-
-    updateNumber(); // Display initial number
-
-    setInterval(updateNumber, interval); // Update every 20 seconds
-  </script>
 					</div>
 
 

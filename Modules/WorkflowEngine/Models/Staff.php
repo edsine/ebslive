@@ -8,6 +8,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\HumanResource\Models\Ranking;
 
 class Staff extends Model implements Auditable
 {
@@ -54,9 +55,9 @@ class Staff extends Model implements Auditable
     {
         return $this->belongsTo(User::class);
     }
-    // public function rank(){
-    //     return $this-> belongsTo(Ranking::class);
-    // }
+    public function rank(){
+        return $this-> belongsTo(Ranking::class);
+    }
     /* public static array $rules = [
         'department_unit' => 'required|unique:departments,department_unit',
         'status' => 'required',
