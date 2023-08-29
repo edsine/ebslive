@@ -18,7 +18,7 @@
 								
 								<!--end::Navbar-->
 								<!--begin::Toolbar-->
-                                <center><h3 class="fw-bolder">Fund's  Structural Composition
+                                <center><h3 class="fw-bolder">Funds'  Structural Composition
 									</h3></center>
 								
 								<div class="d-flex flex-wrap flex-stack mb-6">
@@ -113,6 +113,7 @@
 												</span>
 												<!--end::Svg Icon-->
 												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">20</div>
+
 												<div class="fw-bold " style="color:green"><strong>DIGITAL REGISTRATION CENTER</strong></div>
 											</div>
 											<!--end::Body-->
@@ -267,8 +268,383 @@
 
 
 
-					
-								
+									<div class="col-xl-4 mb-xl-10">
+										<!--begin::List widget 8-->
+										<div class="card card-flush">
+											<!--begin::Header-->
+											<div class="card-header pt-7 mb-5">
+												<!--begin::Title-->
+												<h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder text-gray-800">Revenue</span>
+													<!-- <span class="text-gray-400 mt-1 fw-bold fs-6">20 countries share 97% visits</span> -->
+												</h3>
+												<!--end::Title-->
+												<!--begin::Toolbar-->
+												
+												<!--end::Toolbar-->
+											</div>
+											<!--end::Header-->
+											<!--begin::Body-->
+											<div class="card-body pt-0">
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/united-states.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6"> Revenue from ECS</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Direct link clicks</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">9,763</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+														
+																<!--end::Label-->
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/brazil.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Revenue from Certificate </a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">All Social Channels</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">4,062</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/turkey.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Revenue from Registration </a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Mailchimp Campaigns</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">1,680</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												
+											</div>
+											<!--end::Body-->
+										</div>
+										<!--end::LIst widget 8-->
+									</div>
+									
+									<div class="col-xl-4 mb-xl-10">
+										<!--begin::List widget 8-->
+										<div class="card card-flush">
+											<!--begin::Header-->
+											<div class="card-header pt-7 mb-5">
+												<!--begin::Title-->
+												<h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder text-gray-800">Expenditure</span>
+													<!-- <span class="text-gray-400 mt-1 fw-bold fs-6">20 countries share 97% visits</span> -->
+												</h3>
+												<!--end::Title-->
+												<!--begin::Toolbar-->
+												
+												<!--end::Toolbar-->
+											</div>
+											<!--end::Header-->
+											<!--begin::Body-->
+											<div class="card-body pt-0">
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/united-states.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Staff Emolument</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Direct link clicks</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">9,763</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																<span class="badge badge-success fs-base">
+																<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+																
+																<!--end::Label-->
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/brazil.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Overhead Cost</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">All Social Channels</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">4,062</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
+																<!--end::Label-->
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												<div class="separator separator-dashed my-3"></div>
+												<!--end::Separator-->
+												<!--begin::Item-->
+												<div class="d-flex flex-stack">
+													<!--begin::Flag-->
+													<!-- <img src="assets/media/flags/turkey.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" /> -->
+													<!--end::Flag-->
+													<!--begin::Section-->
+													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
+														<!--begin::Content-->
+														<div class="me-5">
+															<!--begin::Title-->
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">Capital Expenditure</a>
+															<!--end::Title-->
+															<!--begin::Desc-->
+															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Mailchimp Campaigns</span> -->
+															<!--end::Desc-->
+														</div>
+														<!--end::Content-->
+														<!--begin::Info-->
+														<div class="d-flex align-items-center">
+															<!--begin::Number-->
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">1,680</span>
+															<!--end::Number-->
+															<!--begin::Label-->
+															<div class="m-0">
+																<!--begin::Label-->
+																
+																<!--end::Label-->
+															</div>
+															<!--end::Label-->
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::Section-->
+												</div>
+												<!--end::Item-->
+												<!--begin::Separator-->
+												
+											</div>
+											<!--end::Body-->
+										</div>
+										<!--end::LIst widget 8-->
+									</div>
+									
+									<!--begin::Col-->
+									<div class="col-sm-6 col-xl-2">
+										<!--begin::Card-->
+										<div class="card">
+										<div class="card-body d-flex justify-content-between align-items-start flex-column">
+												<!--begin::Icon-->
+												<div class="m-0">
+													<!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+													<span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="currentColor"></path>
+															<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="currentColor"></path>
+														</svg>
+													</span>
+													<!--end::Svg Icon-->
+												</div>
+												<!--end::Icon-->
+												<!--begin::Section-->
+												<div class="d-flex flex-column my-7">
+													<!--begin::Number-->
+													<span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">327</span>
+													<!--end::Number-->
+													<!--begin::Follower-->
+													<div class="m-0">
+														<span class="fw-bold fs-6 text-gray-400">Total Revenue</span>
+													</div>
+													<!--end::Follower-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Badge-->
+												
+												<!--end::Badge-->
+											</div>
+
+
+
+
+
+
+
+
+
+
+
+											<!--begin::Card header-->
+											
+											<!--end::Card header-->
+											<!--begin::Card body-->
+										</div>
+										<!--end::Card-->
+									</div>
+									<!--end::Col-->
+									<!--begin::Col-->
+									<div class="col-sm-6 col-xl-2">
+										<!--begin::Card-->
+										<div class="card">
+										<div class="card-body d-flex justify-content-between align-items-start flex-column">
+												<!--begin::Icon-->
+												<div class="m-0">
+													<!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+													<span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="currentColor"></path>
+															<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="currentColor"></path>
+														</svg>
+													</span>
+													<!--end::Svg Icon-->
+												</div>
+												<!--end::Icon-->
+												<!--begin::Section-->
+												<div class="d-flex flex-column my-7">
+													<!--begin::Number-->
+													<span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">327</span>
+													<!--end::Number-->
+													<!--begin::Follower-->
+													<div class="m-0">
+														<span class="fw-bold fs-6 text-gray-400">Total Expenditure</span>
+													</div>
+													<!--end::Follower-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Badge-->
+												
+												<!--end::Badge-->
+											</div>
+
+
+
+
+
+
+
+
+
+
+
+											<!--begin::Card header-->
+											
+											<!--end::Card header-->
+											<!--begin::Card body-->
+										</div>
+										<!--end::Card-->
+									</div>
 
 									<div class="col-xxl-6">
 										<!--begin::Chart widget 23-->
