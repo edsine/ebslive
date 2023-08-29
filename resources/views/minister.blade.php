@@ -1,4 +1,4 @@
-<h1>minister</h1>@extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -18,7 +18,7 @@
 								
 								<!--end::Navbar-->
 								<!--begin::Toolbar-->
-                                <center><h3 class="fw-bolder">Funds  Structural Composition
+                                <center><h3 class="fw-bolder">Funds'  Structural Composition
 									</h3></center>
 								
 								<div class="d-flex flex-wrap flex-stack mb-6">
@@ -113,7 +113,7 @@
 												</span>
 												<!--end::Svg Icon-->
 												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">20</div>
-												<div class="fw-bold " style="color:green"><strong>Digital Registration Center</strong></div>
+												<div class="fw-bold " style="color:green"><strong>Digital Registration Centers</strong></div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -152,7 +152,7 @@
 														<!--begin::Content-->
 														<div class="me-5">
 															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6"> Revenue from E.C.S</a>
+															<a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6"> Revenue from ECS</a>
 															<!--end::Title-->
 															<!--begin::Desc-->
 															<!-- <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Direct link clicks</span> -->

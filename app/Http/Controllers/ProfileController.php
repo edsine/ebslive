@@ -35,6 +35,8 @@ class ProfileController extends Controller
     
     public function showProfile()
     {
+        
+       
         return view('users.show_profile');
     }
 
