@@ -12,6 +12,7 @@
                     <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px"></div>
                 </div>
             </div>
+            
             <!--end::Pic-->
             <!--begin::Info-->
             <div class="flex-grow-1">
@@ -46,7 +47,7 @@
                                     <path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z" fill="currentColor" />
                                 </svg>
                             </span>
-                            <!--end::Svg Icon-->Rank </a>
+                            <!--end::Svg Icon-->Rank</a>
                             <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen018.svg-->
                             <span class="svg-icon svg-icon-4 me-1">
@@ -55,7 +56,7 @@
                                     <path d="M12.0624 13.0453C13.7193 13.0453 15.0624 11.7022 15.0624 10.0453C15.0624 8.38849 13.7193 7.04535 12.0624 7.04535C10.4056 7.04535 9.06241 8.38849 9.06241 10.0453C9.06241 11.7022 10.4056 13.0453 12.0624 13.0453Z" fill="currentColor" />
                                 </svg>
                             </span>
-                            <!--end::Svg Icon--> {{auth()->user()->roles->pluck('name')}}</a>
+                            <!--end::Svg Icon--> {{$role}}</a>
                             <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
                             <!--begin::Svg Icon | path: icons/duotune/communication/com011.svg-->
                             <span class="svg-icon svg-icon-4 me-1">
@@ -319,7 +320,7 @@
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8 d-flex align-items-center">
-                <span class="fw-bolder fs-6 text-gray-800 me-2">07080824483</span>
+                <span class="fw-bolder fs-6 text-gray-800 me-2">{{auth()->user()->staff->phone }}</span>
                 {{-- <span class="badge badge-success">Verified</span> --}}
             </div>
             <!--end::Col-->
@@ -345,7 +346,7 @@
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8">
-                <span class="fw-bolder fs-6 text-gray-800"> ICT </span>
+                <span class="fw-bolder fs-6 text-gray-800"> </span>
             </div>
             <!--end::Col-->
         </div>
@@ -357,7 +358,20 @@
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8">
-                <span class="fw-bolder fs-6 text-gray-800">HEAD QUARTER </span>
+                <span class="fw-bolder fs-6 text-gray-800"> </span>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
+       
+        <!--begin::Input group-->
+        <div class="row mb-7">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-bold text-muted">Gender</label>
+            <!--end::Label-->
+            <!--begin::Col-->
+            <div class="col-lg-8">
+                <span class="fw-bolder fs-6 text-gray-800">{{auth()->user()->staff->gender}} </span>
             </div>
             <!--end::Col-->
         </div>
@@ -369,7 +383,32 @@
             <!--begin::Label-->
             <!--begin::Label-->
             <div class="col-lg-8">
-                <span class="fw-bold fs-6 text-gray-800">MARABA</span>
+                <span class="fw-bold fs-6 text-gray-800"></span>
+            </div>
+            <!--begin::Label-->
+        </div>
+        <!--end::Input group-->
+        
+        <!--begin::Input group-->
+        <div class="row mb-10">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-bold text-muted">Alternative Email </label>
+            <!--begin::Label-->
+            <!--begin::Label-->
+            <div class="col-lg-8">
+                <span class="fw-bold fs-6 text-gray-800">{{auth()->user()->staff->alternative_email}}</span>
+            </div>
+            <!--begin::Label-->
+        </div>
+        <!--end::Input group-->
+        <!--begin::Input group-->
+        <div class="row mb-10">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-bold text-muted">ABOUT </label>
+            <!--begin::Label-->
+            <!--begin::Label-->
+            <div class="col-lg-8">
+                <span class="fw-bold fs-6 text-gray-800">{{auth()->user()->staff->about_me}}</span>
             </div>
             <!--begin::Label-->
         </div>
