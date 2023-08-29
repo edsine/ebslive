@@ -1,4 +1,4 @@
-<h1>minister</h1>@extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
