@@ -45,7 +45,7 @@
 												</span>
 												<!--end::Svg Icon-->
 												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">57</div>
-												<div class="fw-bold" style="color:green"><b>Total No of Branch Offices</b></div>
+												<div class="fw-bold" style="color:green"><b>TOTAL NO. OF BRANCH OFFICES</b></div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -68,7 +68,7 @@
 												</span>
 												<!--end::Svg Icon-->
 												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">11</div>
-												<div class="fw-bold " style="color:green"><b>Total No of Regional Offices</b></div>
+												<div class="fw-bold " style="color:green"><b>TOTAL NO. OF REGIONAL OFFICES</b></div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -91,7 +91,7 @@
 												</span>
 												<!--end::Svg Icon-->
 												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">19</div>
-												<div class="fw-bold" style="color:green"><b>Total No of Departments</b></div>
+												<div class="fw-bold" style="color:green"><b>TOTAL NO. OF DEPARTMENTS</b></div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -113,7 +113,7 @@
 												</span>
 												<!--end::Svg Icon-->
 												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">20</div>
-												<div class="fw-bold " style="color:green"><strong>Digital Registration Center</strong></div>
+												<div class="fw-bold " style="color:green"><strong>DIGITAL REGISTRATION CENTER</strong></div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -437,7 +437,7 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total No of Funds Staff</a>
+													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">TOTAL NO. OF FUNDS STAFFS</a>
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -575,7 +575,7 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total No Of GM</a>
+													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">TOTAL NO. OF MANAGEMENT STAFF</a>
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -710,7 +710,7 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total No DGM</a>
+													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">TOTAL NO. OF STAFF PER DEPARTMENT</a>
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -846,7 +846,7 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total No of Registered Employers</a>
+													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">TOTAL NO OF REGISTERED EMPLOYERS</a>
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -983,7 +983,7 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total Number of Registered Employees</a>
+													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">TOTAL NO. OF REGISTERED EMPLOYEES</a>
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
@@ -1119,7 +1119,7 @@
 													</div>
 													<!--end::Icon-->
 													<!--begin::Title-->
-													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">Total No of Certificate Issued</a>
+													<a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">TOTAL NO. OF ISSUED CERTIFICATES</a>
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
