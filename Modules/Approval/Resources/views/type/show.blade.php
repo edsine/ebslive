@@ -42,7 +42,7 @@
                             <th>Steps</th>
                             <th>Duration</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>{{-- Action --}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,8 +54,8 @@
                             <td>{{ $type->duration }} {{ $type->metric }}</td>
                             <td>{{ $type->status ? 'Active' : 'Inactive' }}</td>
                             <td>
-                                <a href="{{ route('type.show', $type->id) }}" class="btn btn-danger"><i
-                                        class="fa fa-trash"></i></a>
+                                {{-- <a href="{{ route('type.show', $type->id) }}" class="btn btn-danger"><i
+                                        class="fa fa-trash"></i></a> --}}
                                 {{-- <a href="" class="btn btn-info"><i class="fa fa-edit"></i></a> --}}
                             </td>
                         </tr>

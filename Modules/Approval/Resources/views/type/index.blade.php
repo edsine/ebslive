@@ -52,7 +52,7 @@
                                 <td>{{ $type->duration }} {{ $type->metric }}</td>
                                 <td><span class="badge bg-{{$type->status ? 'success' : 'error'}} text-white">{{ $type->status ? 'Active' : 'Inactive' }}</span></td>
                                 <td>
-                                    <a href="{{ route('type.show', $type->id) }}" class="btn btn-secondary"><i
+                                    <a href="{{ route('type.show', $type->id) }}" class="btn btn-secondary btn-sm"><i
                                             class="fa fa-eye"></i></a>
                                     {{-- <a href="" class="btn btn-info"><i class="fa fa-edit"></i></a> --}}
                                 </td>

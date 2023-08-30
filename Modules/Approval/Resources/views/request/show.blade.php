@@ -35,6 +35,7 @@
                             <th>Current Step</th>
                             <th>Status</th>
                             <th>Next Step</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,6 +70,17 @@
                                         echo 'Pending';
                                     }
                                 @endphp
+                            </td>
+                            <td>
+                                @if($request->requestable::class == 'Modules\DTARequests\Models\DTARequests')
+                                    <a href="/dtarequests/dtarequests/{{$request->requestable->id}}" target="_blank" class="btn">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                @elseif($request->requestable::class == 'Modules\HumanResource\Models\LeaveRequest')
+                                    <a href="/leave_request/leave_request/{{$request->requestable->id}}" target="_blank" class="btn">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                     </tbody>
