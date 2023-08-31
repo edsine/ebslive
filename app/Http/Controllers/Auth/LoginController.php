@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Modules\WorkflowEngine\Models\Staff;
 use Modules\Shared\Models\Branch;
+use App\Events\SendCurlRequest;
+
 
 class LoginController extends Controller
 {
@@ -43,6 +45,29 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function login(Request $request)
+{
+    // Validate the user's input
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
+    // Store the email address in a session variable
+    Session::put('web_email', $request->input('email'));
+    Session::put('web_password', $request->input('password'));
+
+    // Attempt to log in the user
+    if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+        // Authentication passed...
+        return redirect()->intended('/home');
+    }
+
+    // Authentication failed...
+    return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
+}
+
+
     protected function authenticated(Request $request, $user)
     {
         // Assuming the User model has a 'department_id' attribute
@@ -55,6 +80,9 @@ class LoginController extends Controller
         Session::put('department_id', $staff->department_id);
         Session::put('branch_id', $staff->branch_id);
     }
+
+    // Dispatch the event
+    event(new SendCurlRequest(Auth::user()));
 
     // Redirect to the intended page or any desired route
     return redirect()->intended('/home');

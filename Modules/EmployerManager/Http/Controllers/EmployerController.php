@@ -26,6 +26,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\UsersImport; // Create this import class
 use Illuminate\Support\Facades\Validator;
 use Modules\EmployerManager\Imports\EmployersImport;
+use App\Models\Signature;
 
 class EmployerController extends AppBaseController
 {
@@ -159,8 +160,10 @@ class EmployerController extends AppBaseController
         // Generate a QR code for the data 'NSITF'
         $qrCode = QrCode::generate('http://ebsnsitf.com.ng/');
 
+        $signature = Signature::with('user')->find(1);
 
-        return view('employermanager::certificates.details', compact('certificate', 'totalEmployees', 'paymentsAmount', 'currentYearExpiration', 'lastThreeYears', 'qrCode'));
+
+        return view('employermanager::certificates.details', compact('certificate', 'totalEmployees', 'paymentsAmount', 'currentYearExpiration', 'lastThreeYears', 'qrCode', 'signature'));
     }
 
     public function uploadEmployer(Request $request)

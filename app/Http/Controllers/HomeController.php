@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Modules\EmployerManager\Models\Employee;
 use Modules\EmployerManager\Models\Employer;
+use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {
@@ -141,4 +142,48 @@ class HomeController extends Controller
     {
         return view('viewreplymail');
     }
+
+    public function loginToRoundcube($username, $password, $roundcubeUrl)
+{
+    // Initialize cURL session
+    $ch = curl_init();
+
+    // Set cURL options
+    curl_setopt($ch, CURLOPT_URL, $roundcubeUrl);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+        '_task' => 'login',
+        '_action' => 'login',
+        '_timezone' => '1',
+        '_url' => '_task=login',
+        '_user' => $username,
+        '_pass' => $password,
+    ]));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    // Execute the cURL request
+    $response = curl_exec($ch);
+    $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    // Close cURL session
+    curl_close($ch);
+
+    // Return the response
+    return [
+        'status_code' => $statusCode,
+        'body' => $response,
+    ];
+}
+
+    public function roundcubeLogin(Request $request)
+    {
+        $username = 'test1@nsitf.gov.ng';
+        $password = 'Testingdata1!';
+        $roundcubeUrl = 'http://localhost/nsitfmail/?_task=login';
+
+        $response = $this->loginToRoundcube($username, $password, $roundcubeUrl);
+
+        return response()->json($response);
+    }
+
 }

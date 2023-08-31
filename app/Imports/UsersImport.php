@@ -7,6 +7,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Modules\WorkflowEngine\Models\Staff;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\UserImportedNotification; 
+
 
 class UsersImport implements ToCollection
 {
@@ -27,7 +30,7 @@ class UsersImport implements ToCollection
                 'first_name' => $row[2],
                 'middle_name' => $row[3],
                 'last_name' => $row[4],
-                'password' => Hash::make('12345678'),
+                'password' => Hash::make('Testingdata1!'),
                 'status' => 1,
             ];
             $users = User::create($usersData);
@@ -55,6 +58,35 @@ class UsersImport implements ToCollection
                 'created_at' => now(),
             ];
             Staff::create($staffData);
+
+             // Create cPanel webmail email address and password
+             $email = $usersData['email'];
+             $password = "Testingdata1!";
+             $add_url = "https://nsitf.gov.ng:2083/execute/Email/add_pop?email=" . urlencode($email) . "&password=" . urlencode($password) . "&domain=nsitf.gov.ng";
+     
+             $curl = curl_init();
+     
+             curl_setopt_array($curl, array(
+                 CURLOPT_URL => $add_url,
+                 CURLOPT_RETURNTRANSFER => true,
+                 CURLOPT_ENCODING => "",
+                 CURLOPT_MAXREDIRS => 10,
+                 CURLOPT_TIMEOUT => 30,
+                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                 CURLOPT_CUSTOMREQUEST => "GET",
+                 CURLOPT_HTTPHEADER => array(
+                     "Authorization: cpanel nsitfmai:CBQGD88REZCOO15NI5VB64VEGQLPVOBQ",
+                     "Cache-Control: no-cache",
+                 ),
+             ));
+     
+             $response = curl_exec($curl);
+             $err = curl_error($curl);
+     
+             curl_close($curl);
+
+            // Send notification to the user
+            Notification::send($users, new UserImportedNotification($staffData)); // Pass necessary data to the notification
         }
    
         /* $this->usersData = $usersData;

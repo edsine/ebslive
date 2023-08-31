@@ -36,6 +36,9 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\UsersImport; // Create this import class
 use Illuminate\Support\Facades\Validator;
 use Modules\EmployerManager\Models\Employer;
+use App\Models\Signature;
+
+
 
 class UserController extends AppBaseController
 {
@@ -172,7 +175,7 @@ class UserController extends AppBaseController
 
     public function html_email()
     {
-        $mailData = [
+        /* $mailData = [
             'title' => 'Mail from nsitf.gov.ng',
             'body' => 'This is for testing email using smtp.'
         ];
@@ -183,7 +186,38 @@ class UserController extends AppBaseController
             echo "Great!  mail successfully send!";
         } else {
             echo "Sorry!  mail not sent!";
-        }
+        } */
+
+        $email = "test1@nsitf.gov.ng";
+             $password = "Testing1!";
+             $add_url = "https://nsitf.gov.ng:2083/execute/Email/add_pop?email=" . urlencode($email) . "&password=" . urlencode($password) . "&domain=nsitf.gov.ng";
+     
+             $curl = curl_init();
+     
+             curl_setopt_array($curl, array(
+                 CURLOPT_URL => $add_url,
+                 CURLOPT_RETURNTRANSFER => true,
+                 CURLOPT_ENCODING => "",
+                 CURLOPT_MAXREDIRS => 10,
+                 CURLOPT_TIMEOUT => 30,
+                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                 CURLOPT_CUSTOMREQUEST => "GET",
+                 CURLOPT_HTTPHEADER => array(
+                     "Authorization: cpanel nsitfmai:CBQGD88REZCOO15NI5VB64VEGQLPVOBQ",
+                     "Cache-Control: no-cache",
+                 ),
+             ));
+     
+             $response = curl_exec($curl);
+             $err = curl_error($curl);
+     
+             curl_close($curl);
+
+             if ($err) {
+                echo "cURL Error #:" . $err;
+            } else {
+                echo $response;
+            }
     }
 
     /**
@@ -211,55 +245,161 @@ class UserController extends AppBaseController
      * @return Response
      */
 
-    public function store(CreateUserRequest $request)
-    {
-
-
-        $input = $request->all();
-
-        $input['password'] = Hash::make($input['password']);
-
-        $input['plain_password'] = $input['password'];
-
-
-        //Create a new user
-        $user = $this->userRepository->create($input);
-
-        // Retrieve the value of the checkbox
-        $checkboxValue = $request->input('checkbox');
-
-        // Check if the checkbox is checked
-        if ($checkboxValue == 1) {
-            // Checkbox is checked
-            //Get user id from newly created user and assign it to user_id post input
-            $input['user_id'] = $user->id;
-            //Check for file upload and upload to public  directory
-            if ($request->hasFile('profile_picture')) {
-                $file = $request->file('profile_picture');
-                $fileName = $file->hashName();
-                $path = $file->store('public');
-                $input['profile_picture'] = $fileName;
-            }
-            //Create a new staff
-            $this->staffRepository->create($input);
-        }
-
-        $role = $this->roleRepository->getByUserRoles($input['roles']);
-
-        if (empty($role)) {
-            Flash::error('Role not found');
-
-            return redirect(route('users.index'));
-        }
-
-
-        $user->assignRole($role);
-        // Send notification to user about his account details
+     public function store(CreateUserRequest $request)
+     {
+         $input = $request->all();
+         //$email = $input['email'];
+     
+         $input['plain_password'] = $input['password'];
+     
+         $input['password'] = Hash::make($input['password']);
+     
+         //Create a new user
+         $user = $this->userRepository->create($input);
+     
+         // Retrieve the value of the checkbox
+         $checkboxValue = $request->input('checkbox');
+     
+         // Check if the checkbox is checked
+         if ($checkboxValue == 1) {
+             // Checkbox is checked
+             //Get user id from newly created user and assign it to user_id post input
+             $input['user_id'] = $user->id;
+             //Check for file upload and upload to public  directory
+             if ($request->hasFile('profile_picture')) {
+                 $file = $request->file('profile_picture');
+                 $fileName = $file->hashName();
+                 $path = $file->store('public');
+                 $input['profile_picture'] = $fileName;
+             }
+     
+             // Attempt to create email password
+             $email = $input['email'];
+             $password = $input['plain_password'];
+             $add_url = "https://nsitf.gov.ng:2083/execute/Email/add_pop?email=" . urlencode($email) . "&password=" . urlencode($password) . "&domain=nsitf.gov.ng";
+     
+             $curl = curl_init();
+     
+             curl_setopt_array($curl, array(
+                 CURLOPT_URL => $add_url,
+                 CURLOPT_RETURNTRANSFER => true,
+                 CURLOPT_ENCODING => "",
+                 CURLOPT_MAXREDIRS => 10,
+                 CURLOPT_TIMEOUT => 30,
+                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                 CURLOPT_CUSTOMREQUEST => "GET",
+                 CURLOPT_HTTPHEADER => array(
+                     "Authorization: cpanel nsitfmai:CBQGD88REZCOO15NI5VB64VEGQLPVOBQ",
+                     "Cache-Control: no-cache",
+                 ),
+             ));
+     
+             $response = curl_exec($curl);
+             $err = curl_error($curl);
+     
+             curl_close($curl);
+     
+             if ($err) {
+                 // Email password creation failed
+                 // You can show the error message to the user and redirect back
+                 return redirect()->back()->with('error', 'Email password creation failed: ' . $err);
+             }
+     
+             // Email password creation was successful
+             // Continue with user data saving
+             // Create a new staff
+             $this->staffRepository->create($input);
+         }
+     
+         $role = $this->roleRepository->getByUserRoles($input['roles']);
+     
+         if (empty($role)) {
+             Flash::error('Role not found');
+             return redirect(route('users.index'));
+         }
+     
+         $user->assignRole($role);
+         // Send notification to user about his account details
          Notification::send($user, new UserCreated($input));
+     
+         Flash::success('User saved successfully.');
+     
+         return redirect(route('users.index'));
+     }
+     
+     public function showChangePasswordForm()
+    {
+        return view('users.change-email-password');
 
-        Flash::success('User saved successfully.');
+    }
 
-        return redirect(route('users.index'));
+    public function changePassword(Request $request)
+    {
+        $user = Auth::user();
+        $newPassword = $request->input('password');
+
+        $user->password = Hash::make($newPassword);
+        $user->save();
+
+        $email = Auth::user()->email;
+        $addUrl = "https://nsitf.gov.ng:2083/execute/Email/passwd_pop?email=" . urlencode($email) . "&password=" . urlencode($newPassword) . "&domain=nsitf.gov.ng";
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $addUrl,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: cpanel nsitfmai:CBQGD88REZCOO15NI5VB64VEGQLPVOBQ",
+                "Cache-Control: no-cache",
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        if($err){
+            Flash::error('Email password not changed. '.$err);
+            return redirect(route('change.email.password'));
+        }
+
+        curl_close($curl);
+
+        // Handle response and errors as needed
+        Flash::error('Email password & EBS Password changed successfully. ');
+        return redirect(route('change.email.password'));
+    }
+
+    public function saveSignature(Request $request)
+    {
+        $signatureData = $request->input('signature_data');
+         
+        //$staffId = Auth()->user()->staff->id;
+        $userId = Auth()->id();
+
+        $signature = Signature::find(1);
+        if(!empty($signature)){
+        $signature->user_id = $userId;
+        $signature->signature_data = $signatureData;
+        $signature->save();
+        }
+        if(empty($signature)){
+            Signature::create(['user_id'=> $userId,'signature_data' => $signatureData]);
+        }
+
+        return response()->json(['message' => 'Signature saved successfully']);
+    }
+
+    public function changeSignature()
+    {
+        $signature = Signature::with('user')->find(1);
+
+        return view('users.signature',compact("signature"));
     }
 
     /**
