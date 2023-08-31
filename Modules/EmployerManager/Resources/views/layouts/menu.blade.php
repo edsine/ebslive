@@ -25,7 +25,7 @@
    {{--  <div class="menu-sub menu-sub-accordion"> --}}
         <!--begin:Menu item-->
         <div class="menu-item">
-            @if (in_array($departmentData['sessionDepartmentId'], $departmentData['departmentIdsToCheck']) || \Auth::id() == 1)
+            @if (in_array(Auth()->user()->staff->department_id, $departmentData['departmentIdsToCheck']) || \Auth::id() == 1)
             <!--begin:Menu link-->
             <a href="{{ route('employers.index') }}" class="menu-link {{ Request::is('employers*') ? 'active' : '' }}">
                 <span class="menu-bullet">
@@ -46,12 +46,18 @@
                 <span class="menu-title">Employees</span>
             </a>
             @endif
-            @if (in_array($departmentData['sessionDepartmentId'], $departmentData['departmentIdsToCheck']))
+            @if (in_array(Auth()->user()->staff->department_id, $departmentData['departmentIdsToCheck']))
             <a href="{{ route('certificates') }}" class="menu-link {{ Request::is('employers*') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
                 <span class="menu-title">Certificates</span>
+            </a>
+            <a href="{{ route('change.signature') }}" class="menu-link {{ Request::is('employers*') ? 'active' : '' }}">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Change Signature</span>
             </a>
             @endif
             @include('claimscompensation::layouts.menu')

@@ -31,14 +31,15 @@
                 @php
                     if (!isset($token)) {
                         $token = \Request::route('token');
+                        $email = $_GET['email'];
                     }
                 @endphp
 
                 <input type="hidden" name="token" value="{{ $token }}">
 
                 <div class="input-group mb-3">
-                    <input type="email"
-                           name="email"
+                    <input type="email" value="{{ $email }}"
+                           name="email" readonly required
                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                            placeholder="Email">
                     <div class="input-group-append">
@@ -51,33 +52,35 @@
 
                 <div class="input-group mb-3">
                     <input type="password"
-                           name="password"
+                           name="password" required
                            class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                           placeholder="Password">
+                           placeholder="Password" id="password">
                     <div class="input-group-append">
                         <div class="input-group-text"><span class="fas fa-lock"></span></div>
                     </div>
                     @if ($errors->has('password'))
                         <span class="error invalid-feedback">{{ $errors->first('password') }}</span>
                     @endif
+                    
                 </div>
-
+                <div id="password-strength" class="form-text" style="color:brown;font-weight: bolder"></div>
                 <div class="input-group mb-3">
                     <input type="password"
-                           name="password_confirmation"
+                           name="password_confirmation" required
                            class="form-control"
-                           placeholder="Confirm Password">
+                           placeholder="Confirm Password" id="passwordConfirmation">
                     <div class="input-group-append">
                         <div class="input-group-text"><span class="fas fa-lock"></span></div>
                     </div>
                     @if ($errors->has('password_confirmation'))
                         <span class="error invalid-feedback">{{ $errors->first('password_confirmation') }}</span>
                     @endif
+                    
                 </div>
-
+                <div id="password-match" class="form-text"></div>
                 <div class="row">
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
+                        <button type="submit" class="btn btn-primary btn-block" id="reset">Reset Password</button>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -93,6 +96,97 @@
 </div>
 
 <script src="{{ asset('js/app.js') }}" defer></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    const passwordInput = document.getElementById('password');
+    const passwordConfirmationInput = document.getElementById('passwordConfirmation');
+    const passwordStrength = document.getElementById('password-strength');
+    const passwordMatch = document.getElementById('password-match');
+    
+    passwordInput.addEventListener('input', function() {
+        const password = this.value;
+        const strength = checkPasswordStrength(password);
+        displayPasswordStrength(strength);
+    });
+    
+    passwordConfirmationInput.addEventListener('input', function() {
+        checkPasswordMatch();
+    });
+    
+    function checkPasswordMatch() {
+        const password = passwordInput.value;
+        const confirmPassword = passwordConfirmationInput.value;
+    
+        if (password === confirmPassword) {
+            passwordMatch.textContent = 'Passwords match.';
+            passwordMatch.style.color = 'green';
+        } else {
+            passwordMatch.textContent = 'Passwords do not match.';
+            passwordMatch.style.color = 'red';
+        }
+    }
+    
+    function checkPasswordStrength(password) {
+    // Define your password strength rules here
+    const minLength = 12;
+    const minUppercase = 1;
+    const minLowercase = 1;
+    const minNumbers = 1;
+    const minSpecialChars = 1;
+
+    // Check password length
+    if (password.length < minLength) {
+        return 0; // Weak
+    }
+
+    // Check for uppercase letters
+    const uppercaseRegex = /[A-Z]/;
+    if (!uppercaseRegex.test(password)) {
+        return 0; // Weak
+    }
+
+    // Check for lowercase letters
+    const lowercaseRegex = /[a-z]/;
+    if (!lowercaseRegex.test(password)) {
+        return 0; // Weak
+    }
+
+    // Check for numbers
+    const numbersRegex = /[0-9]/;
+    if (!numbersRegex.test(password)) {
+        return 0; // Weak
+    }
+
+    // Check for special characters
+    const specialCharsRegex = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/;
+    if (!specialCharsRegex.test(password)) {
+        return 0; // Weak
+    }
+
+    // If all rules are satisfied, consider it strong
+    return 2; // Strong
+}
+
+    
+    function displayPasswordStrength(strength) {
+        const strengthLabels = ['Weak', 'Medium', 'Strong'];
+        passwordStrength.textContent = `Password Strength: ${strengthLabels[strength]}`;
+    }
+
+    // Get the "Continue" button element
+const continueButton = document.getElementById('reset');
+
+// Add an event listener to the password input
+passwordInput.addEventListener('input', function() {
+    const password = this.value;
+    const strength = checkPasswordStrength(password);
+
+    // Disable the "Continue" button if password strength is weak or medium
+    continueButton.disabled = strength < 2;
+});
+
+    </script>
 
 </body>
 </html>

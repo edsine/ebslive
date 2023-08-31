@@ -7,20 +7,15 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class UserCreated extends Notification
+class UserImportedNotification extends Notification
 {
     use Queueable;
 
-    private $_input;
+    protected $users;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct($input)
+    public function __construct($users)
     {
-        $this->_input = $input;
+        $this->users = $users;
     }
 
     /**
@@ -43,10 +38,10 @@ class UserCreated extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Hello ' . $this->_input['first_name'] . ' ' . $this->_input['last_name'] . ',')
+            ->line('Hello ' . $this->users['first_name'] . ' ' . $this->users['last_name'] . ',')
             ->line('Please find below your user details!')
-            ->line('Email: ' . $this->_input['email'])
-            ->line('Password: ' . $this->_input['plain_password'])
+            ->line('Email: ' . $this->users['email'])
+            ->line('Password: ' . "12345678")
             ->line('You can use this details to login and access your dashboard.')
             ->action('Login', url('/login'))
             ->line('Thank you.')

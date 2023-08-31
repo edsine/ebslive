@@ -1,26 +1,21 @@
 <?php
 
-namespace App\Notifications;
+namespace Modules\EmployerManager\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class UserCreated extends Notification
+class EmployerImportedNotification extends Notification
 {
     use Queueable;
 
-    private $_input;
+    protected $employerData;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct($input)
+    public function __construct($employerData)
     {
-        $this->_input = $input;
+        $this->employerData = $employerData;
     }
 
     /**
@@ -43,12 +38,12 @@ class UserCreated extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Hello ' . $this->_input['first_name'] . ' ' . $this->_input['last_name'] . ',')
+            ->line('Hello ' . $this->employerData['contact_firstname'] . ' ' . $this->employerData['contact_surname'] . ',')
             ->line('Please find below your user details!')
-            ->line('Email: ' . $this->_input['email'])
-            ->line('Password: ' . $this->_input['plain_password'])
+            ->line('Email: ' . $this->employerData['company_email'])
+            ->line('Password: ' . "12345678")
             ->line('You can use this details to login and access your dashboard.')
-            ->action('Login', url('/login'))
+            ->action('Login', "https://essp.nsitf.gov.ng/login")
             ->line('Thank you.')
             ->line('E-NSITF');
     }

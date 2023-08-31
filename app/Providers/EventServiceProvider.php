@@ -8,6 +8,8 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use Modules\Approval\Events\RequestSavedEvent;
 use Modules\Approval\Listeners\RequestSavedListener;
+use App\Listeners\PerformCurlRequest;
+use App\Events\SendCurlRequest;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         RequestSavedEvent::class => [
             RequestSavedListener::class,
+        ],
+        SendCurlRequest::class => [
+            PerformCurlRequest::class,
         ],
     ];
 

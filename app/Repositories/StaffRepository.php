@@ -43,6 +43,7 @@ class StaffRepository extends BaseRepository
         'total_draft_email',
         'total_event',
         'my_groups',
+        'signature_data',
     ];
 
     /**

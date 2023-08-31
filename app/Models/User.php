@@ -87,6 +87,10 @@ class User extends Authenticatable implements Auditable
      *
      * @return string
      */
+    public function signature()
+    {
+        return $this->hasOne(Signature::class);
+    }
     public function staff()
     {
         return $this->hasOne(Staff::class);

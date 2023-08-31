@@ -9,6 +9,8 @@ use App\Models\User;
 use Modules\EmployerManager\Models\Employer;
 use Illuminate\Support\Facades\Validator;
 use Laracasts\Flash\Flash;
+use Illuminate\Support\Facades\Notification;
+use Modules\EmployerManager\Notifications\EmployerImportedNotification;
 
 class EmployersImport implements ToCollection
 {
@@ -57,6 +59,9 @@ class EmployersImport implements ToCollection
                 //'account_officer_id' => 1,
             ];
             Employer::create($employerData);
+
+            // Send notification to the user
+            Notification::send($employerData, new EmployerImportedNotification($employerData));
         }
     }
 }

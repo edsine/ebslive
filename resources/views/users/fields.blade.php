@@ -64,16 +64,18 @@
             <div class="row">
                 <!-- Password Field -->
                 <div class="form-group col-sm-6">
-                    {!! Form::label('password', 'Password') !!}
-                    {!! Form::password('password', ['class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::label('password', 'Password (Password must be a minimum of 12 characters including atleast a number and symbol)') !!}
+                    {!! Form::password('password', ['id' => 'password','class' => 'form-control form-control-solid border border-2']) !!}
+                    <div id="password-strength" class="form-text" style="color:brown;font-weight: bolder"></div>
                 </div>
 
                 <!-- Confirmation Password Field -->
                 <div class="form-group col-sm-6">
                     {!! Form::label('password_confirmation', 'Password Confirmation') !!}
-                    {!! Form::password('password_confirmation', ['class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::password('password_confirmation', ['id' => 'passwordConfirmation', 'class' => 'form-control form-control-solid border border-2']) !!}
+                    <div id="password-match" class="form-text"></div>
                 </div>
-
+                
                 <!-- Checkbox Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row my-3">
                     <div class="form-check">
@@ -327,7 +329,7 @@
     <!--end::Wrapper-->
     <!--begin::Wrapper-->
     <div>
-        <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Continue
+        <button id="continueButton" type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Continue
             <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
             <span class="svg-icon svg-icon-4 ms-1 me-0">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -355,7 +357,95 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    const passwordInput = document.getElementById('password');
+    const passwordConfirmationInput = document.getElementById('passwordConfirmation');
+    const passwordStrength = document.getElementById('password-strength');
+    const passwordMatch = document.getElementById('password-match');
+    
+    passwordInput.addEventListener('input', function() {
+        const password = this.value;
+        const strength = checkPasswordStrength(password);
+        displayPasswordStrength(strength);
+    });
+    
+    passwordConfirmationInput.addEventListener('input', function() {
+        checkPasswordMatch();
+    });
+    
+    function checkPasswordMatch() {
+        const password = passwordInput.value;
+        const confirmPassword = passwordConfirmationInput.value;
+    
+        if (password === confirmPassword) {
+            passwordMatch.textContent = 'Passwords match.';
+            passwordMatch.style.color = 'green';
+        } else {
+            passwordMatch.textContent = 'Passwords do not match.';
+            passwordMatch.style.color = 'red';
+        }
+    }
+    
+    function checkPasswordStrength(password) {
+    // Define your password strength rules here
+    const minLength = 12;
+    const minUppercase = 1;
+    const minLowercase = 1;
+    const minNumbers = 1;
+    const minSpecialChars = 1;
 
+    // Check password length
+    if (password.length < minLength) {
+        return 0; // Weak
+    }
+
+    // Check for uppercase letters
+    const uppercaseRegex = /[A-Z]/;
+    if (!uppercaseRegex.test(password)) {
+        return 0; // Weak
+    }
+
+    // Check for lowercase letters
+    const lowercaseRegex = /[a-z]/;
+    if (!lowercaseRegex.test(password)) {
+        return 0; // Weak
+    }
+
+    // Check for numbers
+    const numbersRegex = /[0-9]/;
+    if (!numbersRegex.test(password)) {
+        return 0; // Weak
+    }
+
+    // Check for special characters
+    const specialCharsRegex = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/;
+    if (!specialCharsRegex.test(password)) {
+        return 0; // Weak
+    }
+
+    // If all rules are satisfied, consider it strong
+    return 2; // Strong
+}
+
+    
+    function displayPasswordStrength(strength) {
+        const strengthLabels = ['Weak', 'Medium', 'Strong'];
+        passwordStrength.textContent = `Password Strength: ${strengthLabels[strength]}`;
+    }
+
+    // Get the "Continue" button element
+const continueButton = document.querySelector('[data-kt-stepper-action="next"]');
+
+// Add an event listener to the password input
+passwordInput.addEventListener('input', function() {
+    const password = this.value;
+    const strength = checkPasswordStrength(password);
+
+    // Disable the "Continue" button if password strength is weak or medium
+    continueButton.disabled = strength < 2;
+});
+
+    </script>
 <script>
     // Get the checkbox element
     const checkbox = document.getElementById('newCheckbox');

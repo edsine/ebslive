@@ -53,6 +53,9 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/roundcube-login', [HomeController::class, 'roundcubeLogin']);
+
+
 
 Route::get('/hradmin', [HomeController::class, 'hradmin'])->name('hradmin');
 Route::get('/financeadmin', [HomeController::class, 'financeadmin'])->name('financeadmin');
@@ -95,5 +98,10 @@ Route::get('certicate',[CertificateController::class,'index'])->name('certicate'
     Route::get('/pending', [UserController::class,'getpending'])->name('pending');
     Route::post('/upload', [UserController::class,'upload'])->name('upload');
     Route::get('/bulkUpload', [UserController::class,'bulkUpload'])->name('bulkUpload');
+    Route::get('change-email-password', [UserController::class,'showChangePasswordForm'])->name('change.email.password.form');
+    Route::post('change-email-password', [UserController::class,'changePassword'])->name('change.email.password');
+    Route::post('/save-signature', [UserController::class,'saveSignature']);
+    Route::get('/change-signature', [UserController::class,'changeSignature'])->name('change.signature');
+
 
 });
