@@ -2858,7 +2858,7 @@ var KTChartsWidget15 = (function () {
 
             var data = [
                 {
-                    country: "US",
+                    country: "JAN",
                     visits: 725,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/united-states.svg",
                     columnSettings: { 
@@ -2866,7 +2866,7 @@ var KTChartsWidget15 = (function () {
                     }
                 },
                 {
-                    country: "UK",
+                    country: "FEB",
                     visits: 625,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/united-kingdom.svg",
                     columnSettings: { 
@@ -2874,7 +2874,7 @@ var KTChartsWidget15 = (function () {
                     }
                 },
                 {
-                    country: "China",
+                    country: "MAR",
                     visits: 602,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/china.svg",
                     columnSettings: { 
@@ -2882,7 +2882,7 @@ var KTChartsWidget15 = (function () {
                     }
                 },
                 {
-                    country: "Japan",
+                    country: "APR",
                     visits: 509,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/japan.svg",
                     columnSettings: { 
@@ -2890,7 +2890,7 @@ var KTChartsWidget15 = (function () {
                     }
                 },
                 {
-                    country: "Germany",
+                    country: "MAY",
                     visits: 322,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/germany.svg",
                     columnSettings: { 
@@ -2898,7 +2898,7 @@ var KTChartsWidget15 = (function () {
                     }
                 },
                 {
-                    country: "France",
+                    country: "JUN",
                     visits: 214,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/france.svg",
                     columnSettings: { 
@@ -2906,7 +2906,7 @@ var KTChartsWidget15 = (function () {
                     }
                 },
                 {
-                    country: "India",
+                    country: "JUL",
                     visits: 204,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/india.svg",
                     columnSettings: { 
@@ -2914,7 +2914,7 @@ var KTChartsWidget15 = (function () {
                     }
                 },
                 {
-                    country: "Spain",
+                    country: "AUG",
                     visits: 200,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/spain.svg",
                     columnSettings: { 
@@ -2922,7 +2922,7 @@ var KTChartsWidget15 = (function () {
                     }
                 },
                 {
-                    country: "Italy",
+                    country: "SEP",
                     visits: 165,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/italy.svg",
                     columnSettings: { 
@@ -2930,7 +2930,7 @@ var KTChartsWidget15 = (function () {
                     }
                 },
                 {
-                    country: "Russia",
+                    country: "OCT",
                     visits: 152,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/russia.svg",
                     columnSettings: { 
@@ -2938,7 +2938,7 @@ var KTChartsWidget15 = (function () {
                     }
                 },
                 {
-                    country: "Norway",
+                    country: "NOV",
                     visits: 125,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/norway.svg",
                     columnSettings: { 
@@ -2946,7 +2946,7 @@ var KTChartsWidget15 = (function () {
                     }
                 },
                 {
-                    country: "Canada",
+                    country: "DEC",
                     visits: 99,
                     icon: "https://www.amcharts.com/wp-content/uploads/flags/canada.svg",
                    columnSettings: { 

@@ -24,10 +24,11 @@ class RealRolesTablesSeeder extends Seeder
                 'INSPECTION',
                 'HOD',
                 'ED FINANCE & ACCOUNT',
-                'HEALTH',
+            
                 'ADMINISTRATION',
                 'USER',
                 'SUPERVISOR',
+                'CERTIFICATE/COMPLIANCE',
                 'LEAVE PROCESSING OFFICER',
                 'REGISTRY OFFICER',
                 'ED ADMIN',

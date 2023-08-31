@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Flash;
 use Modules\Shared\Models\Branch;
+use Modules\Shared\Models\Department;
 
 class ProfileController extends Controller
 {
@@ -36,7 +37,7 @@ class ProfileController extends Controller
     
     public function showProfile()
     {
-        $id= auth()->id();
+       $id= auth()->id();
        $data= \DB::table('users')
        ->join('staff','users.id','=','staff.user_id')
        ->join('model_has_roles','users.id','=','model_has_roles.model_id')
@@ -45,8 +46,17 @@ class ProfileController extends Controller
        ->join('branches', 'staff.branch_id', '=', 'branches.id')
        ->where('users.id','=',$id) 
        ->get();
-      
 
+       //
+    //   $thedepartmentid= auth()->user()->staff->department_id;
+    //   dd($thedepartmentid);
+
+//   $depa= Department::where('id',$thedepartmentid)->get();
+// //   dd($depa);
+//  $aa= \DB::table('departments')
+//   ->select('name');
+//   dd($aa);
+  
 
 
      
