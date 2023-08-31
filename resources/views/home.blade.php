@@ -26,6 +26,14 @@
                 @include('pamsec')
             @elseif(auth()->user()->staff->department_id == 4)
                 @include('legaladmin')
+            @elseif(auth()->user()->staff->department_id == 13)
+                @include('estateadmin')
+            @elseif(auth()->user()->staff->department_id == 10)
+                @include('informalsectoradmin')
+            @elseif(auth()->user()->staff->department_id == 3)
+                @include('ictadmin')
+            @elseif(auth()->user()->staff->department_id == 14)
+                @include('socialsecurityadmin')
             @else
                 @include('defaultdashboard')
             @endif

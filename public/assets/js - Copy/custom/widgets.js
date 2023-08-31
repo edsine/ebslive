@@ -440,15 +440,15 @@ var KTWidgets = function () {
             var height = parseInt(KTUtil.css(element, 'height'));
             var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
             var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
-            var baseColor = KTUtil.getCssVariableValue('--bs-warning');
+            var baseColor = KTUtil.getCssVariableValue('--bs-green');
             var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');
 
             var options = {
                 series: [{
-                    name: 'Private Sector Contribution',
+                    name: 'Number Of Project Completed',
                     data: [1144, 2155, 3257, 2256, 4361, 3558]
                 }, {
-                    name: 'Public Sector Contribution',
+                    name: 'Number Of Properties Inspected',
                     data: [1476, 2485, 4101, 3898, 3187, 4505]
                 }],
                 chart: {
@@ -475,7 +475,7 @@ var KTWidgets = function () {
                 stroke: {
                     show: true,
                     width: 2,
-                    colors: ['transparent']
+                    colors: ['green']
                 },
                 xaxis: {
                     categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
@@ -530,7 +530,7 @@ var KTWidgets = function () {
                     },
                     y: {
                         formatter: function (val) {
-                            return "$" + val + " thousands"
+                            return   val 
                         }
                     }
                 },
