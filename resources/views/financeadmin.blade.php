@@ -97,7 +97,7 @@
 								<!--end::Number-->
 								<!--begin::Follower-->
 								<div class="m-0">
-									<span class="fw-semibold fs-6 text-gray-400">Total Expenses</span>
+									<span class="fw-semibold fs-6 text-gray-400">Total Expenditure</span>
 								</div>
 								<!--end::Follower-->
 							</div>
@@ -144,7 +144,7 @@
 								<!--end::Number-->
 								<!--begin::Follower-->
 								<div class="m-0">
-									<span class="fw-semibold fs-6 text-gray-400">Net Income</span>
+									<span class="fw-semibold fs-6 text-gray-400">Staff Emolument</span>
 								</div>
 								<!--end::Follower-->
 							</div>
@@ -194,7 +194,7 @@
 								<!--end::Number-->
 								<!--begin::Follower-->
 								<div class="m-0">
-									<span class="fw-semibold fs-6 text-gray-400">Current Cash Balance</span>
+									<span class="fw-semibold fs-6 text-gray-400">Revenue From ECS</span>
 								</div>
 								<!--end::Follower-->
 							</div>
@@ -241,7 +241,7 @@
 								<!--end::Number-->
 								<!--begin::Follower-->
 								<div class="m-0">
-									<span class="fw-semibold fs-6 text-gray-400">Pending Approvals</span>
+									<span class="fw-semibold fs-6 text-gray-400">Revenue From Certificates</span>
 								</div>
 								<!--end::Follower-->
 							</div>
@@ -284,11 +284,11 @@
 							<!--begin::Section-->
 							<div class="d-flex flex-column my-7">
 								<!--begin::Number-->
-								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">75%</span>
+								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">3972</span>
 								<!--end::Number-->
 								<!--begin::Follower-->
 								<div class="m-0">
-									<span class="fw-semibold fs-6 text-gray-400">Budget Utilization</span>
+									<span class="fw-semibold fs-6 text-gray-400"> Revenue From Registration</span>
 								</div>
 								<!--end::Follower-->
 							</div>
@@ -315,249 +315,17 @@
 			<!--begin::Row-->
 			<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
 				<!--begin::Col-->
-				<div class="col-xl-5">
-					<!--begin::Chart widget 19-->
-					<div class="card card-flush h-100 mb-5 mb-xl-10">
-						<!--begin::Header-->
-						<div class="card-header pt-7">
-							<!--begin::Title-->
-							<h3 class="card-title align-items-start flex-column">
-								<span class="card-label fw-bold text-dark">Percentage Expense Distribution  Categories</span>
-								<span class="text-gray-400 pt-2 fw-semibold fs-6">the percentage distribution of expenses across different categories</span>
-							</h3>
-							<!--end::Title-->
-							<!--begin::Toolbar-->
-							<div class="card-toolbar">
-								<!--begin::Nav-->
-								<ul class="nav" id="kt_chart_widget_19_tabs">
-									<li class="nav-item">
-										<a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light active fw-bold px-4 me-1" data-bs-toggle="tab" id="kt_chart_widget_19_tab_1" href="#kt_chart_widget_19_tab_content_1">2023</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light fw-bold px-4" data-bs-toggle="tab" id="kt_chart_widget_19_tab_2" href="#kt_chart_widget_19_tab_content_2">Month</a>
-									</li>
-								</ul>
-							</div>
-							<!--end::Toolbar-->
-						</div>
-						<!--end::Header-->
-						<!--begin::Body-->
-						<div class="card-body pt-0">
-							<!--begin::Tab Content (ishlamayabdi)-->
-							<div class="tab-content">
-								<!--begin::Tap pane-->
-								<div class="tab-pane fade show active" id="kt_chart_widget_19_tab_content_1">
-									<!--begin::Chart container-->
-									<div id="kt_charts_widget_19_chart_1" class="w-100 h-400px mb-13 mt-n4"></div>
-									<!--end::Chart container-->
-									<!--begin::Items-->
-									<div class="m-0">
-										<!--begin::Item-->
-										<div class="d-flex flex-stack">
-											<!--begin::Section-->
-											<div class="d-flex align-items-center me-5">
-												<!--begin::Flag-->
-												<img src="assets/media/svg/brand-logos/atica.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-												<!--end::Flag-->
-												<!--begin::Content-->
-												<div class="me-5">
-													<!--begin::Title-->
-													<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">C&C</a>
-													<!--end::Title-->
-													<!--begin::Desc-->
-													<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Compensation and Compensation</span>
-													<!--end::Desc-->
-												</div>
-												<!--end::Content-->
-											</div>
-											<!--end::Section-->
-											<!--begin::Wrapper-->
-											<div class="d-flex align-items-center">
-												<!--begin::Number-->
-												<span class="text-gray-800 fw-bold fs-4 me-3">579</span>
-												<!--end::Number-->
-												<!--begin::Info-->
-												<div class="m-0">
-													<!--begin::Label-->
-													<span class="badge badge-light-success fs-base">
-														<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
-														<span class="svg-icon svg-icon-5 svg-icon-success ms-n1">
-															<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="currentColor" />
-																<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->47.6%</span>
-													<!--end::Label-->
-												</div>
-												<!--end::Info-->
-											</div>
-											<!--end::Wrapper-->
-										</div>
-										<!--end::Item-->
-										<!--begin::Separator-->
-										<div class="separator separator-dashed my-4"></div>
-										<!--end::Separator-->
-										<!--begin::Item-->
-										<div class="d-flex flex-stack">
-											<!--begin::Section-->
-											<div class="d-flex align-items-center me-5">
-												<!--begin::Flag-->
-												<img src="assets/media/svg/brand-logos/telegram-2.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-												<!--end::Flag-->
-												<!--begin::Content-->
-												<div class="me-5">
-													<!--begin::Title-->
-													<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Ad-Rt</a>
-													<!--end::Title-->
-													<!--begin::Desc-->
-													<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Advance Retirement</span>
-													<!--end::Desc-->
-												</div>
-												<!--end::Content-->
-											</div>
-											<!--end::Section-->
-											<!--begin::Wrapper-->
-											<div class="d-flex align-items-center">
-												<!--begin::Number-->
-												<span class="text-gray-800 fw-bold fs-4 me-3">2,588</span>
-												<!--end::Number-->
-												<!--begin::Info-->
-												<div class="m-0">
-													<!--begin::Label-->
-													<span class="badge badge-light-danger fs-base">
-														<!--begin::Svg Icon | path: icons/duotune/arrows/arr065.svg-->
-														<span class="svg-icon svg-icon-5 svg-icon-danger ms-n1">
-															<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																<rect opacity="0.5" x="11" y="18" width="13" height="2" rx="1" transform="rotate(-90 11 18)" fill="currentColor" />
-																<path d="M11.4343 15.4343L7.25 11.25C6.83579 10.8358 6.16421 10.8358 5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75L11.2929 18.2929C11.6834 18.6834 12.3166 18.6834 12.7071 18.2929L18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25C17.8358 10.8358 17.1642 10.8358 16.75 11.25L12.5657 15.4343C12.2533 15.7467 11.7467 15.7467 11.4343 15.4343Z" fill="currentColor" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->60.4%</span>
-													<!--end::Label-->
-												</div>
-												<!--end::Info-->
-											</div>
-											<!--end::Wrapper-->
-										</div>
-										<!--end::Item-->
-										<!--begin::Separator-->
-										<div class="separator separator-dashed my-4"></div>
-										<!--end::Separator-->
-										<!--begin::Item-->
-										<div class="d-flex flex-stack">
-											<!--begin::Section-->
-											<div class="d-flex align-items-center me-5">
-												<!--begin::Flag-->
-												<img src="assets/media/svg/brand-logos/plurk.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-												<!--end::Flag-->
-												<!--begin::Content-->
-												<div class="me-5">
-													<!--begin::Title-->
-													<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Di-Pay</a>
-													<!--end::Title-->
-													<!--begin::Desc-->
-													<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Direct Payment</span>
-													<!--end::Desc-->
-												</div>
-												<!--end::Content-->
-											</div>
-											<!--end::Section-->
-											<!--begin::Wrapper-->
-											<div class="d-flex align-items-center">
-												<!--begin::Number-->
-												<span class="text-gray-800 fw-bold fs-4 me-3">794</span>
-												<!--end::Number-->
-												<!--begin::Info-->
-												<div class="m-0">
-													<!--begin::Label-->
-													<span class="badge badge-light-success fs-base">
-														<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
-														<span class="svg-icon svg-icon-5 svg-icon-success ms-n1">
-															<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="currentColor" />
-																<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->30.2%</span>
-													<!--end::Label-->
-												</div>
-												<!--end::Info-->
-											</div>
-											<!--end::Wrapper-->
-										</div>
-										<!--end::Item-->
-										<!--begin::Separator-->
-										<div class="separator separator-dashed my-4"></div>
-										<!--end::Separator-->
-										<!--begin::Item-->
-										<div class="d-flex flex-stack">
-											<!--begin::Section-->
-											<div class="d-flex align-items-center me-5">
-												<!--begin::Flag-->
-												<img src="assets/media/svg/brand-logos/plurk.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-												<!--end::Flag-->
-												<!--begin::Content-->
-												<div class="me-5">
-													<!--begin::Title-->
-													<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">OPE</a>
-													<!--end::Title-->
-													<!--begin::Desc-->
-													<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Out of Pockect Expenses</span>
-													<!--end::Desc-->
-												</div>
-												<!--end::Content-->
-											</div>
-											<!--end::Section-->
-											<!--begin::Wrapper-->
-											<div class="d-flex align-items-center">
-												<!--begin::Number-->
-												<span class="text-gray-800 fw-bold fs-4 me-3">1,578</span>
-												<!--end::Number-->
-												<!--begin::Info-->
-												<div class="m-0">
-													<!--begin::Label-->
-													<span class="badge badge-light-success fs-base">
-														<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
-														<span class="svg-icon svg-icon-5 svg-icon-success ms-n1">
-															<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="currentColor" />
-																<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->84.1%</span>
-													<!--end::Label-->
-												</div>
-												<!--end::Info-->
-											</div>
-											<!--end::Wrapper-->
-										</div>
-										<!--end::Item-->
-										<!--begin::Separator-->
-										<div class="separator separator-dashed my-4"></div>
-										<!--end::Separator-->
-									</div>
-									<!--end::Items-->
-								</div>
-								<!--end::Tap pane-->
-								<!--begin::Tap pane-->								
-							</div>
-							<!--end::Tab Content-->
-						</div>
-						<!--end::Body-->
-					</div>
-					<!--end::Chart widget 19-->
-				</div>
+		
 				<!--end::Col-->
 				<!--begin::Col-->
-				<div class="col-xl-7 mb-5 mb-xl-10">
+				<div class="col-xl-12 mb-5 mb-xl-10">
 					<!--begin::Chart widget 38-->
 					<div class="card card-flush h-xl-50 mb-xl-10">
 						<!--begin::Header-->
 						<div class="card-header pt-7">
 							<!--begin::Title-->
 							<h3 class="card-title align-items-start flex-column">
-								<span class="card-label fw-bold text-gray-800">Monetary Expense Distribution  Categories</span>
+								<span class="card-label fw-bold text-gray-800">Total Revenue</span>
 								<span class="text-gray-400 mt-1 fw-semibold fs-6">Counted in Millions</span>
 							</h3>
 							<!--end::Title-->
@@ -597,7 +365,7 @@
 						<!--begin::Header-->
 						<div class="card-header py-5">
 							<!--begin::Title-->
-							<h3 class="card-title fw-bold text-gray-800">Compliance Monthly Contribution Targets</h3>
+							<h3 class="card-title fw-bold text-gray-800">Total Expenditure</h3>
 							<!--end::Title-->
 							<!--begin::Toolbar-->
 							<div class="card-toolbar">
@@ -634,7 +402,7 @@
 									</div>
 									<!--end::Statistics-->
 									<!--begin::Description-->
-									<span class="fs-6 fw-semibold text-gray-400">Targets for April</span>
+									<span class="fs-6 fw-semibold text-gray-400">Budgets for April</span>
 									<!--end::Description-->
 								</div>
 								<!--end::Item-->
@@ -652,32 +420,7 @@
 								</div>
 								<!--end::Item-->
 								<!--begin::Item-->
-								<div class="m-0">
-									<!--begin::Statistics-->
-									<div class="d-flex align-items-center mb-2">
-										<!--begin::Currency-->
-										<span class="fs-4 fw-semibold text-gray-400 align-self-start me-1">%</span>
-										<!--end::Currency-->
-										<!--begin::Value-->
-										<span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">40</span>
-										<!--end::Value-->
-										<!--begin::Label-->
-										<span class="badge badge-light-success fs-base">
-											<!--begin::Svg Icon | path: icons/duotune/arrows/arr067.svg-->
-											<span class="svg-icon svg-icon-7 svg-icon-success ms-n1">
-												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path opacity="0.5" d="M13 9.59998V21C13 21.6 12.6 22 12 22C11.4 22 11 21.6 11 21V9.59998H13Z" fill="currentColor" />
-													<path d="M5.7071 7.89291C5.07714 8.52288 5.52331 9.60002 6.41421 9.60002H17.5858C18.4767 9.60002 18.9229 8.52288 18.2929 7.89291L12.7 2.3C12.3 1.9 11.7 1.9 11.3 2.3L5.7071 7.89291Z" fill="currentColor" />
-												</svg>
-											</span>
-											<!--end::Svg Icon-->50%</span>
-										<!--end::Label-->
-									</div>
-									<!--end::Statistics-->
-									<!--begin::Description-->
-									<span class="fs-6 fw-semibold text-gray-400">GAP</span>
-									<!--end::Description-->
-								</div>
+						
 								<!--end::Item-->
 							</div>
 							<!--end::Items-->

@@ -127,6 +127,14 @@ class HomeController extends Controller
     {
         return view('pamsec');
     }
+    public function copaffairs()
+    {
+        return view('copaffairs');
+    }
+    public function fre()
+    {
+        return view('fre');
+    }
     // Mail Demo UI
     public function composeMail()
     {

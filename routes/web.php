@@ -13,9 +13,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 /*
-|--------------------------------------------------------------------------
+|------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
@@ -61,6 +61,8 @@ Route::get('/itmadmin', [HomeController::class, 'itmadmin'])->name('itmadmin');
 Route::get('/complianceadmin', [HomeController::class, 'complianceadmin'])->name('complianceadmin');
 Route::get('/hseadmin', [HomeController::class, 'hseadmin'])->name('hseadmin');
 Route::get('/pamsec', [HomeController::class, 'pamsec'])->name('pamsec');
+Route::get('/copaffairs', [HomeController::class, 'copaffairs'])->name('copaffairs');
+Route::get('/fre', [HomeController::class, 'fre'])->name('fre');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/view-profile', [ProfileController::class, 'showProfile'])->name('view-profile');

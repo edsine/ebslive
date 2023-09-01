@@ -11,7 +11,6 @@
 		<a href="#" class="card shadow bg-body hoverable card-xl-stretch mb-xl-8">
 			<!--begin::Body-->
 			<div class="card-body">
-				<!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
 				<span class="svg-icon svg-icon-primary svg-icon-3x ms-n1">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<rect x="8" y="9" width="3" height="10" rx="1.5" fill="currentColor"></rect>
@@ -131,79 +130,7 @@
 
 
 <!--begin::Tables Widget 12-->
-<div class="card mb-5 mb-xl-8">
-	<!--begin::Header-->
-	<div class="card-header border-0 pt-5">
-		<h3 class="card-title align-items-start flex-column">
-			<span class="card-label fw-bold fs-3 mb-1"> ECS Payments (Pending/Approved)</span>
-			<!-- <span class="text-muted mt-1 fw-semibold fs-7">Over 500 new members</span> -->
-		</h3>
-	</div>
-	<!--end::Header-->
-	<!--begin::Body-->
-	<div class="card-body py-3">
-		<!-- Tabs content -->
-		<div class="tab-content" id="ex2-content">
-			<div class="tab-pane fade show active" id="ex2-tabs-1" role="tabpanel" aria-labelledby="ex2-tab-1">
-				<!--begin::Table container-->
-				<div class="table-responsive">
-					<!--begin::Table-->
-					<table class="table align-middle gs-0 gy-4">
-						<!--begin::Table head-->
-						<thead>
-							<tr class="fw-bold text-muted bg-light">
-								<th class="ps-4 min-w-200px rounded-start">ECS Number</th>
-								<th class="min-w-200px">Company Name</th>
-								<th class="min-w-200px">Company Email</th>
-								<th class="min-w-200px">Business Area</th>
-								<th class="min-w-200px text-end rounded-end">ACTIONS</th>
-							</tr>
-						</thead>
-						<!--end::Table head-->
-						<!--begin::Table body-->
-						<tbody>
-							@foreach ($data as $item)
-							<tr>
-								<td>
-									{{ $item->ecs_number }}
-								</td>
-								<td>
-									{{ $item->company_name }}
-								</td>
-								<td>
-									{{ $item->company_email }}
-								</td>
-								<td>
-									{{ $item->business_area }}
-								</td>
-								<td class="text-end">
-									<a href="{{ route('employers.show', [$item->id]) }}" class='btn btn-default btn-xs'>
-										<i class="far fa-eye"></i>
-									</a>
-									<a href="{{ route('employer.employees', [$item->id]) }}" class='btn btn-default btn-xs'>
-										<i class="far fa-user"></i>
-									</a>
-								</td>
-							</tr>
-							@endforeach
-						</tbody>
-						<!--end::Table body-->
-					</table>
-					<div class="card-footer clearfix">
-						<div class="float-right">
-							@include('adminlte-templates::common.paginate', [
-							'records' => $data,
-							])
-						</div>
-					</div>
-					<!--end::Table-->
-				</div>
-			</div>
-			<!--begin::Body-->
-		</div>
-		<!--end::Tables Widget 12-->
-	</div>
-</div>
+<!--  -->
 @endsection
 
 @push('page_scripts')

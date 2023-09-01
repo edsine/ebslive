@@ -5,9 +5,7 @@
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<!--begin::Toolbar-->
 						<div class="toolbar" id="kt_toolbar">
-							<!--begin::Container-->
-						
-							<!--end::Container-->
+							
 						</div>
 						<!--end::Toolbar-->
 						<!--begin::Post-->
@@ -52,11 +50,11 @@
 										<!--end::Statistics Widget 5-->
 									</div>
 
-                                    <div class="col-xl-3">
+                                    <div class="col-xl-3" >
 										<!--begin::Statistics Widget 5-->
 										<a href="#" class="card bg-body hoverable card-xl-stretch mb-xl-8">
 											<!--begin::Body-->
-											<div class="card-body">
+											<div class="card-body" data-toggle="modal" data-target="#exampleModalCenterxxRO">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
 												<span class="svg-icon svg-icon-primary svg-icon-3x ms-n1">
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -67,7 +65,7 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">11</div>
+												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">13</div>
 												<div class="fw-bold " style="color:green"><b>TOTAL NO. OF REGIONAL OFFICES</b></div>
 											</div>
 											<!--end::Body-->
@@ -79,7 +77,7 @@
 										<!--begin::Statistics Widget 5-->
 										<a href="#" class="card bg-body hoverable card-xl-stretch mb-xl-8">
 											<!--begin::Body-->
-											<div class="card-body">
+											<div class="card-body" data-toggle="modal" data-target="#exampleModalCenterxxDEP">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
 												<span class="svg-icon svg-icon-primary svg-icon-3x ms-n1">
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -101,7 +99,7 @@
 										<!--begin::Statistics Widget 5-->
 										<a href="#" class="card bg-body hoverable card-xl-stretch mb-xl-8">
 											<!--begin::Body-->
-											<div class="card-body">
+											<div class="card-body"  data-toggle="modal" data-target="#exampleModalCenterxxdigreg">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
 												<span class="svg-icon svg-icon-primary svg-icon-3x ms-n1">
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -123,7 +121,7 @@
 									</h3></center> 
 									<div class="row g-5 g-xl-8 pt-5">
 
-									<div class="col-sm-6 col-xl-4">
+									<div class="col-sm-6 col-xl-4"  data-toggle="modal" data-target="#exampleModalCenterxxrevecs">
         <!--begin: Statistics Widget 6-->
         <div class="card  shadow bg-light-success card-xl-stretch mb-xl-8">
             <!--begin::Body-->
@@ -145,7 +143,7 @@
         </div>
         <!--end: Statistics Widget 6-->
     </div>
-    <div class="col-sm-6 col-xl-4">
+    <div class="col-sm-6 col-xl-4" data-toggle="modal" data-target="#exampleModalCenterxxrevcerts">
         <!--begin: Statistics Widget 6-->
         <div class="card  shadow bg-light-warning card-xl-stretch mb-xl-8">
             <!--begin::Body-->
@@ -699,7 +697,7 @@
 									
 									<div class="col-sm-6 col-xl-4">
 										<!--begin::Card-->
-										<div class="card h-100">
+										<div class="card h-100" data-toggle="modal" data-target="#exampleModalCenterxxDEP">
 											<!--begin::Card header-->
 											<div class="card-header flex-nowrap border-0 pt-9">
 												<!--begin::Card title-->
@@ -714,7 +712,6 @@
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
-												<!--begin::Card toolbar-->
 												<div class="card-toolbar m-0">
 													<!--begin::Menu-->
 													<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
@@ -1270,62 +1267,225 @@
 		      <div class="modal-body p-4 py-5 p-md-5">
 		      	<h3 class="text-center mb-3">Total Number of branch ofiicers</h3>
 		      
-										<!--begin::Chart widget 25-->
-										<div class="card card-flush h-md-100">
-											<!--begin::Header-->
-											<div class="card-header pt-7">
-												<!--begin::Title-->
-												<h3 class="card-title align-items-start flex-column">
-													<span class="card-label fw-bolder text-dark">Brach Circulation Analysis Charts</span>
-													<span class="text-gray-400 pt-2 fw-bold fs-6">57 branches Visisbl;e</span>
-												</h3>
-												<!--end::Title-->
-												<!--begin::Toolbar-->
-												<div class="card-toolbar">
-													<!--begin::Nav-->
-													<ul class="nav" id="kt_chart_widget_19_tabs">
-														<li class="nav-item">
-															<a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light fw-bolder px-4 me-1" data-bs-toggle="tab" id="kt_chart_widget_25_tab_1" href="#kt_chart_widget_25_tab_content_1">2023</a>
-														</li>
-														<li class="nav-item">
-															<a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light active fw-bolder px-4" data-bs-toggle="tab" id="kt_chart_widget_25_tab_2" href="#kt_chart_widget_25_tab_content_2">Month</a>
-														</li>
-													</ul>
-												</div>
-												<!--end::Toolbar-->
-											</div>
-											<!--end::Header-->
-											<!--begin::Body-->
-											<div class="card-body pt-0">
-												<!--begin::Tab Content (ishlamayabdi)-->
-												<div class="tab-content">
-													<!--begin::Tap pane-->
-													<div class="tab-pane fade" id="kt_chart_widget_25_tab_content_1">
-														<!--begin::Chart-->
-														<div id="kt_charts_widget_25_chart_1" class="w-100 h-400px"></div>
-														<!--end::Chart-->
-													</div>
-													<!--end::Tap pane-->
-													<!--begin::Tap pane-->
-													<div class="tab-pane fade active show" id="kt_chart_widget_25_tab_content_2">
-														<!--begin::Chart-->
-														<div id="kt_charts_widget_25_chart_2" class="w-100 h-400px"></div>
-														<!--end::Chart-->
-													</div>
-													<!--end::Tap pane-->
-												</div>
-												<!--end::Tab Content-->
-											</div>
-											<!--end::Body-->
-										</div>
-										<!--end::Chart widget 25-->
-								
-		      
+										
+
+
+
+				  <table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th style="background-color: green">Region</th>
+      <th style="background-color: grey; font-family: Verdana">Cities</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lagos Region</td>
+      <td>APAPA, AGEGE, ISLAND, IKEJA, MAINLAND, OTTA, LEKKI, IKORUDU, SATELLITE</td>
+    </tr>
+    <tr>
+      <td>Ibadan Region</td>
+      <td>IBADAN, EKITI, ABEOKUTA, OSOGBO, AKURE</td>
+    </tr>
+    <tr>
+      <td>Port Harcourt</td>
+      <td>PH, TRANS AMADI, ONNE, CALABAR, UYO</td>
+    </tr>
+    <tr>
+      <td>Asaba Region</td>
+      <td>ASABA, BENIN, SAPELE, WARRI, YENAGOA</td>
+    </tr>
+    <tr>
+      <td>Enugu Region</td>
+      <td>ENUGU, ABA, OWERRI, ONITSHA, UMUAHIA, ABAKALIKI, AWKA, NNEWI</td>
+    </tr>
+    <tr>
+      <td>Jos Region</td>
+      <td>JOS, MAKURDI, LAFIA</td>
+    </tr>
+    <tr>
+      <td>Abuja Region</td>
+      <td>FCT, GWAGWLADA, KAGINI, MARARABA, MINNA, ILORIN, LOKOLA, JAHI</td>
+    </tr>
+    <tr>
+      <td>Kaduna Region</td>
+      <td>KADUNA, KATSINA, ZARIA</td>
+    </tr>
+    <tr>
+      <td>Kano Region</td>
+      <td>KANO, DUTSE, SOKOTO, KEBBI, GUSAU</td>
+    </tr>
+    <tr>
+      <td>Maiduguri Region</td>
+      <td>MAIDUGURI, DAMATURU, YOLA</td>
+    </tr>
+    <tr>
+      <td>Bauchi Region</td>
+      <td>BAUCHI, GOMBE, JALINGO</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+										
 		      </div>
 		    </div>
 		  </div>
 		</div>
 
+
+
+		<div class="modal fade" id="exampleModalCenterxxd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<h3 class="text-center mb-3">TOTAL NUMBER OF DEPARTMENTS</h3>
+		      <hr />
+				
+				  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+   
+		    </div>
+		  </div>
+		</div>
+		</div>
+
+
+
+
+		<div class="modal fade" id="exampleModalCenterxxdigreg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<h3 class="text-center mb-3">DIGITAL REGISTRATION CENTERS</h3>
+		      <hr />
+				
+				  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Center No</th>
+        <th>Name</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>001</td>
+        <td>Gotham</td>
+        <td>342 center 23</td>
+      </tr>
+      <tr>
+        <td>002</td>
+        <td>Everteen</td>
+        <td>aba kaduna center4 </td>
+      </tr>
+      <tr>
+        <td>003</td>
+        <td>Dooley</td>
+        <td>312 light street</td>
+      </tr>
+    </tbody>
+  </table>
+   <hr />
+		    </div>
+		  </div>
+		</div>
+													</div>
+
+
+
+
+		<div class="modal fade" id="exampleModalCenterxxrevecs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<h3 class="text-center mb-3">Revenue From ECS</h3>
+				<br>
+				
+		      <hr />
+				
+				 <center><h4>No Data Available At The Moment🙁...</h4><center>
+					<br>
+   <hr />
+		    </div>
+		  </div>
+		</div>
+													</div>
+
+
+
+
+		<div class="modal fade" id="exampleModalCenterxxrevcerts" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<h2 class="text-center mb-3">Revenue From Certificates</h2>
+				<br>
+				
+		      <hr />
+				
+				 <center><h4>No Records Available At The Moment🙁...</h4><br><b>Please try again later!</b><center>
+					<br>
+   <hr />
+		    </div>
+		  </div>
+		</div>
+													</div>
+
+		
 
 
 
@@ -1340,113 +1500,267 @@
 		        </button>
 		      </div>
 		      <div class="modal-body p-4 py-5 p-md-5">
-		      	<h3 class="text-center mb-3">Total Number oF Registered Employers</h3>
+		      	<h3 class="text-center mb-3">TOTAL NO. OF FUNDS STAFFS</h3>
 		      
-				  <div class="card card-flush overflow-hidden h-md-100">
-											<!--begin::Header-->
-											<div class="card-header py-5">
-												<!--begin::Title-->
-												<h3 class="card-title align-items-start flex-column">
-													<span class="card-label fw-bolder text-dark">Human Resources</span>
-													<span class="text-gray-400 mt-1 fw-bold fs-6">Reports by states and ganders</span>
-												</h3>
-												<!--end::Title-->
-												<!--begin::Toolbar-->
-												<div class="card-toolbar">
-													<!--begin::Menu-->
-													<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
-														<span class="svg-icon svg-icon-1">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-																<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="4" fill="currentColor" />
-																<rect x="11" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
-																<rect x="15" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
-																<rect x="7" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-													</button>
-													<!--begin::Menu 2-->
-													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px" data-kt-menu="true">
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<div class="menu-content fs-6 text-dark fw-bolder px-3 py-4">Quick Actions</div>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu separator-->
-														<div class="separator mb-3 opacity-75"></div>
-														<!--end::Menu separator-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">New Ticket</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">New Customer</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
-															<!--begin::Menu item-->
-															<a href="#" class="menu-link px-3">
-																<span class="menu-title">New Group</span>
-																<span class="menu-arrow"></span>
-															</a>
-															<!--end::Menu item-->
-															<!--begin::Menu sub-->
-															<div class="menu-sub menu-sub-dropdown w-175px py-4">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Admin Group</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Staff Group</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Member Group</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu sub-->
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">New Contact</a>
-														</div>
-														<!--end::Menu item-->
-														<!--begin::Menu separator-->
-														<div class="separator mt-3 opacity-75"></div>
-														<!--end::Menu separator-->
-														<!--begin::Menu item-->
-														<div class="menu-item px-3">
-															<div class="menu-content px-3 py-3">
-																<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
-															</div>
-														</div>
-														<!--end::Menu item-->
-													</div>
-													<!--end::Menu 2-->
-													<!--end::Menu-->
-												</div>
-												<!--end::Toolbar-->
-											</div>
-											<!--end::Header-->
-											<!--begin::Card body-->
-											<div class="card-body pt-0">
-												<!--begin::Chart-->
-												<div id="kt_charts_widget_24" class="min-h-auto" style="height: 400px"></div>
-												<!--end::Chart-->
-											</div>
-											<!--end::Card body-->
-										</div>
-		      
+				  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+   
+      
+		    </div>
+		  </div>
+		</div>
+		</div>
+
+
+
+
+
+		<div class="modal fade XL" id="exampleModalCenterxxDEP" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+	  <h3 class="text-center ">TOTAL NUMBER OF DEPARTMENTs</h3>
+        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="ion-ios-close">X</span>
+        </button>
+		
+      </div>
+      <div class="modal-body p-4 py-5 p-md-5 lg" style="max-height: 500px; overflow-y: scroll;">
+     
+        <table class="table table-bordered table-sm" >
+          <thead>
+            <tr>
+              <th>NO</th>
+              <th>DEPARTMENTS</th>
+              <th>DESCRIPTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>General Administration & Services</td>
+              <td>Oversees the overall administration and operations of the organization.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Human Resource Management</td>
+              <td>Responsible for the recruitment, selection, training, and development of staff.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Information and Communication Technology (ICT)</td>
+              <td>Provides IT support to the organization.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Legal</td>
+              <td>Provides legal advice and services to the organization.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Investment and Treasury Management</td>
+              <td>Manages the organization's investments and treasury.</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Finance and Accounts</td>
+              <td>Manages the organization's finances and accounts.</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Procurement</td>
+              <td>Manages the organization's procurement activities.</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Servicom</td>
+              <td>Provides customer service to the organization's stakeholders.</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Compliance</td>
+              <td>Ensures that the organization complies with all applicable laws and regulations.</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Informal Sector</td>
+              <td>Provides social security benefits to informal sector workers.</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>Risk Management</td>
+              <td>Identifies and manages the risks faced by the organization.</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>Actuarial Planning, Research, and Development</td>
+              <td>Develops actuarial models and plans for the organization.</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>Estate and Maintenance</td>
+              <td>Maintains the organization's physical assets.</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>Social Security Development</td>
+              <td>Develops new social security programs and policies.</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>Inspections</td>
+              <td>Inspects the organization's operations to ensure compliance with laws and regulations.</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Claims and Compensation</td>
+        <td>Processes claims for benefits and provides compensation to beneficiaries.</td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>Health Safety & Environment</td>
+        <td>Ensures the health, safety, and environmental compliance of the organization.</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Corporate Affairs</td>
+        <td>Manages the organization's public relations and communications.</td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>General</td>
+        <td>Handles other matters that do not fall under any specific department.</td>
+		<tr>
+        <td>20</td>
+        <td>ED Directorate</td>
+        <td>The Directorate of the Executive Director.</td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td>MD Directorate</td>
+        <td>The Directorate of the Managing Director.</td>
+      </tr>
+    </tbody>
+  </table>
+      
+		    </div>
+		  </div>
+		</div>
+		</div>
+
+
+
+
+
+
+
+
+		<div class="modal fade" id="exampleModalCenterxxRO" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
 		      </div>
+		      <div class="modal-body p-4 py-5 p-md-5">
+		      	<h3 class="text-center mb-3">TOTAL NO. OF REGIONAL OFFICESS</h3>
+		      
+				  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>No</th>
+        <th>Locations</th>
+        <th>COUNTRY</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>LAGOS</td>
+        <td>NIGERIA</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>IBADAN</td>
+        <td>NIGERIA</td>
+      </tr>
+	  <tr>
+        <td>3</td>
+        <td>PORT-HARCOURT</td>
+        <td>NIGERIA</td>
+      </tr>
+	  <tr>
+        <td>4</td>
+        <td>ASABA</td>
+        <td>NIGERIA</td>
+      </tr>
+	  <tr>
+        <td>5</td>
+        <td>ENUGU</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>6</td>
+        <td>JOS</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>7</td>
+        <td>ABUJA</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>8</td>
+        <td>KADUNA</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>9</td>
+        <td>KANO</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>11</td>
+        <td>MAIDUGURI</td>
+        <td>NIGERIA</td>
+      </tr> 
+	  <tr>
+        <td>12</td>
+        <td>BAUCHI</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>13</td>
+        <td>IBADAN</td>
+        <td>NIGERIA</td>
+      </tr>`
+      <tr>
+        <td>14</td>
+        <td>PORT-HARCOURT</td>
+        <td>NIGERIA</td>
+      </tr>
+    </tbody>
+  </table>
+ 
 		    </div>
 		  </div>
 		</div>
@@ -1949,3 +2263,6 @@
 
 
 @endsection
+
+
+
