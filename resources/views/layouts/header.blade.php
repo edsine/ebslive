@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 
  $user = Auth::user();
+
  ?>
  <!--begin::Header-->
  <div id="kt_app_header" class="app-header">
@@ -40,8 +41,12 @@ use Illuminate\Support\Facades\Auth;
              <div class="app-navbar float-end flex-shrink-0">
                  <!--begin::Username-->
                  <div class="d-flex flex-column">
-                     <div class="fw-bold d-flex align-items-center fs-5 mt-5 pt-3">{{'Hello,'. ' '. $user->first_name. ' ' . $user->last_name}}
-                         <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">
+                     <div class="fw-bold d-flex align-items-center fs-5 mt-5 pt-3">{{'Hello,'. ' '. $user->first_name. ' ' . $user->last_name  }} 
+                        <span class=" fw-bold p-2 text-bg-success"> {{auth()->user()->roles->pluck('name')[0]}} </span>
+                        @php
+                          
+                        @endphp 
+                        <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">
                             @isset($user->ranking->name)
                             {{ $user->ranking->name }}
                             @endisset
@@ -1470,7 +1475,7 @@ use Illuminate\Support\Facades\Auth;
                  <!--begin::Username-->
                  <div class="d-flex flex-column">
                      <div class="fw-bold d-flex align-items-center fs-5">{{$user->first_name. ' ' . $user->last_name}}
-                         <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">verified</span>
+                         <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">{{auth()->user()->roles->pluck('name')[0]}}</span>
                      </div>
                      <!-- <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a> -->
                  </div>

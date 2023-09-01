@@ -931,10 +931,11 @@ var KTCardsWidget6 = function () {
         var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
         var baseColor = KTUtil.getCssVariableValue('--bs-primary');
         var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');
+        var greenColor = KTUtil.getCssVariableValue('--bs-green');
 
         var options = {
             series: [{
-                name: 'Sales',
+                name: 'Request',
                 data: [30, 60, 53, 45, 60, 75, 53]
             }, ],
             chart: {
@@ -1029,11 +1030,11 @@ var KTCardsWidget6 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return val + "%" 
+                        return val + "" 
                     }
                 }
             },
-            colors: [baseColor, secondaryColor],
+            colors: [ greenColor],
             grid: {
                 padding: {
                     left: 10,
