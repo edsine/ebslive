@@ -22,8 +22,8 @@ class UsersTableSeeder extends Seeder
             $user = new User();
             $user->first_name = 'Admin';
             $user->last_name = 'Admin';
-            $user->email = 'admin@admin.com';
-            $user->password = bcrypt('12345678');
+            $user->email = 'admin@nsitf.gov.ng';
+            $user->password = bcrypt('Nsitfadmin1$');
             $user->email_verified_at = now();
             $user->save();
 

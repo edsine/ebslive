@@ -169,7 +169,7 @@
                                 <!--end::Heading-->
                                 <!--begin::Input group=-->
                                 <div class="input-group mb-4">
-                                    <input type="email" name="email" value="{{ old('email') }}" placeholder="Email" class="form-control form-control-lg @error('email') is-invalid @enderror">
+                                    <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email" class="form-control form-control-lg @error('email') is-invalid @enderror">
                                     <div class="input-group-append">
                                         <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                                     </div>
@@ -249,6 +249,19 @@
     <script src="{{ asset('assets/js/custom/authentication/sign-in/general.js') }}"></script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            const emailInput = document.getElementById('email');
+            const email = emailInput.value;
+    
+            // Check if the email ends with "@nsitf.gov.ng"
+            if (!email.endsWith('@nsitf.gov.ng')) {
+                e.preventDefault(); // Prevent form submission
+                alert('Only email addresses with @nsitf.gov.ng domain are allowed.');
+            }
+        });
+    </script>
 </body>
 
 </html>
