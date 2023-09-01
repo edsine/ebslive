@@ -23,16 +23,18 @@
 </div>
 
 <!-- Password Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('password', 'Password') !!}
     {!! Form::password('password', ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- Confirmation Password Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
       {!! Form::label('password_confirmation', 'Password Confirmation') !!}
     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
-</div>
+</div> --}}
+
+
 
 <div class="form-group col-sm-6 mt-2">
     {!! Form::label('profile_picture', 'Profile Picture') !!}

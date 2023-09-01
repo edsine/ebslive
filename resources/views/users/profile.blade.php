@@ -6,7 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1>
-                        Change Password
+                        Change Details
                     </h1>
                 </div>
             </div>
@@ -32,8 +32,10 @@
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                 <a href="{{ route('users.index') }}" class="btn btn-default"> Cancel </a>
+                <a href="{{ route('change.email.password.form') }}" class="btn btn-secondary"> Change Password  </a>
             </div>
 
+            
             {!! Form::close() !!}
 
         </div>
