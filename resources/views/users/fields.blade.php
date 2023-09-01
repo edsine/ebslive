@@ -65,14 +65,14 @@
                 <!-- Password Field -->
                 <div class="form-group col-sm-6">
                     {!! Form::label('password', 'Password (Password must be a minimum of 12 characters including atleast a number and symbol)') !!}
-                    {!! Form::password('password', ['id' => 'password','class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::password('password', ['id' => 'password','class' => 'form-control form-control-solid border border-2','autocomplete' => "off"]) !!}
                     <div id="password-strength" class="form-text" style="color:brown;font-weight: bolder"></div>
                 </div>
 
                 <!-- Confirmation Password Field -->
                 <div class="form-group col-sm-6">
                     {!! Form::label('password_confirmation', 'Password Confirmation') !!}
-                    {!! Form::password('password_confirmation', ['id' => 'passwordConfirmation', 'class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::password('password_confirmation', ['id' => 'passwordConfirmation', 'class' => 'form-control form-control-solid border border-2','autocomplete' => "off"]) !!}
                     <div id="password-match" class="form-text"></div>
                 </div>
                 

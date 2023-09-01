@@ -188,7 +188,7 @@ $departmentData = getDepartmentData();
             </div>
             <!--End Main Menu 5: Operational Tasks -->
            <!--Begin change password -->
-            <div class="menu-item main-menu-item">
+           {{--  <div class="menu-item main-menu-item">
                 <a href="{{ route('change.email.password.form') }}" class="menu-link menu-toggle1">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
@@ -203,7 +203,7 @@ $departmentData = getDepartmentData();
                     <span class="menu-title">Change Password</span>
                 </a>
                
-            </div>
+            </div> --}}
             <!--End change password -->
 
         </div>
