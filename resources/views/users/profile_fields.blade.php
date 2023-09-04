@@ -40,8 +40,8 @@
     {!! Form::label('profile_picture', 'Profile Picture') !!}
     <br>
     {!! Form::file('profile_picture', null, ['class' => 'form-control form-control-solid border border-2']) !!}
-    {{-- <img src="{{ asset('public/profile_pictures/' . $user->profile_picture) }}" alt="No Profile Picture yet" width="100"> --}}
 </div>
+{{-- <img src="{{ asset('public/profile_pictures/' . $user->profile_picture) }}" alt="No Profile Picture yet" width="100"> --}}
 
 <!-- Staff Form Fields -->
 <div class="col-sm-12" id="staffDiv" style="display: none; width: 100%;">
@@ -58,12 +58,13 @@
     </div>
     
     <!-- Profile Picture Field -->
-    <div class="col-sm-4">
-        {!! Form::label('profile_picture', 'Profile Picture') !!}
-        <div class="form-group">
+    {{-- <div class="col-sm-4"> --}}
+        {{-- {!! Form::label('profile_picture', 'Profile Picture') !!} --}}
+        {{-- <div class="form-group">
         {!! Form::file('profile_picture',null, ['class' => 'form-control']) !!}
-        </div>
-    </div>
+        </div> --}}
+    {{-- </div> --}}
+    
 </div>
 
 

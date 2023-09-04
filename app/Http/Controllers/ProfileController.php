@@ -37,6 +37,7 @@ class ProfileController extends Controller
     
     public function showProfile()
     {
+       
        $id= auth()->id();
        $data= \DB::table('users')
        ->join('staff','users.id','=','staff.user_id')
@@ -69,9 +70,11 @@ class ProfileController extends Controller
 
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $request->validate([
             'password' => 'nullable|string|min:6|same:password_confirmation'
         ]);
+
         if($request->filled('password')){
             $request->request->add([
                 'password' => Hash::make($request->password),
@@ -79,10 +82,23 @@ class ProfileController extends Controller
         }else {
             $request->request->remove('password');
         }
+        if ($request->hasFile('profile_picture')) {
+            $file = $request->file('profile_picture');
+            if ($file->isValid()) {
+                $fileName = $file->hashName();
+                $path = $file->store('public');
+                $input['profile_picture'] = $fileName;
+            } else {
+                Flash::success(' Image Rejected, Please Recheck it and Reupload.');
+                return redirect()->route('home');
+            }
+        }
+        
         $input = $request->all();
         $item = User::findorFail($id);
+        $item->staff->update(['profile_picture' => $input['profile_picture']]);
         $item->update($input);
-        Flash::success('Employer saved successfully.');
+        Flash::success(' saved successfully.');
         return redirect()->route('home');
     }
 }
