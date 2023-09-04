@@ -9,8 +9,9 @@
           
             <div class="me-7 mb-4">
                 <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-                    @if (auth()->user()->staff->profile_picture)
-                    <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" alt="{{ auth()->user()->first_name }}'s ">
+                 
+                    @if (auth()->user()->staff && auth()->user()->staff->profile_picture)
+                    <img src="{{ url('storage/' .  auth()->user()->staff->profile_picture) }}" alt="{{ auth()->user()->staff->profile_picture }}">
                     @else
                     <img src="assets/media/avatars/300-1.jpg" alt="image" />
                     @endif
