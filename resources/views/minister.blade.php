@@ -44,7 +44,7 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">57</div>
+												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$branchtotal}}</div>
 												<div class="fw-bold" style="color:green"><b>TOTAL NO. OF BRANCH OFFICES</b></div>
 											</div>
 											<!--end::Body-->
@@ -67,7 +67,7 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">11</div>
+												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$regiontotal}}</div>
 												<div class="fw-bold " style="color:green"><b>TOTAL NO. OF REGIONAL OFFICES</b></div>
 											</div>
 											<!--end::Body-->
@@ -90,7 +90,7 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">19</div>
+												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$departmenttotal}}</div>
 												<div class="fw-bold" style="color:green"><b>TOTAL NO. OF DEPARTMENTS</b></div>
 											</div>
 											<!--end::Body-->
@@ -164,7 +164,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">9,763</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">{{$revenuefromecs}}</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -202,7 +202,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">4,062</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">{{$revenuefromcertificate}}</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -239,7 +239,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">1,680</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">{{$revenuefromregistration}}</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -776,7 +776,7 @@
 											<!--begin::Card body-->
 											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
 												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">353</div>
+												<div class="fs-2tx fw-bolder mb-3">{{$totalstaff}} </div>
 												<!--end::Heading-->
 												<!--begin::Stats-->
 												
@@ -1190,7 +1190,7 @@
 											<!--begin::Card body-->
 											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
 												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">500</div>
+												<div class="fs-2tx fw-bolder mb-3">{{$totalemployers}}</div>
 												<!--end::Heading-->
 												
 												<!--begin::Indicator-->
@@ -1326,7 +1326,7 @@
 											<!--begin::Card body-->
 											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
 												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">4,109</div>
+												<div class="fs-2tx fw-bolder mb-3">{{$totalemployees}}</div>
 												<!--end::Heading-->
 												<!--begin::Stats-->
 											
@@ -1463,7 +1463,7 @@
 											<!--begin::Card body-->
 											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
 												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">4,109</div>
+												<div class="fs-2tx fw-bolder mb-3">{{$totalcertificate}}</div>
 												<!--end::Heading-->
 												<!--begin::Stats-->
 											
