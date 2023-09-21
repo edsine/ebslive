@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     
-<div class="container">
+<div class="container py-5 d-flex justify-content-end">
     <a href="" class="btn btn-success">LOG IN TO ARM</a>
 </div>
 <!--begin::Row-->

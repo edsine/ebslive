@@ -121,7 +121,7 @@ return view('ictadmin',compact('ictstaff'));
 
     public function riskadmin(){
         
-        return view('riskadmin');
+        return view('riskadmins');
     }
 
     public function hseadmin()
