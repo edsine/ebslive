@@ -30,6 +30,12 @@ class ForgotPasswordController extends Controller
     public function sendResetLinkEmail(Request $request)
     {
         $email = $request->input('email');
+        $user = User::where('email', $email)->first();
+
+        if (!$user) {
+            return redirect()->back()->with('status', 'Email not found. Contact administrator for support.');
+        }
+
         // Send reset link to users
         $this->sendEmailsToUsers($request->input('email'));
 
