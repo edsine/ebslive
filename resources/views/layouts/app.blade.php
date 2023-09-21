@@ -102,6 +102,9 @@
     <script src="{{ asset('js/sweetalert2.min.js') }}"></script>
     <!-- end::bootstrap-sweet-alert -->
 
+    {{-- <!--  i want to use google chart -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  --}}
 
     <!--begin::Global Javascript Bundle(mandatory for all pages)-->
     <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>

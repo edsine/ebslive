@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Modules\EmployerManager\Models\Employee;
 use Modules\EmployerManager\Models\Employer;
 use GuzzleHttp\Client;
+use Modules\Shared\Models\Department;
+use Modules\WorkflowEngine\Models\Staff;
 
 class HomeController extends Controller
 {
@@ -88,6 +90,11 @@ class HomeController extends Controller
 }
 
 
+public function ictadmin(){
+    $ictstaff=Staff::where('department_id',3)->count();
+return view('ictadmin',compact('ictstaff'));
+}
+
     public function itmadmin()
     {
         
@@ -112,6 +119,10 @@ class HomeController extends Controller
         return view('complianceadmin', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
     }
 
+    public function riskadmin(){
+        
+        return view('riskadmin');
+    }
 
     public function hseadmin()
     {

@@ -17,7 +17,7 @@
                 <a href="#" class="card-title fw-bold text-success fs-5 mb-3 d-block">Total Number ICT Staff</a>
 
                 <div class="py-1">
-                    <span class="text-dark fs-1 fw-bold me-2">150</span>
+                    <span class="text-dark fs-1 fw-bold me-2">{{$ictstaff}}</span>
                     <span class="fw-semibold text-muted fs-7"></span>
                 </div>
                 {{-- <div class="progress h-7px bg-success bg-opacity-50 mt-7">

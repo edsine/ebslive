@@ -56,7 +56,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/roundcube-login', [HomeController::class, 'roundcubeLogin']);
 
 
-
+Route::get('ictadmin',[HomeController::class,'ictadmin'])->name('ict');
 Route::get('/hradmin', [HomeController::class, 'hradmin'])->name('hradmin');
 Route::get('/financeadmin', [HomeController::class, 'financeadmin'])->name('financeadmin');
 Route::get('/claimsadmin', [HomeController::class, 'claimsadmin'])->name('claimsadmin');
@@ -64,6 +64,7 @@ Route::get('/itmadmin', [HomeController::class, 'itmadmin'])->name('itmadmin');
 Route::get('/complianceadmin', [HomeController::class, 'complianceadmin'])->name('complianceadmin');
 Route::get('/hseadmin', [HomeController::class, 'hseadmin'])->name('hseadmin');
 Route::get('/pamsec', [HomeController::class, 'pamsec'])->name('pamsec');
+Route::get('/riskadmin',[HomeController::class,'riskadmin']);
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/view-profile', [ProfileController::class, 'showProfile'])->name('view-profile');
