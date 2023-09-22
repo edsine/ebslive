@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Modules\EmployerManager\Models\Employee;
 use Modules\EmployerManager\Models\Employer;
 use GuzzleHttp\Client;
+use Modules\ClaimsCompensation\Models\ClaimsCompensation;
 use Modules\Shared\Models\Department;
 use Modules\WorkflowEngine\Models\Staff;
 
@@ -108,6 +109,12 @@ class HomeController extends Controller
 
     public function claimsadmin()
 {
+
+//starting myown claims data
+$deathclaims= ClaimsCompensation::where('claimstype_id' ,3)->count();
+$diseaseclaims= ClaimsCompensation::where('claimstype_id' ,2)->count();
+
+    //
     $registered_employers = Employer::where('status', 1)->count();
     $pending_employers = Employer::where('status', 2)->count();
     $registered_employees = Employee::where('status', 1)->count();
@@ -121,7 +128,10 @@ class HomeController extends Controller
         'pending_employers', 
         'registered_employees', 
         'pending_employees', 
-        'data'
+        'data',
+        'deathclaims',
+        'diseaseclaims'
+
     ));
 }
 
@@ -143,8 +153,17 @@ return view('ictadmin',compact('ictstaff'));
         return view('itmadmin', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
     }
 
+public function legaladmin(){
+    return view('legaladmin');
+}
+
+public function procurementadmin(){
+    return view('procurement');
+}
+
     public function complianceadmin()
     {
+   
 
         $registered_employers = Employer::where('status', 1)->count();
         $pending_employers = Employer::where('status', 2)->count();
@@ -160,6 +179,10 @@ return view('ictadmin',compact('ictstaff'));
         return view('riskadmins');
     }
 
+
+    public function auditadmin(){
+        return view('auditadmin');
+    }
     public function hseadmin()
     {
 

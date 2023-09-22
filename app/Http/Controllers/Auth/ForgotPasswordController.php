@@ -40,9 +40,9 @@ class ForgotPasswordController extends Controller
         $this->sendEmailsToUsers($request->input('email'));
 
         // Send reset link to staff
-       $this->sendEmailsToStaff($email);
+       $alt_email = $this->sendEmailsToStaff($email);
 
-        return redirect()->back()->with('status', 'Password reset link sent successfully. ');
+        return redirect()->back()->with('status', "Password reset link sent to both $email and $alt_email successfully. Incase you did not see it in your inbox after 10 minutes, check your spam.");
     }
 
     protected function sendEmailsToUsers($email)
@@ -74,6 +74,7 @@ class ForgotPasswordController extends Controller
                 // Pass the $token argument to the ResetPassword constructor
                Mail::to($alternativeEmail)->send(new ResetPassword($token_url));
 
+               return $alternativeEmail;
             }
         }
     }
