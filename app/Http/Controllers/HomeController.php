@@ -58,6 +58,42 @@ class HomeController extends Controller
         $data = $data->paginate(10);
         return view('layouts/hradmin', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
     }
+
+    public function aprd()
+    {
+        
+        $registered_employers = Employer::where('status', 1)->count();
+        $pending_employers = Employer::where('status', 2)->count();
+        $registered_employees = Employee::where('status', 1)->count();
+        $pending_employees = Employee::where('status', 2)->count();
+        $data = Employer::where('status', 1);
+        $data = $data->paginate(10);
+        return view('aprd', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
+    }
+
+    public function fre()
+    {
+        
+        $registered_employers = Employer::where('status', 1)->count();
+        $pending_employers = Employer::where('status', 2)->count();
+        $registered_employees = Employee::where('status', 1)->count();
+        $pending_employees = Employee::where('status', 2)->count();
+        $data = Employer::where('status', 1);
+        $data = $data->paginate(10);
+        return view('fre', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
+    }
+    public function copaffairs()
+    {
+        
+        $registered_employers = Employer::where('status', 1)->count();
+        $pending_employers = Employer::where('status', 2)->count();
+        $registered_employees = Employee::where('status', 1)->count();
+        $pending_employees = Employee::where('status', 2)->count();
+        $data = Employer::where('status', 1);
+        $data = $data->paginate(10);
+        return view('copaffairs', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees', 'data'));
+    }
+
     public function financeadmin()
     {
         
