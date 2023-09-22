@@ -13,7 +13,7 @@
   <!--end::Page title-->
         </div>
         <section>
-            <div id="carouselExampleCaptions" class="carousel slide bg-warning">
+            <div id="carouselExampleCaptions" class="carousel slide bg-dark">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -64,7 +64,7 @@
     <!--begin::Col-->
     <div class="col-sm-6 col-xl-6 mb-xl-2">
         <!--begin::Card widget 2-->
-        <div class="card h-lg-100 bg-success">
+        <div class="card h-lg-100 bg-light-success">
             <!--begin::Body-->
             <div class="card-body d-flex justify-content-between align-items-start flex-column">
                 <!--begin::Icon-->
@@ -86,7 +86,7 @@
                     <!--end::Number-->
                     <!--begin::Follower-->
                     <div class="m-0">
-                        <span class="fw-bold fs-6 	text-white ">No of Current External Contractors</span>
+                        <span class="fw-bold fs-6 	text-success ">No of Current External Contractors</span>
                     </div>
                     <!--end::Follower-->
                 </div>
@@ -101,7 +101,7 @@
     <!--begin::Col-->
     <div class="col-sm-6 col-xl-6 mb-xl-2">
         <!--begin::Card widget 2-->
-        <div class="card h-lg-100 bg-warning">
+        <div class="card h-lg-100 bg-light">
             <!--begin::Body-->
             <div class="card-body d-flex justify-content-between align-items-start flex-column">
                 <!--begin::Icon-->
@@ -123,7 +123,7 @@
                     <!--end::Number-->
                     <!--begin::Follower-->
                     <div class="m-0">
-                        <span class="fw-bold fs-6 text-success">Total Contractors</span>
+                        <span class="fw-bold fs-6 text-success">Total Contract</span>
                     </div>
                     <!--end::Follower-->
                 </div>
@@ -146,7 +146,7 @@
     <!--begin::Col-->
     <div class="col-sm-6 col-xl-6 mb-xl-2">
         <!--begin::Card widget 2-->
-        <div class="card h-lg-100 bg-warning">
+        <div class="card h-lg-100 bg-light">
             <!--begin::Body-->
             <div class="card-body d-flex justify-content-between align-items-start flex-column">
                 <!--begin::Icon-->
@@ -183,7 +183,7 @@
     <!--begin::Col-->
     <div class="col-sm-6 col-xl-6 mb-xl-2">
         <!--begin::Card widget 2-->
-        <div class="card h-lg-100 bg-success">
+        <div class="card h-lg-100 bg-light-success">
             <!--begin::Body-->
             <div class="card-body d-flex justify-content-between align-items-start flex-column">
                 <!--begin::Icon-->
@@ -205,7 +205,7 @@
                     <!--end::Number-->
                     <!--begin::Follower-->
                     <div class="m-0">
-                        <span class="fw-bold fs-6 text-light">No of Procurement Staff/Branch</span>
+                        <span class="fw-bold fs-6 text-success">No of Procurement Staff/Branch</span>
                     </div>
                     <!--end::Follower-->
                 </div>
