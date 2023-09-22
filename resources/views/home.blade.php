@@ -36,6 +36,13 @@
                 @include('socialsecurityadmin')
             @elseif(auth()->user()->staff->department_id == 7)
                 @include('procurement')
+
+            @elseif(auth()->user()->staff->department_id == 11)
+                @include('fre')
+            @elseif(auth()->user()->staff->department_id == 18)
+                @include('copaffairs')
+            @elseif(auth()->user()->staff->department_id == 12)
+                @include('aprd')
             @else
                 @include('defaultdashboard')
             @endif
