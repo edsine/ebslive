@@ -38,7 +38,7 @@
                                 <!--end::Icon-->
                                 <!--begin::Label-->
                                 <div class="stepper-label">
-                                    <h3 class="stepper-title">First Step</h3>
+                                    <h3 class="stepper-title">Personal Details</h3>
 
                                 </div>
                                 <!--end::Label-->

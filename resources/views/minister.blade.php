@@ -5,9 +5,7 @@
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<!--begin::Toolbar-->
 						<div class="toolbar" id="kt_toolbar">
-							<!--begin::Container-->
-						
-							<!--end::Container-->
+							
 						</div>
 						<!--end::Toolbar-->
 						<!--begin::Post-->
@@ -52,11 +50,11 @@
 										<!--end::Statistics Widget 5-->
 									</div>
 
-                                    <div class="col-xl-3">
+                                    <div class="col-xl-3" >
 										<!--begin::Statistics Widget 5-->
 										<a href="#" class="card bg-body hoverable card-xl-stretch mb-xl-8">
 											<!--begin::Body-->
-											<div class="card-body">
+											<div class="card-body" data-toggle="modal" data-target="#exampleModalCenterxxRO">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
 												<span class="svg-icon svg-icon-primary svg-icon-3x ms-n1">
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -79,7 +77,7 @@
 										<!--begin::Statistics Widget 5-->
 										<a href="#" class="card bg-body hoverable card-xl-stretch mb-xl-8">
 											<!--begin::Body-->
-											<div class="card-body">
+											<div class="card-body" data-toggle="modal" data-target="#exampleModalCenterxxDEP">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
 												<span class="svg-icon svg-icon-primary svg-icon-3x ms-n1">
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -101,7 +99,7 @@
 										<!--begin::Statistics Widget 5-->
 										<a href="#" class="card bg-body hoverable card-xl-stretch mb-xl-8">
 											<!--begin::Body-->
-											<div class="card-body">
+											<div class="card-body"  data-toggle="modal" data-target="#exampleModalCenterxxdigreg">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
 												<span class="svg-icon svg-icon-primary svg-icon-3x ms-n1">
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -121,8 +119,151 @@
 										</a>
 										<!--end::Statistics Widget 5-->
 									</div>
-                                    <h3 class="fw-bolder my-2">Financial Analysis
-									<span class="fs-6 text-gray-400 fw-bold ms-1">30 Days</span></h3>
+                                   <center><h3 class="fw-bolder">Financial Analysis
+									</h3></center> 
+									<div class="row g-5 g-xl-8 pt-5">
+
+									<div class="col-sm-6 col-xl-4"  data-toggle="modal" data-target="#exampleModalCenterxxrevecs">
+        <!--begin: Statistics Widget 6-->
+        <div class="card  shadow bg-light-success card-xl-stretch mb-xl-8">
+            <!--begin::Body-->
+            <div class="card-body my-3">
+                <span class="float-end">
+                    <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5">Revenue from ECS</div>
+                </span>
+                <a href="#" class="card-title fw-bold text-success fs-5 mb-3 d-block">ECS</a>
+
+                <div class="py-1">
+                    <span class="text-dark fs-1 fw-bold me-2">{{$revenuefromecs}}</span>
+                    <!-- <span class="fw-semibold text-muted fs-7">Avarage</span> -->
+                </div>
+                <div class="progress h-7px bg-success bg-opacity-50 mt-7">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <!--end:: Body-->
+        </div>
+        <!--end: Statistics Widget 6-->
+    </div>
+    <div class="col-sm-6 col-xl-4" data-toggle="modal" data-target="#exampleModalCenterxxrevcerts">
+        <!--begin: Statistics Widget 6-->
+        <div class="card  shadow bg-light-warning card-xl-stretch mb-xl-8">
+            <!--begin::Body-->
+            <div class="card-body my-3">
+                <span class="float-end">
+                    <div class="text-white fw-bold fs-2 mb-2 mt-5">Revenue from Certificate</div>
+                </span>
+                <a href="#" class="card-title fw-bold text-warning fs-5 mb-3 d-block">Certs</a>
+                <div class="py-1">
+                    <span class="text-white fs-1 fw-bold me-2">{{$revenuefromcertificate}}</span>
+                    <!-- <span class="fw-semibold text-muted fs-7">Average</span> -->
+                </div>
+                <div class="progress h-7px bg-white bg-opacity-50 mt-7">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <!--end:: Body-->
+        </div>
+        <!--end: Statistics Widget 6-->
+    </div>
+    <div class="col-sm-6 col-xl-4">
+        <!--begin: Statistics Widget 6-->
+        <div class="card  shadow bg-light-primary card-xl-stretch mb-5 mb-xl-8">
+            <!--begin::Body-->
+            <div class="card-body my-3">
+                <span class="float-end">
+                    <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5">Revenue from Registration</div>
+                </span>
+                <a href="#" class="card-title fw-bold text-primary fs-5 mb-3 d-block">New</a>
+                <div class="py-1">
+                    <span class="text-dark fs-1 fw-bold me-2">{{$revenuefromregistration}}</span>
+                    <!-- <span class="fw-semibold text-muted fs-7">High Compared to existing</span> -->
+                </div>
+                <div class="progress h-7px bg-secondary bg-opacity-50 mt-7">
+                    <div class="progress-bar bg-secondry" role="progressbar" style="width: 76%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <!--end:: Body-->
+        </div>
+        <!--end: Statistics Widget 6-->
+    </div>
+</div>
+<!--end::Row-->
+
+    <div class="col-sm-6 col-xl-4">
+        <!--begin::Statistics Widget 5-->
+        <a href="#" class="card shadow bg-body hoverable card-xl-stretch mb-xl-8">
+            <!--begin::Body-->
+            <div class="card-body">
+                <!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
+                <span class="svg-icon svg-icon-primary svg-icon-3x ms-n1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="9" width="3" height="10" rx="1.5" fill="currentColor"></rect>
+                        <rect opacity="0.5" x="13" y="5" width="3" height="14" rx="1.5" fill="currentColor"></rect>
+                        <rect x="18" y="11" width="3" height="8" rx="1.5" fill="currentColor"></rect>
+                        <rect x="3" y="13" width="3" height="6" rx="1.5" fill="currentColor"></rect>
+                    </svg>
+                </span>
+                <span class="float-end">
+                    <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5">Staff Emolument</div>
+                </span>
+                <!--end::Svg Icon-->
+                <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5" id="incrementingNumberw"></div>
+                <div class="fw-semibold text-gray-400">Total Issued</div>
+            </div>
+            <!--end::Body-->
+        </a>
+        <!--end::Statistics Widget 5-->
+    </div>
+    <div class="col-sm-6 col-xl-4">
+        <!--begin::Statistics Widget 5-->
+        <a href="#" class="card shadow bg-dark hoverable card-xl-stretch mb-xl-8">
+            <!--begin::Body-->
+            <div class="card-body">
+                <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
+                <span class="svg-icon svg-icon-gray-100 svg-icon-3x ms-n1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.3" d="M18 21.6C16.3 21.6 15 20.3 15 18.6V2.50001C15 2.20001 14.6 1.99996 14.3 2.19996L13 3.59999L11.7 2.3C11.3 1.9 10.7 1.9 10.3 2.3L9 3.59999L7.70001 2.3C7.30001 1.9 6.69999 1.9 6.29999 2.3L5 3.59999L3.70001 2.3C3.50001 2.1 3 2.20001 3 3.50001V18.6C3 20.3 4.3 21.6 6 21.6H18Z" fill="currentColor"></path>
+                        <path d="M12 12.6H11C10.4 12.6 10 12.2 10 11.6C10 11 10.4 10.6 11 10.6H12C12.6 10.6 13 11 13 11.6C13 12.2 12.6 12.6 12 12.6ZM9 11.6C9 11 8.6 10.6 8 10.6H6C5.4 10.6 5 11 5 11.6C5 12.2 5.4 12.6 6 12.6H8C8.6 12.6 9 12.2 9 11.6ZM9 7.59998C9 6.99998 8.6 6.59998 8 6.59998H6C5.4 6.59998 5 6.99998 5 7.59998C5 8.19998 5.4 8.59998 6 8.59998H8C8.6 8.59998 9 8.19998 9 7.59998ZM13 7.59998C13 6.99998 12.6 6.59998 12 6.59998H11C10.4 6.59998 10 6.99998 10 7.59998C10 8.19998 10.4 8.59998 11 8.59998H12C12.6 8.59998 13 8.19998 13 7.59998ZM13 15.6C13 15 12.6 14.6 12 14.6H10C9.4 14.6 9 15 9 15.6C9 16.2 9.4 16.6 10 16.6H12C12.6 16.6 13 16.2 13 15.6Z" fill="currentColor"></path>
+                        <path d="M15 18.6C15 20.3 16.3 21.6 18 21.6C19.7 21.6 21 20.3 21 18.6V12.5C21 12.2 20.6 12 20.3 12.2L19 13.6L17.7 12.3C17.3 11.9 16.7 11.9 16.3 12.3L15 13.6V18.6Z" fill="currentColor"></path>
+                    </svg>
+                </span>
+                <!--end::Svg Icon-->
+                <span class="float-end">
+                    <div class="text-white fw-bold fs-2 mb-2 mt-5">Overhead Cost</div>
+                </span>
+                <div class="text-gray-100 fw-bold fs-2 mb-2 mt-5" id="incrementingNumber">
+</div>
+                <div class="fw-semibold text-gray-100">New Request</div>
+            </div>
+            <!--end::Body-->
+        </a>
+        <!--end::Statistics Widget 5-->
+    </div>
+    <div class="col-sm-6 col-xl-4">
+        <!--begin::Statistics Widget 5-->
+        <a href="#" class="card shadow bg-warning hoverable card-xl-stretch mb-xl-8">
+            <!--begin::Body-->
+            <div class="card-body">
+                <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+                <span class="svg-icon svg-icon-white svg-icon-3x ms-n1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.3" d="M20 15H4C2.9 15 2 14.1 2 13V7C2 6.4 2.4 6 3 6H21C21.6 6 22 6.4 22 7V13C22 14.1 21.1 15 20 15ZM13 12H11C10.5 12 10 12.4 10 13V16C10 16.5 10.4 17 11 17H13C13.6 17 14 16.6 14 16V13C14 12.4 13.6 12 13 12Z" fill="currentColor"></path>
+                        <path d="M14 6V5H10V6H8V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V6H14ZM20 15H14V16C14 16.6 13.5 17 13 17H11C10.5 17 10 16.6 10 16V15H4C3.6 15 3.3 14.9 3 14.7V18C3 19.1 3.9 20 5 20H19C20.1 20 21 19.1 21 18V14.7C20.7 14.9 20.4 15 20 15Z" fill="currentColor"></path>
+                    </svg>
+                </span>
+                <!--end::Svg Icon-->
+                <span class="float-end">
+                    <div class="text-white fw-bold fs-2 mb-2 mt-5">Capital Expenditure</div>
+                </span>
+                <div class="text-white fw-bold fs-2 mb-2 mt-5">31,27
+</div>
+                <div class="fw-semibold text-white">Total Defaulters</div>
+            </div>
+            <!--end::Body-->
+        </a>
+        <!--end::Statistics Widget 5-->
+    </div>
 
 
 
@@ -164,7 +305,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">{{$revenuefromecs}}</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">9,763</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -202,7 +343,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">{{$revenuefromcertificate}}</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">4,062</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -239,7 +380,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">{{$revenuefromregistration}}</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">1,680</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -776,7 +917,7 @@
 											<!--begin::Card body-->
 											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
 												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">{{$totalstaff}} </div>
+												<div class="fs-2tx fw-bolder mb-3">{{$totalstaff}}</div>
 												<!--end::Heading-->
 												<!--begin::Stats-->
 												
@@ -933,7 +1074,7 @@
 									
 									<div class="col-sm-6 col-xl-4">
 										<!--begin::Card-->
-										<div class="card h-100">
+										<div class="card h-100" data-toggle="modal" data-target="#exampleModalCenterxxDEP">
 											<!--begin::Card header-->
 											<div class="card-header flex-nowrap border-0 pt-9">
 												<!--begin::Card title-->
@@ -948,7 +1089,6 @@
 													<!--end::Title-->
 												</div>
 												<!--end::Card title-->
-												<!--begin::Card toolbar-->
 												<div class="card-toolbar m-0">
 													<!--begin::Menu-->
 													<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
@@ -1495,8 +1635,523 @@
                                   
 									<!--end::Col-->
 								</div>
-								<!--end::Row-->
-								<!--begin::Pagination-->
+								
+
+								<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
+		      </div>
+		      <div class="modal-body p-4 py-5 p-md-5">
+		      	<h3 class="text-center mb-3">Total Number of branch ofiicers</h3>
+		      
+										
+
+
+
+				  <table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th style="background-color: green">Region</th>
+      <th style="background-color: grey; font-family: Verdana">Cities</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lagos Region</td>
+      <td>APAPA, AGEGE, ISLAND, IKEJA, MAINLAND, OTTA, LEKKI, IKORUDU, SATELLITE</td>
+    </tr>
+    <tr>
+      <td>Ibadan Region</td>
+      <td>IBADAN, EKITI, ABEOKUTA, OSOGBO, AKURE</td>
+    </tr>
+    <tr>
+      <td>Port Harcourt</td>
+      <td>PH, TRANS AMADI, ONNE, CALABAR, UYO</td>
+    </tr>
+    <tr>
+      <td>Asaba Region</td>
+      <td>ASABA, BENIN, SAPELE, WARRI, YENAGOA</td>
+    </tr>
+    <tr>
+      <td>Enugu Region</td>
+      <td>ENUGU, ABA, OWERRI, ONITSHA, UMUAHIA, ABAKALIKI, AWKA, NNEWI</td>
+    </tr>
+    <tr>
+      <td>Jos Region</td>
+      <td>JOS, MAKURDI, LAFIA</td>
+    </tr>
+    <tr>
+      <td>Abuja Region</td>
+      <td>FCT, GWAGWLADA, KAGINI, MARARABA, MINNA, ILORIN, LOKOLA, JAHI</td>
+    </tr>
+    <tr>
+      <td>Kaduna Region</td>
+      <td>KADUNA, KATSINA, ZARIA</td>
+    </tr>
+    <tr>
+      <td>Kano Region</td>
+      <td>KANO, DUTSE, SOKOTO, KEBBI, GUSAU</td>
+    </tr>
+    <tr>
+      <td>Maiduguri Region</td>
+      <td>MAIDUGURI, DAMATURU, YOLA</td>
+    </tr>
+    <tr>
+      <td>Bauchi Region</td>
+      <td>BAUCHI, GOMBE, JALINGO</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+										
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+
+		<div class="modal fade" id="exampleModalCenterxxd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<h3 class="text-center mb-3">TOTAL NUMBER OF DEPARTMENTS</h3>
+		      <hr />
+				
+				  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+   
+		    </div>
+		  </div>
+		</div>
+		</div>
+
+
+
+
+		<div class="modal fade" id="exampleModalCenterxxdigreg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<h3 class="text-center mb-3">DIGITAL REGISTRATION CENTERS</h3>
+		      <hr />
+				
+				  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Center No</th>
+        <th>Name</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>001</td>
+        <td>Gotham</td>
+        <td>342 center 23</td>
+      </tr>
+      <tr>
+        <td>002</td>
+        <td>Everteen</td>
+        <td>aba kaduna center4 </td>
+      </tr>
+      <tr>
+        <td>003</td>
+        <td>Dooley</td>
+        <td>312 light street</td>
+      </tr>
+    </tbody>
+  </table>
+   <hr />
+		    </div>
+		  </div>
+		</div>
+													</div>
+
+
+
+
+		<div class="modal fade" id="exampleModalCenterxxrevecs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<h3 class="text-center mb-3">Revenue From ECS</h3>
+				<br>
+				
+		      <hr />
+				
+				 <center><h4>No Data Available At The Moment🙁...</h4><center>
+					<br>
+   <hr />
+		    </div>
+		  </div>
+		</div>
+													</div>
+
+
+
+
+		<div class="modal fade" id="exampleModalCenterxxrevcerts" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<h2 class="text-center mb-3">Revenue From Certificates</h2>
+				<br>
+				
+		      <hr />
+				
+				 <center><h4>No Records Available At The Moment🙁...</h4><br><b>Please try again later!</b><center>
+					<br>
+   <hr />
+		    </div>
+		  </div>
+		</div>
+													</div>
+
+		
+
+
+
+
+
+		<div class="modal fade" id="exampleModalCenterxx" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
+		      </div>
+		      <div class="modal-body p-4 py-5 p-md-5">
+		      	<h3 class="text-center mb-3">TOTAL NO. OF FUNDS STAFFS</h3>
+		      
+				  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+   
+      
+		    </div>
+		  </div>
+		</div>
+		</div>
+
+
+
+
+
+		<div class="modal fade XL" id="exampleModalCenterxxDEP" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+	  <h3 class="text-center ">TOTAL NUMBER OF DEPARTMENTs</h3>
+        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="ion-ios-close">X</span>
+        </button>
+		
+      </div>
+      <div class="modal-body p-4 py-5 p-md-5 lg" style="max-height: 500px; overflow-y: scroll;">
+     
+        <table class="table table-bordered table-sm" >
+          <thead>
+            <tr>
+              <th>NO</th>
+              <th>DEPARTMENTS</th>
+              <th>DESCRIPTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>General Administration & Services</td>
+              <td>Oversees the overall administration and operations of the organization.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Human Resource Management</td>
+              <td>Responsible for the recruitment, selection, training, and development of staff.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Information and Communication Technology (ICT)</td>
+              <td>Provides IT support to the organization.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Legal</td>
+              <td>Provides legal advice and services to the organization.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Investment and Treasury Management</td>
+              <td>Manages the organization's investments and treasury.</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Finance and Accounts</td>
+              <td>Manages the organization's finances and accounts.</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Procurement</td>
+              <td>Manages the organization's procurement activities.</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Servicom</td>
+              <td>Provides customer service to the organization's stakeholders.</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Compliance</td>
+              <td>Ensures that the organization complies with all applicable laws and regulations.</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Informal Sector</td>
+              <td>Provides social security benefits to informal sector workers.</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>Risk Management</td>
+              <td>Identifies and manages the risks faced by the organization.</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>Actuarial Planning, Research, and Development</td>
+              <td>Develops actuarial models and plans for the organization.</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>Estate and Maintenance</td>
+              <td>Maintains the organization's physical assets.</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>Social Security Development</td>
+              <td>Develops new social security programs and policies.</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>Inspections</td>
+              <td>Inspects the organization's operations to ensure compliance with laws and regulations.</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Claims and Compensation</td>
+        <td>Processes claims for benefits and provides compensation to beneficiaries.</td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>Health Safety & Environment</td>
+        <td>Ensures the health, safety, and environmental compliance of the organization.</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Corporate Affairs</td>
+        <td>Manages the organization's public relations and communications.</td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>General</td>
+        <td>Handles other matters that do not fall under any specific department.</td>
+		<tr>
+        <td>20</td>
+        <td>ED Directorate</td>
+        <td>The Directorate of the Executive Director.</td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td>MD Directorate</td>
+        <td>The Directorate of the Managing Director.</td>
+      </tr>
+    </tbody>
+  </table>
+      
+		    </div>
+		  </div>
+		</div>
+		</div>
+
+
+
+
+
+
+
+
+		<div class="modal fade" id="exampleModalCenterxxRO" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true" class="ion-ios-close"></span>
+		        </button>
+		      </div>
+		      <div class="modal-body p-4 py-5 p-md-5">
+		      	<h3 class="text-center mb-3">TOTAL NO. OF REGIONAL OFFICESS</h3>
+		      
+				  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>No</th>
+        <th>Locations</th>
+        <th>COUNTRY</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>LAGOS</td>
+        <td>NIGERIA</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>IBADAN</td>
+        <td>NIGERIA</td>
+      </tr>
+	  <tr>
+        <td>3</td>
+        <td>PORT-HARCOURT</td>
+        <td>NIGERIA</td>
+      </tr>
+	  <tr>
+        <td>4</td>
+        <td>ASABA</td>
+        <td>NIGERIA</td>
+      </tr>
+	  <tr>
+        <td>5</td>
+        <td>ENUGU</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>6</td>
+        <td>JOS</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>7</td>
+        <td>ABUJA</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>8</td>
+        <td>KADUNA</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>9</td>
+        <td>KANO</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>11</td>
+        <td>MAIDUGURI</td>
+        <td>NIGERIA</td>
+      </tr> 
+	  <tr>
+        <td>12</td>
+        <td>BAUCHI</td>
+        <td>NIGERIA</td>
+      </tr> <tr>
+        <td>13</td>
+        <td>IBADAN</td>
+        <td>NIGERIA</td>
+      </tr>`
+      <tr>
+        <td>14</td>
+        <td>PORT-HARCOURT</td>
+        <td>NIGERIA</td>
+      </tr>
+    </tbody>
+  </table>
+ 
+		    </div>
+		  </div>
+		</div>
+
+
+
+
+
+
+
 
 								<!--end::Pagination-->
 								<!--begin::Modals-->
@@ -1953,3 +2608,6 @@
 
 
 @endsection
+
+
+

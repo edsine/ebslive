@@ -65,6 +65,9 @@ Route::get('/complianceadmin', [HomeController::class, 'complianceadmin'])->name
 Route::get('/hseadmin', [HomeController::class, 'hseadmin'])->name('hseadmin');
 Route::get('/pamsec', [HomeController::class, 'pamsec'])->name('pamsec');
 Route::get('/riskadmin',[HomeController::class,'riskadmin']);
+Route::get('/aprd',[HomeController::class,'aprd']);
+Route::get('/fre',[HomeController::class,'fre']);
+Route::get('/copaffairs',[HomeController::class,'copaffairs']);
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/view-profile', [ProfileController::class, 'showProfile'])->name('view-profile');
