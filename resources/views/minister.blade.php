@@ -41,8 +41,11 @@
 														<rect x="3" y="13" width="3" height="6" rx="1.5" fill="currentColor" />
 													</svg>
 												</span>
+												
 												<!--end::Svg Icon-->
-												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$branchtotal}}</div>
+												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$branchtotal}}
+												
+												</div>
 												<div class="fw-bold" style="color:green"><b>TOTAL NO. OF BRANCH OFFICES</b></div>
 											</div>
 											<!--end::Body-->
