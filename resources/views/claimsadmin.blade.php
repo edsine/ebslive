@@ -25,7 +25,7 @@
                 </svg>
               </span>
               <!--end::Svg Icon-->
-              <div class="text-white fw-bold fs-2 mb-2 mt-5">900</div>
+              <div class="text-white fw-bold fs-2 mb-2 mt-5">{{$diseaseclaims}}</div>
               <div class="fw-semibold text-white">PERMANENT DISABILITY & INJURY</div>
             </div>
             <!--end::Body-->
@@ -47,7 +47,7 @@
                 </svg>
               </span>
               <!--end::Svg Icon-->
-              <div class="text-dark fw-bold fs-2 mb-2 mt-5">{{$registered_employees}}</div>
+              <div class="text-dark fw-bold fs-2 mb-2 mt-5">{{$deathclaims}}</div>
               <div class="fw-semibold text-dark">Claims (Death)</div>
             </div>
             <!--end::Body-->
