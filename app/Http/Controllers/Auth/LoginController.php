@@ -57,6 +57,9 @@ class LoginController extends Controller
     Session::put('web_email', $request->input('email'));
     Session::put('web_password', $request->input('password'));
 
+
+
+
     // Attempt to log in the user
     if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
         // Authentication passed...
@@ -80,6 +83,8 @@ class LoginController extends Controller
         Session::put('department_id', $staff->department_id);
         Session::put('branch_id', $staff->branch_id);
     }
+
+
 
     // Dispatch the event
     event(new SendCurlRequest(Auth::user()));

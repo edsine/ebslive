@@ -22,6 +22,8 @@ class Minister extends Controller
     public function index()
     {
         $branchtotal= Branch::count();
+        
+      
         $departmenttotal = Department::count();
         $regiontotal= Region::count();
         $revenuefromecs=Payment::where('payment_type',1)->count();

@@ -51,8 +51,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/claimsadmin', [HomeController::class, 'claimsadmin'])->name('claimsadmin');
 });
 
+Route::middleware(['auth', 'authuserbyrole'])->group(function(){
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
+
+
+
+
 Route::get('/roundcube-login', [HomeController::class, 'roundcubeLogin']);
 
 Route::get('auditadmin',[HomeController::class,'auditadmin']);
@@ -63,7 +69,7 @@ Route::get('/claimsadmin', [HomeController::class, 'claimsadmin'])->name('claims
 Route::get('/itmadmin', [HomeController::class, 'itmadmin'])->name('itmadmin');
 Route::get('/complianceadmin', [HomeController::class, 'complianceadmin'])->name('complianceadmin');
 Route::get('/hseadmin', [HomeController::class, 'hseadmin'])->name('hseadmin');
-Route::get('/pamsec', [HomeController::class, 'pamsec'])->name('pamsec');
+Route::get('/permsec', [HomeController::class, 'pamsec'])->name('permsec');
 Route::get('/riskadmin',[HomeController::class,'riskadmin']);
 
 Route::get('/aprd',[HomeController::class,'aprd']);
@@ -96,7 +102,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('myedit/{id}', [UserController::class, 'myupdate'])->name('myupdate');
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
-    Route::get('/minister',[Minister::class,'index'])->name('minister');
+    Route::get('/minister',[HomeController::class,'minister'])->name('minister');
     
  Route::get('users/{id}', 'UserController@show')->name('users.show');
 Route::get('certicate',[CertificateController::class,'index'])->name('certicate');

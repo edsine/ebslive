@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Modules\Shared\Models\Branch;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Modules\Shared\Models\Department;
+use Modules\UnitManager\Models\Region;
+use Modules\WorkflowEngine\Models\Staff;
+use Modules\EmployerManager\Models\Payment;
 use Modules\EmployerManager\Models\Employee;
 use Modules\EmployerManager\Models\Employer;
-use GuzzleHttp\Client;
+use Modules\EmployerManager\Models\Certificate;
 use Modules\ClaimsCompensation\Models\ClaimsCompensation;
-use Modules\Shared\Models\Department;
-use Modules\WorkflowEngine\Models\Staff;
 
 class HomeController extends Controller
 {
@@ -47,6 +52,29 @@ class HomeController extends Controller
         return view('home', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees',
         'claims_death_count', 'staff_count', 'data'));
     }
+
+    public function minister()
+    {
+        $branchtotal= Branch::count();
+        
+    
+        $departmenttotal = Department::count();
+        $regiontotal= Region::count();
+        $revenuefromecs=Payment::where('payment_type',1)->count();
+        $revenuefromcertificate=Payment::where('payment_type',2)->count();
+        $revenuefromregistration=Payment::where('payment_type',3)->count();
+        $totalstaff=Staff::count();
+        $totalemployers=Employer::count();
+        $totalemployees=Employee::count();
+        $totalcertificate=Certificate::count();
+        return view('minister',compact('branchtotal','departmenttotal',
+        'regiontotal','revenuefromecs',
+        'revenuefromcertificate','revenuefromregistration','totalemployers',
+        'totalemployees','totalcertificate',
+        'totalstaff'));
+    }
+
+
     public function hradmin()
     {
         
@@ -122,6 +150,7 @@ $diseaseclaims= ClaimsCompensation::where('claimstype_id' ,2)->count();
     
     $data = Employer::where('status', 1);
     $data = $data->paginate(10);
+    
     
     return view('claimsadmin', compact(
         'registered_employers', 
