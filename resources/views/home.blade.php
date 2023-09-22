@@ -34,6 +34,8 @@
                 @include('ictadmin')
             @elseif(auth()->user()->staff->department_id == 14)
                 @include('socialsecurityadmin')
+            @elseif(auth()->user()->staff->department_id == 7)
+                @include('procurement')
             @else
                 @include('defaultdashboard')
             @endif
