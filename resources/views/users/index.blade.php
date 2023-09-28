@@ -45,7 +45,7 @@
         <div class="clearfix"></div>
 
         <div class="card">
-            @include('users.atp')
+            @include('users.tablepage')
         </div>
     </div>
 @endsection
