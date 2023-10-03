@@ -86,7 +86,7 @@ class UsersImport implements ToCollection
              curl_close($curl);
 
             // Send notification to the user
-            Notification::send($users, new UserImportedNotification($staffData)); // Pass necessary data to the notification
+            Notification::send($users, new UserImportedNotification($users)); // Pass necessary data to the notification
         }
    
         /* $this->usersData = $usersData;
