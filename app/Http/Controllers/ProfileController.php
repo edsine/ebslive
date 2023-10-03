@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
+use Modules\Shared\Models\Branch;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Flash;
-use Modules\Shared\Models\Branch;
 use Modules\Shared\Models\Department;
 
 class ProfileController extends Controller
@@ -70,7 +70,7 @@ class ProfileController extends Controller
 
     public function update(Request $request, $id)
     {
-        // dd($request->all());
+        
         $request->validate([
             'password' => 'nullable|string|min:6|same:password_confirmation'
         ]);
