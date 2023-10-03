@@ -17,16 +17,16 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next)
     {
-        switch (Auth::user()->role) {
-            case 'minister':
-                return redirect()->route('minister');
-                break;
-            case 'permsec':
-                return redirect()->route('permsec');
-                break;
-            default:
-                return redirect('/home');
-        }
+        // switch (Auth::user()->role) {
+        //     case 'minister':
+        //         return redirect()->route('minister');
+        //         break;
+        //     case 'permsec':
+        //         return redirect()->route('permsec');
+        //         break;
+        //     default:
+        //         return redirect('/home');
+        // }
         
 
         // return $next($request);
