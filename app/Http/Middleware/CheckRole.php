@@ -17,18 +17,20 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next)
     {
-        // switch (Auth::user()->role) {
-        //     case 'minister':
-        //         return redirect()->route('minister');
-        //         break;
-        //     case 'permsec':
-        //         return redirect()->route('permsec');
-        //         break;
-        //     default:
-        //         return redirect('/home');
-        // }
-        
-
-        // return $next($request);
+        if (Auth::check()) {
+            switch (true) {
+                case Auth::user()->hasRole('minister'):
+                    return redirect()->route('minister');
+                case Auth::user()->hasRole('permsec'):
+                    return redirect()->route('permsec');
+                default:
+                    return redirect()->intended('/home');
+            }
+        }
+    
+        // Handle the case where the user is not authenticated.
+        // You might want to add additional logic or redirect accordingly.
+        return redirect('/login');
     }
+    
 }
