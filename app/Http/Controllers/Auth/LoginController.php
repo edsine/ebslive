@@ -63,6 +63,7 @@ class LoginController extends Controller
     // Attempt to log in the user
     if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
         // Authentication passed...
+        
         return redirect()->intended('/home');
     }
 

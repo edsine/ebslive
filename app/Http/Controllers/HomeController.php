@@ -36,6 +36,7 @@ class HomeController extends Controller
     public function index()
     {
 
+        
     
         $claims_table = 'death_claims';
     $claims_death_count = DB::table($claims_table)->count();
@@ -49,6 +50,12 @@ class HomeController extends Controller
         $pending_employees = Employee::where('status', 2)->count();
         $data = Employer::where('status', 1);
         $data = $data->paginate(10);
+
+
+        
+
+
+
         return view('home', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees',
         'claims_death_count', 'staff_count', 'data'));
     }
