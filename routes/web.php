@@ -51,14 +51,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/claimsadmin', [HomeController::class, 'claimsadmin'])->name('claimsadmin');
 });
 
-// Route::middleware(['auth', 'authuserbyrole'])->group(function(){
-//     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-// });
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth', 'authuserbyrole'])->group(function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 });
+// Route::middleware(['auth'])->group(function(){
+//     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+// });
 
 
 
