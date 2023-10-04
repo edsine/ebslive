@@ -248,6 +248,7 @@ class UserController extends AppBaseController
      public function store(CreateUserRequest $request)
      {
          $input = $request->all();
+
          //$email = $input['email'];
      
          $input['plain_password'] = $input['password'];
@@ -319,6 +320,7 @@ class UserController extends AppBaseController
          }
      
          $user->assignRole($role);
+         
          // Send notification to user about his account details
          Notification::send($user, new UserCreated($input));
      
