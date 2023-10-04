@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\EmailController;
+//use App\Http\Controllers\EmailController;
 use App\Http\Controllers\Minister;
 use App\Http\Controllers\ProfileController;
 use App\Models\User;
@@ -42,7 +42,7 @@ Route::get('/', function () {
 });
 Route::get('/html_email', [UserController::class, 'html_email'])->name('html_email');
 
-Route::get('/webmail', [EmailController::class, 'index']);
+//Route::get('/webmail', [EmailController::class, 'index']);
 
 
 Route::group(['middleware' => ['auth']], function () {
