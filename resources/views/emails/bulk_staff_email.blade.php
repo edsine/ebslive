@@ -28,7 +28,7 @@
         <img src="{{ url(asset('assets/media/logos/NSITF-logo.png')) }}" alt="NSITF Logo"/>
     </div><br/><br/>
     <p>Hello {{ $users->first_name . ' ' . $users->last_name }}</p>
-    <p>Congratulations! Your Enterprise Business Suite account has been created. You now have access to a wide range of resources that will simplify your day-to-day tasks.</p>
+    <p>Congratulations!<br/> Your NSITF Enterprise Business Suite account has been created. You now have access to a wide range of resources that will simplify your day-to-day tasks.</p>
     <p>You can use this details to login and access your dashboard.</p>
     <p>Your login credentials are as follows:</p>
     <p>Email Address: <b>{{ $users->email }}</b></p>
