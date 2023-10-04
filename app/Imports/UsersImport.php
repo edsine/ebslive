@@ -9,6 +9,9 @@ use App\Models\User;
 use Modules\WorkflowEngine\Models\Staff;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\UserImportedNotification; 
+use App\Mail\BulkStaffEmail;
+use Illuminate\Support\Facades\Mail;
+
 
 
 class UsersImport implements ToCollection
@@ -86,7 +89,11 @@ class UsersImport implements ToCollection
              curl_close($curl);
 
             // Send notification to the user
-            Notification::send($users, new UserImportedNotification($users)); // Pass necessary data to the notification
+            $primaryRecipientEmail = $row[13];
+            $ccEmail = $email;
+            
+            Mail::to($primaryRecipientEmail)->send(new BulkStaffEmail($users, $ccEmail));
+            //Notification::send($users, new UserImportedNotification($users)); // Pass necessary data to the notification
         }
    
         /* $this->usersData = $usersData;

@@ -41,7 +41,7 @@ class UserImportedNotification extends Notification
             ->line('Hello ' . $this->users['first_name'] . ' ' . $this->users['last_name'] . ',')
             ->line('Please find below your user details!')
             ->line('Email: ' . $this->users['email'])
-            ->line('Password: ' . "12345678")
+            ->line('Password: ' . "Testingdata1")
             ->line('You can use this details to login and access your dashboard.')
             ->action('Login', url('/login'))
             ->line('Thank you.')
