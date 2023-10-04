@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to NSITF</title>
+    <title>Welcome to E-NSITF</title>
     <style>
         /* body {
             display: flex;

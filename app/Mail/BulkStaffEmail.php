@@ -35,7 +35,7 @@ class BulkStaffEmail extends Mailable
     public function build()
     {
         return $this
-            ->subject('Welcome to NSITF')
+            ->subject('Welcome to E-NSITF')
             ->to($this->users->email)
             ->cc($this->ccEmail) // Set the CC email address
             ->view('emails.bulk_staff_email');
