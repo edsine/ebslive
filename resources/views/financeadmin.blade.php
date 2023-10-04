@@ -46,7 +46,7 @@
 							<!--begin::Section-->
 							<div class="d-flex flex-column my-7">
 								<!--begin::Number-->
-								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">5,000,000</span>
+								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">0</span>
 								<!--end::Number-->
 								<!--begin::Follower-->
 								<div class="m-0">
@@ -93,7 +93,7 @@
 							<!--begin::Section-->
 							<div class="d-flex flex-column my-7">
 								<!--begin::Number-->
-								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">3,500,000</span>
+								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">0</span>
 								<!--end::Number-->
 								<!--begin::Follower-->
 								<div class="m-0">
@@ -140,7 +140,7 @@
 							<!--begin::Section-->
 							<div class="d-flex flex-column my-7">
 								<!--begin::Number-->
-								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">1,500,000</span>
+								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">0</span>
 								<!--end::Number-->
 								<!--begin::Follower-->
 								<div class="m-0">
@@ -190,7 +190,7 @@
 							<!--begin::Section-->
 							<div class="d-flex flex-column my-7">
 								<!--begin::Number-->
-								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">2,000,000</span>
+								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">0</span>
 								<!--end::Number-->
 								<!--begin::Follower-->
 								<div class="m-0">
@@ -237,7 +237,7 @@
 							<!--begin::Section-->
 							<div class="d-flex flex-column my-7">
 								<!--begin::Number-->
-								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">270,000,000</span>
+								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">0</span>
 								<!--end::Number-->
 								<!--begin::Follower-->
 								<div class="m-0">
@@ -284,7 +284,7 @@
 							<!--begin::Section-->
 							<div class="d-flex flex-column my-7">
 								<!--begin::Number-->
-								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">1,680</span>
+								<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">0</span>
 								<!--end::Number-->
 								<!--begin::Follower-->
 								<div class="m-0">
@@ -354,11 +354,11 @@
 									<!--begin::Statistics-->
 									<div class="d-flex mb-2">
 										<span class="fs-4 fw-semibold text-gray-400 me-1">%</span>
-										<span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">40</span>
+										<span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">0</span>
 									</div>
 									<!--end::Statistics-->
 									<!--begin::Description-->
-									<span class="fs-6 fw-semibold text-gray-400">Budget for April</span>
+									<span class="fs-6 fw-semibold text-gray-400">Budget for October</span>
 									<!--end::Description-->
 								</div>
 								<!--end::Item-->
@@ -366,12 +366,12 @@
 								<div class="border-start-dashed border-end-dashed border-1 border-gray-300 px-5 ps-md-10 pe-md-7 me-md-5">
 									<!--begin::Statistics-->
 									<div class="d-flex mb-2">
-										<span class="fs-4 fw-semibold text-gray-400 me-1">%</span>
-										<span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">80</span>
+										<span class="fs-4 fw-semibold text-gray-400 me-1">%0</span>
+										<span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2"></span>
 									</div>
 									<!--end::Statistics-->
 									<!--begin::Description-->
-									<span class="fs-6 fw-semibold text-gray-400">Actual for April</span>
+									<span class="fs-6 fw-semibold text-gray-400">Actual for October</span>
 									<!--end::Description-->
 								</div>
 								<!--end::Item-->
