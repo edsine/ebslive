@@ -55,6 +55,7 @@ class HomeController extends Controller
             $staff_count = DB::table($staffs)->count();
             $ictstaff= Staff::where('department_id',3)->count();
             
+            $totalemployers=Employer::count();
             $registered_employers = Employer::where('status', 1)->count();
             $pending_employers = Employer::where('status', 2)->count();
             $registered_employees = Employee::where('status', 1)->count();
@@ -65,7 +66,7 @@ class HomeController extends Controller
             
             
             return view('home', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees',
-            'claims_death_count', 'staff_count', 'data','ictstaff'));
+            'claims_death_count', 'staff_count', 'data','ictstaff','totalemployers'));
         }
     }
 

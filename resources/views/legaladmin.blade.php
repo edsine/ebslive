@@ -79,7 +79,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-warning fw-semibold fs-6">Total: 5090</a>
+									<a href="#" class="text-warning fw-semibold fs-6">Total: {{$totalemployers}}</a>
 								</div>
 								<!--end::Col-->
 								<!--begin::Col-->
@@ -92,7 +92,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-primary fw-semibold fs-6">Defaulter: 3000</a>
+									<a href="#" class="text-primary fw-semibold fs-6">Defaulter: 0</a>
 								</div>
 								<!--end::Col-->
 							</div>
@@ -136,7 +136,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-warning fw-semibold fs-6">Pending: 6790</a>
+									<a href="#" class="text-warning fw-semibold fs-6">Pending: 0</a>
 								</div>
 								<!--end::Col-->
 								<!--begin::Col-->
@@ -149,7 +149,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-primary fw-semibold fs-6">Resolved: 2300</a>
+									<a href="#" class="text-primary fw-semibold fs-6">Resolved: 0</a>
 								</div>
 								<!--end::Col-->
 							</div>
@@ -193,7 +193,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-warning fw-semibold fs-6">New: 4000</a>
+									<a href="#" class="text-warning fw-semibold fs-6">New: 0</a>
 								</div>
 								<!--end::Col-->
 								<!--begin::Col-->
@@ -206,7 +206,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-primary fw-semibold fs-6">Adviced: 377</a>
+									<a href="#" class="text-primary fw-semibold fs-6">Adviced: 0</a>
 								</div>
 								<!--end::Col-->
 							</div>
@@ -277,7 +277,7 @@
                 <div class="text-gray-500 flex-grow-1 me-4">Defaulters</div>
                 <!--end::Label-->
                 <!--begin::Stats-->
-                <div class="fw-boldest text-gray-700 text-xxl-end">30%</div>
+                <div class="fw-boldest text-gray-700 text-xxl-end">0%</div>
                 <!--end::Stats-->
             </div>
             <!--end::Label-->
@@ -290,7 +290,7 @@
                 <div class="text-gray-500 flex-grow-1 me-4">Complied Employers</div>
                 <!--end::Label-->
                 <!--begin::Stats-->
-                <div class="fw-boldest text-gray-700 text-xxl-end">70%</div>
+                <div class="fw-boldest text-gray-700 text-xxl-end">0%</div>
                 <!--end::Stats-->
             </div>
             <!--end::Label-->
@@ -303,7 +303,7 @@
                 <div class="text-gray-500 flex-grow-1 me-4">Total</div>
                 <!--end::Label-->
                 <!--begin::Stats-->
-                <div class="fw-boldest text-gray-700 text-xxl-end">100%</div>
+                <div class="fw-boldest text-gray-700 text-xxl-end">0%</div>
                 <!--end::Stats-->
             </div>
             <!--end::Label-->
