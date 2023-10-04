@@ -44,11 +44,11 @@
     display: inline-block;
     overflow: hidden;
     text-decoration: none;
-    background-color: #2d3748;
-    border-bottom: 8px solid #2d3748;
-    border-left: 18px solid #2d3748;
-    border-right: 18px solid #2d3748;
-    border-top: 8px solid #2d3748;">LOGIN</a>
+    background-color: #178c2d;
+    border-bottom: 8px solid #178c2d;
+    border-left: 18px solid #178c2d;
+    border-right: 18px solid #178c2d;
+    border-top: 8px solid #178c2d;">LOGIN</a>
     <hr/>
     <p>
         If you're having trouble clicking the "LOGIN" button, copy and paste this URL below into your web browser:
