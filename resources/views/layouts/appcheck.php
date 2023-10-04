@@ -62,6 +62,7 @@
     <!--begin::App-->
     <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
         <!--begin::Page-->
+        
         <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
             <!--begin::Header-->
             @include('layouts.header')
@@ -74,6 +75,7 @@
                 <!--begin::Main-->
                 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                     <!--begin::Content wrapper-->
+                    
                     @include('layouts.content')
                     <!--end::Content wrapper-->
                     <!--begin::Footer-->
@@ -101,6 +103,27 @@
     <script src="{{ asset('js/sweetalert2.min.js') }}"></script>
     <!-- end::bootstrap-sweet-alert -->
 
+   <!-- using mdn -->
+   <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"
+></script>
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"
+  rel="stylesheet"
+/>
 
     <!--begin::Global Javascript Bundle(mandatory for all pages)-->
     <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
