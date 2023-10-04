@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Modules\Shared\Models\Branch;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Modules\Shared\Models\Department;
 use Modules\UnitManager\Models\Region;
 use Modules\WorkflowEngine\Models\Staff;
@@ -36,28 +37,38 @@ class HomeController extends Controller
     public function index()
     {
 
-        
-    
-        $claims_table = 'death_claims';
-    $claims_death_count = DB::table($claims_table)->count();
+        if (Auth::check() && Auth::user()->hasRole('minister')) {
+            return redirect()->route('minister');
+        }
+        else if(Auth::check() && Auth::user()->hasRole('permsec'))
+        {
 
-    $staffs = 'staff';
-    $staff_count = DB::table($staffs)->count();
+            return redirect()->route('permsec');
+        }
+        else {
 
-        $registered_employers = Employer::where('status', 1)->count();
-        $pending_employers = Employer::where('status', 2)->count();
-        $registered_employees = Employee::where('status', 1)->count();
-        $pending_employees = Employee::where('status', 2)->count();
-        $data = Employer::where('status', 1);
-        $data = $data->paginate(10);
-
-
-        
-
-
-
-        return view('home', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees',
-        'claims_death_count', 'staff_count', 'data'));
+            
+            $claims_table = 'death_claims';
+            $claims_death_count = DB::table($claims_table)->count();
+            
+            $staffs = 'staff';
+            $staff_count = DB::table($staffs)->count();
+            
+            $registered_employers = Employer::where('status', 1)->count();
+            $pending_employers = Employer::where('status', 2)->count();
+            $registered_employees = Employee::where('status', 1)->count();
+            $pending_employees = Employee::where('status', 2)->count();
+            $data = Employer::where('status', 1);
+            $data = $data->paginate(10);
+            
+            
+            
+            
+            
+            
+            return view('home', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees',
+            'claims_death_count', 'staff_count', 'data'));
+        }
     }
 
     public function minister()
