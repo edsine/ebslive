@@ -68,37 +68,77 @@ class ProfileController extends Controller
         return view('users.show_profile',compact('role','data'));
     }
 
+    // public function update(Request $request, $id)
+    // {
+        
+    //     $request->validate([
+    //         'password' => 'nullable|string|min:6|same:password_confirmation'
+    //     ]);
+
+    //     if($request->filled('password')){
+    //         $request->request->add([
+    //             'password' => Hash::make($request->password),
+    //         ]);
+    //     }else {
+    //         $request->request->remove('password');
+    //     }
+    //     if ($request->hasFile('profile_picture')) {
+    //         $file = $request->file('profile_picture');
+    //         if ($file->isValid()) {
+    //             $fileName = $file->hashName();
+    //             $path = $file->store('public');
+    //             $input['profile_picture'] = $fileName;
+    //         } else {
+    //             Flash::success(' Image Rejected, Please Recheck it and Reupload.');
+    //             return redirect()->route('home');
+    //         }
+    //     }
+        
+    //     $input = $request->all();
+    //     $item = User::findorFail($id);
+    //     $item->staff->update(['profile_picture' => $input['profile_picture']]);
+    //     $item->update($input);
+    //     Flash::success(' saved successfully.');
+    //     return redirect()->route('home');
+    // }
+
     public function update(Request $request, $id)
     {
-        
         $request->validate([
-            'password' => 'nullable|string|min:6|same:password_confirmation'
+            'password' => 'nullable|string|min:6|same:password_confirmation',
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Add image validation rules
         ]);
-
-        if($request->filled('password')){
-            $request->request->add([
-                'password' => Hash::make($request->password),
-            ]);
-        }else {
-            $request->request->remove('password');
+    
+        $input = $request->all();
+        $item = User::findOrFail($id);
+    
+        if ($request->filled('password')) {
+            $item->password = Hash::make($request->password);
+        } else {
+            unset($input['password']);
         }
+    
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
+    
             if ($file->isValid()) {
                 $fileName = $file->hashName();
                 $path = $file->store('public');
-                $input['profile_picture'] = $fileName;
+                $item->staff->profile_picture = $fileName;
+                $item->staff->save(); // Update the staff record
             } else {
-                Flash::success(' Image Rejected, Please Recheck it and Reupload.');
-                return redirect()->route('home');
+                // Handle file validation errors
+                return redirect()->route('home')->withErrors(['profile_picture' => 'Image Rejected, please check and reupload.']);
             }
         }
-        
-        $input = $request->all();
-        $item = User::findorFail($id);
-        $item->staff->update(['profile_picture' => $input['profile_picture']]);
-        $item->update($input);
-        Flash::success(' saved successfully.');
+    
+        $item->save(); // Update the user record
+        Flash::success('Saved successfully.');
+    
         return redirect()->route('home');
     }
+    
+
 }
+
+

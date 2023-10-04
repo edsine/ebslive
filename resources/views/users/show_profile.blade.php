@@ -11,7 +11,7 @@
                 <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
                  
                     @if (auth()->user()->staff && auth()->user()->staff->profile_picture)
-                    <img src="{{ url('storage/' .  auth()->user()->staff->profile_picture) }}" alt="{{ auth()->user()->staff->profile_picture }}">
+                    <img src="{{ asset('storage/' .  auth()->user()->staff->profile_picture) }}" alt="{{ auth()->user()->staff->profile_picture }}">
                     @else
                     <img src="assets/media/avatars/300-1.jpg" alt="image" />
                     @endif
@@ -52,7 +52,17 @@
                                     <path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z" fill="currentColor" />
                                 </svg>
                             </span>
-                            <!--end::Svg Icon-->Rank </a>
+                            @php
+                               
+
+                            @endphp
+                            <!--end::Svg Icon--> 
+                        @if (Auth::user()->ranking)
+                            
+                        @else
+                            No rank Assigned
+                        @endif
+                        </a>
                             <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen018.svg-->
                             <span class="svg-icon svg-icon-4 me-1">
