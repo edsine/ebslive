@@ -38,7 +38,6 @@ class BulkStaffEmail extends Mailable
             ->subject('Welcome to NSITF')
             ->to($this->users->email)
             ->cc($this->ccEmail) // Set the CC email address
-            ->from('admin@nsitf.gov.ng')
             ->view('emails.bulk_staff_email');
     }
 }
