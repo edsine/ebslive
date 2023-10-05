@@ -42,7 +42,9 @@ use Illuminate\Support\Facades\Auth;
                  <!--begin::Username-->
                  <div class="d-flex flex-column">
                      <div class="fw-bold d-flex align-items-center fs-5 mt-5 pt-3">{{'Hello,'. ' '. $user->first_name. ' ' . $user->last_name  }} 
-                        <span class=" fw-bold p-2 text-bg-success rounded-pill text-uppercase ms-4"> {{auth()->user()->roles->pluck('name')[0]}} </span>
+                        {{-- <span class=" fw-bold p-2 text-bg-success rounded-pill text-uppercase ms-4">  {{auth()->user()->roles->pluck('name')[0]}} </span> --}}
+                        <span class=" fw-bold p-2 text-bg-success rounded-pill text-uppercase ms-4"> {{ auth()->user()->roles->isNotEmpty() ? auth()->user()->roles->pluck('name')->first() : 'no role yet' }}
+                        </span>
                         @php
                           
                         @endphp 
@@ -1486,7 +1488,8 @@ use Illuminate\Support\Facades\Auth;
                  <!--begin::Username-->
                  <div class="d-flex flex-column">
                      <div class="fw-bold d-flex align-items-center fs-5">{{$user->first_name. ' ' . $user->last_name}}
-                         <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">{{auth()->user()->roles->pluck('name')[0]}}</span>
+                         {{-- <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">{{auth()->user()->roles->pluck('name')[0]}}</span> --}}
+                         <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">{{ auth()->user()->roles->isNotEmpty() ? auth()->user()->roles->pluck('name')->first() : 'no role yet' }}</span>
                      </div>
                      <!-- <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a> -->
                  </div>

@@ -456,7 +456,7 @@ class UserController extends AppBaseController
 
         $roles->prepend('Select role', '');
 
-        return view('users.edit', compact('user', 'roles', 'branch', 'department', 'id', 'rank'));
+        return view('users.edit', compact('user','roles','branch', 'department', 'id', 'rank'));
     }
 
     /**
