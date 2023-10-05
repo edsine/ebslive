@@ -32,6 +32,15 @@ class RankingTableSeeder extends Seeder
                 'name'=>'Senior Manager'
             ],
             [
+                'name'=>'Senior Supervisor'
+            ],
+            [
+                'name'=>'ED'
+            ],
+            [
+                'name'=>'MD'
+            ],
+            [
                 'name'=>' Manager'
             ],
             [
