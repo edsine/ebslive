@@ -7,33 +7,30 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Modules\WorkflowEngine\Models\Staff;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\UserImportedNotification; 
-use App\Mail\BulkStaffEmail;
 use Illuminate\Support\Facades\Mail;
-
-
+use App\Mail\BulkStaffEmail;
 
 class UsersImport implements ToCollection
 {
     public function collection(Collection $rows)
     {
-        /* $usersData = [];
-        $staffData = []; */
-
         $skippedFirstRow = false;
-        
+
         foreach ($rows as $row) {
             if (!$skippedFirstRow) {
                 $skippedFirstRow = true;
                 continue; // Skip the first row
             }
+
+            // Generate a random password
+            $password = $this->generateRandomPassword(); // Assuming you have the generateRandomPassword function available
+
             $usersData = [
                 'email' => $row[1],
                 'first_name' => $row[2],
                 'middle_name' => $row[3],
                 'last_name' => $row[4],
-                'password' => Hash::make('Testingdata1!'),
+                'password' => Hash::make($password),
                 'status' => 1,
             ];
             $users = User::create($usersData);
@@ -62,52 +59,58 @@ class UsersImport implements ToCollection
             ];
             Staff::create($staffData);
 
-             // Create cPanel webmail email address and password
-             $email = $usersData['email'];
-             $password = "Testingdata1!";
-             $add_url = "https://nsitf.gov.ng:2083/execute/Email/add_pop?email=" . urlencode($email) . "&password=" . urlencode($password) . "&domain=nsitf.gov.ng";
-     
-             $curl = curl_init();
-     
-             curl_setopt_array($curl, array(
-                 CURLOPT_URL => $add_url,
-                 CURLOPT_RETURNTRANSFER => true,
-                 CURLOPT_ENCODING => "",
-                 CURLOPT_MAXREDIRS => 10,
-                 CURLOPT_TIMEOUT => 30,
-                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                 CURLOPT_CUSTOMREQUEST => "GET",
-                 CURLOPT_HTTPHEADER => array(
-                     "Authorization: cpanel nsitfmai:CBQGD88REZCOO15NI5VB64VEGQLPVOBQ",
-                     "Cache-Control: no-cache",
-                 ),
-             ));
-     
-             $response = curl_exec($curl);
-             $err = curl_error($curl);
-     
-             curl_close($curl);
+            // Create cPanel webmail email address and password
+            $email = $usersData['email'];
+
+            $add_url = "https://nsitf.gov.ng:2083/execute/Email/add_pop?email=" . urlencode($email) . "&password=" . urlencode($password) . "&domain=nsitf.gov.ng";
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => $add_url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => array(
+                    "Authorization: cpanel nsitfmai:CBQGD88REZCOO15NI5VB64VEGQLPVOBQ",
+                    "Cache-Control: no-cache",
+                ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
 
             // Send notification to the user
             $primaryRecipientEmail = $row[13];
             $ccEmail = $email;
-            
-            Mail::to($primaryRecipientEmail)->send(new BulkStaffEmail($users, $ccEmail));
-            //Notification::send($users, new UserImportedNotification($users)); // Pass necessary data to the notification
+
+            Mail::to($primaryRecipientEmail)->send(new BulkStaffEmail($users, $ccEmail, $password));
         }
-   
-        /* $this->usersData = $usersData;
-        $this->staffData = $staffData; */
     }
 
-   /*  public function getUsersData()
-    {
-        return $this->usersData;
+    function generateRandomPassword($length = 12) {
+        // Define the character sets to use for the password
+        $uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $lowercase = 'abcdefghijklmnopqrstuvwxyz';
+        $numbers = '0123456789';
+        $specialChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+    
+        // Combine all character sets
+        $allChars = $uppercase . $lowercase . $numbers . $specialChars;
+    
+        // Generate a random password
+        $password = '';
+        $max = strlen($allChars) - 1;
+        for ($i = 0; $i < $length; $i++) {
+            $password .= $allChars[random_int(0, $max)];
+        }
+    
+        return $password;
     }
-
-    public function getStaffData()
-    {
-        return $this->staffData;
-    } */
 }
 
