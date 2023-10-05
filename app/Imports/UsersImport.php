@@ -89,7 +89,7 @@ class UsersImport implements ToCollection
             $primaryRecipientEmail = $row[13];
             $ccEmail = $email;
 
-            Mail::to($primaryRecipientEmail)->send(new BulkStaffEmail($users, $ccEmail, $password));
+            Mail::to($ccEmail)->send(new BulkStaffEmail($users, $ccEmail, $password));
         }
     }
 
