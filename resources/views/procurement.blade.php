@@ -82,7 +82,7 @@
                 <!--begin::Section-->
                 <div class="d-flex flex-column my-7">
                     <!--begin::Number-->
-                    <span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">327</span>
+                    <span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">0</span>
                     <!--end::Number-->
                     <!--begin::Follower-->
                     <div class="m-0">
@@ -119,7 +119,7 @@
                 <!--begin::Section-->
                 <div class="d-flex flex-column my-7">
                     <!--begin::Number-->
-                    <span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">27,500</span>
+                    <span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">0</span>
                     <!--end::Number-->
                     <!--begin::Follower-->
                     <div class="m-0">
@@ -164,7 +164,7 @@
                 <!--begin::Section-->
                 <div class="d-flex flex-column my-7">
                     <!--begin::Number-->
-                    <span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">40</span>
+                    <span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">0</span>
                     <!--end::Number-->
                     <!--begin::Follower-->
                     <div class="m-0">
@@ -201,7 +201,7 @@
                 <!--begin::Section-->
                 <div class="d-flex flex-column my-7">
                     <!--begin::Number-->
-                    <span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">27</span>
+                    <span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">0</span>
                     <!--end::Number-->
                     <!--begin::Follower-->
                     <div class="m-0">

@@ -44,7 +44,7 @@
 						<!--begin::Section-->
 						<div class="d-flex flex-column my-7">
 							<!--begin::Number-->
-							<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">5,000,000</span>
+							<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">0</span>
 							<!--end::Number-->
 							<!--begin::Follower-->
 							<div class="m-0">
@@ -62,7 +62,7 @@
 									<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
 								</svg>
 							</span>
-							<!--end::Svg Icon-->2.1%</span>
+							<!--end::Svg Icon-->%</span>
 						<!--end::Badge-->
 					</div>
 					<!--end::Body-->
@@ -91,7 +91,7 @@
 						<!--begin::Section-->
 						<div class="d-flex flex-column my-7">
 							<!--begin::Number-->
-							<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">3,500,000</span>
+							<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">0</span>
 							<!--end::Number-->
 							<!--begin::Follower-->
 							<div class="m-0">
@@ -109,7 +109,7 @@
 									<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
 								</svg>
 							</span>
-							<!--end::Svg Icon-->2.1%</span>
+							<!--end::Svg Icon-->0%</span>
 						<!--end::Badge-->
 					</div>
 					<!--end::Body-->
@@ -138,7 +138,7 @@
 						<!--begin::Section-->
 						<div class="d-flex flex-column my-7">
 							<!--begin::Number-->
-							<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">800</span>
+							<span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">0</span>
 							<!--end::Number-->
 							<!--begin::Follower-->
 							<div class="m-0">
@@ -156,7 +156,7 @@
 									<path d="M11.4343 15.4343L7.25 11.25C6.83579 10.8358 6.16421 10.8358 5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75L11.2929 18.2929C11.6834 18.6834 12.3166 18.6834 12.7071 18.2929L18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25C17.8358 10.8358 17.1642 10.8358 16.75 11.25L12.5657 15.4343C12.2533 15.7467 11.7467 15.7467 11.4343 15.4343Z" fill="currentColor" />
 								</svg>
 							</span>
-							<!--end::Svg Icon-->0.47%</span>
+							<!--end::Svg Icon-->0%</span>
 						<!--end::Badge-->
 					</div>
 					<!--end::Body-->
@@ -199,7 +199,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-warning fw-semibold fs-6">Total: 5090</a>
+									<a href="#" class="text-warning fw-semibold fs-6">Total: 0</a>
 								</div>
 								<!--end::Col-->
 								<!--begin::Col-->
@@ -212,7 +212,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-primary fw-semibold fs-6">Treated: 3000</a>
+									<a href="#" class="text-primary fw-semibold fs-6">Treated: 0</a>
 								</div>
 								<!--end::Col-->
 							</div>
@@ -256,7 +256,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-warning fw-semibold fs-6">Total: 6790</a>
+									<a href="#" class="text-warning fw-semibold fs-6">Total: 0</a>
 								</div>
 								<!--end::Col-->
 								<!--begin::Col-->
@@ -269,7 +269,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-primary fw-semibold fs-6">Treated: 2300</a>
+									<a href="#" class="text-primary fw-semibold fs-6">Treated: 0</a>
 								</div>
 								<!--end::Col-->
 							</div>
@@ -313,7 +313,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-warning fw-semibold fs-6">Returned: 4000</a>
+									<a href="#" class="text-warning fw-semibold fs-6">Returned: 0</a>
 								</div>
 								<!--end::Col-->
 								<!--begin::Col-->
@@ -326,7 +326,7 @@
 										</svg>
 									</span>
 									<!--end::Svg Icon-->
-									<a href="#" class="text-primary fw-semibold fs-6">Prosthesis: 377</a>
+									<a href="#" class="text-primary fw-semibold fs-6">Prosthesis: 0</a>
 								</div>
 								<!--end::Col-->
 							</div>
@@ -397,13 +397,13 @@
 								<!--begin::Col-->
 								<div class="col mx-5">
 									<div class="fs-6 text-gray-400">Total</div>
-									<div class="fs-2 fw-bold text-gray-800">29,500</div>
+									<div class="fs-2 fw-bold text-gray-800">0</div>
 								</div>
 								<!--end::Col-->
 								<!--begin::Col-->
 								<div class="col mx-5">
 									<div class="fs-6 text-gray-400">Comissions</div>
-									<div class="fs-2 fw-bold text-gray-800">21,323</div>
+									<div class="fs-2 fw-bold text-gray-800">0</div>
 								</div>
 								<!--end::Col-->
 							</div>
@@ -437,13 +437,13 @@
 								<!--begin::Col-->
 								<div class="col mx-5">
 									<div class="fs-6 text-gray-400">Total</div>
-									<div class="fs-2 fw-bold text-gray-800">29,500</div>
+									<div class="fs-2 fw-bold text-gray-800">0</div>
 								</div>
 								<!--end::Col-->
 								<!--begin::Col-->
 								<div class="col mx-5">
 									<div class="fs-6 text-gray-400">Treated</div>
-									<div class="fs-2 fw-bold text-gray-800">650</div>
+									<div class="fs-2 fw-bold text-gray-800">0</div>
 								</div>
 								<!--end::Col-->
 							</div>

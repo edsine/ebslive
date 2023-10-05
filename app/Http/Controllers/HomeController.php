@@ -65,11 +65,14 @@ class HomeController extends Controller
             $diseaseclaims=ClaimsCompensation::where('claimstype_id',2)->count();
             $deathclaims=ClaimsCompensation::where('claimstype_id',3)->count();
             // $diseaseclaims=ClaimsCompensation::where('id',1)->count();
-           
+            $approvedclaims =ClaimsCompensation::where('regional_manager_status',1)->count();
+            $pendingclaims =ClaimsCompensation::where('regional_manager_status',0)->count();
             
             
             return view('home', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees',
-            'claims_death_count','deathclaims', 'staff_count','diseaseclaims', 'data','ictstaff','totalemployers'));
+            'claims_death_count','deathclaims', 
+            'staff_count','diseaseclaims', 'data','ictstaff',
+            'totalemployers','pendingclaims','approvedclaims'));
         }
     }
 
@@ -87,10 +90,12 @@ class HomeController extends Controller
         $totalemployers=Employer::count();
         $totalemployees=Employee::count();
         $totalcertificate=Certificate::count();
+    
         return view('minister',compact('branchtotal','departmenttotal',
         'regiontotal','revenuefromecs',
         'revenuefromcertificate','revenuefromregistration','totalemployers',
         'totalemployees','totalcertificate',
+       
         'totalstaff'));
     }
 

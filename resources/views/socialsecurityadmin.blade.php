@@ -17,7 +17,7 @@
                 <a href="#" class="card-title fw-bold text-success fs-5 mb-3 d-block">Number Of Project Completed</a>
 
                 <div class="py-1">
-                    <span class="text-dark fs-1 fw-bold me-2">50</span>
+                    <span class="text-dark fs-1 fw-bold me-2">0</span>
                     <span class="fw-semibold text-muted fs-7"></span>
                 </div>
                 {{-- <div class="progress h-7px bg-success bg-opacity-50 mt-7">
@@ -39,7 +39,7 @@
                 </span>
                 <a href="#" class="card-title fw-bold text-black fs-5 mb-3 d-block">New Notifications(incoming Logbook)</a>
                 <div class="py-1">
-                    <span class="text-white fs-1 fw-bold me-2">50</span>
+                    <span class="text-white fs-1 fw-bold me-2">0</span>
                     <span class="fw-semibold text-muted fs-7"></span>
                 </div>
                 {{-- <div class="progress h-7px bg-white bg-opacity-50 mt-7">
@@ -62,7 +62,7 @@
                 </span>
                 <a href="#" class="card-title fw-bold text-primary fs-5 mb-3 d-block">Treated Notification (Outgoing Logbook)</a>
                 <div class="py-1">
-                    <span class="text-dark fs-1 fw-bold me-2">40</span>
+                    <span class="text-dark fs-1 fw-bold me-2">0</span>
                     <span class="fw-semibold text-muted fs-7"></span>
                 </div>
                 {{-- <div class="progress h-7px bg-secondary bg-opacity-50 mt-7">

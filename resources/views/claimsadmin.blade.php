@@ -225,7 +225,7 @@
                 <div class="row">
                   <div class="col">
                     <h5 class="card-title text-uppercase text-muted mb-0">PENDING CLAIMS</h5>
-                    <span class="h2 font-weight-bold mb-0">350,897</span>
+                    <span class="h2 font-weight-bold mb-0">{{$pendingclaims}}</span>
                   </div>
                   <div class="col-auto">
                     <div class="icon icon-shape text-white rounded-circle shadow">
@@ -244,7 +244,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">APPROVED CLAIMS</h5>
-                  <span class="h2 font-weight-bold mb-0">2,356</span>
+                  <span class="h2 font-weight-bold mb-0">{{$approvedclaims}}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape  text-white rounded-circle shadow">
@@ -263,7 +263,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">DISCONTINUED CLAIMS</h5>
-                  <span class="h2 font-weight-bold mb-0">2,356</span>
+                  <span class="h2 font-weight-bold mb-0">0</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape  text-white rounded-circle shadow">
