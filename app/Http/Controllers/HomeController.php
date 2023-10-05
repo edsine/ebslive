@@ -62,11 +62,14 @@ class HomeController extends Controller
             $pending_employees = Employee::where('status', 2)->count();
             $data = Employer::where('status', 1);
             $data = $data->paginate(10);
-            
+            $diseaseclaims=ClaimsCompensation::where('claimstype_id',2)->count();
+            $deathclaims=ClaimsCompensation::where('claimstype_id',3)->count();
+            // $diseaseclaims=ClaimsCompensation::where('id',1)->count();
+           
             
             
             return view('home', compact('registered_employers', 'pending_employers', 'registered_employees', 'pending_employees',
-            'claims_death_count', 'staff_count', 'data','ictstaff','totalemployers'));
+            'claims_death_count','deathclaims', 'staff_count','diseaseclaims', 'data','ictstaff','totalemployers'));
         }
     }
 

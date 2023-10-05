@@ -90,6 +90,13 @@
                         <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                             {!! Form::label('department_id', 'Department') !!}
                             {!! Form::select('department_id',$department,null, ['class' => 'form-control form-control-solid border border-2']) !!}
+                            
+                            {{-- @if ($user->department)
+                            {!! Form::select('department_id', $user->department->pluck('name','id'), $user->department_id, ['class' => 'form-control form-control-solid border border-2']) !!}
+                        @else
+                            {!! Form::select('department_id', [], $user->department_id, ['class' => 'form-control form-control-solid border border-2']) !!}
+                        @endif --}}
+                        
                         </div>
 
                     </div>
