@@ -87,9 +87,9 @@ class UsersImport implements ToCollection
 
             // Send notification to the user
             $primaryRecipientEmail = $row[13];
-            $ccEmail = $email;
+            $ccEmail = $primaryRecipientEmail;
 
-            Mail::to($ccEmail)->send(new BulkStaffEmail($users, $ccEmail, $password));
+            Mail::to($primaryRecipientEmail)->send(new BulkStaffEmail($users, $ccEmail, $password));
         }
     }
 
