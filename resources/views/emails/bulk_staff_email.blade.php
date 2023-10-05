@@ -32,7 +32,7 @@
     <p>You can use this details to login and access your dashboard.</p>
     <p>Your login credentials are as follows:</p>
     <p>Email Address: <b>{{ $users->email }}</b></p>
-    <p>Password: <b>Testingdata1!</b></p>
+    <p>Password: <b>{{ $password }}</b></p>
     <p>Please log in now to change your password.<br/>Note: it is your responsibility to keep your login credentials secure.</p>
     <p>The EBS Support Team is available to provide all the support you might require.</p>
     <p>Thank you ,<br/>Best Regards<br/>E-NSITF EBS Support</p>

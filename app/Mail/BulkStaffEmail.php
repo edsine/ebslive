@@ -15,16 +15,18 @@ class BulkStaffEmail extends Mailable
 
     public $users;
     public $ccEmail; // Add a public property for the CC email address
+    public $password;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($users, $ccEmail)
+    public function __construct($users, $ccEmail, $password)
     {
         $this->users = $users;
         $this->ccEmail = $ccEmail; // Store the CC email address
+        $this->password = $password;
     }
 
     /**
@@ -36,8 +38,9 @@ class BulkStaffEmail extends Mailable
     {
         return $this
             ->subject('Welcome to E-NSITF')
-            ->to($this->users->email)
-            ->cc($this->ccEmail) // Set the CC email address
+            ->to($this->ccEmail)
+            //->to($this->users->email)
+            //->cc($this->ccEmail) // Set the CC email address
             ->view('emails.bulk_staff_email');
     }
 }
