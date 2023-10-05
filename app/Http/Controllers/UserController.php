@@ -81,12 +81,20 @@ class UserController extends AppBaseController
      */
     public function index(Request $request)
     {
+         $userbranch_id=auth()->user()->staff->branch_id;
+
+// dd(auth()->user()->staff->branch_id);
+
         $usersQuery = DB::table('users')
+        // ->where('branch_id')
+        
+
             ->join('staff', 'users.id', '=', 'staff.user_id')
             ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
             ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
             ->join('departments', 'staff.department_id', '=', 'departments.id')
             ->join('branches', 'staff.branch_id', '=', 'branches.id')
+            ->where('staff.branch_id',$userbranch_id)
             ->select('users.id', 'roles.name as role', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name');
 
         $noroleQuery = DB::table('users')
@@ -95,6 +103,7 @@ class UserController extends AppBaseController
             ->whereNull('model_has_roles.role_id')
             ->join('departments', 'staff.department_id', '=', 'departments.id')
             ->join('branches', 'staff.branch_id', '=', 'branches.id')
+            ->where('staff.branch_id',$userbranch_id)
             ->select('users.id', DB::raw("NULL as role"), 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name');
 
         $uid = Auth::user()->user_id;
