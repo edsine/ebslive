@@ -81,12 +81,20 @@ class UserController extends AppBaseController
      */
     public function index(Request $request)
     {
+        // Auth::check() && Auth::user()->hasRole('minister')
+        if (Auth::check() && Auth::user()->hasRole('super-admin')) {
+         
+            
+      
+            
+            
          $userbranch_id=auth()->user()->staff->branch_id;
 
-// dd(auth()->user()->staff->branch_id);
 
+
+       
         $usersQuery = DB::table('users')
-        // ->where('branch_id')
+        
         
 
             ->join('staff', 'users.id', '=', 'staff.user_id')
@@ -130,6 +138,11 @@ class UserController extends AppBaseController
         $norole = $noroleQuery->paginate(10);
 
         return view('users.index', compact('users', 'norole'));
+              
+    } else {
+        flash::error('oops!....,you are not allowed ');
+        return redirect()->route('home');
+    }
     }
 
     public function upload(Request $request)
@@ -459,13 +472,16 @@ class UserController extends AppBaseController
         }
 
 
+        $rol=Role::pluck('name','name')->all();
+        $myrole=$user->roles->pluck('name','name')->all();
         //$user['role_id'] = $user1->roles()->first()->id;
 
         $roles = $this->roleRepository->all()->pluck('name', 'id');
 
         $roles->prepend('Select role', '');
 
-        return view('users.edit', compact('user','roles','branch', 'department', 'id', 'rank'));
+        return view('users.edit', compact('user','roles',
+        'branch', 'department', 'id', 'rank','rol','myrole'));
     }
 
     /**
