@@ -118,7 +118,7 @@
 															<!--begin::Info-->
 															<div class="d-flex align-items-center mb-2">
 																<!--begin::Currency-->
-																<span class="fs-4 fw-bold text-gray-400 align-self-start me-1&gt;">$</span>
+																<span class="fs-4 fw-bold text-gray-400 align-self-start me-1&gt;"></span>
 																<!--end::Currency-->
 																<!--begin::Value-->
 																<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1">11</span>
@@ -129,7 +129,7 @@
 															</div>
 															<!--end::Info-->
 															<!--begin::Description-->
-															<span class="fs-6 fw-bold text-gray-400">Total No Of GM</span>
+															<span class="fs-6 fw-bold text-gray-400">Total No Of Staff</span>
 															<!--end::Description-->
 														</div>
 														<!--end::Statistics-->
@@ -149,7 +149,7 @@
 															<!--begin::Info-->
 															<div class="d-flex align-items-center">
 																<!--begin::Amount-->
-																<span class="fs-2hx fw-bolder text-dark me-2 lh-1 ls-n2">1,836</span>
+																<span class="fs-2hx fw-bolder text-dark me-2 lh-1 ls-n2">{{$allstaff}}</span>
 																<!--end::Amount-->
 																<!--begin::Badge-->
 														

@@ -250,7 +250,8 @@ public function procurementadmin(){
     }
     public function pamsec()
     {
-        return view('pamsec');
+        $allstaff=Staff::count();
+        return view('pamsec',compact('allstaff'));
     }
     // Mail Demo UI
     public function composeMail()
