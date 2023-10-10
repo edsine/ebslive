@@ -43,7 +43,7 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">11</div>
+												<div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">{{$totalregion}}</div>
 												<div class="fw-bold text-gray-100">Total No Of Regional Offices</div>
 											</div>
 											<!--end::Body-->
@@ -123,7 +123,7 @@
 																<!--end::Currency-->
 																<!--begin::Value-->
 																
-																<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1">{{$totalregion}}</span>
+																<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1">{{$managementstaff}}</span>
 																<!--end::Value-->
 																<!--begin::Label-->
 																
@@ -131,7 +131,7 @@
 															</div>
 															<!--end::Info-->
 															<!--begin::Description-->
-															<span class="fs-6 fw-bold text-gray-400">Total No Of GM</span>
+															<span class="fs-6 fw-bold text-gray-400">Total No Of Management Staff</span>
 															<!--end::Description-->
 														</div>
 														<!--end::Statistics-->

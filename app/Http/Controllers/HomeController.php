@@ -86,7 +86,7 @@ class HomeController extends Controller
         $revenuefromecs=Payment::where('payment_type',1)->count();
         $revenuefromcertificate=Payment::where('payment_type',2)->count();
         $revenuefromregistration=Payment::where('payment_type',3)->count();
-        $totalstaff=Staff::count();
+        $totalstaff =Staff::count();
         $totalemployers=Employer::count();
         $totalemployees=Employee::count();
         $totalcertificate=Certificate::count();
@@ -254,8 +254,10 @@ public function procurementadmin(){
         $totalregion = Region::count();
         $totaldept= Department::count();
         $totalemployer=Employer::count();
+        $managementstaff =Staff::where('ranking_id','!==',1)->count();
         
-        return view('pamsec',compact('allstaff','totalregion','totaldept','totalemployer'));
+        return view('pamsec',compact('allstaff','totalregion','totaldept',
+        'totalemployer','managementstaff'));
     }
     // Mail Demo UI
     public function composeMail()

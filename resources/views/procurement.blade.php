@@ -12,46 +12,7 @@
   </div>
   <!--end::Page title-->
         </div>
-        <section>
-            <div id="carouselExampleCaptions" class="carousel slide bg-dark">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="{{url('atp.png')}}" class="d-block img-fluid mx-auto" style="max-height: 200px" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5 class="text-danger">First slide label</h5>
-                      <p >Some representative placeholder content for the first slide.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{url('atp.png')}}" class="d-block img-fluid mx-auto" style="max-height: 200px" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>Second slide label</h5>
-                      <p class="text-success fw-bold">Some representative placeholder content for the second slide.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{url('atp.png')}}" class="d-block img-fluid mx-auto" style="max-height: 200px" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>Third slide label</h5>
-                      <p class="text-success fw-bold">Some representative placeholder content for the third slide.</p>
-                    </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-        </section>
+       
     </main>
 </header>
   <div class="container">
@@ -98,6 +59,7 @@
         <!--end::Card widget 2-->
     </div>
     <!--end::Col-->
+
     <!--begin::Col-->
     <div class="col-sm-6 col-xl-6 mb-xl-2">
         <!--begin::Card widget 2-->
@@ -136,11 +98,86 @@
     </div>
     <!--end::Col-->
     
+    <!--begin::Col-->
+    <div class="col-sm-6 col-xl-6 mb-xl-2">
+        <!--begin::Card widget 2-->
+        <div class="card h-lg-100 bg-light">
+            <!--begin::Body-->
+            <div class="card-body d-flex justify-content-between align-items-start flex-column">
+                <!--begin::Icon-->
+                <div class="m-0">
+                    <!--begin::Svg Icon | path: icons/duotune/graphs/gra001.svg-->
+                    <span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path opacity="0.3" d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z" fill="currentColor" />
+                            <path d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </div>
+                <!--end::Icon-->
+                <!--begin::Section-->
+                <div class="d-flex flex-column my-7">
+                    <!--begin::Number-->
+                    <span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">0</span>
+                    <!--end::Number-->
+                    <!--begin::Follower-->
+                    <div class="m-0">
+                        <span class="fw-bold fs-6 text-success">Total Approved Vendors</span>
+                    </div>
+                    <!--end::Follower-->
+                </div>
+                <!--end::Section-->
+               
+            </div>
+            <!--end::Body-->
+        </div>
+        <!--end::Card widget 2-->
+    </div>
+    <!--end::Col-->
     
-
     
+      <!--begin::Col-->
+      <div class="col-sm-6 col-xl-6 mb-xl-2">
+        <!--begin::Card widget 2-->
+        <div class="card h-lg-100 bg-light-success">
+            <!--begin::Body-->
+            <div class="card-body d-flex justify-content-between align-items-start flex-column">
+                <!--begin::Icon-->
+                <div class="m-0">
+                    <!--begin::Svg Icon | path: icons/duotune/graphs/gra001.svg-->
+                    <span class="svg-icon svg-icon-2hx svg-icon-gray-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path opacity="0.3" d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z" fill="currentColor" />
+                            <path d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </div>
+                <!--end::Icon-->
+                <!--begin::Section-->
+                <div class="d-flex flex-column my-7">
+                    <!--begin::Number-->
+                    <span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">0</span>
+                    <!--end::Number-->
+                    <!--begin::Follower-->
+                    <div class="m-0">
+                        <span class="fw-bold fs-6 text-success">No Of Pending Vendors</span>
+                    </div>
+                    <!--end::Follower-->
+                </div>
+                <!--end::Section-->
+               
+            </div>
+            <!--end::Body-->
+        </div>
+        <!--end::Card widget 2-->
+    </div>
+    <!--end::Col-->
 </div>
 <!--end::Row-->
+
+
 <!--begin::Row-->
 <div class="row gy-5 g-xl-10 pt-2 mb-4">
     <!--begin::Col-->
@@ -180,6 +217,7 @@
         <!--end::Card widget 2-->
     </div>
     <!--end::Col-->
+
     <!--begin::Col-->
     <div class="col-sm-6 col-xl-6 mb-xl-2">
         <!--begin::Card widget 2-->

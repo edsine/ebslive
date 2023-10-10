@@ -259,7 +259,7 @@
                 <span class="float-end">
                     <div class="text-white fw-bold fs-2 mb-2 mt-5">Capital Expenditure</div>
                 </span>
-                <div class="text-white fw-bold fs-2 mb-2 mt-5">31,27
+                <div class="text-white fw-bold fs-2 mb-2 mt-5">0
 </div>
                 <div class="fw-semibold text-white">Total Defaulters</div>
             </div>
@@ -308,7 +308,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">9,763</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">0</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -346,7 +346,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">4,062</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">0</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -383,7 +383,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">1,680</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">0</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -443,7 +443,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">9,763</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">0</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -483,7 +483,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">4,062</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">0</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -521,7 +521,7 @@
 														<!--begin::Info-->
 														<div class="d-flex align-items-center">
 															<!--begin::Number-->
-															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">1,680</span>
+															<span class="text-gray-800 fw-bolder fs-6 me-3 d-block">0</span>
 															<!--end::Number-->
 															<!--begin::Label-->
 															<div class="m-0">
@@ -564,7 +564,7 @@
 												<!--begin::Section-->
 												<div class="d-flex flex-column my-7">
 													<!--begin::Number-->
-													<span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">327</span>
+													<span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">0</span>
 													<!--end::Number-->
 													<!--begin::Follower-->
 													<div class="m-0">
@@ -616,7 +616,7 @@
 												<!--begin::Section-->
 												<div class="d-flex flex-column my-7">
 													<!--begin::Number-->
-													<span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">327</span>
+													<span class="fw-bold fs-3x text-gray-800 lh-1 ls-n2">0</span>
 													<!--end::Number-->
 													<!--begin::Follower-->
 													<div class="m-0">
@@ -688,7 +688,7 @@
                                                         <!--begin::Statistics-->
                                                         <div class="d-flex mb-2">
                                                             <span class="fs-4 fw-semibold text-gray-400 me-1">%</span>
-                                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">40</span>
+                                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">0</span>
                                                         </div>
                                                         <!--end::Statistics-->
                                                         <!--begin::Description-->
@@ -701,7 +701,7 @@
                                                         <!--begin::Statistics-->
                                                         <div class="d-flex mb-2">
                                                             <span class="fs-4 fw-semibold text-gray-400 me-1">%</span>
-                                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">80</span>
+                                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">0</span>
                                                         </div>
                                                         <!--end::Statistics-->
                                                         <!--begin::Description-->
@@ -978,46 +978,46 @@
 													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
 														<!--begin::Heading-->
 														<div class="menu-item px-3">
-															<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
+															<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">MANAGEMENT STAFF..</div>
 														</div>
 														<!--end::Heading-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Create Invoice</a>
+															<a href="#" class="menu-link px-3">ED</a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="#" class="menu-link flex-stack px-3">Create Payment
+															<a href="#" class="menu-link flex-stack px-3">GM
 															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Generate Bill</a>
+															<a href="#" class="menu-link px-3">AGM</a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
 															<a href="#" class="menu-link px-3">
-																<span class="menu-title">Subscription</span>
+																<span class="menu-title">OTHERS</span>
 																<span class="menu-arrow"></span>
 															</a>
 															<!--begin::Menu sub-->
 															<div class="menu-sub menu-sub-dropdown w-175px py-4">
 																<!--begin::Menu item-->
 																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Plans</a>
+																	<a href="#" class="menu-link px-3">OFFICER 1</a>
 																</div>
 																<!--end::Menu item-->
 																<!--begin::Menu item-->
 																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Billing</a>
+																	<a href="#" class="menu-link px-3">OFFICER 2</a>
 																</div>
 																<!--end::Menu item-->
 																<!--begin::Menu item-->
 																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Statements</a>
+																	<a href="#" class="menu-link px-3">USERS</a>
 																</div>
 																<!--end::Menu item-->
 																<!--begin::Menu separator-->
@@ -1027,14 +1027,14 @@
 																<div class="menu-item px-3">
 																	<div class="menu-content px-3">
 																		<!--begin::Switch-->
-																		<label class="form-check form-switch form-check-custom form-check-solid">
+																		{{-- <label class="form-check form-switch form-check-custom form-check-solid">
 																			<!--begin::Input-->
 																			<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
 																			<!--end::Input-->
 																			<!--end::Label-->
-																			<span class="form-check-label text-muted fs-6">Recuring</span>
+																			<span class="form-check-label text-muted fs-6"></span>
 																			<!--end::Label-->
-																		</label>
+																		</label> --}}
 																		<!--end::Switch-->
 																	</div>
 																</div>
@@ -1044,9 +1044,9 @@
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
-														<div class="menu-item px-3 my-1">
+														{{-- <div class="menu-item px-3 my-1">
 															<a href="#" class="menu-link px-3">Settings</a>
-														</div>
+														</div> --}}
 														<!--end::Menu item-->
 													</div>
 													<!--end::Menu 3-->
@@ -1094,7 +1094,7 @@
 												<!--end::Card title-->
 												<div class="card-toolbar m-0">
 													<!--begin::Menu-->
-													<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+													{{-- <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
 														<!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
 														<span class="svg-icon svg-icon-3 svg-icon-primary">
 															<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
@@ -1107,52 +1107,52 @@
 															</svg>
 														</span>
 														<!--end::Svg Icon-->
-													</button>
+													</button> --}}
 													<!--begin::Menu 3-->
 													<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
 														<!--begin::Heading-->
 														<div class="menu-item px-3">
-															<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
+															<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">ICT</div>
 														</div>
 														<!--end::Heading-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Create Invoice</a>
+															<a href="#" class="menu-link px-3">HR</a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="#" class="menu-link flex-stack px-3">Create Payment
+															<a href="#" class="menu-link flex-stack px-3">LEGAL
 															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="#" class="menu-link px-3">Generate Bill</a>
+															<a href="#" class="menu-link px-3">INFORMAL SECTOR</a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-															<a href="#" class="menu-link px-3">
+															{{-- <a href="#" class="menu-link px-3">
 																<span class="menu-title">Subscription</span>
 																<span class="menu-arrow"></span>
-															</a>
+															</a> --}}
 															<!--begin::Menu sub-->
 															<div class="menu-sub menu-sub-dropdown w-175px py-4">
 																<!--begin::Menu item-->
 																<div class="menu-item px-3">
-																	<a href="#" class="menu-link px-3">Plans</a>
+																	{{-- <a href="#" class="menu-link px-3">Plans</a> --}}
 																</div>
 																<!--end::Menu item-->
 																<!--begin::Menu item-->
-																<div class="menu-item px-3">
+																{{-- <div class="menu-item px-3">
 																	<a href="#" class="menu-link px-3">Billing</a>
-																</div>
+																</div> --}}
 																<!--end::Menu item-->
 																<!--begin::Menu item-->
-																<div class="menu-item px-3">
+																{{-- <div class="menu-item px-3">
 																	<a href="#" class="menu-link px-3">Statements</a>
-																</div>
+																</div> --}}
 																<!--end::Menu item-->
 																<!--begin::Menu separator-->
 																<div class="separator my-2"></div>
@@ -1161,7 +1161,7 @@
 																<div class="menu-item px-3">
 																	<div class="menu-content px-3">
 																		<!--begin::Switch-->
-																		<label class="form-check form-switch form-check-custom form-check-solid">
+																		{{-- <label class="form-check form-switch form-check-custom form-check-solid">
 																			<!--begin::Input-->
 																			<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
 																			<!--end::Input-->
@@ -1169,7 +1169,7 @@
 																			<span class="form-check-label text-muted fs-6">Recuring</span>
 																			<!--end::Label-->
 																		</label>
-																		<!--end::Switch-->
+																		<!--end::Switch--> --}}
 																	</div>
 																</div>
 																<!--end::Menu item-->
@@ -1178,9 +1178,9 @@
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
-														<div class="menu-item px-3 my-1">
+														{{-- <div class="menu-item px-3 my-1">
 															<a href="#" class="menu-link px-3">Settings</a>
-														</div>
+														</div> --}}
 														<!--end::Menu item-->
 													</div>
 													<!--end::Menu 3-->
@@ -1192,7 +1192,7 @@
 											<!--begin::Card body-->
 											<div class="card-body d-flex flex-column px-9 pt-6 pb-8">
 												<!--begin::Heading-->
-												<div class="fs-2tx fw-bolder mb-3">21</div>
+												<div class="fs-2tx fw-bolder mb-3">{{$totalstaff}}</div>
 												<!--end::Heading-->
 												<!--begin::Stats-->
 												
@@ -1649,7 +1649,7 @@
 		        </button>
 		      </div>
 		      <div class="modal-body p-4 py-5 p-md-5">
-		      	<h3 class="text-center mb-3">Total Number of branch ofiicers</h3>
+		      	<h3 class="text-center mb-3">Total Number of branch officers</h3>
 		      
 										
 
