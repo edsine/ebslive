@@ -30,6 +30,7 @@ class User extends Authenticatable implements Auditable
      *
      * @var array<int, string>
      */
+    
     protected $fillable = [
         'email',
         'password',
@@ -80,6 +81,10 @@ class User extends Authenticatable implements Auditable
     // public function ranking()
     // {
     //     return $this->belongsTo(Ranking::class, 'ranking_id', 'id');
+    // }
+    // public function ranking()
+    // {
+    //     return $this->hasOne(Ranking::class);
     // }
 
     /**

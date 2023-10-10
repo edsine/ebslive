@@ -63,7 +63,8 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-white fw-bolder fs-2 mb-2 mt-5">19</div>
+												
+												<div class="text-white fw-bolder fs-2 mb-2 mt-5">{{$totaldept}}</div>
 												<div class="fw-bold text-white">Total No Of Departments</div>
 											</div>
 											<!--end::Body-->
@@ -121,7 +122,8 @@
 																<span class="fs-4 fw-bold text-gray-400 align-self-start me-1&gt;"></span>
 																<!--end::Currency-->
 																<!--begin::Value-->
-																<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1">11</span>
+																
+																<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1">{{$totalregion}}</span>
 																<!--end::Value-->
 																<!--begin::Label-->
 																
@@ -129,7 +131,7 @@
 															</div>
 															<!--end::Info-->
 															<!--begin::Description-->
-															<span class="fs-6 fw-bold text-gray-400">Total No Of Staff</span>
+															<span class="fs-6 fw-bold text-gray-400">Total No Of GM</span>
 															<!--end::Description-->
 														</div>
 														<!--end::Statistics-->
@@ -157,7 +159,7 @@
 															<!--end::Info-->
 															<!--begin::Subtitle-->
 															<span class="text-gray-400 pt-1 fw-bold fs-6">
-Total No of Funds Staffs</span>
+Total No of Funds Staff</span>
 															<!--end::Subtitle-->
 														</div>
 														<!--end::Title-->
@@ -186,7 +188,7 @@ Total No of Funds Staffs</span>
 															<!--begin::Statistics-->
 															<div class="d-flex align-items-center mb-2">
 																<!--begin::Value-->
-																<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1">29,420</span>
+																<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1">0</span>
 																<!--end::Value-->
 																<!--begin::Label-->
 																
@@ -212,8 +214,9 @@ Total No of Certificate Issued</span>
 													<div class="card-header pt-5">
 														<!--begin::Title-->
 														<div class="card-title d-flex flex-column">
+															
 															<!--begin::Amount-->
-															<span class="fs-2hx fw-bolder text-dark me-2 lh-1 ls-n2">354</span>
+															<span class="fs-2hx fw-bolder text-dark me-2 lh-1 ls-n2">{{$totalemployer}}</span>
 															<!--end::Amount-->
 															<!--begin::Subtitle-->
 															<span class="text-gray-400 pt-1 fw-bold fs-6">
