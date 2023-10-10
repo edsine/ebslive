@@ -17,22 +17,32 @@ class Ranking extends Model
     public $table ='rankings';
     protected $fillable = [
         'name',
+
     ];
 
     public static array $rules=[
         'name'=>'required'
    ];
 
-   public function staff(): \Illuminate\Database\Eloquent\Relations\HasMany
+   public function staff()
    {
        return $this->hasMany(staff::class);
    }
+//    public function staff()
+//    {
+//        return $this->belongsTo(staff::class);
+//    }
 
    public function eventRankings()
 {
     return $this->hasMany(EventDepartmentRanking::class);
 }
     
+
+// public function user()
+// {
+//     return $this->belongsTo(User::class);
+// }
     // protected static function newFactory()
     // {
     //     return \Modules\HumanResource\Database\factories\RankingFactory::new();

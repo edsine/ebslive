@@ -25,6 +25,7 @@ class StaffTableSeeder extends Seeder
             $user->department_id = 1;
             $user->branch_id = 1;
             $user->ranking_id = 1;
+        
             $user->dash_type = 1;
             $user->statusz = 1;
             $user->save();

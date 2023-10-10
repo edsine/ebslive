@@ -52,16 +52,19 @@
                                     <path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z" fill="currentColor" />
                                 </svg>
                             </span>
-                            @php
-                               
+                            {{-- @php
+                               dd(Auth::user()->staff->ranking->name);
 
-                            @endphp
-                            <!--end::Svg Icon--> 
-                        @if (Auth::user()->ranking)
+                            @endphp --}}
                             
+                            <!--end::Svg Icon--> 
+                            @if (optional(Auth::user()->staff)->ranking)
+                            {{ Auth::user()->staff->ranking->name }}
+                           
                         @else
                             No rank Assigned
                         @endif
+                        
                         </a>
                             <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen018.svg-->

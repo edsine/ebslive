@@ -277,10 +277,11 @@ class UserController extends AppBaseController
          $input['plain_password'] = $input['password'];
      
          $input['password'] = Hash::make($input['password']);
-     
+
+         
          //Create a new user
          $user = $this->userRepository->create($input);
-     
+        
          // Retrieve the value of the checkbox
          $checkboxValue = $request->input('checkbox');
      
@@ -334,6 +335,9 @@ class UserController extends AppBaseController
              // Create a new staff
              $this->staffRepository->create($input);
          }
+     
+        //   //storing the rank
+        //   $user->staff->rank->create($input['ranking_id']);
      
          $role = $this->roleRepository->getByUserRoles($input['roles']);
      
@@ -547,6 +551,9 @@ class UserController extends AppBaseController
         } else {
             unset($input['password']);
         }
+        
+        
+       
 
         $user = $this->userRepository->update($input, $id);
         DB::table('model_has_roles')->where('model_id', $id)->delete();

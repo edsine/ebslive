@@ -251,7 +251,11 @@ public function procurementadmin(){
     public function pamsec()
     {
         $allstaff=Staff::count();
-        return view('pamsec',compact('allstaff'));
+        $totalregion = Region::count();
+        $totaldept= Department::count();
+        $totalemployer=Employer::count();
+        
+        return view('pamsec',compact('allstaff','totalregion','totaldept','totalemployer'));
     }
     // Mail Demo UI
     public function composeMail()

@@ -55,9 +55,15 @@ class Staff extends Model implements Auditable
     {
         return $this->belongsTo(User::class);
     }
-    public function rank(){
-        return $this-> belongsTo(Ranking::class);
+    // public function rank(){
+    //     return $this-> belongsTo(Ranking::class);
+    // }
+
+    public function ranking()
+    {
+        return $this->belongsTo(Ranking::class);
     }
+
     /* public static array $rules = [
         'department_unit' => 'required|unique:departments,department_unit',
         'status' => 'required',

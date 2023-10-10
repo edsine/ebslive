@@ -43,4 +43,5 @@ class RoleRepository extends BaseRepository
         return Role::whereIn('id', $role_ids)->get();
     }
 
+    
 }
