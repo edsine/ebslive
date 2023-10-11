@@ -81,7 +81,7 @@
                                     {{-- <a href="{{ route('myedit', [$p->id]) }}" class='btn btn-default btn-xs'>
                                         <i class="fas fa-toggle-on text-bg-secondary" title="change status" ></i>
                                     </a> --}}
-                                    {{-- {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!} --}}
+                                    {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                                 </div>
                                 {!! Form::close() !!}
                             </td>
@@ -145,7 +145,7 @@
                             {{-- <a href="{{ route('myedit', [$p->id]) }}" class='btn btn-default btn-xs'>
                                 <i class="fas fa-toggle-on text-bg-secondary" title="change status" ></i>
                             </a> --}}
-                            {{-- {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!} --}}
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                         </div>
                         {!! Form::close() !!}
                     </td>

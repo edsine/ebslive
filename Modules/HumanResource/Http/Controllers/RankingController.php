@@ -3,14 +3,14 @@
 namespace Modules\HumanResource\Http\Controllers;
 
 use Ranking;
-//use leavetype;
+
 use Laracasts\Flash\Flash;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 
-// use Modules\HumanResource\Models\LeaveType;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\StaffRepository;
@@ -50,18 +50,7 @@ public function __construct(RankingRepository $rankingRepo, BranchRepository $br
         $this->staffRepository = $staffRepo;
     }
 
-// public function getDuration(){
 
-//     $duration= DB::table('LeaveType') 
-//                   ->select('id','name','duration')->get();
-//                 //   return $duration;
-//                 return response()->json($duration);
-
-    
-    
-
-
-// }
 
     /**
      * Display a listing of the resource.
@@ -199,7 +188,7 @@ public function __construct(RankingRepository $rankingRepo, BranchRepository $br
 
         $this->rankingRepository->delete($id);
 
-        Flash::success('LEAVE REQUEST DISCARDED SUCCESSFULLY.');
+        Flash::success('Rank Type DISCARDED SUCCESSFULLY.');
 
         return redirect(route('ranking.index'));
     }

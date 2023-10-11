@@ -610,4 +610,10 @@ class UserController extends AppBaseController
     {
         echo "I am here! " . $id;
     }
+    //i just did the method for soft delete yet to do route and view
+    public function restorestaff(){
+        $staff = Staff::withTrashed()->get();
+        flash::success('only staff restored');
+        return redirect()->route('users.index');
+    }
 }
