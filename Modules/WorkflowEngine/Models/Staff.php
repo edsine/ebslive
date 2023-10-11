@@ -16,7 +16,8 @@ class Staff extends Model implements Auditable
     use HasFactory;
     use AuditingAuditable;
     public $table = 'staff';
-
+    protected $dates =['deleted_at'];
+ 
     public $fillable = [
         'user_id',
         'ranking_id',

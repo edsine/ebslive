@@ -22,11 +22,11 @@ return new class extends Migration
                 $table->foreign('user_id')->references('id') ->on('users')->onDelete('cascade');
                 $table->unsignedBigInteger('department_id')->nullable();
                 $table->unsignedBigInteger('ranking_id')->nullable();
-                
-                $table->foreign('ranking_id')->references('id')->on('rankings')->onDelete('cascade');
-                $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+                $table->foreign('ranking_id')->references('id')->on('rankings')->onDelete('set null');
+
+                $table->foreign('department_id')->references('id')->on('departments')->onDelete('set null');
                 $table->unsignedBigInteger('branch_id')->nullable();
-                $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+                $table->foreign('branch_id')->references('id')->on('branches')->onDelete('set null');
                 $table->integer('dash_type')->nullable();
                 $table->string('gender')->nullable();
                 $table->string('staff_id')->nullable();
