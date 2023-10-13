@@ -11,7 +11,7 @@
       <!--begin::Page title-->
       <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
         <!--begin::Title-->
-        <h1 class="text-black-50 pt-5">Actualrial Planning and Resource Development:<b style="color: #000"> Overview</b></h1>
+        <h1 class="text-black-50 pt-5">Actuarial Planning and Resource Development:<b style="color: #000"> Overview</b></h1>
         <!--end::Title-->
       </div>
       <!--end::Page title-->
