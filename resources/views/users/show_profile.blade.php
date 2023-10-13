@@ -6,6 +6,7 @@
         <!--begin::Details-->
         <div class="d-flex flex-wrap flex-sm-nowrap mb-3">
             <!--begin: Pic-->
+           
           
             <div class="me-7 mb-4">
                 <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
@@ -338,7 +339,8 @@
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8 d-flex align-items-center">
-                <span class="fw-bolder fs-6 text-gray-800 me-2">07080824483</span>
+                
+                <span class="fw-bolder fs-6 text-gray-800 me-2">{{auth()->user()->staff->phone ?auth()->user()->staff->phone: 'no number yet' }}</span>
                 {{-- <span class="badge badge-success">Verified</span> --}}
             </div>
             <!--end::Col-->
@@ -351,7 +353,7 @@
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8">
-                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary">{{auth()->user()->id}}</a>
+                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary">{{auth()->user()->staff->staff_id}}</a>
             </div>
             <!--end::Col-->
         </div>
@@ -363,8 +365,9 @@
             <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Country of origination"></i></label>
             <!--end::Label-->
             <!--begin::Col-->
+            
             <div class="col-lg-8">
-                <span class="fw-bolder fs-6 text-gray-800"> ICT </span>
+                <span class="fw-bolder fs-6 text-gray-800"> {{auth()->user()->staff->department->department_unit}}</span>
             </div>
             <!--end::Col-->
         </div>
@@ -374,9 +377,10 @@
             <!--begin::Label-->
             <label class="col-lg-4 fw-bold text-muted">REGION</label>
             <!--end::Label-->
+
             <!--begin::Col-->
             <div class="col-lg-8">
-                <span class="fw-bolder fs-6 text-gray-800">HEAD QUARTER </span>
+                <span class="fw-bolder fs-6 text-gray-800">{{auth()->user()->staff->branch_region?auth()->user()->staff->branch_region:'no region yet'}} </span>
             </div>
             <!--end::Col-->
         </div>
@@ -387,8 +391,9 @@
             <label class="col-lg-4 fw-bold text-muted">BRANCH</label>
             <!--begin::Label-->
             <!--begin::Label-->
+           
             <div class="col-lg-8">
-                <span class="fw-bold fs-6 text-gray-800">MARABA</span>
+                <span class="fw-bold fs-6 text-gray-800">{{auth()->user()->staff->branch->branch_name}}</span>
             </div>
             <!--begin::Label-->
         </div>

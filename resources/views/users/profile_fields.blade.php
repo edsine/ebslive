@@ -37,9 +37,9 @@
 
 
 <div class="form-group col-sm-6 mt-2">
-    {!! Form::label('profile_picture', 'Profile Picture') !!}
+    {!! Form::label('profile_picture', 'Profile Picture',['class'=>'form-label mt-5']) !!}
     <br>
-    {!! Form::file('profile_picture', null, ['class' => 'form-control form-control-solid border border-2']) !!}
+    {!! Form::file('profile_picture',  ['class' => 'form-control pt-5']) !!}
 </div>
 {{-- <img src="{{ asset('public/profile_pictures/' . $user->profile_picture) }}" alt="No Profile Picture yet" width="100"> --}}
 

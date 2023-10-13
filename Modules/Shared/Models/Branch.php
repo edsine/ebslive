@@ -7,6 +7,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\WorkflowEngine\Models\Staff;
 
 /**
  * @OA\Schema(
@@ -157,5 +158,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
     public function region(): \Illuminate\Database\Eloquent\Relations\hasOne
     {
         return $this->hasOne(\Modules\UnitManager\Models\Region::class, 'id', 'region_id');
+    }
+    public function staff(){
+        return $this->hasMany(Staff::class);
     }
 }

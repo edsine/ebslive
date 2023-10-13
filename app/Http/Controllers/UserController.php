@@ -464,6 +464,7 @@ class UserController extends AppBaseController
 
         $branch = $this->branchRepository->all()->pluck('branch_name', 'id');
 
+        
         $department = $this->departmentRepository->all()->pluck('department_unit', 'id');
 
 
@@ -480,12 +481,14 @@ class UserController extends AppBaseController
         $myrole=$user->roles->pluck('name','name')->all();
         //$user['role_id'] = $user1->roles()->first()->id;
 
-        $roles = $this->roleRepository->all()->pluck('name', 'id');
+        // $roles = $this->roleRepository->all()->pluck('name', 'id');
 
-        $roles->prepend('Select role', '');
+        $roles=Role::all()->pluck('name','id');
+        // $roles->prepend('Select role', '');
 
         return view('users.edit', compact('user','roles',
-        'branch', 'department', 'id', 'rank','rol','myrole'));
+        'branch', 'department', 'id',
+         'rank','rol','myrole'));
     }
 
     /**

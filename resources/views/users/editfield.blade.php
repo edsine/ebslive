@@ -20,13 +20,14 @@
                 <!-- Role Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('roles', 'Roles') !!}
-                    {!! Form::select('roles[]',$roles,$user->roles->pluck('name','id'), ['class' => 'form-control form-control-solid border border-2 form-select']) !!}
+                    {!! Form::select('roles[]',$roles,null, ['class' => 'form-control form-control-solid border border-2 form-select']) !!}
+                    {{-- {!! Form::select('roles[]',$roles,$user->roles->pluck('name','id'), ['class' => 'form-control form-control-solid border border-2 form-select']) !!} --}}
                 </div>
 
                 <!-- Email Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('email', 'Email Address') !!}
-                    {!! Form::email('email', null, ['class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::email('email', auth()->user()->email, ['class' => 'form-control form-control-solid border border-2']) !!}
                 </div>
                 <!-- First Name Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
@@ -120,8 +121,8 @@
             <h2 class="fw-bold d-flex align-items-center text-dark">Step 3 
                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Provide accurate personal details"></i>
             </h2>
-            <div class="text-muted fw-semibold fs-6">tell us more about your self
-                <a href="#" class="link-primary fw-bold">atp</a>.
+            <div class="text-muted fw-semibold fs-6">
+                <a href="#" class="link-primary fw-bold"></a>.
             </div>
         </div>
         <div class="fv-row">
@@ -137,12 +138,12 @@
                 <!-- StaffID Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('staff_id', 'Staff ID') !!}
-                    {!! Form::text('staff_id', null, ['class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::text('staff_id', auth()->user()->staff->staff_id, ['class' => 'form-control form-control-solid border border-2']) !!}
                 </div>
                 <!-- About Me Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('about_me', 'About Me') !!}
-                    {!! Form::textarea('about_me', null, ['class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::textarea('about_me', auth()->user()->staff->about_me, ['class' => 'form-control form-control-solid border border-2']) !!}
                 </div>
                 {{-- do for only admins --}}
                 {{-- <div class="d-flex flex-column col-md-12 mb-8 fv-row">
