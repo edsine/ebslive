@@ -561,6 +561,8 @@ class UserController extends AppBaseController
         }
         
         
+       //updating their staff_id
+       $input['staff_id']=$request->input('staff_id');
        
 
         $user = $this->userRepository->update($input, $id);
