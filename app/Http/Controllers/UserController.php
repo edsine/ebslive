@@ -82,7 +82,9 @@ class UserController extends AppBaseController
     public function index(Request $request)
     {
         // Auth::check() && Auth::user()->hasRole('minister')
-        if (Auth::check() && Auth::user()->hasRole('super-admin')) {
+        // if ((Auth::check() && Auth::user()->hasRole('super-admin') || (Auth::check() && Auth::user()->hasRole('supervisor')&& Auth()->user()->staff->department_id=3) ) ) 
+      if   (Auth::check() && (Auth::user()->hasRole('super-admin') || (Auth::user()->hasRole('SUPERVISOR') && Auth::user()->staff->department_id == 3)))
+        {
          
             
       
@@ -140,9 +142,12 @@ class UserController extends AppBaseController
         return view('users.index', compact('users', 'norole'));
               
     } else {
-        flash::error('oops!....,you are not allowed ');
+        flash::success('oops!....,you are not allowed ');
         return redirect()->route('home');
     }
+
+
+
     }
 
     public function upload(Request $request)
