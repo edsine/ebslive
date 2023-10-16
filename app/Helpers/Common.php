@@ -17,7 +17,7 @@ function getDepartmentData()
     $departmentIdsToCheck = [5, 6, 9, 16];
 
     $departmentIdsToCheck1 = [1, 5, 6, 9, 16];
-    $hrIdToCheck = [22, 2];
+    $hrIdToCheck = [22, 2,3];
     $loggedInUserId = Auth::id();
 
     return [

@@ -27,7 +27,7 @@
                 <!-- Email Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('email', 'Email Address') !!}
-                    {!! Form::email('email', auth()->user()->email, ['class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::email('email', null, ['class' => 'form-control form-control-solid border border-2']) !!}
                 </div>
                 <!-- First Name Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
@@ -138,12 +138,12 @@
                 <!-- StaffID Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('staff_id', 'Staff ID') !!}
-                    {!! Form::text('staff_id', auth()->user()->staff->staff_id, ['class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::text('staff_id',  null, ['class' => 'form-control form-control-solid border border-2']) !!}
                 </div>
                 <!-- About Me Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('about_me', 'About Me') !!}
-                    {!! Form::textarea('about_me', auth()->user()->staff->about_me, ['class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::textarea('about_me', $user->staff->about_me, ['class' => 'form-control form-control-solid border border-2']) !!}
                 </div>
                 {{-- do for only admins --}}
                 {{-- <div class="d-flex flex-column col-md-12 mb-8 fv-row">

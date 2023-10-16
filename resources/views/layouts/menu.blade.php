@@ -137,12 +137,14 @@ $departmentData = getDepartmentData();
 
                     @include('humanresource::layouts.menu')
 
-                    @if (in_array(Auth()->user()->staff->department_id, $departmentData['hrIdToCheck']) || $departmentData['loggedInUserId'] == 1)
+                    @if (in_array(Auth()->user()->staff->department_id,  $departmentData['hrIdToCheck']) || $departmentData['loggedInUserId'] == 1)
                     @include('layouts.user')
                     @endif
+                    
                 </div>
             </div>
             <!--End Main Menu 4: Operational Tasks -->
+
 
             <!--Start Main Menu 5: Operational Tasks -->
             <div class="menu-item main-menu-item">
