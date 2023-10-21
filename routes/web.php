@@ -119,6 +119,5 @@ Route::get('certicate',[CertificateController::class,'index'])->name('certicate'
     Route::post('change-email-password', [UserController::class,'changePassword'])->name('change.email.password');
     Route::post('/save-signature', [UserController::class,'saveSignature']);
     Route::get('/change-signature', [UserController::class,'changeSignature'])->name('change.signature');
-
-
 });
+

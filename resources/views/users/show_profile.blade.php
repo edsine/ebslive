@@ -380,7 +380,7 @@
 
             <!--begin::Col-->
             <div class="col-lg-8">
-                <span class="fw-bolder fs-6 text-gray-800">{{auth()->user()->staff->branch_region?auth()->user()->staff->branch_region:'no region yet'}} </span>
+                <span class="fw-bolder fs-6 text-gray-800">{{auth()->user()->staff->branch->region ? auth()->user()->staff->branch->region->name:'no region yet'}} </span>
             </div>
             <!--end::Col-->
         </div>

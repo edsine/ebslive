@@ -6,6 +6,7 @@ use App\Models\User;
 use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
 use Modules\Shared\Models\Branch;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Modules\Shared\Models\Department;
@@ -39,7 +40,7 @@ class ProfileController extends Controller
     {
        
        $id= auth()->id();
-       $data= \DB::table('users')
+       $data= DB::table('users')
        ->join('staff','users.id','=','staff.user_id')
        ->join('model_has_roles','users.id','=','model_has_roles.model_id')
        ->join('roles','model_has_roles.role_id','=','roles.id')

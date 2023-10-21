@@ -19,23 +19,33 @@
 <!-- Department Id Field -->
 <div id="department_id_div" class="form-group col-sm-6">
     {!! Form::label('department_id', 'Department:') !!}
-    {!! Form::select('department_id', [], null, ['class' => 'form-control custom-select','id'=>'departmentSelect']) !!}
+    {!! Form::select('department_id', $departments, null, ['class' => 'form-control custom-select','id'=>'departmentSelect']) !!}
 </div>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+{{-- <script>
     // JavaScript to handle the department selection and update user dropdown
     $('#branchSelect').on('change', function () {
         const selectedDepartmentId = $(this).val();
+        
+        
         var homeUrl = window.location.origin;
+        
         if (selectedDepartmentId) {
-            $.get(`${homeUrl}/units/branches/${selectedDepartmentId}`, function (users) {
+
+            $.get(`${homeUrl}/units/branches/${selectedDepartmentId}`
+            
+            , function (users) {
+              
                 $('#departmentSelect').empty().append('<option value="">Select Department</option>');
+                //
                 var u = JSON.stringify(users);
+               
                     
                 $.each(users, function (index, user) {
                     $('#departmentSelect').append(`<option value="${user.id}">${user.department_unit}</option>`);
+                // alert('ff');
                 });
             
             });
@@ -43,7 +53,39 @@
             $('#departmentSelect').empty().append('<option value="">Select Department</option>');
         }
     });
-</script>
+</script> --}}
+{{-- <script>
+    // JavaScript to handle the department selection and update user dropdown
+    $('#branchSelect').on('change', function () {
+        const selectedDepartmentId = $(this).val();
+        
+        
+        var homeUrl = window.location.origin;
+        
+        if (selectedDepartmentId) {
+
+            $.get(`${homeUrl}/units/branches/${selectedDepartmentId}`
+            
+            , function (users) {
+              
+                $('#departmentSelect').empty().append('<option value="">Select Department</option>');
+                //
+                var u = JSON.stringify(users);
+               
+                    
+                $.each(users, function (index, user) {
+                    $('#departmentSelect').append(`<option value="${user.id}">${user.department_unit}</option>`);
+                // alert('ff');
+                });
+            
+            });
+        } else {
+            $('#departmentSelect').empty().append('<option value="">Select Department</option>');
+        }
+    });
+</script> --}}
+
+
 
 {{-- @push('page_scripts')
     <script type="text/javascript">

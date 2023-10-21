@@ -5,6 +5,7 @@ namespace Modules\UnitManager\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Shared\Models\Branch;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
 use OwenIt\Auditing\Contracts\Auditable;
 
@@ -39,5 +40,9 @@ use OwenIt\Auditing\Contracts\Auditable;
     public function unit_head(): \Illuminate\Database\Eloquent\Relations\hasOne
     {
         return $this->hasOne(\Modules\UnitManager\Models\UnitHead::class, 'id', 'unit_head_id');
+    }
+
+    public function branch(){
+        return $this->hasMany(Branch::class);
     }
 }

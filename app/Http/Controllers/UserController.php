@@ -482,18 +482,19 @@ class UserController extends AppBaseController
         }
 
 
-        $rol=Role::pluck('name','name')->all();
-        $myrole=$user->roles->pluck('name','name')->all();
+        // $rol=Role::pluck('name','name')->all();
+        // $myrole=$user->roles->pluck('name','name')->all();
         //$user['role_id'] = $user1->roles()->first()->id;
 
         // $roles = $this->roleRepository->all()->pluck('name', 'id');
 
-        $roles=Role::all()->pluck('name','id');
+        $roles=Role::all()->pluck('name','id')->all();
+        $userrole=$user->roles->pluck('name','id')->all();
         // $roles->prepend('Select role', '');
 
         return view('users.edit', compact('user','roles',
         'branch', 'department', 'id',
-         'rank','rol','myrole'));
+         'rank','userrole'));
     }
 
     /**
