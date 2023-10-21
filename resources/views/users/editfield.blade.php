@@ -20,8 +20,9 @@
                 <!-- Role Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('roles', 'Roles') !!}
+                    {{-- {!! Form::select('roles[]',$roles,$userrole ,['class' => 'form-control form-control-solid border border-2 form-select']) !!} --}}
                     {!! Form::select('roles[]',$roles,null, ['class' => 'form-control form-control-solid border border-2 form-select']) !!}
-                    {{-- {!! Form::select('roles[]',$roles,$user->roles->pluck('name','id'), ['class' => 'form-control form-control-solid border border-2 form-select']) !!} --}}
+                   
                 </div>
 
                 <!-- Email Field -->
@@ -138,12 +139,12 @@
                 <!-- StaffID Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('staff_id', 'Staff ID') !!}
-                    {!! Form::text('staff_id',  null, ['class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::text('staff_id', auth()->user()->staff->staff_id, ['class' => 'form-control form-control-solid border border-2']) !!}
                 </div>
                 <!-- About Me Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('about_me', 'About Me') !!}
-                    {!! Form::textarea('about_me', $user->staff->about_me, ['class' => 'form-control form-control-solid border border-2']) !!}
+                    {!! Form::textarea('about_me', auth()->user()->staff->about_me, ['class' => 'form-control form-control-solid border border-2']) !!}
                 </div>
                 {{-- do for only admins --}}
                 {{-- <div class="d-flex flex-column col-md-12 mb-8 fv-row">

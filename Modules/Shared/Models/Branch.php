@@ -7,6 +7,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\UnitManager\Models\Region;
 use Modules\WorkflowEngine\Models\Staff;
 
 /**
@@ -155,9 +156,13 @@ use Modules\WorkflowEngine\Models\Staff;
         return $this->belongsTo(\App\Models\User::class, 'managing_id', 'id');
     }
 
-    public function region(): \Illuminate\Database\Eloquent\Relations\hasOne
-    {
-        return $this->hasOne(\Modules\UnitManager\Models\Region::class, 'id', 'region_id');
+    // public function region(): \Illuminate\Database\Eloquent\Relations\hasOne
+    // {
+    //     return $this->hasOne(\Modules\UnitManager\Models\Region::class, 'id', 'region_id');
+    // }
+
+    public function region(){
+        return $this->belongsTo(Region::class);
     }
     public function staff(){
         return $this->hasMany(Staff::class);
