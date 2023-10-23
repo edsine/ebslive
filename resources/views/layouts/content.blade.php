@@ -8,6 +8,7 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-fluid">
             <div class="content-wrapper">
+                <ul class="breadcrumb">@yield('breadcrumb')</ul>
                 @yield('content')
             </div>
         </div>
