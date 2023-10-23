@@ -122,6 +122,7 @@ $userData = $users1->map(function ($user) {
      */
     public function store(CreateMemoRequest $request)
     {
+       
         if (!checkPermission('create memo')) {
             Flash::error('Permission denied');
 
@@ -202,7 +203,8 @@ $userData = $users1->map(function ($user) {
         $version_input['document_id'] = $document->id;
         $version_input['created_by'] = Auth::user()->id;
         $version_input['version_number'] = 1;
-        $version_input['document_url'] = $documentUrl;
+        $version_input['document_url'] = $document_url;
+        // $version_input['document_url'] = $documentUrl;
 
         $documentVersion = $this->documentVersionRepository->create($version_input);
 

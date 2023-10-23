@@ -11,13 +11,15 @@
                 															<th class="min-w-200px text-end rounded-end"></th>
 														</tr>
             </thead>
+            {{-- @dd($folders->where('id',2)) --}}
             <tbody class="fw-semibold text-gray-600">
                 @foreach ($folders as $folder)
                     <tr>
                         <td><i class="fa fa-folder"></i> {{ $folder->name }}</td>
                         <td>{{ $folder->description }}</td>
                         <td>{{ $folder->branch ? $folder->branch->branch_name : '' }}</td>
-                        <td>{{ $folder->department ? $folder->department->name : '' }}</td>
+                        {{-- <td>{{ $folder->department ? $folder->department->name : '' }}</td> --}}
+                        <td>{{ $folder->department ? $folder->department->department_unit : '' }}</td>
                         <td style="width: 120px">
                             {!! Form::open(['route' => ['folders.destroy', $folder->id], 'method' => 'delete']) !!}
                             <div class='btn-group'>

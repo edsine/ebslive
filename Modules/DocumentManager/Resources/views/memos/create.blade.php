@@ -20,6 +20,7 @@
         <div class="card">
 
             {!! Form::open(['route' => 'memos.store', 'enctype' => 'multipart/form-data']) !!}
+            @csrf
 
             <div class="card-body">
 
@@ -59,7 +60,7 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Send', ['class' => 'btn btn-primary']) !!}
                 <a href="{{ route('memos.index') }}" class="btn btn-default"> Cancel </a>
             </div>
 
