@@ -66,7 +66,7 @@
         }
 
         .proposal-logo {
-            max-width: 200px;
+            max-width: 100px;
             width: 100%;
         }
 
@@ -209,11 +209,11 @@
                         <tbody>
                         <tr>
                             <td>{{__('Number')}}:</td>
-                            <td class="text-right">{{Utility::proposalNumberFormat($settings,$proposal->proposal_id)}}</td>
+                            <td class="text-right">{{\Modules\Accounting\Models\Utility::proposalNumberFormat($settings,$proposal->proposal_id)}}</td>
                         </tr>
                         <tr>
                             <td>{{__('Issue Date')}}:</td>
-                            <td class="text-right">{{Utility::dateFormat($settings,$proposal->issue_date)}}</td>
+                            <td class="text-right">{{\Modules\Accounting\Models\Utility::dateFormat($settings,$proposal->issue_date)}}</td>
                         </tr>
 
 
@@ -297,8 +297,8 @@
                     <tr>
                         <td>{{$item->name}}</td>
                         <td>{{$item->quantity}}</td>
-                        <td>{{Utility::priceFormat($settings,$item->price)}}</td>
-                        <td>{{($item->discount!=0)?Utility::priceFormat($settings,$item->discount):'-'}}</td>
+                        <td>{{\Modules\Accounting\Models\Utility::priceFormat($settings,$item->price)}}</td>
+                        <td>{{($item->discount!=0)?\Modules\Accounting\Models\Utility::priceFormat($settings,$item->discount):'-'}}</td>
                         @php
                             $itemtax = 0;
                         @endphp
@@ -315,7 +315,7 @@
                                 <span>-</span>
                             @endif
                         </td>
-                        <td>{{Utility::priceFormat($settings,$item->price * $item->quantity -  $item->discount + $itemtax)}}</td>
+                        <td>{{\Modules\Accounting\Models\Utility::priceFormat($settings,$item->price * $item->quantity -  $item->discount + $itemtax)}}</td>
                     @if(!empty($item->description))
                         <tr class="border-0 itm-description ">
                             <td colspan="6">{{$item->description}}</td>
@@ -331,10 +331,10 @@
             <tr>
                 <td>{{__('Total')}}</td>
                 <td>{{$proposal->totalQuantity}}</td>
-                <td>{{Utility::priceFormat($settings,$proposal->totalRate)}}</td>
-                <td>{{Utility::priceFormat($settings,$proposal->totalDiscount)}}</td>
-                <td>{{Utility::priceFormat($settings,$proposal->totalTaxPrice) }}</td>
-                <td>{{Utility::priceFormat($settings,$proposal->getSubTotal())}}</td>
+                <td>{{\Modules\Accounting\Models\Utility::priceFormat($settings,$proposal->totalRate)}}</td>
+                <td>{{\Modules\Accounting\Models\Utility::priceFormat($settings,$proposal->totalDiscount)}}</td>
+                <td>{{\Modules\Accounting\Models\Utility::priceFormat($settings,$proposal->totalTaxPrice) }}</td>
+                <td>{{\Modules\Accounting\Models\Utility::priceFormat($settings,$proposal->getSubTotal())}}</td>
             </tr>
             <tr>
                 <td colspan="4"></td>
@@ -342,25 +342,25 @@
                     <table class="total-table">
                         <tr>
                             <td>{{__('Subtotal')}}:</td>
-                            <td>{{Utility::priceFormat($settings,$proposal->getSubTotal())}}</td>
+                            <td>{{\Modules\Accounting\Models\Utility::priceFormat($settings,$proposal->getSubTotal())}}</td>
                         </tr>
                         @if($proposal->getTotalDiscount())
                             <tr>
                                 <td>{{__('Discount')}}:</td>
-                                <td>{{Utility::priceFormat($settings,$proposal->getTotalDiscount())}}</td>
+                                <td>{{\Modules\Accounting\Models\Utility::priceFormat($settings,$proposal->getTotalDiscount())}}</td>
                             </tr>
                         @endif
                         @if(!empty($proposal->taxesData))
                             @foreach($proposal->taxesData as $taxName => $taxPrice)
                                 <tr>
                                     <td>{{$taxName}} :</td>
-                                    <td>{{ Utility::priceFormat($settings,$taxPrice)  }}</td>
+                                    <td>{{ \Modules\Accounting\Models\Utility::priceFormat($settings,$taxPrice)  }}</td>
                                 </tr>
                             @endforeach
                         @endif
                         <tr>
                             <td>{{__('Total')}}:</td>
-                            <td>{{Utility::priceFormat($settings,$proposal->getSubTotal()-$proposal->getTotalDiscount()+$proposal->getTotalTax())}}</td>
+                            <td>{{\Modules\Accounting\Models\Utility::priceFormat($settings,$proposal->getSubTotal()-$proposal->getTotalDiscount()+$proposal->getTotalTax())}}</td>
                         </tr>
 
 

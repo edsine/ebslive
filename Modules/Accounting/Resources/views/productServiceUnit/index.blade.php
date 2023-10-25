@@ -12,6 +12,7 @@
 @endsection
 
 @section('content')
+@include('layouts.messages')
 <style>
     .btn-sm1, .btn-group-sm > .btn {
     --bs-btn-padding-y: 0.25rem;
@@ -71,10 +72,9 @@
     background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
 }
 .ms-2 {
-    float: left;
     margin-left: 0.5rem !important;
 }
-.btn i {
+.btn1 i {
     display: inline-flex;
     font-size: 1rem;
     padding-right: 0.rem;

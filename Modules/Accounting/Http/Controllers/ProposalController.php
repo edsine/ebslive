@@ -753,7 +753,7 @@ class ProposalController extends AppBaseController
         }
 
 
-        return view('proposal.templates.' . $template, compact('proposal', 'preview', 'color', 'img', 'settings', 'customer', 'font_color', 'customFields'));
+        return view('accounting::proposal.templates.' . $template, compact('proposal', 'preview', 'color', 'img', 'settings', 'customer', 'font_color', 'customFields'));
     }
 
     public function proposal($proposal_id)

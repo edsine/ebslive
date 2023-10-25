@@ -17,6 +17,7 @@ use Spatie\Permission\Models\Role;
 use Twilio\Rest\Client;
 use Illuminate\Support\Facades\Schema;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class Utility extends Model
 {
@@ -3170,7 +3171,7 @@ class Utility extends Model
     {
         \Artisan::call('cache:forget spatie.permission.cache');
         \Artisan::call('cache:clear');
-        $usr = \Auth::user();
+        $usr = Auth::user();
 
         $arrPermissions = [
             'manage form builder',
@@ -3290,10 +3291,10 @@ class Utility extends Model
     public static function getAdminPaymentSetting()
     {
 
-        $data     = \DB::table('admin_payment_settings');
+        $data     = DB::table('admin_payment_settings');
 
         $settings = [];
-        if(\Auth::check())
+        if(Auth::check())
         {
 
             $user_id = 1;
@@ -3314,7 +3315,7 @@ class Utility extends Model
     public static function getCompanyPaymentSetting($user_id)
     {
 
-        $data     = \DB::table('company_payment_settings');
+        $data     = DB::table('company_payment_settings');
         $settings = [];
         $data     = $data->where('created_by', '=', $user_id);
         $data     = $data->get();
@@ -3329,11 +3330,11 @@ class Utility extends Model
     public static function getCompanyPayment()
     {
 
-        $data     = \DB::table('company_payment_settings');
+        $data     = DB::table('company_payment_settings');
         $settings = [];
-        if(\Auth::check())
+        if(Auth::check())
         {
-            $user_id = \Auth::user()->creatorId();
+            $user_id = Auth::user()->creatorId();
             $data    = $data->where('created_by', '=', $user_id);
 
         }
@@ -3461,7 +3462,7 @@ class Utility extends Model
             }
             else
             {
-                $user = \Auth::user();
+                $user = Auth::user();
             }
             $curr_noti_tempLang = NotificationTemplateLangs::where('parent_id', '=', $notification_template->id)->where('lang', $user->lang)->where('created_by', '=', $user->id)->first();
 
@@ -3520,7 +3521,7 @@ class Utility extends Model
             }
             else
             {
-                $user = \Auth::user();
+                $user = Auth::user();
             }
             $curr_noti_tempLang = NotificationTemplateLangs::where('parent_id', '=', $notification_template->id)->where('lang', $user->lang)->where('created_by', '=', $user->id)->first();
 
@@ -3587,7 +3588,7 @@ class Utility extends Model
             }
             else
             {
-                $user = \Auth::user();
+                $user = Auth::user();
             }
             $curr_noti_tempLang = NotificationTemplateLangs::where('parent_id', '=', $notification_template->id)->where('lang', $user->lang)->where('created_by', '=', $user->id)->first();
 
@@ -3682,7 +3683,7 @@ class Utility extends Model
             $transfer->warehouse_id  = $to_warehouse;
             $transfer->product_id    = $product_id;
             $transfer->quantity      = $quantity;
-            $transfer->created_by    = \Auth::user()->creatorId();
+            $transfer->created_by    = Auth::user()->creatorId();
             $transfer->save();
         }else{
             $toWarehouse->quantity   = $toWarehouse->quantity+$quantity;
@@ -3711,7 +3712,7 @@ class Utility extends Model
         $stocks->type = $type;
         $stocks->type_id = $type_id;
         $stocks->description = $description;
-        $stocks->created_by =\Auth::user()->creatorId();
+        $stocks->created_by =Auth::user()->creatorId();
         $stocks->save();
     }
 
@@ -3719,9 +3720,9 @@ class Utility extends Model
     {
         $data = DB::table('settings');
 
-        if (\Auth::check()) {
+        if (Auth::check()) {
 
-            $data=$data->where('created_by','=',\Auth::user()->creatorId())->get();
+            $data=$data->where('created_by','=',Auth::user()->creatorId())->get();
             if(count($data)==0){
                 $data =DB::table('settings')->where('created_by', '=', 1 )->get();
             }
@@ -3749,9 +3750,9 @@ class Utility extends Model
 
     public static function colorset()
     {
-        if(\Auth::check())
+        if(Auth::check())
         {
-            $setting = DB::table('settings')->where('created_by', \Auth::user()->creatorId())->pluck('value','name')->toArray();
+            $setting = DB::table('settings')->where('created_by', Auth::user()->creatorId())->pluck('value','name')->toArray();
         }else
         {
 
@@ -3791,7 +3792,7 @@ class Utility extends Model
     {
         $setting = Utility::colorset();
 
-        if(\Auth::user() && \Auth::user()->type != 'super admin')
+        if(Auth::user() && Auth::user()->type != 'super admin')
         {
 
             if(Utility::getValByName('cust_darklayout') == 'on')
@@ -3821,7 +3822,7 @@ class Utility extends Model
     public static function getGdpr()
     {
         $data = DB::table('settings');
-        if (\Auth::check()) {
+        if (Auth::check()) {
             $data = $data->where('created_by', '=', 1);
         } else {
             $data = $data->where('created_by', '=', 1);
@@ -3860,8 +3861,8 @@ class Utility extends Model
         }
 
         $data = WarehouseProduct::updateOrCreate(
-            ['warehouse_id' => $warehouse_id, 'product_id' => $product_id,'created_by' => \Auth::user()->id],
-            ['warehouse_id' => $warehouse_id, 'product_id' => $product_id, 'quantity' => $product_quantity,'created_by' => \Auth::user()->id])
+            ['warehouse_id' => $warehouse_id, 'product_id' => $product_id,'created_by' => Auth::user()->id],
+            ['warehouse_id' => $warehouse_id, 'product_id' => $product_id, 'quantity' => $product_quantity,'created_by' => Auth::user()->id])
           ;
 
     }
@@ -3871,16 +3872,16 @@ class Utility extends Model
 
         if($type == 'invoice')
         {
-            $data = DB::table('settings')->where('created_by', \Auth::user()->creatorId())->where('name', 'invoice_starting_number')->update(array('value' => $id));
+            $data = DB::table('settings')->where('created_by', Auth::user()->creatorId())->where('name', 'invoice_starting_number')->update(array('value' => $id));
         }
         elseif($type == 'proposal')
         {
-            $data = DB::table('settings')->where('created_by', \Auth::user()->creatorId())->where('name', 'proposal_starting_number')->update(array('value' => $id));
+            $data = DB::table('settings')->where('created_by', Auth::user()->creatorId())->where('name', 'proposal_starting_number')->update(array('value' => $id));
         }
 
         elseif($type == 'bill')
         {
-            $data = DB::table('settings')->where('created_by', \Auth::user()->creatorId())->where('name', 'bill_starting_number')->update(array('value' => $id));
+            $data = DB::table('settings')->where('created_by', Auth::user()->creatorId())->where('name', 'bill_starting_number')->update(array('value' => $id));
         }
 
         return $data;
@@ -3947,7 +3948,7 @@ class Utility extends Model
 
                 }
 
-                $validator = \Validator::make($request->all(), [
+                $validator = Validator::make($request->all(), [
                     $key_name =>$validation
                 ]);
 
@@ -3966,7 +3967,8 @@ class Utility extends Model
                     if($settings['storage_setting']=='local')
                     {
 //                    dd(\Storage::disk(),$path);
-                        $request->$key_name->move(storage_path($path), $name);
+                        //$request->$key_name->move(storage_path($path), $name);
+                        $request->$key_name->move(public_path('storage/'.$path), $name);
                         $path = $path.$name;
                     }
                     else if($settings['storage_setting'] == 'wasabi'){
@@ -4374,7 +4376,7 @@ class Utility extends Model
 
     public static function getSeoSetting()
     {
-        $data= \DB::table('settings')->whereIn('name', ['meta_title','meta_desc','meta_image'])->get();
+        $data= DB::table('settings')->whereIn('name', ['meta_title','meta_desc','meta_image'])->get();
         $settings=[];
         foreach ($data as $row) {
             $settings[$row->name] = $row->value;
@@ -4391,7 +4393,7 @@ class Utility extends Model
         }
         else
         {
-            $user = \Auth::user();
+            $user = Auth::user();
         }
         $webhook = WebhookSetting::where('module',$module)->where('created_by', '=', $user->id)->first();
         if(!empty($webhook)){
@@ -4442,7 +4444,7 @@ class Utility extends Model
     public static function getCookieSetting()
     {
 
-        $data= \DB::table('settings')->whereIn('name', ['enable_cookie','cookie_logging','cookie_title',
+        $data= DB::table('settings')->whereIn('name', ['enable_cookie','cookie_logging','cookie_title',
             'cookie_description','necessary_cookies','strictly_cookie_title',
             'strictly_cookie_description','more_information_description','contactus_url'])->get();
         $settings = [
@@ -4862,64 +4864,70 @@ class Utility extends Model
 
     public static function trialBalance($account_id, $start, $end)
     {
-        $journalItem = JournalItem::select('chart_of_accounts.id','chart_of_accounts.code','chart_of_accounts.name', \DB::raw('sum(debit) as totalDebit'), \DB::raw('sum(credit) as totalCredit'));
-        $journalItem->leftjoin('journal_entries', 'journal_entries.id', 'journal_items.journal');
-        $journalItem->leftjoin('chart_of_accounts', 'journal_items.account', 'chart_of_accounts.id');
-        $journalItem->where('chart_of_accounts.type',$account_id);
-        $journalItem->where('chart_of_accounts.created_by',\Auth::user()->creatorId());
-        $journalItem->where('journal_items.created_at', '>=', $start);
-        $journalItem->where('journal_items.created_at', '<=', $end);
-        $journalItem->groupBy('account');
-        $journalItem = $journalItem->get()->toArray();
+        $journalItem = JournalItem::select('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name', DB::raw('sum(debit) as totalDebit'), DB::raw('sum(credit) as totalCredit'));
+$journalItem->leftJoin('journal_entries', 'journal_entries.id', '=', 'journal_items.journal');
+$journalItem->leftJoin('chart_of_accounts', 'journal_items.account', '=', 'chart_of_accounts.id');
+$journalItem->where('chart_of_accounts.type', $account_id);
+$journalItem->where('chart_of_accounts.created_by', Auth::user()->creatorId());
+$journalItem->where('journal_items.created_at', '>=', $start);
+$journalItem->where('journal_items.created_at', '<=', $end);
+$journalItem->groupBy('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name');
+$journalItem = $journalItem->get()->toArray();
+
         
-        $invoice = InvoiceProduct::select('chart_of_accounts.id','chart_of_accounts.code','chart_of_accounts.name' , \DB::raw('0 as totalDebit'), \DB::raw('sum(price*invoice_products.quantity) as totalCredit'));
-        $invoice->leftjoin('product_services','product_services.id','invoice_products.product_id');
-        $invoice->leftjoin('chart_of_accounts', 'product_services.sale_chartaccount_id', 'chart_of_accounts.id');
-        $invoice->where('chart_of_accounts.type',$account_id);
-        $invoice->where('chart_of_accounts.created_by',\Auth::user()->creatorId());
-        $invoice->where('invoice_products.created_at', '>=', $start);
-        $invoice->where('invoice_products.created_at', '<=', $end);
-        $invoice->groupBy('product_services.sale_chartaccount_id');
-        $invoice = $invoice->get()->toArray();
+$invoice = InvoiceProduct::select('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name', DB::raw('0 as totalDebit'), DB::raw('sum(price*invoice_products.quantity) as totalCredit'));
+$invoice->leftJoin('product_services', 'product_services.id', 'invoice_products.product_id');
+$invoice->leftJoin('chart_of_accounts', 'product_services.sale_chartaccount_id', 'chart_of_accounts.id');
+$invoice->where('chart_of_accounts.type', $account_id);
+$invoice->where('chart_of_accounts.created_by', Auth::user()->creatorId());
+$invoice->where('invoice_products.created_at', '>=', $start);
+$invoice->where('invoice_products.created_at', '<=', $end);
+$invoice->groupBy('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name');
+$invoice = $invoice->get()->toArray();
 
-        $revenue = Revenue::select('chart_of_accounts.id','chart_of_accounts.code','chart_of_accounts.name' , \DB::raw('0 as totalDebit'), \DB::raw('sum(amount) as totalCredit'));
-        $revenue->leftjoin('bank_accounts','bank_accounts.id','revenues.account_id');
-        $revenue->leftjoin('chart_of_accounts', 'bank_accounts.chart_account_id', 'chart_of_accounts.id');
-        $revenue->where('chart_of_accounts.type',$account_id);
-        $revenue->where('chart_of_accounts.created_by',\Auth::user()->creatorId());
-        $revenue->where('revenues.created_at', '>=', $start);
-        $revenue->where('revenues.created_at', '<=', $end);
-        $revenue->groupBy('chart_account_id');
-        $revenue = $revenue->get()->toArray();
 
-        $bill = BillProduct::select('chart_of_accounts.id','chart_of_accounts.code','chart_of_accounts.name' , \DB::raw('sum(price*bill_products.quantity) as totalDebit') , \DB::raw('0 as totalCredit'));
-        $bill->leftjoin('product_services','product_services.id','bill_products.product_id');
-        $bill->leftjoin('chart_of_accounts', 'product_services.expense_chartaccount_id', 'chart_of_accounts.id');
-        $bill->where('chart_of_accounts.type',$account_id);
-        $bill->where('chart_of_accounts.created_by',\Auth::user()->creatorId());
-        $bill->where('bill_products.created_at', '>=', $start);
-        $bill->where('bill_products.created_at', '<=', $end);
-        $bill->groupBy('product_services.expense_chartaccount_id');
-        $bill = $bill->get()->toArray();
+$revenue = Revenue::select('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name', DB::raw('0 as totalDebit'), DB::raw('sum(amount) as totalCredit'));
+$revenue->leftJoin('bank_accounts', 'bank_accounts.id', 'revenues.account_id');
+$revenue->leftJoin('chart_of_accounts', 'bank_accounts.chart_account_id', 'chart_of_accounts.id');
+$revenue->where('chart_of_accounts.type', $account_id);
+$revenue->where('chart_of_accounts.created_by', Auth::user()->creatorId());
+$revenue->where('revenues.created_at', '>=', $start);
+$revenue->where('revenues.created_at', '<=', $end);
+$revenue->groupBy('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name');
+$revenue = $revenue->get()->toArray();
+
+
+$bill = BillProduct::select('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name', DB::raw('sum(price*bill_products.quantity) as totalDebit'), DB::raw('0 as totalCredit'));
+$bill->leftJoin('product_services', 'product_services.id', 'bill_products.product_id');
+$bill->leftJoin('chart_of_accounts', 'product_services.expense_chartaccount_id', 'chart_of_accounts.id');
+$bill->where('chart_of_accounts.type', $account_id);
+$bill->where('chart_of_accounts.created_by', Auth::user()->creatorId());
+$bill->where('bill_products.created_at', '>=', $start);
+$bill->where('bill_products.created_at', '<=', $end);
+$bill->groupBy('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name');
+$bill = $bill->get()->toArray();
+
         
-        $billAccount = BillAccount::select('chart_of_accounts.id','chart_of_accounts.code','chart_of_accounts.name' , \DB::raw('sum(price) as totalDebit'), \DB::raw('0 as totalCredit'));
-        $billAccount->leftjoin('chart_of_accounts', 'bill_accounts.chart_account_id', 'chart_of_accounts.id');
-        $billAccount->where('chart_of_accounts.type',$account_id);
-        $billAccount->where('chart_of_accounts.created_by',\Auth::user()->creatorId());
-        $billAccount->where('bill_accounts.created_at', '>=', $start);
-        $billAccount->where('bill_accounts.created_at', '<=', $end);
-        $billAccount->groupBy('chart_account_id');
-        $billAccount = $billAccount->get()->toArray();
+$billAccount = BillAccount::select('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name', DB::raw('sum(price) as totalDebit'), DB::raw('0 as totalCredit'));
+$billAccount->leftJoin('chart_of_accounts', 'bill_accounts.chart_account_id', 'chart_of_accounts.id');
+$billAccount->where('chart_of_accounts.type', $account_id);
+$billAccount->where('chart_of_accounts.created_by', Auth::user()->creatorId());
+$billAccount->where('bill_accounts.created_at', '>=', $start);
+$billAccount->where('bill_accounts.created_at', '<=', $end);
+$billAccount->groupBy('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name');
+$billAccount = $billAccount->get()->toArray();
 
-        $payments = Payment::select('chart_of_accounts.id','chart_of_accounts.code','chart_of_accounts.name' , \DB::raw('sum(amount) as totalDebit'), \DB::raw('0 as totalCredit'));
-        $payments->leftjoin('bank_accounts','bank_accounts.id','payments.account_id');
-        $payments->leftjoin('chart_of_accounts', 'bank_accounts.chart_account_id', 'chart_of_accounts.id');
-        $payments->where('chart_of_accounts.type',$account_id);
-        $payments->where('chart_of_accounts.created_by',\Auth::user()->creatorId());
-        $payments->where('payments.created_at', '>=', $start);
-        $payments->where('payments.created_at', '<=', $end);
-        $payments->groupBy('account_id');
-        $payments = $payments->get()->toArray();
+
+$payments = Payment::select('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name', DB::raw('sum(amount) as totalDebit'), DB::raw('0 as totalCredit'));
+$payments->leftJoin('bank_accounts', 'bank_accounts.id', 'all_payments.account_id');
+$payments->leftJoin('chart_of_accounts', 'bank_accounts.chart_account_id', 'chart_of_accounts.id');
+$payments->where('chart_of_accounts.type', $account_id);
+$payments->where('chart_of_accounts.created_by', Auth::user()->creatorId());
+$payments->where('all_payments.created_at', '>=', $start);
+$payments->where('all_payments.created_at', '<=', $end);
+$payments->groupBy('chart_of_accounts.id', 'chart_of_accounts.code', 'chart_of_accounts.name', 'all_payments.account_id');
+$payments = $payments->get()->toArray();
+
 
         $total = array_merge($invoice , $journalItem , $revenue , $bill ,$billAccount , $payments);
         return $total;

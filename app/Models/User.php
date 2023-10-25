@@ -190,8 +190,21 @@ class User extends Authenticatable implements Auditable
 
         return date($settings['site_date_format'], strtotime($date));
     }
+    
+    public function expenseNumberFormat($number)
+    {
+        $settings = Utility::settings();
 
+        return $settings["expense_prefix"] . sprintf("%05d", $number);
+    }
 
+    public function journalNumberFormat($number)
+    {
+        $settings = Utility::settings();
+
+        return $settings["journal_prefix"] . sprintf("%05d", $number);
+    }
+    
     //Supposed Customer
     /* public function authId()
     {

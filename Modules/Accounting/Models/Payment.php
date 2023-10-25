@@ -27,7 +27,7 @@ class Payment extends Model
 
     public function vender()
     {
-        return $this->hasOne('Modules\Accounting\Models\Vender', 'id', 'vender_id');
+        return $this->hasOne('App\Models\User', 'id', 'vender_id');
     }
 
 

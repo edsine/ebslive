@@ -16,8 +16,9 @@ return new class extends Migration
         //
         Schema::table('users', function($table) {
             $table->string('lang')->default('en');
-            $table->float('balance')->default('0.00');
+            $table->decimal('balance', 16, 2)->default('0.00');
             $table->integer('customer_id')->nullable();
+            $table->integer('vender_id')->nullable();
             $table->string('tax_number')->nullable();
             $table->integer('created_by')->default(0);
             $table->string('billing_name')->nullable();

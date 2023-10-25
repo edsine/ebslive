@@ -20,7 +20,7 @@ class CreateBillsTable extends Migration
             $table->integer('vender_id');
             $table->date('bill_date');
             $table->date('due_date');
-            $table->integer('order_number')->default('0');
+            $table->bigInteger('order_number')->default('0');
             $table->integer('status')->default('0');
             $table->string('type')->nullable();
             $table->string('user_type')->nullable();

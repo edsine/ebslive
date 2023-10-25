@@ -26,7 +26,7 @@ class Revenue extends Model
 
     public function customer()
     {
-        //return $this->hasOne('Modules\Accounting\Models\Customer', 'id', 'customer_id');
+        return $this->hasOne('App\Models\User', 'id', 'customer_id');
     }
 
     public function bankAccount()

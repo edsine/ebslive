@@ -65,7 +65,7 @@
 .ms-2 {
     margin-left: 0.5rem !important;
 }
-.btn i {
+.btn1 i {
     display: inline-flex;
     font-size: 1rem;
     padding-right: 0.rem;
@@ -73,8 +73,32 @@
     line-height: 0;
 }
 </style>
-@push('script-page')
-    
+@push('page_scripts')
+<script>
+    $(document).ready(function () {
+        $('.cp_link').on('click', function () {
+            var value = $(this).attr('data-link');
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(value).select();
+            document.execCommand("copy");
+            $temp.remove();
+            show_toastr('success', '{{__('Link Copy on Clipboard')}}')
+        });
+    });
+
+    $(document).ready(function () {
+        $('.iframe_link').on('click', function () {
+            var value = $(this).attr('data-link');
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(value).select();
+            document.execCommand("copy");
+            $temp.remove();
+            show_toastr('success', '{{__('Link Copy on Clipboard')}}')
+        });
+    });
+</script>   
 @endpush
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('Dashboard')}}</a></li>
@@ -130,31 +154,31 @@
                                                 </a>
                                             </div> --}}
 
-                                           {{--  @can('manage form field') --}}
+                                            @can('manage form field')
                                                 <div class="action-btn bg-secondary ms-2">
                                                     <a href="{{route('form_builder.show',$form->id)}}" class="mx-3 btn1 btn-sm d-inline-flex align-items-center" data-bs-toggle="tooltip" title="{{__('Click to create forms')}}"><i class="fa fa-table text-white"></i></a>
                                                 </div>
-                                           {{--  @endcan
+                                            @endcan
 
-                                            @can('view form response') --}}
+                                            @can('view form response')
                                                 <div class="action-btn bg-warning ms-2">
                                                     <a href="{{route('form.response',$form->id)}}" class="mx-3 btn1 btn-sm d-inline-flex align-items-center" data-bs-toggle="tooltip" title="{{__('View sent responses')}}"><i class="fa fa-eye text-white"></i></a>
                                                 </div>
-                                            {{-- @endcan
-                                            @can('edit form builder') --}}
+                                            @endcan
+                                            @can('edit form builder')
                                                 <div class="action-btn bg-info ms-2">
                                                     <a href="#" class="mx-3 btn1 btn-sm d-inline-flex align-items-center" data-url="{{ route('form_builder.edit',$form->id) }}" data-ajax-popup="true" data-size="md" data-bs-toggle="tooltip" title="{{__('Edit')}}" data-title="{{__('Form Builder Edit')}}">
                                                         <i class="fa fa-pencil text-white"></i>
                                                     </a>
                                                 </div>
-                                            {{-- @endcan
-                                            @can('delete form builder') --}}
+                                            @endcan
+                                            @can('delete form builder')
                                                 <div class="action-btn bg-danger ms-2">
                                                     {!! Form::open(['method' => 'DELETE', 'route' => ['form_builder.destroy', $form->id],'id'=>'delete-form-'.$form->id]) !!}
                                                     <a href="#"  class="mx-3 btn1 btn-sm  align-items-center bs-pass-para" data-bs-toggle="tooltip" title="{{__('Delete')}}"><i class="fa fa-trash text-white"></i></a>
                                                     {!! Form::close() !!}
                                                 </div>
-                                           {{--  @endcan --}}
+                                            @endcan
                                         </td>
                                    {{--  @endif --}}
                                 </tr>
@@ -168,29 +192,5 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function () {
-            $('.cp_link').on('click', function () {
-                var value = $(this).attr('data-link');
-                var $temp = $("<input>");
-                $("body").append($temp);
-                $temp.val(value).select();
-                document.execCommand("copy");
-                $temp.remove();
-                show_toastr('success', '{{__('Link Copy on Clipboard')}}')
-            });
-        });
-
-        $(document).ready(function () {
-            $('.iframe_link').on('click', function () {
-                var value = $(this).attr('data-link');
-                var $temp = $("<input>");
-                $("body").append($temp);
-                $temp.val(value).select();
-                document.execCommand("copy");
-                $temp.remove();
-                show_toastr('success', '{{__('Link Copy on Clipboard')}}')
-            });
-        });
-    </script>
+   
 @endsection

@@ -96,7 +96,37 @@ $.ajax({
 });
 
 });
+
+$(document).on("click", '.bs-pass-para', function () {
+    var form = $(this).closest("form");
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+    swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "This action can not be undone. Do you want to continue?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            form.submit();
+
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+        }
+    })
+});
 </script>
+
 <script>
     function addCommas(num) {
     var number = parseFloat(num).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
@@ -208,6 +238,7 @@ $(document).on('click', 'input[name="quantity"], input[name="quantity[]"]', func
     });
 }
 </script>
+
 @if($message = Session::get('success'))
     <script>
         show_toastr('success', '{!! $message !!}');

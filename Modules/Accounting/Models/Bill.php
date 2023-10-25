@@ -27,17 +27,17 @@ class Bill extends Model
 
     public function customer()
     {
-        return $this->hasOne('App\Models\Customer', 'id', 'vender_id');
+        return $this->hasOne('App\Models\User', 'id', 'vender_id');
     }
 
     public function employee()
     {
-        return $this->hasOne('App\Models\Employee', 'id', 'vender_id');
+        return $this->hasOne('Modules\Accounting\Models\Employee', 'id', 'vender_id');
     }
 
     public function vender()
     {
-        return $this->hasOne('App\Models\Vender', 'id', 'vender_id');
+        return $this->hasOne('App\Models\User', 'id', 'vender_id');
     }
 
     public function tax()
@@ -137,7 +137,7 @@ class Bill extends Model
 
     public function category()
     {
-        return $this->hasOne('App\Models\ProductServiceCategory', 'id', 'category_id');
+        return $this->hasOne('Modules\Accounting\Models\ProductServiceCategory', 'id', 'category_id');
     }
 
     public function debitNote()

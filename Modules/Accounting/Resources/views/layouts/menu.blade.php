@@ -122,8 +122,8 @@
         <!--begin:Menu item-->
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('correspondences.index') }}"
-                class="menu-link {{ Request::is('correspondences*') ? 'active' : '' }}">
+            <a href="{{ route('invoice.index') }}"
+                class="menu-link {{ Request::is('invoice*') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -135,8 +135,8 @@
         <!--begin:Menu item-->
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('correspondences.assignedToUser') }}"
-                class="menu-link {{ Request::is('correspondences.assignedToUser') ? 'active' : '' }}">
+            <a href="{{ route('revenue.index') }}"
+                class="menu-link {{ Request::is('revenue.index') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -146,8 +146,8 @@
         </div>
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('correspondences.assignedToUser') }}"
-                class="menu-link {{ Request::is('correspondences.assignedToUser') ? 'active' : '' }}">
+            <a href="{{ route('credit.note') }}"
+                class="menu-link {{ Request::is('credit.note') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -187,22 +187,12 @@
     <!--begin:Menu sub-->
     <div class="menu-sub menu-sub-accordion">
         <!--begin:Menu item-->
-        <div class="menu-item">
-            <!--begin:Menu link-->
-            <a href="{{ route('memos.index') }}" class="menu-link {{ Request::is('memos*') ? 'active' : '' }}">
-                <span class="menu-bullet">
-                    <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">Supplier</span>
-            </a>
-            <!--end:Menu link-->
-        </div>
         <!--end:Menu item-->
         <!--begin:Menu item-->
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('memos.assignedToUser') }}"
-                class="menu-link {{ Request::is('memos.assignedToUser') ? 'active' : '' }}">
+            <a href="{{ route('bill.index') }}"
+                class="menu-link {{ Request::is('bill.index') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -214,8 +204,8 @@
         <!--begin:Menu item-->
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('correspondences.index') }}"
-                class="menu-link {{ Request::is('correspondences*') ? 'active' : '' }}">
+            <a href="{{ route('expense.index') }}"
+                class="menu-link {{ Request::is('expense*') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -227,8 +217,8 @@
         <!--begin:Menu item-->
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('correspondences.assignedToUser') }}"
-                class="menu-link {{ Request::is('correspondences.assignedToUser') ? 'active' : '' }}">
+            <a href="{{ route('payments.index') }}"
+                class="menu-link {{ Request::is('payments.index') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -238,8 +228,8 @@
         </div>
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('correspondences.assignedToUser') }}"
-                class="menu-link {{ Request::is('correspondences.assignedToUser') ? 'active' : '' }}">
+            <a href="{{ route('debit.note') }}"
+                class="menu-link {{ Request::is('debit.note') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -312,8 +302,8 @@
         <!--begin:Menu item-->
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('memos.assignedToUser') }}"
-                class="menu-link {{ Request::is('memos.assignedToUser') ? 'active' : '' }}">
+            <a href="{{ route('journal-entry.index') }}"
+                class="menu-link {{ Request::is('journal-entry') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -325,8 +315,8 @@
         <!--begin:Menu item-->
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('correspondences.index') }}"
-                class="menu-link {{ Request::is('correspondences*') ? 'active' : '' }}">
+            <a href="{{ route('report.ledger') }}"
+                class="menu-link {{ Request::is('report.ledger*') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -338,8 +328,8 @@
         <!--begin:Menu item-->
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('correspondences.assignedToUser') }}"
-                class="menu-link {{ Request::is('correspondences.assignedToUser') ? 'active' : '' }}">
+            <a href="{{ route('report.balance.sheet') }}"
+                class="menu-link {{ Request::is('report.balance.sheet') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -349,8 +339,8 @@
         </div>
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('correspondences.assignedToUser') }}"
-                class="menu-link {{ Request::is('correspondences.assignedToUser') ? 'active' : '' }}">
+            <a href="{{ route('report.profit.loss') }}"
+                class="menu-link {{ Request::is('report.profit.loss') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -360,8 +350,8 @@
         </div>
         <div class="menu-item">
             <!--begin:Menu link-->
-            <a href="{{ route('correspondences.assignedToUser') }}"
-                class="menu-link {{ Request::is('correspondences.assignedToUser') ? 'active' : '' }}">
+            <a href="{{ route('trial.balance') }}"
+                class="menu-link {{ Request::is('trial.balance') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -392,7 +382,7 @@
             </span>
             <!--end::Svg Icon-->
         </span>
-        <a href="{{ route('correspondences.assignedToUser') }}">
+        <a href="{{ route('budget.index') }}">
                 <span class="menu-title">Budget Planner</span>
             </a>
     </span>
@@ -416,7 +406,7 @@
             </span>
             <!--end::Svg Icon-->
         </span>
-        <a href="{{ route('correspondences.assignedToUser') }}">
+        <a href="{{ route('goal.index') }}">
                 <span class="menu-title">Financial Goal</span>
             </a>
     </span>
@@ -488,7 +478,7 @@
             </span>
             <!--end::Svg Icon-->
         </span>
-        <a href="{{ route('correspondences.assignedToUser') }}">
+        <a href="{{ route('print.setting') }}">
                 <span class="menu-title">Print Settings</span>
             </a>
     </span>
