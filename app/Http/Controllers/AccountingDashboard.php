@@ -115,7 +115,7 @@ class DashboardController extends Controller
                     $data['incExpBarChartData']  = \Auth::user()->getincExpBarChartData();
                     $data['incExpLineChartData'] = \Auth::user()->getIncExpLineChartDate();
 
-                    $data['currentYear']  = date('Y');
+                    $data['currentYear']  = date('Y');git
                     $data['currentMonth'] = date('M');
 
                     $constant['taxes']         = Tax::where('created_by', \Auth::user()->creatorId())->count();
