@@ -268,7 +268,7 @@
     <!--begin:Menu sub-->
     <div class="menu-sub menu-sub-accordion">
         <!--begin:Menu item-->
-        <div class="menu-item">
+       {{--  <div class="menu-item">
             <!--begin:Menu link-->
             <a href="{{ route('chart-of-account-type.index') }}" class="menu-link {{ Request::is('chart-of-account-type*') ? 'active' : '' }}">
                 <span class="menu-bullet">
@@ -287,7 +287,7 @@
                 <span class="menu-title">Chart Of Account Sub-Types</span>
             </a>
             <!--end:Menu link-->
-        </div>
+        </div> --}}
         <div class="menu-item">
             <!--begin:Menu link-->
             <a href="{{ route('chart-of-account.index') }}" class="menu-link {{ Request::is('chart-of-account*') ? 'active' : '' }}">
