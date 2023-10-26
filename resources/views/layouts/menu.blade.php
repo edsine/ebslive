@@ -188,6 +188,8 @@ $departmentData = getDepartmentData();
                     @include('approval::layouts.menu')
                 </div>
             </div>
+            @include('accounting::layouts.menu')
+            @include('formbuilder::layouts.menu')
             <!--End Main Menu 5: Operational Tasks -->
            <!--Begin change password -->
            {{--  <div class="menu-item main-menu-item">

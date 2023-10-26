@@ -19,6 +19,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "maatwebsite/excel": "^3.1",
+        "milon/barcode": "^10.0",
         "nwidart/laravel-modules": "9.0.0",
         "orangehill/iseed": "^3.0",
         "owen-it/laravel-auditing": "^13.5",
