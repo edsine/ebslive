@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\CertificateController;
-use App\Http\Controllers\DropdownController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
-//use App\Http\Controllers\EmailController;
-use App\Http\Controllers\Minister;
-use App\Http\Controllers\ProfileController;
 use App\Models\User;
+use App\Http\Controllers\Minister;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoleController;
+//use App\Http\Controllers\EmailController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DropdownController;
+use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\ZoomMeetingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -120,4 +121,16 @@ Route::get('certicate',[CertificateController::class,'index'])->name('certicate'
     Route::post('/save-signature', [UserController::class,'saveSignature']);
     Route::get('/change-signature', [UserController::class,'changeSignature'])->name('change.signature');
 });
+
+// Route::get('/account', function () {
+//     return view('accountdashboard');
+// });
+
+//=================================== Zoom Meeting ======================================================================
+Route::get('zoom' ,function(){
+    return view('zoom-meeting.index');
+})->name('zoom');
+// // Route::resource('zoom-meeting', ZoomMeetingController::class)->middleware(['auth']);
+// Route::any('/zoom-meeting/projects/select/{bid}', [ZoomMeetingController::class, 'projectwiseuser'])->name('zoom-meeting.projects.select');
+// Route::get('zoom-meeting-calender', [ZoomMeetingController::class, 'calender'])->name('zoom-meeting.calender')->middleware(['auth','XSS']);
 

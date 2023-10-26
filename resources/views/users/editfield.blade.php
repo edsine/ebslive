@@ -21,7 +21,7 @@
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('roles', 'Roles') !!}
                     {{-- {!! Form::select('roles[]',$roles,$userrole ,['class' => 'form-control form-control-solid border border-2 form-select']) !!} --}}
-                    {!! Form::select('roles[]',$roles,null, ['class' => 'form-control form-control-solid border border-2 form-select']) !!}
+                    {!! Form::select('roles[]',$roles,null, ['class' => 'form-control form-control-solid border border-2 form-select','multiple']) !!}
                    
                 </div>
 
