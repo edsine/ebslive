@@ -45,6 +45,9 @@ class HomeController extends Controller
 
             return redirect()->route('permsec');
         }
+        else if(Auth::check() && Auth::user()->staff->department_id==6){
+            return redirect()->route('dashboard');
+        }
         else {
 
             

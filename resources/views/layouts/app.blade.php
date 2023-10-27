@@ -5,16 +5,34 @@
     <meta charset="UTF-8">
     <title>{{ config('app.name') }}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-
+    
     {{-- <style>
         #aa a{
             display: none
-}
+        }
     </style> --}}
+    
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-
+    
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <!-- Adding the apex chart -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.44.0/apexcharts.min.css" integrity="sha512-nnNXPeQKvNOEUd+TrFbofWwHT0ezcZiFU5E/Lv2+JlZCQwQ/ACM33FxPoQ6ZEFNnERrTho8lF0MCEH9DBZ/wWw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.44.0/apexcharts.min.js"></script>
+
+
+{{-- 
+    <script src="{{ asset('node_modules/apexcharts/dist/apexcharts.min.js') }}"></script> --}}
+
+    {{-- <script src="{{ url('node_modules/apexcharts/dist/apexcharts.min.js') }}"></script> --}}
+
+
+   
+   
+
+   
     <!-- Custom Asset Start -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet">
@@ -378,7 +396,7 @@
     </div>
     <!--end::App-->
 
-
+{{-- <script src="{{asset('assets/js/plugins/apexcharts.min.js')}}"></script> --}}
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script>

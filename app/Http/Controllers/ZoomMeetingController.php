@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Log;
 use Auth;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Project;
-use App\Models\Utility;
 use App\Models\ProjectUser;
 use App\Models\ZoomMeeting;
 use Illuminate\Http\Request;
 use App\Models\AssignProject;
 use App\Traits\ZoomMeetingTrait;
+use Modules\Accounting\Models\Utility;
 
 class ZoomMeetingController extends Controller
 {
@@ -90,7 +91,7 @@ class ZoomMeetingController extends Controller
 
             $meeting_create = $this->createmitting($data);
 
-            \Log::info('Meeting');
+            Log::info('Meeting');
             \Log::info((array)$meeting_create);
             if(isset($meeting_create['success']) && $meeting_create['success'] == true)
             {

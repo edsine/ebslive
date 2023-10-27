@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Modules\FormBuilder\Http\Controllers\FormBuilderController;
@@ -40,6 +41,13 @@ use Modules\Accounting\Http\Controllers\SystemController;
 /* Route::prefix('accounting')->group(function() {
     Route::get('/', 'AccountingController@index');
 }); */
+
+
+
+
+Route::get('/accountadmin', [DashboardController::class, 'account_dashboard_index'])->name('dashboard')->middleware(['auth']);
+
+
 Route::group(
     [
         'middleware' => [
