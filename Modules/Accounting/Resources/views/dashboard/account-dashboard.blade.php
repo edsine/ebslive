@@ -360,7 +360,8 @@
 
                                 </div>
                                 <div class="card-body">
-                                    <div id="expenseByCategory"></div>
+                                    
+                                    <div id=" expenseByCategory "></div>
                                 </div>
                             </div>
                         </div>
