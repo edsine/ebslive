@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\SystemController;
 use App\Http\Controllers\DropdownController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
@@ -49,6 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/hradmin', [HomeController::class, 'hradmin'])->name('hradmin');
     Route::get('/financeadmin', [HomeController::class, 'financeadmin'])->name('financeadmin');
     Route::get('/claimsadmin', [HomeController::class, 'claimsadmin'])->name('claimsadmin');
+    Route::get('/settings', [HomeController::class, 'settings'])->name('settings');
 });
 
 // Route::middleware(['auth', 'authuserbyrole'])->group(function(){
@@ -122,3 +124,4 @@ Route::get('certicate',[CertificateController::class,'index'])->name('certicate'
 
 
 });
+

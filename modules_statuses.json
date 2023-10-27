@@ -9,5 +9,6 @@
     "HumanResource": true,
     "Leaves": true,
     "UnitManager": true,
-    "Approval": true
+    "Approval": true,
+    "Settings": true
 }
