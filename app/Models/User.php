@@ -3,27 +3,32 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Vender;
+use Laravel\Sanctum\HasApiTokens;
+use Modules\Shared\Models\Branch;
+use Illuminate\Support\Facades\DB;
+use Modules\Accounting\Models\Bill;
+use Illuminate\Support\Facades\Auth;
+use Modules\Shared\Models\Department;
+use Modules\Accounting\Models\Invoice;
+use Modules\Accounting\Models\Payment;
+use Modules\Accounting\Models\Revenue;
+use Modules\Accounting\Models\Utility;
+use Spatie\Permission\Traits\HasRoles;
+use Modules\Accounting\Models\Customer;
+use Modules\Accounting\Models\Proposal;
+use Illuminate\Notifications\Notifiable;
+use Modules\UnitManager\Models\UnitHead;
+use Modules\WorkflowEngine\Models\Staff;
+use OwenIt\Auditing\Contracts\Auditable;
+use Modules\HumanResource\Models\Ranking;
+use Illuminate\Notifications\Notification;
+use Modules\EmployerManager\Models\Employer;
+use Modules\ClaimsCompensation\Models\DeathClaim;
+use OwenIt\Auditing\Auditable as AuditingAuditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use Modules\HumanResource\Models\Ranking;
-use Modules\Shared\Models\Branch;
-use Modules\Shared\Models\Department;
-use OwenIt\Auditing\Auditable as AuditingAuditable;
-use OwenIt\Auditing\Contracts\Auditable;
-use Spatie\Permission\Traits\HasRoles;
-use Modules\WorkflowEngine\Models\Staff;
-use Illuminate\Notifications\Notification;
-use Modules\UnitManager\Models\UnitHead;
 use Modules\DTARequests\Notifications\UnitHeadNotification;
-use Modules\ClaimsCompensation\Models\DeathClaim;
-use Modules\EmployerManager\Models\Employer;
-use Modules\Accounting\Models\Utility;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Modules\Accounting\Models\Invoice;
-use Modules\Accounting\Models\Proposal;
 
 
 class User extends Authenticatable implements Auditable
@@ -442,6 +447,297 @@ class User extends Authenticatable implements Auditable
 
        // return $this->type === 'user' ? 1 : 0;
        return 0;
+    }
+
+    
+    public function getincExpBarChartData()
+    {
+        $month[]          = __('January');
+        $month[]          = __('February');
+        $month[]          = __('March');
+        $month[]          = __('April');
+        $month[]          = __('May');
+        $month[]          = __('June');
+        $month[]          = __('July');
+        $month[]          = __('August');
+        $month[]          = __('September');
+        $month[]          = __('October');
+        $month[]          = __('November');
+        $month[]          = __('December');
+        $dataArr['month'] = $month;
+
+
+        for($i = 1; $i <= 12; $i++)
+        {
+            $monthlyIncome = Revenue::selectRaw('sum(amount) amount')->where('created_by', '=', $this->creatorId())->whereRaw('year(`date`) = ?', array(date('Y')))->whereRaw('month(`date`) = ?', $i)->first();
+            $invoices      = Invoice:: select('*')->where('created_by', \Auth::user()->creatorId())
+                ->whereRaw('year(`send_date`) = ?', array(date('Y')))
+                ->whereRaw('month(`send_date`) = ?', $i)->get();
+
+
+            $invoiceArray = array();
+            foreach($invoices as $invoice)
+            {
+                $invoiceArray[] = $invoice->getTotal();
+            }
+            $totalIncome = (!empty($monthlyIncome) ? $monthlyIncome->amount : 0) + (!empty($invoiceArray) ? array_sum($invoiceArray) : 0);
+
+
+            $incomeArr[] = !empty($totalIncome) ? str_replace(",", "", number_format($totalIncome, 2) ): 0;
+
+
+            $monthlyExpense = Payment::selectRaw('sum(amount) amount')->where('created_by', '=', $this->creatorId())->whereRaw('year(`date`) = ?', array(date('Y')))->whereRaw('month(`date`) = ?', $i)->first();
+            $bills          = Bill:: select('*')->where('created_by', \Auth::user()->creatorId())->whereRaw('year(`send_date`) = ?', array(date('Y')))->whereRaw('month(`send_date`) = ?', $i)->get();
+            $billArray      = array();
+            foreach($bills as $bill)
+            {
+                $billArray[] = $bill->getTotal();
+            }
+
+            $totalExpense = (!empty($monthlyExpense) ? $monthlyExpense->amount : 0) + (!empty($billArray) ? array_sum($billArray) : 0);
+
+            $expenseArr[] = !empty($totalExpense) ? str_replace(",", "", number_format($totalExpense, 2) ): 0;
+        }
+
+
+
+        $dataArr['income']  = $incomeArr;
+        $dataArr['expense'] = $expenseArr;
+
+        return $dataArr;
+
+
+    }
+
+    public function getIncExpLineChartDate()
+    {
+        $usr           = \Auth::user();
+        $m             = date("m");
+        $de            = date("d");
+        $y             = date("Y");
+        $format        = 'Y-m-d';
+        $arrDate       = [];
+        $arrDateFormat = [];
+
+        for($i = 0; $i <= 15 - 1; $i++)
+        {
+            $date = date($format, mktime(0, 0, 0, $m, ($de - $i), $y));
+
+            $arrDay[]        = date('D', mktime(0, 0, 0, $m, ($de - $i), $y));
+            $arrDate[]       = $date;
+            $arrDateFormat[] = date("d-M", strtotime($date));;
+        }
+        $dataArr['day'] = $arrDateFormat;
+        for($i = 0; $i < count($arrDate); $i++)
+        {
+            $dayIncome = Revenue::selectRaw('sum(amount) amount')->where('created_by', \Auth::user()->creatorId())->whereRaw('date = ?', $arrDate[$i])->first();
+
+            $invoices     = Invoice:: select('*')->where('created_by', \Auth::user()->creatorId())->whereRAW('send_date = ?', $arrDate[$i])->get();
+            $invoiceArray = array();
+            foreach($invoices as $invoice)
+            {
+                $invoiceArray[] = $invoice->getTotal();
+            }
+
+            $incomeAmount = (!empty($dayIncome->amount) ? $dayIncome->amount : 0) + (!empty($invoiceArray) ? array_sum($invoiceArray) : 0);
+            $incomeArr[]  = str_replace(",", "", number_format($incomeAmount, 2));
+
+            $dayExpense = Payment::selectRaw('sum(amount) amount')->where('created_by', \Auth::user()->creatorId())->whereRaw('date = ?', $arrDate[$i])->first();
+
+            $bills     = Bill:: select('*')->where('created_by', \Auth::user()->creatorId())->whereRAW('send_date = ?', $arrDate[$i])->get();
+            $billArray = array();
+            foreach($bills as $bill)
+            {
+                $billArray[] = $bill->getTotal();
+            }
+            $expenseAmount = (!empty($dayExpense->amount) ? $dayExpense->amount : 0) + (!empty($billArray) ? array_sum($billArray) : 0);
+            $expenseArr[]  = str_replace(",", "", number_format($expenseAmount, 2));
+        }
+
+        $dataArr['income']  = $incomeArr;
+        $dataArr['expense'] = $expenseArr;
+
+        return $dataArr;
+    }
+
+
+    
+    public function weeklyInvoice()
+    {
+        $staticstart  = date('Y-m-d', strtotime('last Week'));
+        $currentDate  = date('Y-m-d');
+        $invoices     = Invoice:: select('*')->where('created_by', \Auth::user()->creatorId())->where('issue_date', '>=', $staticstart)->where('issue_date', '<=', $currentDate)->get();
+        $invoiceTotal = 0;
+        $invoicePaid  = 0;
+        $invoiceDue   = 0;
+        foreach($invoices as $invoice)
+        {
+            $invoiceTotal += $invoice->getTotal();
+            $invoicePaid  += ($invoice->getTotal() - $invoice->getDue());
+            $invoiceDue   += $invoice->getDue();
+        }
+
+        $invoiceDetail['invoiceTotal'] = $invoiceTotal;
+        $invoiceDetail['invoicePaid']  = $invoicePaid;
+        $invoiceDetail['invoiceDue']   = $invoiceDue;
+
+        return $invoiceDetail;
+    }
+
+
+    
+    public function monthlyInvoice()
+    {
+        $staticstart  = date('Y-m-d', strtotime('last Month'));
+        $currentDate  = date('Y-m-d');
+        $invoices     = Invoice:: select('*')->where('created_by', \Auth::user()->creatorId())->where('issue_date', '>=', $staticstart)->where('issue_date', '<=', $currentDate)->get();
+        $invoiceTotal = 0;
+        $invoicePaid  = 0;
+        $invoiceDue   = 0;
+        foreach($invoices as $invoice)
+        {
+            $invoiceTotal += $invoice->getTotal();
+            $invoicePaid  += ($invoice->getTotal() - $invoice->getDue());
+            $invoiceDue   += $invoice->getDue();
+        }
+
+        $invoiceDetail['invoiceTotal'] = $invoiceTotal;
+        $invoiceDetail['invoicePaid']  = $invoicePaid;
+        $invoiceDetail['invoiceDue']   = $invoiceDue;
+
+        return $invoiceDetail;
+    }
+
+    
+    public function weeklyBill()
+    {
+        $staticstart = date('Y-m-d', strtotime('last Week'));
+        $currentDate = date('Y-m-d');
+        $bills       = Bill:: select('*')->where('created_by', \Auth::user()->creatorId())->where('bill_date', '>=', $staticstart)->where('bill_date', '<=', $currentDate)->get();
+        $billTotal   = 0;
+        $billPaid    = 0;
+        $billDue     = 0;
+        foreach($bills as $bill)
+        {
+            $billTotal += $bill->getTotal();
+            $billPaid  += ($bill->getTotal() - $bill->getDue());
+            $billDue   += $bill->getDue();
+        }
+
+        $billDetail['billTotal'] = $billTotal;
+        $billDetail['billPaid']  = $billPaid;
+        $billDetail['billDue']   = $billDue;
+
+        return $billDetail;
+    }
+
+    public function monthlyBill()
+    {
+        $staticstart = date('Y-m-d', strtotime('last Month'));
+        $currentDate = date('Y-m-d');
+        $bills       = Bill:: select('*')->where('created_by', \Auth::user()->creatorId())->where('bill_date', '>=', $staticstart)->where('bill_date', '<=', $currentDate)->get();
+        $billTotal   = 0;
+        $billPaid    = 0;
+        $billDue     = 0;
+        foreach($bills as $bill)
+        {
+            $billTotal += $bill->getTotal();
+            $billPaid  += ($bill->getTotal() - $bill->getDue());
+            $billDue   += $bill->getDue();
+        }
+
+        $billDetail['billTotal'] = $billTotal;
+        $billDetail['billPaid']  = $billPaid;
+        $billDetail['billDue']   = $billDue;
+
+        return $billDetail;
+    }
+
+    public function countCustomers()
+    {
+        return Customer::where('created_by', '=', $this->creatorId())->count();
+        
+    }
+
+    public function countVenders()
+    {
+        return Vender::where('created_by', '=', $this->creatorId())->count();
+    }
+    public function countInvoices()
+    {
+        return Invoice::where('created_by', '=', $this->creatorId())->count();
+    }
+    public function countBills()
+    {
+        return Bill::where('created_by', '=', $this->creatorId())->count();
+    }
+    public function todayIncome()
+    {
+        $revenue      = Revenue::where('created_by', '=', $this->creatorId())->whereRaw('Date(date) = CURDATE()')->where('created_by', \Auth::user()->creatorId())->sum('amount');
+        $invoices     = Invoice:: select('*')->where('created_by', \Auth::user()->creatorId())->whereRAW('Date(send_date) = CURDATE()')->get();
+        $invoiceArray = array();
+        foreach($invoices as $invoice)
+        {
+            $invoiceArray[] = $invoice->getTotal();
+        }
+        $totalIncome = (!empty($revenue) ? $revenue : 0) + (!empty($invoiceArray) ? array_sum($invoiceArray) : 0);
+
+        return $totalIncome;
+    }
+
+    
+    public function todayExpense()
+    {
+        $payment = Payment::where('created_by', '=', $this->creatorId())->where('created_by', \Auth::user()->creatorId())->whereRaw('Date(date) = CURDATE()')->sum('amount');
+
+        $bills = Bill:: select('*')->where('created_by', \Auth::user()->creatorId())->whereRAW('Date(send_date) = CURDATE()')->get();
+
+        $billArray = array();
+        foreach($bills as $bill)
+        {
+            $billArray[] = $bill->getTotal();
+        }
+
+        $totalExpense = (!empty($payment) ? $payment : 0) + (!empty($billArray) ? array_sum($billArray) : 0);
+
+        return $totalExpense;
+    }
+
+    public function incomeCurrentMonth()
+    {
+        $currentMonth = date('m');
+        $revenue      = Revenue::where('created_by', '=', $this->creatorId())->whereRaw('MONTH(date) = ?', [$currentMonth])->sum('amount');
+
+        $invoices = Invoice:: select('*')->where('created_by', \Auth::user()->creatorId())->whereRAW('MONTH(send_date) = ?', [$currentMonth])->get();
+
+        $invoiceArray = array();
+        foreach($invoices as $invoice)
+        {
+            $invoiceArray[] = $invoice->getTotal();
+        }
+        $totalIncome = (!empty($revenue) ? $revenue : 0) + (!empty($invoiceArray) ? array_sum($invoiceArray) : 0);
+
+        return $totalIncome;
+
+    }
+
+    
+    public function expenseCurrentMonth()
+    {
+        $currentMonth = date('m');
+
+        $payment = Payment::where('created_by', '=', $this->creatorId())->whereRaw('MONTH(date) = ?', [$currentMonth])->sum('amount');
+
+        $bills     = Bill:: select('*')->where('created_by', \Auth::user()->creatorId())->whereRAW('MONTH(send_date) = ?', [$currentMonth])->get();
+        $billArray = array();
+        foreach($bills as $bill)
+        {
+            $billArray[] = $bill->getTotal();
+        }
+
+        $totalExpense = (!empty($payment) ? $payment : 0) + (!empty($billArray) ? array_sum($billArray) : 0);
+
+        return $totalExpense;
     }
 
 }

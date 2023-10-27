@@ -25,6 +25,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "apexcharts": "^3.44.0",
         "jquery.repeater": "^1.2.1",
         "sweetalert2": "^11.7.16"
     }
