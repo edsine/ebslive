@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\ZoomMeetingController;
+use App\Http\Controllers\SupportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -134,3 +135,16 @@ Route::get('zoom' ,function(){
 // Route::any('/zoom-meeting/projects/select/{bid}', [ZoomMeetingController::class, 'projectwiseuser'])->name('zoom-meeting.projects.select');
 // Route::get('zoom-meeting-calender', [ZoomMeetingController::class, 'calender'])->name('zoom-meeting.calender')->middleware(['auth','XSS']);
 
+Route::group(
+    [
+        'middleware' => [
+            'auth',
+        ],
+    ], function (){
+    Route::get('support/{id}/reply', [SupportController::class, 'reply'])->name('support.reply');
+    Route::post('support/{id}/reply', [SupportController::class, 'replyAnswer'])->name('support.reply.answer');
+    Route::get('support/grid', [SupportController::class, 'grid'])->name('support.grid');
+    Route::resource('support', SupportController::class);
+
+}
+);
