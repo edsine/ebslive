@@ -125,7 +125,7 @@ class SystemController extends AppBaseController
                 {
                     if(in_array($key, array_keys($settings)))
                     {
-                        \DB::insert(
+                        DB::insert(
                             'insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
                                                                                                                                                          $data,
                                                                                                                                                          $key,
@@ -162,7 +162,7 @@ class SystemController extends AppBaseController
             );
 
             $arrEnv = [
-                'MAIL_DRIVER' => $request->mail_driver,
+                'MAIL_MAILER' => $request->mail_driver,
                 'MAIL_HOST' => $request->mail_host,
                 'MAIL_PORT' => $request->mail_port,
                 'MAIL_USERNAME' => $request->mail_username,
@@ -219,7 +219,7 @@ class SystemController extends AppBaseController
             {
                 if(in_array($key, array_keys($settings)))
                 {
-                    \DB::insert(
+                    DB::insert(
                         'insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
                                                                                                                                                      $data,
                                                                                                                                                      $key,
@@ -247,7 +247,7 @@ class SystemController extends AppBaseController
         if(Auth::user()->can('manage stripe settings'))
         {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 $request->all(), [
                                    'currency' => 'required|string|max:255',
                                    'currency_symbol' => 'required|string|max:255',
@@ -303,7 +303,7 @@ class SystemController extends AppBaseController
             {
                 if(in_array($key, array_keys($settings)))
                 {
-                    \DB::insert(
+                    DB::insert(
                         'insert into settings (`value`, `name`,`created_by`,`created_at`,`updated_at`) values (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
                                                                                                                                                                                      $data,
                                                                                                                                                                                      $key,
@@ -331,7 +331,7 @@ class SystemController extends AppBaseController
         $created_by = Auth::user()->creatorId();
         foreach($post as $key => $data)
         {
-            \DB::insert(
+            DB::insert(
                 'insert into settings (`value`, `name`,`created_by`,`created_at`,`updated_at`) values (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
                                                                                                                                                                              $data,
                                                                                                                                                                              $key,
@@ -375,7 +375,7 @@ class SystemController extends AppBaseController
                 }
 
 
-                \DB::insert('insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
+                DB::insert('insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
                     $logoName,
                     'company_logo_dark',
                     Auth::user()->creatorId(),
@@ -410,7 +410,7 @@ class SystemController extends AppBaseController
                 }
 
 
-                \DB::insert('insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
+                DB::insert('insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
                     $logoName,
                     'company_logo_light',
                     Auth::user()->creatorId(),
@@ -442,7 +442,7 @@ class SystemController extends AppBaseController
                 }
 
 
-                \DB::insert('insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
+                DB::insert('insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
                     $favicon,
                     'company_favicon',
                     Auth::user()->creatorId(),
@@ -494,7 +494,7 @@ class SystemController extends AppBaseController
                 {
                     if(in_array($key, array_keys($settings)))
                     {
-                        \DB::insert('insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
+                        DB::insert('insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
                             $data,
                             $key,
                             Auth::user()->creatorId(),
@@ -544,7 +544,7 @@ class SystemController extends AppBaseController
 
 
             $settings                = Utility::settings();
-            $timezones               = config('timezones');
+            $timezones               = config('app.options');//config('timezones');
             $company_payment_setting = Utility::getCompanyPaymentSetting(Auth::user()->creatorId());
 
             $EmailTemplates = EmailTemplate::all();
@@ -955,7 +955,7 @@ class SystemController extends AppBaseController
                 $key,
                 Auth::user()->id,
             ];
-            \DB::insert(
+            DB::insert(
                 'insert into company_payment_settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', $arr
             );
 
@@ -983,7 +983,7 @@ class SystemController extends AppBaseController
     public function testSendMail(Request $request)
     {
 
-        $validator = \Validator::make(
+        $validator = Validator::make(
             $request->all(), [
                 'email' => 'required|email',
                 'mail_driver' => 'required',
@@ -1404,7 +1404,7 @@ class SystemController extends AppBaseController
                 $key,
                 Auth::user()->id,
             ];
-            \DB::insert(
+            DB::insert(
                 'insert into admin_payment_settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', $arr
             );
 
@@ -1597,7 +1597,7 @@ class SystemController extends AppBaseController
             $rules['google_recaptcha_secret'] = 'required|string|max:50';
         }
 
-        $validator = \Validator::make(
+        $validator = Validator::make(
             $request->all(), $rules
         );
         if($validator->fails())
@@ -1707,7 +1707,7 @@ class SystemController extends AppBaseController
                 Auth::user()->id,
             ];
 
-            \DB::insert(
+            DB::insert(
                 'insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', $arr
             );
         }
@@ -1778,7 +1778,7 @@ class SystemController extends AppBaseController
         if(isset($request->google_calendar_enable)  && $request->google_calendar_enable == 'on'){
 
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 $request->all(), [
                     'google_calender_json_file' => 'required',
                     'google_clender_id' => 'required',
@@ -1815,7 +1815,7 @@ class SystemController extends AppBaseController
         if ($request->google_clender_id) {
             $post['google_clender_id']            = $request->google_clender_id;
             foreach ($post as $key => $data) {
-                \DB::insert(
+                DB::insert(
                     'insert into settings (`value`, `name`,`created_by`,`created_at`,`updated_at`) values (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ',
                     [
                         $data,
@@ -1832,7 +1832,7 @@ class SystemController extends AppBaseController
 
     public function seoSettings(Request $request)
     {
-        $validator = \Validator::make(
+        $validator = Validator::make(
             $request->all(),
             [
                 'meta_title' => 'required|string',
@@ -1857,7 +1857,7 @@ class SystemController extends AppBaseController
         $post['meta_image']       = $file_path;
 
         foreach ($post as $key => $data) {
-            \DB::insert(
+            DB::insert(
                 'insert into settings (`value`, `name`,`created_by`,`created_at`,`updated_at`) values (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ',
                 [
                     $data,
@@ -1893,7 +1893,7 @@ class SystemController extends AppBaseController
         if(Auth::user()->can('create webhook'))
         {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 $request->all(), [
                     'module' => 'required',
                     'url' => 'required',
@@ -1937,7 +1937,7 @@ class SystemController extends AppBaseController
         if(Auth::user()->can('edit webhook'))
         {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 $request->all(),
                 [
                     'module' => 'required',
@@ -1980,7 +1980,7 @@ class SystemController extends AppBaseController
     public function saveCookieSettings(Request $request)
     {
 
-        $validator = \Validator::make(
+        $validator = Validator::make(
             $request->all(), [
                 'cookie_title' => 'required',
                 'cookie_description' => 'required',
@@ -2021,7 +2021,7 @@ class SystemController extends AppBaseController
         foreach ($post as $key => $data) {
 
             if (in_array($key, array_keys($settings))) {
-                \DB::insert(
+                DB::insert(
                     'insert into settings (`value`, `name`,`created_by`,`created_at`,`updated_at`) values (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
                         $data,
                         $key,
@@ -2100,7 +2100,7 @@ class SystemController extends AppBaseController
         foreach ($post as $key => $data) {
 
             if (in_array($key, array_keys($settings))) {
-                \DB::insert(
+                DB::insert(
                     'insert into settings (`value`, `name`,`created_by`,`created_at`,`updated_at`) values (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
                         $data,
                         $key,
@@ -2132,7 +2132,7 @@ class SystemController extends AppBaseController
         unset($post['_token']);
         $settings = Utility::settings();
         foreach ($post as $key => $data) {
-            \DB::insert(
+            DB::insert(
                 'insert into settings (`value`, `name`,`created_by`,`created_at`,`updated_at`)
                 values (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ',
                 [
@@ -2153,7 +2153,7 @@ class SystemController extends AppBaseController
         $post = $request->all();
         if(isset($request->ai_chatgpt_enable)  && $request->ai_chatgpt_enable == 'on')
         {
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 $request->all(), [
                     'ai_chatgpt_enable' => 'required',
                     'chat_gpt_key' => 'required',
@@ -2176,7 +2176,7 @@ class SystemController extends AppBaseController
         $created_by = Auth::user()->creatorId();
         foreach($post as $key => $data)
         {
-            \DB::insert(
+            DB::insert(
                 'insert into settings (`value`, `name`,`created_by`,`created_at`,`updated_at`) values (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ', [
                     $data,
                     $key,
@@ -2199,7 +2199,7 @@ class SystemController extends AppBaseController
     public function storeIp(Request $request)
     {
         if (Auth::user()->can('manage company settings')) {
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 $request->all(),
                 [
                     'ip' => 'required',
@@ -2232,7 +2232,7 @@ class SystemController extends AppBaseController
     public function updateIp(Request $request, $id)
     {
         if (Auth::user()->type == 'company' || Auth::user()->type == 'super admin') {
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 $request->all(),
                 [
                     'ip' => 'required',

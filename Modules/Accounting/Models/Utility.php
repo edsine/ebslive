@@ -392,16 +392,17 @@ class Utility extends Model
     {
         $languages=Utility::langList();
 
-        if(Schema::hasTable('languages')){
+       // if(Schema::hasTable('languages')){
             $settings = Utility::langSetting();
-            if(!empty($settings['disable_lang'])){
+            /* if(!empty($settings['disable_lang'])){
                 $disabledlang =explode(',', $settings['disable_lang']);
                 $languages = Language::whereNotIn('code',$disabledlang)->pluck('full_name','code');
             }
             else{
                 $languages = Language::pluck('full_name','code');
-            }
-        }
+            } */
+            $languages = Language::pluck('full_name','code');
+        //}
 
 
         return $languages;

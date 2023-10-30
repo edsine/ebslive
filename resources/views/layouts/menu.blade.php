@@ -238,7 +238,6 @@ $departmentData = getDepartmentData();
                 </span>
             </div>
         </div>
-        <div class="menu-item main-menu-item">
             <div class="menu-item main-menu-item">
                 <a href="javascript:;" class="menu-link menu-toggle">
                     <span class="menu-icon">
@@ -352,7 +351,23 @@ $departmentData = getDepartmentData();
             </div> 
                 </div> 
             </div> 
-        </div> 
+        <div class="menu-item main-menu-item">
+            <div class="menu-item">
+                <!--begin:Menu link-->
+                <span class="menu-link">
+                    <span class="menu-icon">
+                        <!--begin::Svg Icon | path: icons/duotune/files/fil025.svg-->
+                        <span class="menu-bullet">
+                            <span class="fa fa-gear"></span>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <a href="{{ route('settings') }}">
+                            <span class="menu-title">System Settings</span>
+                        </a>
+                </span>
+            </div>
+        </div>
             <!--End Main Menu 5: Operational Tasks -->
            <!--Begin change password -->
            {{--  <div class="menu-item main-menu-item">

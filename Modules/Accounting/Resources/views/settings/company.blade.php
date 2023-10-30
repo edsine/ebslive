@@ -1,15 +1,15 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 @section('page-title')
     {{__('Settings')}}
 @endsection
 @php
-        use App\Models\WebhookSetting;
-        $logo=\App\Models\Utility::get_file('uploads/logo/');
-       $logo_light = \App\Models\Utility::getValByName('company_logo_light');
-       $logo_dark = \App\Models\Utility::getValByName('company_logo_dark');
-       $company_favicon = \App\Models\Utility::getValByName('company_favicon');
-       $lang=App\Models\Utility::getValByName('default_language');
-       $setting = \App\Models\Utility::colorset();
+        use Modules\Accounting\Models\WebhookSetting;
+        $logo=\Modules\Accounting\Models\Utility::get_file('uploads/logo/');
+       $logo_light = \Modules\Accounting\Models\Utility::getValByName('company_logo_light');
+       $logo_dark = \Modules\Accounting\Models\Utility::getValByName('company_logo_dark');
+       $company_favicon = \Modules\Accounting\Models\Utility::getValByName('company_favicon');
+       $lang=\Modules\Accounting\Models\Utility::getValByName('default_language');
+       $setting = \Modules\Accounting\Models\Utility::colorset();
        $color = (!empty($setting['color'])) ? $setting['color'] : 'theme-3';
 
          $SITE_RTL= $setting['SITE_RTL'];
@@ -17,11 +17,11 @@
         {
             $SITE_RTL == 'off';
         }
-         $EmailTemplates     = App\Models\EmailTemplate::all();
-           $currantLang =  Utility::languages();
+         $EmailTemplates     = Modules\Accounting\Models\EmailTemplate::all();
+           $currantLang =  Modules\Accounting\Models\Utility::languages();
 
-       $meta_image = \App\Models\Utility::get_file('uploads/meta/');
-       $webhookSetting =WebhookSetting::where('created_by', '=', \Auth::user()->creatorId())->get();
+       $meta_image = \Modules\Accounting\Models\Utility::get_file('uploads/meta/');
+       $webhookSetting =Modules\Accounting\Models\WebhookSetting::where('created_by', '=', \Auth::user()->creatorId())->get();
 
 
 @endphp
@@ -29,7 +29,7 @@
 {{--Storage setting--}}
 @php
     $file_type = config('files_types');
-    $setting = App\Models\Utility::settings();
+    $setting = Modules\Accounting\Models\Utility::settings();
 
    $local_storage_validation    = $setting['local_storage_validation'];
    $local_storage_validations   = explode(',', $local_storage_validation);
@@ -44,10 +44,12 @@
 {{-- end Storage setting--}}
 
 @push('css-page')
-    <link rel="stylesheet" href="{{asset('css/summernote/summernote-bs4.css')}}">
+    
 @endpush
 
-@push('script-page')
+@push('page_scripts')
+<link rel="stylesheet" href="{{asset('new_assets/assets/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('css/summernote/summernote-bs4.css')}}">
     <script src="{{asset('css/summernote/summernote-bs4.js')}}"></script>
     <script>
         $('.summernote-simple0').on('summernote.blur', function () {
@@ -376,6 +378,7 @@
     <li class="breadcrumb-item">{{__('Settings')}}</li>
 @endsection
 @section('content')
+@include('layouts.messages')
     <div class="row">
         <div class="col-sm-12">
             <div class="row">
@@ -383,66 +386,66 @@
                     <div class="card sticky-top" style="top:30px">
                         <div class="list-group list-group-flush" id="useradd-sidenav">
                             <a href="#brand-settings" class="list-group-item list-group-item-action border-0">{{ __('Brand Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#system-settings" class="list-group-item list-group-item-action border-0">{{ __('System Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#company-settings" class="list-group-item list-group-item-action border-0">{{ __('Company Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#tracker-settings" class="list-group-item list-group-item-action border-0">{{ __('Time Tracker Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#payment-settings" class="list-group-item list-group-item-action border-0">{{ __('Payment Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#email-settings" class="list-group-item list-group-item-action border-0">{{ __('Email Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#pusher-settings" class="list-group-item list-group-item-action border-0">{{ __('Pusher Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#zoom-settings" class="list-group-item list-group-item-action border-0">{{ __('Zoom Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#slack-settings" class="list-group-item list-group-item-action border-0">{{ __('Slack Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#telegram-settings" class="list-group-item list-group-item-action border-0">{{ __('Telegram Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#twilio-settings" class="list-group-item list-group-item-action border-0">{{ __('Twilio Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#recaptcha-settings" class="list-group-item list-group-item-action border-0">{{ __('ReCaptcha Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#email-notification-settings" class="list-group-item list-group-item-action border-0">{{ __('Email Notification Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#storage-settings" class="list-group-item list-group-item-action border-0">{{ __('Storage Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#offer-letter-settings" class="list-group-item list-group-item-action border-0">{{ __('Offer Letter Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#joining-letter-settings" class="list-group-item list-group-item-action border-0">{{ __('Joining Letter Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#experience-certificate-settings" class="list-group-item list-group-item-action border-0">{{ __('Experience Certificate Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#noc-settings" class="list-group-item list-group-item-action border-0">{{ __('NOC Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#google-calender" class="list-group-item list-group-item-action border-0">{{ __('Google Calendar Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#seo-settings" class="list-group-item list-group-item-action border-0">{{ __('SEO Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#webhook-settings" class="list-group-item list-group-item-action border-0">{{ __('Webhook Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#cookie-settings" class="list-group-item list-group-item-action border-0">{{ __('Cookie Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#cache-settings" class="list-group-item list-group-item-action border-0">{{ __('Cache Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#chat-gpt-settings" class="list-group-item list-group-item-action border-0">{{ __('Chat GPT Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#ip-restriction-settings" class="list-group-item list-group-item-action border-0">{{ __('IP Restriction Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
 
                         </div>
@@ -467,13 +470,13 @@
                                         <div class="card-body pt-0">
                                             <div class=" setting-card">
                                                 <div class="logo-content mt-4">
-                                                    <img  id="image" src="{{$logo.'/'.(isset($logo_dark) && !empty($logo_dark)?$logo_dark:'logo-dark.png').'?timestamp='.time()}}"
+                                                    <img style="height: 100px;"  id="image" src="{{$logo.'/'.(isset($logo_dark) && !empty($logo_dark)?$logo_dark:'logo-dark.png').'?timestamp='.time()}}"
                                                          class="big-logo">
                                                 </div>
                                                 <div class="choose-files mt-5">
                                                     <label for="company_logo_dark">
                                                         <div class=" bg-primary dark_logo_update"> <i
-                                                                class="ti ti-upload px-1"></i>{{ __('Choose file here') }}
+                                                                class="fa fa-upload px-1"></i>{{ __('Choose file here') }}
                                                         </div>
                                                         <input type="file" name="company_logo_dark" id="company_logo_dark" class="form-control file" data-filename="dark_logo_update">
                                                     </label>
@@ -497,13 +500,13 @@
                                         <div class="card-body pt-0">
                                             <div class=" setting-card">
                                                 <div class="logo-content mt-4">
-                                                    <img id="image1" src="{{$logo.'/'.(isset($logo_light) && !empty($logo_light)?$logo_light:'logo-light.png').'?timestamp='.time()}}"
+                                                    <img style="height: 100px;" id="image1" src="{{$logo.'/'.(isset($logo_light) && !empty($logo_light)?$logo_light:'logo-light.png').'?timestamp='.time()}}"
                                                          class="big-logo img_setting">
                                                 </div>
                                                 <div class="choose-files mt-5">
                                                     <label for="company_logo_light">
                                                         <div class=" bg-primary light_logo_update"> <i
-                                                                class="ti ti-upload px-1"></i>{{ __('Choose file here') }}
+                                                                class="fa fa-upload px-1"></i>{{ __('Choose file here') }}
                                                         </div>
                                                         <input type="file" class="form-control file" name="company_logo_light" id="company_logo_light"
                                                                data-filename="light_logo_update">
@@ -528,13 +531,13 @@
                                         <div class="card-body pt-0">
                                             <div class=" setting-card">
                                                 <div class="logo-content mt-4">
-                                                    <img id="image2" src="{{$logo.'/'.(isset($company_favicon) && !empty($company_favicon)?$company_favicon:'favicon.png').'?timestamp='.time()}}" width="50px"
+                                                    <img style="height: 50px;" id="image2" src="{{$logo.'/'.(isset($company_favicon) && !empty($company_favicon)?$company_favicon:'favicon.png').'?timestamp='.time()}}" width="50px"
                                                          class="img_setting">
                                                 </div>
                                                 <div class="choose-files mt-5">
                                                     <label for="company_favicon">
                                                         <div class="bg-primary company_favicon_update"> <i
-                                                                class="ti ti-upload px-1"></i>{{ __('Choose file here') }}
+                                                                class="fa fa-upload px-1"></i>{{ __('Choose file here') }}
                                                         </div>
                                                         <input type="file" class="form-control file"  id="company_favicon" name="company_favicon"
                                                                data-filename="company_favicon_update">
@@ -566,7 +569,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             {{Form::label('footer_text',__('Footer Text'),['class'=>'form-label']) }}
-                                            {{Form::text('footer_text',Utility::getValByName('footer_text'),array('class'=>'form-control','placeholder'=>__('Enter Footer Text')))}}
+                                            {{Form::text('footer_text',\Modules\Accounting\Models\Utility::getValByName('footer_text'),array('class'=>'form-control','placeholder'=>__('Enter Footer Text')))}}
                                             @error('footer_text')
                                                 <span class="invalid-footer_text" role="alert">
                                                     <strong class="text-danger">{{ $message }}</strong>
@@ -581,7 +584,7 @@
                                                     {{Form::label('default_language',__('Default Language'),['class'=>'col-form-label text-dark']) }}
                                                     <div class="changeLanguage">
                                                         <select name="default_language" id="default_language" class="form-control select">
-                                                            @foreach (\App\Models\Utility::languages() as $code => $language)
+                                                            @foreach (\Modules\Accounting\Models\Utility::languages() as $code => $language)
                                                                 <option @if ($lang == $code) selected @endif value="{{ $code }}">
                                                                     {{ucFirst($language) }}</option>
                                                             @endforeach
@@ -1045,12 +1048,19 @@
 
                                 <div class="form-group col-md-12 mt-2">
                                     {{Form::label('timezone',__('Timezone'),array('class' => 'form-label'))}}
-                                    <select type="text" name="timezone" class="form-control custom-select" id="timezone">
+                                    {{-- <select type="text" name="timezone" class="form-control custom-select" id="timezone">
                                         <option value="">{{__('Select Timezone')}}</option>
                                         @foreach($timezones as $k=>$timezone)
                                             <option value="{{$k}}" {{(env('TIMEZONE')==$k)?'selected':''}}>{{$timezone}}</option>
                                         @endforeach
+                                    </select> --}}
+                                    <select type="text" name="timezone" class="form-control custom-select" id="timezone">
+                                        <option value="">{{ __('Select Timezone') }}</option>
+                                        @foreach(config('app.options') as $key => $timezone)
+                                            <option value="{{ $key }}" {{ (env('TIMEZONE') == $key) ? 'selected' : '' }}>{{ $timezone }}</option>
+                                        @endforeach
                                     </select>
+                                    
                                 </div>
 
                                 <div class="form-group col-md-6">
@@ -2680,7 +2690,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         {{ Form::label('mail_driver', __('Mail Driver'), ['class' => 'form-label']) }}
-                                        {{ Form::text('mail_driver', env('MAIL_DRIVER'), ['class' => 'form-control', 'placeholder' => __('Enter Mail Driver')]) }}
+                                        {{ Form::text('mail_driver', env('MAIL_MAILER'), ['class' => 'form-control', 'placeholder' => __('Enter Mail Driver')]) }}
                                         @error('mail_driver')
                                         <span class="invalid-mail_driver" role="alert">
                                                 <strong class="text-danger">{{ $message }}</strong>
@@ -3770,7 +3780,7 @@
                                                 class="drp-text hide-mob text-primary me-2">
                                                  {{ ucfirst($offerlangName->full_name) }}
                                             </span>
-                                                <i class="ti ti-chevron-down drp-arrow nocolor"></i>
+                                                <i class="fa fa-chevron-down drp-arrow nocolor"></i>
                                             </a>
                                             <div class="dropdown-menu dash-h-dropdown dropdown-menu-end"
                                                  aria-labelledby="dropdownLanguage">
@@ -3835,7 +3845,7 @@
                                                 class="drp-text hide-mob text-primary me-2">
                                                 {{ ucfirst($joininglangName->full_name) }}
                                             </span>
-                                                <i class="ti ti-chevron-down drp-arrow nocolor"></i>
+                                                <i class="fa fa-chevron-down drp-arrow nocolor"></i>
                                             </a>
                                             <div class="dropdown-menu dash-h-dropdown dropdown-menu-end"
                                                  aria-labelledby="dropdownLanguage1">
@@ -3902,7 +3912,7 @@
                                                  class="drp-text hide-mob text-primary me-2">
                                                 {{ ucfirst($explangName->full_name) }}
                                             </span>
-                                                <i class="ti ti-chevron-down drp-arrow nocolor"></i>
+                                                <i class="fa fa-chevron-down drp-arrow nocolor"></i>
                                             </a>
                                             <div class="dropdown-menu dash-h-dropdown dropdown-menu-end"
                                                  aria-labelledby="dropdownLanguage1">
@@ -3967,7 +3977,7 @@
                                                  class="drp-text hide-mob text-primary me-2">
                                                 {{ ucfirst($noclangName->full_name) }}
                                             </span>
-                                                <i class="ti ti-chevron-down drp-arrow nocolor"></i>
+                                                <i class="fa fa-chevron-down drp-arrow nocolor"></i>
                                             </a>
                                             <div class="dropdown-menu dash-h-dropdown dropdown-menu-end"
                                                  aria-labelledby="dropdownLanguage1">
@@ -4058,7 +4068,7 @@
                         <div class="card-header d-flex justify-content-between">
                             <h5>{{ __('SEO Settings') }}</h5>
                             @php
-                                $settings = \App\Models\Utility::settings();
+                                $settings = \Modules\Accounting\Models\Utility::settings();
                             @endphp
                             @if(!empty($settings['chat_gpt_key']))
                                 <div class="d-flex justify-content-end">
@@ -4091,13 +4101,13 @@
                                     </div>
                                     <div class="setting-card">
                                         <div class="logo-content">
-                                            <img id="image2" src="{{ $meta_image . '/' . (isset($setting['meta_image']) && !empty($setting['meta_image']) ? $setting['meta_image'] : 'meta_image.png') }}"
+                                            <img style="height: 100px;" id="image2" src="{{ $meta_image . '/' . (isset($setting['meta_image']) && !empty($setting['meta_image']) ? $setting['meta_image'] : 'meta_image.png') }}"
                                                  class="img_setting seo_image">
                                         </div>
                                         <div class="choose-files mt-4">
                                             <label for="meta_image">
                                                 <div class="bg-primary company_favicon_update"> <i
-                                                        class="ti ti-upload px-1"></i>{{ __('Choose file here') }}
+                                                        class="fa fa-upload px-1"></i>{{ __('Choose file here') }}
                                                 </div>
                                                 <input type="file" class="form-control file"  id="meta_image" name="meta_image"
                                                        data-filename="meta_image">
@@ -4132,7 +4142,7 @@
                                         <div class="col-6 text-end">
                                             <a href="#" data-size="lg" data-url="{{ route('webhook.create') }}" data-ajax-popup="true"
                                                data-bs-toggle="tooltip" title="{{__('Create')}}" data-title="{{__('Create New Webhook')}}" class="btn btn-sm btn-primary">
-                                                <i class="ti ti-plus"></i>
+                                                <i class="fa fa-plus"></i>
                                             </a>
                                         </div>
                                     @endcan
@@ -4162,7 +4172,7 @@
                                                                 <a href="#" class="mx-3 btn btn-sm d-inline-flex align-items-center"
                                                                    data-url="{{ URL::to('webhook-settings/'.$webhooksetting->id.'/edit') }}" data-ajax-popup="true"
                                                                    data-bs-toggle="tooltip" title="{{__('Edit')}}" data-title="{{__('Webhook Edit')}}">
-                                                                    <i class="ti ti-pencil text-white"></i>
+                                                                    <i class="fa fa-pencil text-white"></i>
                                                                 </a>
                                                             </div>
                                                         @endcan
@@ -4170,7 +4180,7 @@
                                                             <div class="action-btn bg-danger ms-2">
                                                                 {!! Form::open(['method' => 'DELETE', 'route' => ['webhook.destroy', $webhooksetting->id],'id'=>'delete-form-'.$webhooksetting->id]) !!}
                                                                     <a href="#" class="mx-3 btn btn-sm  align-items-center bs-pass-para" data-bs-toggle="tooltip" title="{{__('Delete')}}">
-                                                                        <i class="ti ti-trash text-white text-white"></i>
+                                                                        <i class="fa fa-trash text-white text-white"></i>
                                                                     </a>
                                                                 {!! Form::close() !!}
                                                             </div>
@@ -4207,7 +4217,7 @@
                         </div>
                         <div class="card-body cookieDiv {{ $settings['enable_cookie'] == 'off' ? 'disabledCookie ' : '' }}">
                             @php
-                                $settings = \App\Models\Utility::settings();
+                                $settings = \Modules\Accounting\Models\Utility::settings();
                             @endphp
                             <div class="row text-end">
                             @if(!empty($settings['chat_gpt_key']))
@@ -4274,7 +4284,7 @@
                                     @if(isset($settings['cookie_logging']) && $settings['cookie_logging'] == 'on')
                                         <label for="file" class="form-label">{{__('Download cookie accepted data')}}</label>
                                         <a href="{{ asset(Storage::url('uploads/sample')) . '/data.csv' }}" class="btn btn-primary mr-3">
-                                            <i class="ti ti-download"></i>
+                                            <i class="fa fa-download"></i>
                                         </a>
                                     @endif
                                 </div>
@@ -4362,7 +4372,7 @@
                                         <div class="col-6 text-end">
                                             <a data-size="md" data-url="{{ route('create.ip') }}" data-ajax-popup="true"
                                                data-bs-toggle="tooltip" title="{{__('Create')}}" data-title="{{__('Create New IP')}}" class="btn btn-sm btn-primary">
-                                                <i class="ti ti-plus text-white"></i>
+                                                <i class="fa fa-plus text-white"></i>
                                             </a>
 
                                         </div>
@@ -4390,7 +4400,7 @@
                                                                 <a  class="mx-3 btn btn-sm d-inline-flex align-items-center"
                                                                     data-url="{{ route('edit.ip', $ip->id) }}" data-ajax-popup="true"
                                                                     data-bs-toggle="tooltip" title="{{__('Edit')}}" data-title="{{__('IP Edit')}}">
-                                                                    <i class="ti ti-pencil text-white"></i>
+                                                                    <i class="fa fa-pencil text-white"></i>
                                                                 </a>
                                                             </div>
                                                         @endcan
@@ -4398,7 +4408,7 @@
                                                             <div class="action-btn bg-danger ms-2">
                                                                 {!! Form::open(['method' => 'DELETE', 'route' => ['destroy.ip', $ip->id],'id'=>'delete-form-'.$ip->id]) !!}
                                                                     <a  class="mx-3 btn btn-sm  align-items-center bs-pass-para" data-bs-toggle="tooltip" title="{{__('Delete')}}">
-                                                                        <i class="ti ti-trash text-white text-white"></i>
+                                                                        <i class="fa fa-trash text-white text-white"></i>
                                                                     </a>
                                                                 {!! Form::close() !!}
                                                             </div>
