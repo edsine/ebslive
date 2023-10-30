@@ -19,11 +19,11 @@ class SupportController extends AppBaseController
 {
     public function index()
     {
-        $supports = Support::where('user', Auth::user()->id)->where('created_by', Auth::user()->creatorId())->get();
-            $countTicket      = Support::where('user', Auth::user()->id)->where('created_by', Auth::user()->creatorId())->count();
-            $countOpenTicket  = Support::where('status', '=', 'open')->where('user', Auth::user()->id)->where('created_by', Auth::user()->creatorId())->count();
-            $countonholdTicket  = Support::where('status', '=', 'on hold')->where('user', Auth::user()->id)->where('created_by', Auth::user()->creatorId())->count();
-            $countCloseTicket = Support::where('status', '=', 'close')->where('user', Auth::user()->id)->where('created_by', Auth::user()->creatorId())->count();
+        $supports = Support::where('created_by', Auth::user()->creatorId())->get();
+            $countTicket      = Support::where('created_by', Auth::user()->creatorId())->count();
+            $countOpenTicket  = Support::where('status', '=', 'open')->where('created_by', Auth::user()->creatorId())->count();
+            $countonholdTicket  = Support::where('status', '=', 'on hold')->where('created_by', Auth::user()->creatorId())->count();
+            $countCloseTicket = Support::where('status', '=', 'close')->where('created_by', Auth::user()->creatorId())->count();
             return view('support.index', compact('supports','countTicket','countOpenTicket','countonholdTicket','countCloseTicket'));
        
 
@@ -95,7 +95,7 @@ class SupportController extends AppBaseController
         $support->description    = $request->description;
         $support->created_by     = Auth::user()->creatorId();
         $support->ticket_created = Auth::user()->id;
-        $support->user = Auth::user()->id;
+        $support->user = $request->user;
 
         $support->save();
 

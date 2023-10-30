@@ -254,7 +254,7 @@
                                         @endif
 
                                     </td>
-                                    <td>{{!empty($support->assignUser)?$support->assignUser->name:'-'}}</td>
+                                    <td>{{!empty($support->assignUser)?$support->assignUser->first_name .' '.$support->assignUser->last_name:'-'}}</td>
                                     <td>
                                         @if($support->status == 'Open')
                                             <span class="status_badge text-capitalize badge bg-success p-2 px-3 rounded">{{ __(\App\Models\Support::$status[$support->status]) }}</span>

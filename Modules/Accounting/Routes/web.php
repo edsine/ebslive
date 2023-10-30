@@ -25,6 +25,7 @@ use Modules\Accounting\Http\Controllers\GoalController;
 use Modules\Accounting\Http\Controllers\JournalEntryController;
 use Modules\Accounting\Http\Controllers\ReportController;
 use Modules\Accounting\Http\Controllers\SystemController;
+use Modules\Accounting\Http\Controllers\EmailTemplateController;
 
 
 /*
@@ -327,8 +328,8 @@ Route::group(
     Route::get('report/ledger', [ReportController::class, 'ledgerSummary'])->name('report.ledger');
     Route::get('report/trial-balance', [ReportController::class, 'trialBalanceSummary'])->name('trial.balance');
     Route::get('report/profit-loss', [ReportController::class, 'profitLoss'])->name('report.profit.loss');
-    Route::get('reports-monthly-cashflow', [ReportController::class, 'monthlyCashflow'])->name('report.monthly.cashflow')->middleware(['auth', 'XSS']);
-    Route::get('reports-quarterly-cashflow', [ReportController::class, 'quarterlyCashflow'])->name('report.quarterly.cashflow')->middleware(['auth', 'XSS']);
+    Route::get('reports-monthly-cashflow', [ReportController::class, 'monthlyCashflow'])->name('report.monthly.cashflow')->middleware(['auth']);
+    Route::get('reports-quarterly-cashflow', [ReportController::class, 'quarterlyCashflow'])->name('report.quarterly.cashflow')->middleware(['auth']);
     Route::post('export/trial-balance', [ReportController::class, 'trialBalanceExport'])->name('trial.balance.export');
     Route::post('export/balance-sheet', [ReportController::class, 'balanceSheetExport'])->name('balance.sheet.export');
     Route::post('print/balance-sheet', [ReportController::class, 'balanceSheetPrint'])->name('balance.sheet.print');
@@ -364,20 +365,44 @@ Route::group(
 
     Route::post('stripe-settings', [SystemController::class, 'savePaymentSettings'])->name('payment.settings');
     Route::post('pusher-setting', [SystemController::class, 'savePusherSettings'])->name('pusher.setting');
-    Route::post('recaptcha-settings', [SystemController::class, 'recaptchaSettingStore'])->name('recaptcha.settings.store')->middleware(['auth','XSS']);
-    Route::post('seo-settings', [SystemController::class, 'seoSettings'])->name('seo.settings.store')->middleware(['auth', 'XSS']);
+    Route::post('recaptcha-settings', [SystemController::class, 'recaptchaSettingStore'])->name('recaptcha.settings.store')->middleware(['auth']);
+    Route::post('seo-settings', [SystemController::class, 'seoSettings'])->name('seo.settings.store')->middleware(['auth']);
 
-    Route::get('webhook-settings/create', [SystemController::class, 'webhookCreate'])->name('webhook.create')->middleware(['auth','XSS']);
+    Route::get('webhook-settings/create', [SystemController::class, 'webhookCreate'])->name('webhook.create')->middleware(['auth']);
     Route::post('webhook-settings/store', [SystemController::class, 'webhookStore'])->name('webhook.store');
-    Route::get('webhook-settings/{wid}/edit', [SystemController::class, 'webhookEdit'])->name('webhook.edit')->middleware(['auth','XSS']);
-    Route::post('webhook-settings/{wid}/edit', [SystemController::class, 'webhookUpdate'])->name('webhook.update')->middleware(['auth','XSS']);
-    Route::delete('webhook-settings/{wid}', [SystemController::class, 'webhookDestroy'])->name('webhook.destroy')->middleware(['auth','XSS']);
+    Route::get('webhook-settings/{wid}/edit', [SystemController::class, 'webhookEdit'])->name('webhook.edit')->middleware(['auth']);
+    Route::post('webhook-settings/{wid}/edit', [SystemController::class, 'webhookUpdate'])->name('webhook.update')->middleware(['auth']);
+    Route::delete('webhook-settings/{wid}', [SystemController::class, 'webhookDestroy'])->name('webhook.destroy')->middleware(['auth']);
 
     Route::post('cookie-setting', [SystemController::class, 'saveCookieSettings'])->name('cookie.setting');
 
-    Route::post('cache-settings', [SystemController::class, 'cacheSettingStore'])->name('cache.settings.store')->middleware(['auth', 'XSS']);
+    Route::post('cache-settings', [SystemController::class, 'cacheSettingStore'])->name('cache.settings.store')->middleware(['auth']);
 
 
 }
 );
 //Route::post('export/payslip', [PaySlipController::class,'export'])->name('payslip.export');
+
+Route::post('storage-settings', [SystemController::class, 'storageSettingStore'])->name('storage.setting.store')->middleware(['auth']);
+Route::post('setting/offerlatter/{lang?}', [SystemController::class, 'offerletterupdate'])->name('offerlatter.update');
+Route::get('setting/offerlatter', [SystemController::class, 'companyIndex'])->name('get.offerlatter.language');
+Route::post('setting/joiningletter/{lang?}', [SystemController::class, 'joiningletterupdate'])->name('joiningletter.update');
+Route::get('setting/joiningletter/', [SystemController::class, 'companyIndex'])->name('get.joiningletter.language');
+Route::post('setting/exp/{lang?}', [SystemController::class, 'experienceCertificateupdate'])->name('experiencecertificate.update');
+Route::get('setting/exp', [SystemController::class, 'companyIndex'])->name('get.experiencecertificate.language');
+Route::post('setting/noc/{lang?}', [SystemController::class, 'NOCupdate'])->name('noc.update');
+Route::get('setting/noc', [SystemController::class, 'companyIndex'])->name('get.noc.language');
+Route::post('setting/google-calender',[SystemController::class,'saveGoogleCalenderSettings'])->name('google.calender.settings');
+Route::get('pos-print-setting', [SystemController::class, 'posPrintIndex'])->name('pos.print.setting')->middleware(['auth']);
+Route::post('system-settings/note', [SystemController::class, 'footerNoteStore'])->name('system.settings.footernote')->middleware(['auth']);
+Route::post('chatgpt-settings', [SystemController::class, 'chatgptSetting'])->name('chatgpt.settings');
+Route::get('create/ip', [SystemController::class, 'createIp'])->name('create.ip')->middleware(['auth']);
+Route::post('create/ip', [SystemController::class, 'storeIp'])->name('store.ip')->middleware(['auth']);
+Route::get('edit/ip/{id}', [SystemController::class, 'editIp'])->name('edit.ip')->middleware(['auth']);
+Route::post('edit/ip/{id}', [SystemController::class, 'updateIp'])->name('update.ip')->middleware(['auth']);
+Route::delete('destroy/ip/{id}', [SystemController::class, 'destroyIp'])->name('destroy.ip')->middleware(['auth']);
+
+Route::get('email_template_lang/{id}/{lang?}', [EmailTemplateController::class, 'manageEmailLang'])->name('manage.email.language')->middleware(['auth']);
+Route::any('email_template_store/{pid}', [EmailTemplateController::class, 'storeEmailLang'])->name('store.email.language')->middleware(['auth']);
+Route::any('email_template_store', [EmailTemplateController::class, 'updateStatus'])->name('status.email.language')->middleware(['auth']);
+Route::resource('email_template', EmailTemplateController::class)->middleware(['auth']);

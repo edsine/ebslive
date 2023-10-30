@@ -69,7 +69,16 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+   // 'timezone' => env('TIMEZONE','UTC'),
+   'timezone' => env('TIMEZONE', 'UTC'),
+
+'options' => [
+    'UTC' => 'Coordinated Universal Time (UTC)',
+    'America/New_York' => 'Eastern Time (US & Canada)',
+    'America/Los_Angeles' => 'Pacific Time (US & Canada)',
+    // Add more timezones as needed
+],
+
 
     /*
     |--------------------------------------------------------------------------
