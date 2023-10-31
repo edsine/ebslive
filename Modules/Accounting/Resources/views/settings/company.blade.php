@@ -391,24 +391,24 @@
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#company-settings" class="list-group-item list-group-item-action border-0">{{ __('Company Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
-                            <a href="#tracker-settings" class="list-group-item list-group-item-action border-0">{{ __('Time Tracker Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
-                            <a href="#payment-settings" class="list-group-item list-group-item-action border-0">{{ __('Payment Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
+                            {{-- <a href="#tracker-settings" class="list-group-item list-group-item-action border-0">{{ __('Time Tracker Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
+                            {{-- <a href="#payment-settings" class="list-group-item list-group-item-action border-0">{{ __('Payment Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
                             <a href="#email-settings" class="list-group-item list-group-item-action border-0">{{ __('Email Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
-                            <a href="#pusher-settings" class="list-group-item list-group-item-action border-0">{{ __('Pusher Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
+                            {{-- <a href="#pusher-settings" class="list-group-item list-group-item-action border-0">{{ __('Pusher Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
                             <a href="#zoom-settings" class="list-group-item list-group-item-action border-0">{{ __('Zoom Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
-                            <a href="#slack-settings" class="list-group-item list-group-item-action border-0">{{ __('Slack Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
-                            <a href="#telegram-settings" class="list-group-item list-group-item-action border-0">{{ __('Telegram Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
-                            <a href="#twilio-settings" class="list-group-item list-group-item-action border-0">{{ __('Twilio Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
-                            <a href="#recaptcha-settings" class="list-group-item list-group-item-action border-0">{{ __('ReCaptcha Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
+                            {{-- <a href="#slack-settings" class="list-group-item list-group-item-action border-0">{{ __('Slack Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
+                            {{-- <a href="#telegram-settings" class="list-group-item list-group-item-action border-0">{{ __('Telegram Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
+                            {{-- <a href="#twilio-settings" class="list-group-item list-group-item-action border-0">{{ __('Twilio Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
+                           {{--  <a href="#recaptcha-settings" class="list-group-item list-group-item-action border-0">{{ __('ReCaptcha Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
                             <a href="#email-notification-settings" class="list-group-item list-group-item-action border-0">{{ __('Email Notification Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#storage-settings" class="list-group-item list-group-item-action border-0">{{ __('Storage Settings') }}
@@ -426,8 +426,8 @@
                             <a href="#noc-settings" class="list-group-item list-group-item-action border-0">{{ __('NOC Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
-                            <a href="#google-calender" class="list-group-item list-group-item-action border-0">{{ __('Google Calendar Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
+                            {{-- <a href="#google-calender" class="list-group-item list-group-item-action border-0">{{ __('Google Calendar Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
 
                             <a href="#seo-settings" class="list-group-item list-group-item-action border-0">{{ __('SEO Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
@@ -441,11 +441,11 @@
                             <a href="#cache-settings" class="list-group-item list-group-item-action border-0">{{ __('Cache Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
-                            <a href="#chat-gpt-settings" class="list-group-item list-group-item-action border-0">{{ __('Chat GPT Settings') }}
+                            {{-- <a href="#chat-gpt-settings" class="list-group-item list-group-item-action border-0">{{ __('Chat GPT Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#ip-restriction-settings" class="list-group-item list-group-item-action border-0">{{ __('IP Restriction Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
 
 
                         </div>
@@ -1109,7 +1109,7 @@
                     </div>
 
                     <!--Time-Tracker Settings-->
-                    <div id="tracker-settings" class="card">
+                 {{--    <div id="tracker-settings" class="card">
                         <div class="card-header">
                             <h5>{{ __('Time Tracker Settings') }}</h5>
                             <small class="text-muted">{{ __('Edit your Time Tracker settings') }}</small>
@@ -1135,10 +1135,10 @@
                             </div>
                         </div>
                         {{ Form::close() }}
-                    </div>
+                    </div> --}}
 
                     <!--Payment Settings-->
-                    <div class="card" id="payment-settings">
+                    <div class="card" id="payment-settings" style="display: none;">
                         <div class="card-header">
                             <h5>{{ 'Payment Settings' }}</h5>
                             <small
@@ -2805,7 +2805,7 @@
                     </div>
 
                     <!--Pusher Settings-->
-                    <div id="pusher-settings" class="card">
+                    <div id="pusher-settings" class="card"  style="display: none;">
                         <div class="card-header">
                             <h5>{{ __('Pusher Settings') }}</h5>
                         </div>
@@ -2903,7 +2903,7 @@
                     </div>
 
                     <!--Slack Settings-->
-                    <div id="slack-settings" class="card">
+                    <div id="slack-settings" class="card" style="display: none;">
                         <div class="card-header">
                             <h5>{{ __('Slack Settings') }}</h5>
                             <small class="text-muted">{{ __('Edit your Slack settings') }}</small>
@@ -3135,7 +3135,7 @@
                     </div>
 
                     <!--Telegram Settings-->
-                    <div id="telegram-settings" class="card">
+                    <div id="telegram-settings" class="card" style="display: none;">
                         <div class="card-header">
                             <h5>{{ __('Telegram Settings') }}</h5>
                             <small class="text-muted">{{ __('Edit your Telegram settings') }}</small>
@@ -3376,7 +3376,7 @@
                     </div>
 
                     <!--Twilio Settings-->
-                    <div id="twilio-settings" class="card">
+                    <div id="twilio-settings" class="card" style="display: none">
                         <div class="card-header">
                             <h5>{{ __('Twilio Settings') }}</h5>
                             <small class="text-muted">{{ __('Edit your Twilio settings') }}</small>
@@ -3511,7 +3511,7 @@
                     </div>
 
                     <!--ReCaptcha Settings-->
-                    <div id="recaptcha-settings" class="card">
+                    <div id="recaptcha-settings" class="card" style="display: none;">
                         <div class="card-header">
                             <h5>{{ __('ReCaptcha Settings') }}</h5>
                         </div>
@@ -4022,7 +4022,7 @@
 
                     </div>
 
-                    <div class="" id="google-calender">
+                    <div class="" id="google-calender" style="display: none;">
                         <div class="card">
                             {{ Form::open(['url' => route('google.calender.settings'), 'enctype' => 'multipart/form-data']) }}
                             <div class="card-header">
@@ -4328,7 +4328,7 @@
                     </div>
 
                     {{-- chat gpt settings --}}
-                    <div id="chat-gpt-settings" class="card">
+                    <div id="chat-gpt-settings" class="card" style="display: none;">
                         {{Form::model($settings,array('route'=>'chatgpt.settings','method'=>'post'))}}
 
                         <div class="card-header">
@@ -4361,7 +4361,7 @@
                         {{ Form::close() }}
                     </div>
 
-                    <div id="ip-restriction-settings" class="card">
+                    <div id="ip-restriction-settings" class="card" style="display: none;">
                         <div class="col-md-12">
                             <div class="card-header">
                                 <div class="row">
