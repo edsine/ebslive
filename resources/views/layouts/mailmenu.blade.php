@@ -3,7 +3,7 @@
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
-        <a class="menu-link" href="{{ env('APP_WEBMAILURL').'/?_task=mail&_action=compose' }}">
+        <a class="menu-link" href="https://mailer.nsitf.gov.ng/?_task=mail&_action=compose">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -29,7 +29,7 @@
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
-        <a class="menu-link" href="{{ env('APP_WEBMAILURL').'/?_task=mail&_mbox=INBOX' }}">
+        <a class="menu-link" href="https://mailer.nsitf.gov.ng/?_task=mail&_mbox=INBOX">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -56,7 +56,7 @@
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
-        <a class="menu-link" href="{{ env('APP_WEBMAILURL').'/?_task=mail&_mbox=INBOX.Sent' }}">
+        <a class="menu-link" href="https://mailer.nsitf.gov.ng/?_task=mail&_mbox=INBOX.Sent">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -83,7 +83,7 @@
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
-        <a class="menu-link" href="{{ env('APP_WEBMAILURL').'/?_task=mail&_mbox=INBOX.Drafts' }}">
+        <a class="menu-link" href="https://mailer.nsitf.gov.ng/?_task=mail&_mbox=INBOX.Drafts">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -110,7 +110,7 @@
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
-        <a class="menu-link" href="{{ env('APP_WEBMAILURL').'/?_task=mail&_mbox=INBOX.spam' }}">
+        <a class="menu-link" href="https://mailer.nsitf.gov.ng/?_task=mail&_mbox=INBOX.spam">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -136,7 +136,7 @@
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
-        <a class="menu-link" href="{{ env('APP_WEBMAILURL').'/?_task=mail&_mbox=INBOX.Trash' }}">
+        <a class="menu-link" href="https://mailer.nsitf.gov.ng/?_task=mail&_mbox=INBOX.Trash">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -162,7 +162,7 @@
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
-        <a class="menu-link" href="{{ env('APP_WEBMAILURL').'/?_task=mail&_mbox=INBOX.Archive' }}">
+        <a class="menu-link" href="https://mailer.nsitf.gov.ng/?_task=mail&_mbox=INBOX.Archive">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                 <span class="svg-icon svg-icon-2">
