@@ -26,7 +26,7 @@
 
 @endphp
 
-{{--Storage setting--}}
+Storage setting
 @php
     $file_type = config('files_types');
     $setting = Modules\Accounting\Models\Utility::settings();
@@ -41,7 +41,7 @@
    $wasabi_storage_validations   = explode(',', $wasabi_storage_validation);
 
 @endphp
-{{-- end Storage setting--}}
+ end Storage setting
 
 @push('css-page')
     
@@ -323,7 +323,7 @@
         });
     </script>
 
-    {{--    for cookie setting--}}
+        for cookie setting
     <script type="text/javascript">
         function enablecookie() {
             const element = $('#enable_cookie').is(':checked');
@@ -391,24 +391,24 @@
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#company-settings" class="list-group-item list-group-item-action border-0">{{ __('Company Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
-                            {{-- <a href="#tracker-settings" class="list-group-item list-group-item-action border-0">{{ __('Time Tracker Settings') }}
+                             {{-- <a href="#tracker-settings" class="list-group-item list-group-item-action border-0">{{ __('Time Tracker Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>  --}}
+                             {{-- <a href="#payment-settings" class="list-group-item list-group-item-action border-0">{{ __('Payment Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}} 
+                            {{-- <a href="#email-settings" class="list-group-item list-group-item-action border-0">{{ __('Email Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
-                            {{-- <a href="#payment-settings" class="list-group-item list-group-item-action border-0">{{ __('Payment Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
-                            <a href="#email-settings" class="list-group-item list-group-item-action border-0">{{ __('Email Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
-                            {{-- <a href="#pusher-settings" class="list-group-item list-group-item-action border-0">{{ __('Pusher Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
+                             {{-- <a href="#pusher-settings" class="list-group-item list-group-item-action border-0">{{ __('Pusher Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>  --}}
                             <a href="#zoom-settings" class="list-group-item list-group-item-action border-0">{{ __('Zoom Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
-                            {{-- <a href="#slack-settings" class="list-group-item list-group-item-action border-0">{{ __('Slack Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
-                            {{-- <a href="#telegram-settings" class="list-group-item list-group-item-action border-0">{{ __('Telegram Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
-                            {{-- <a href="#twilio-settings" class="list-group-item list-group-item-action border-0">{{ __('Twilio Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
-                           {{--  <a href="#recaptcha-settings" class="list-group-item list-group-item-action border-0">{{ __('ReCaptcha Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
+                             {{-- <a href="#slack-settings" class="list-group-item list-group-item-action border-0">{{ __('Slack Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>  --}}
+                             {{-- <a href="#telegram-settings" class="list-group-item list-group-item-action border-0">{{ __('Telegram Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>  --}}
+                             {{-- <a href="#twilio-settings" class="list-group-item list-group-item-action border-0">{{ __('Twilio Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>  --}}
+                             {{-- <a href="#recaptcha-settings" class="list-group-item list-group-item-action border-0">{{ __('ReCaptcha Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>  --}}
                             <a href="#email-notification-settings" class="list-group-item list-group-item-action border-0">{{ __('Email Notification Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
                             <a href="#storage-settings" class="list-group-item list-group-item-action border-0">{{ __('Storage Settings') }}
@@ -423,11 +423,11 @@
                             <a href="#experience-certificate-settings" class="list-group-item list-group-item-action border-0">{{ __('Experience Certificate Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
-                            <a href="#noc-settings" class="list-group-item list-group-item-action border-0">{{ __('NOC Settings') }}
+                            {{-- <a href="#noc-settings" class="list-group-item list-group-item-action border-0">{{ __('NOC Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
-                            {{-- <a href="#google-calender" class="list-group-item list-group-item-action border-0">{{ __('Google Calendar Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
+                             <a href="#google-calender" class="list-group-item list-group-item-action border-0">{{ __('Google Calendar Settings') }}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}} 
 
                             <a href="#seo-settings" class="list-group-item list-group-item-action border-0">{{ __('SEO Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
@@ -441,11 +441,11 @@
                             <a href="#cache-settings" class="list-group-item list-group-item-action border-0">{{ __('Cache Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
-                            {{-- <a href="#chat-gpt-settings" class="list-group-item list-group-item-action border-0">{{ __('Chat GPT Settings') }}
+                             {{-- <a href="#chat-gpt-settings" class="list-group-item list-group-item-action border-0">{{ __('Chat GPT Settings') }}
                                 <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>
 
                             <a href="#ip-restriction-settings" class="list-group-item list-group-item-action border-0">{{ __('IP Restriction Settings') }}
-                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a> --}}
+                                <div class="float-end"><i class="fa fa-chevron-right"></i></div></a>  --}}
 
 
                         </div>
@@ -872,36 +872,36 @@
                                     <textarea class="summernote-simple4 summernote-simple">{!! $settings['footer_notes'] !!}</textarea>
                                 </div>
 
-{{--                                <div class="form-group col-md-6">--}}
-{{--                                    {{Form::label('invoice_starting_number',__('Invoice Starting Number'),array('class'=>'form-label')) }}--}}
-{{--                                    {{Form::text('invoice_starting_number',null,array('class'=>'form-control'))}}--}}
-{{--                                    @error('invoice_starting_number')--}}
-{{--                                    <span class="invalid-invoice_starting_number" role="alert">--}}
-{{--                                        <strong class="text-danger">{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
+                                <div class="form-group col-md-6">
+                                    {{Form::label('invoice_starting_number',__('Invoice Starting Number'),array('class'=>'form-label')) }}
+                                    {{Form::text('invoice_starting_number',null,array('class'=>'form-control'))}}
+                                    @error('invoice_starting_number')
+                                    <span class="invalid-invoice_starting_number" role="alert">
+                                        <strong class="text-danger">{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
 
-{{--                                <div class="form-group col-md-6">--}}
-{{--                                    {{Form::label('proposal_starting_number',__('Proposal Starting Number'),array('class'=>'form-label')) }}--}}
-{{--                                    {{Form::text('proposal_starting_number',null,array('class'=>'form-control'))}}--}}
-{{--                                    @error('proposal_starting_number')--}}
-{{--                                    <span class="invalid-proposal_starting_number" role="alert">--}}
-{{--                                        <strong class="text-danger">{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
+                                <div class="form-group col-md-6">
+                                    {{Form::label('proposal_starting_number',__('Proposal Starting Number'),array('class'=>'form-label')) }}
+                                    {{Form::text('proposal_starting_number',null,array('class'=>'form-control'))}}
+                                    @error('proposal_starting_number')
+                                    <span class="invalid-proposal_starting_number" role="alert">
+                                        <strong class="text-danger">{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
 
 
-{{--                                <div class="form-group col-md-6">--}}
-{{--                                    {{Form::label('bill_starting_number',__('Bill Starting Number'),array('class'=>'form-label')) }}--}}
-{{--                                    {{Form::text('bill_starting_number',null,array('class'=>'form-control'))}}--}}
-{{--                                    @error('bill_starting_number')--}}
-{{--                                    <span class="invalid-bill_starting_number" role="alert">--}}
-{{--                                        <strong class="text-danger">{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
+                                <div class="form-group col-md-6">
+                                    {{Form::label('bill_starting_number',__('Bill Starting Number'),array('class'=>'form-label')) }}
+                                    {{Form::text('bill_starting_number',null,array('class'=>'form-control'))}}
+                                    @error('bill_starting_number')
+                                    <span class="invalid-bill_starting_number" role="alert">
+                                        <strong class="text-danger">{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
 
 
 
@@ -1048,12 +1048,12 @@
 
                                 <div class="form-group col-md-12 mt-2">
                                     {{Form::label('timezone',__('Timezone'),array('class' => 'form-label'))}}
-                                    {{-- <select type="text" name="timezone" class="form-control custom-select" id="timezone">
+                                     <select type="text" name="timezone" class="form-control custom-select" id="timezone">
                                         <option value="">{{__('Select Timezone')}}</option>
                                         @foreach($timezones as $k=>$timezone)
                                             <option value="{{$k}}" {{(env('TIMEZONE')==$k)?'selected':''}}>{{$timezone}}</option>
                                         @endforeach
-                                    </select> --}}
+                                    </select> 
                                     <select type="text" name="timezone" class="form-control custom-select" id="timezone">
                                         <option value="">{{ __('Select Timezone') }}</option>
                                         @foreach(config('app.options') as $key => $timezone)
@@ -1109,7 +1109,7 @@
                     </div>
 
                     <!--Time-Tracker Settings-->
-                 {{--    <div id="tracker-settings" class="card">
+                     <div id="tracker-settings" class="card" style="display: none;">
                         <div class="card-header">
                             <h5>{{ __('Time Tracker Settings') }}</h5>
                             <small class="text-muted">{{ __('Edit your Time Tracker settings') }}</small>
@@ -1135,7 +1135,7 @@
                             </div>
                         </div>
                         {{ Form::close() }}
-                    </div> --}}
+                    </div> 
 
                     <!--Payment Settings-->
                     <div class="card" id="payment-settings" style="display: none;">
@@ -2199,9 +2199,9 @@
                                                              data-bs-parent="#accordionExample">
                                                             <div class="accordion-body">
                                                                 <div class="col-md-12 pb-4">
-                                                                    {{--                                                                        <label class="coingate-label col-form-label"--}}
-                                                                    {{--                                                                               for="iyzipay_mode">{{ __('Iyzipay Mode') }}</label>--}}
-                                                                    {{--                                                                        <br>--}}
+                                                                                                                                            <label class="coingate-label col-form-label"
+                                                                                                                                                   for="iyzipay_mode">{{ __('Iyzipay Mode') }}</label>
+                                                                                                                                            <br>
                                                                     <div class="d-flex">
                                                                         <div class="mr-2" style="margin-right: 15px;">
                                                                             <div class="border card p-1">
@@ -2679,7 +2679,7 @@
                     </div>
 
                     <!--Email Settings-->
-                    <div id="email-settings" class="card">
+                    <div id="email-settings" class="card" style="display: none;">
                         <div class="card-header">
                             <h5>{{ __('Email Settings') }}</h5>
                         </div>
@@ -2805,7 +2805,7 @@
                     </div>
 
                     <!--Pusher Settings-->
-                    <div id="pusher-settings" class="card"  style="display: none;">
+                    <div id="pusher-settings" class="card" style="display: none;" >
                         <div class="card-header">
                             <h5>{{ __('Pusher Settings') }}</h5>
                         </div>
@@ -3567,13 +3567,13 @@
                                             <div class="list-group">
                                                 <div class="list-group-item form-switch form-switch-right">
                                                     <label class="form-label" style="margin-left:5%;">{{ $EmailTemplate->name }}</label>
-                                                    {{--                                                    <input class="form-check-input email-template-checkbox"--}}
-                                                    {{--                                                           id="email_tempalte_{{!empty($EmailTemplate->template)?$EmailTemplate->template->id:''}}" type="checkbox"--}}
-                                                    {{--                                                           @if(!empty($EmailTemplate->template)?$EmailTemplate->template->is_active:0 == 1) checked="checked" @endif --}}
-                                                    {{--                                                           type="checkbox"--}}
-                                                    {{--                                                           value="{{!empty($EmailTemplate->template)?$EmailTemplate->template->is_active:1}}"--}}
-                                                    {{--                                                           data-url="{{route('status.email.language',[!empty($EmailTemplate->template)?$EmailTemplate->template->id:''])}}" />--}}
-                                                    {{--                                                    <label class="form-check-label" for="email_tempalte_{{!empty($EmailTemplate->template)?$EmailTemplate->template->id:''}}"></label>--}}
+                                                                                                        <input class="form-check-input email-template-checkbox"
+                                                                                                               id="email_tempalte_{{!empty($EmailTemplate->template)?$EmailTemplate->template->id:''}}" type="checkbox"
+                                                                                                               @if(!empty($EmailTemplate->template)?$EmailTemplate->template->is_active:0 == 1) checked="checked" @endif 
+                                                                                                               type="checkbox"
+                                                                                                               value="{{!empty($EmailTemplate->template)?$EmailTemplate->template->is_active:1}}"
+                                                                                                               data-url="{{route('status.email.language',[!empty($EmailTemplate->template)?$EmailTemplate->template->id:''])}}" />
+                                                                                                        <label class="form-check-label" for="email_tempalte_{{!empty($EmailTemplate->template)?$EmailTemplate->template->id:''}}"></label>
 
                                                     <input class="form-check-input" name='{{ $EmailTemplate->id }}' id="email_tempalte_{{ $EmailTemplate->template->id }}"
                                                            type="checkbox"
@@ -3628,7 +3628,7 @@
                             </div>
                             <div  class="mt-2">
                                 <div class="local-setting row {{  $setting['storage_setting']=='local'?' ':'d-none' }}">
-                                    {{-- <h4 class="small-title">{{ __('Local Settings') }}</h4> --}}
+                                     <h4 class="small-title">{{ __('Local Settings') }}</h4> 
                                     <div class="form-group col-8 switch-width">
                                         {{Form::label('local_storage_validation',__('Only Upload Files'),array('class'=>' form-label')) }}
                                         <select name="local_storage_validation[]" class="select2"  id="local_storage_validation" multiple>
@@ -3963,7 +3963,7 @@
                         </div>
                     </div>
 
-                    <div id="noc-settings" class="card">
+                    <div id="noc-settings" class="card" style="display: none;">
                         <div class="col-md-12">
                             <div class="card-header d-flex justify-content-between">
                                 <h5>{{ __('NOC Settings') }}</h5>
@@ -4050,7 +4050,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         {{Form::label('Google calendar json file',__('Google Calendar json File'),['class'=>'col-form-label']) }}
                                         <input type="file" class="form-control" name="google_calender_json_file" id="file">
-                                        {{-- {{Form::text('zoom_secret_key', !empty($settings['zoom_secret_key']) ? $settings['zoom_secret_key'] : '' ,array('class'=>'form-control', 'placeholder'=>'Google Calendar json File'))}} --}}
+                                         {{Form::text('zoom_secret_key', !empty($settings['zoom_secret_key']) ? $settings['zoom_secret_key'] : '' ,array('class'=>'form-control', 'placeholder'=>'Google Calendar json File'))}} 
                                     </div>
                                 </div>
                             </div>
@@ -4063,7 +4063,7 @@
                         </div>
                     </div>
 
-                    {{-- SEO settings --}}
+                     SEO settings 
                     <div id="seo-settings" class="card">
                         <div class="card-header d-flex justify-content-between">
                             <h5>{{ __('SEO Settings') }}</h5>
@@ -4130,7 +4130,7 @@
                         {{ Form::close() }}
                     </div>
 
-                    {{-- webhook settings --}}
+                     webhook settings 
                     <div id="webhook-settings" class="card">
                         <div class="col-md-12">
                             <div class="card-header">
@@ -4200,7 +4200,7 @@
                         </div>
                     </div>
 
-                    {{-- Cookie settings --}}
+                     Cookie settings 
                     <div class="card" id="cookie-settings">
                         {{Form::model($settings,array('route'=>'cookie.setting','method'=>'post'))}}
                         <div class="card-header flex-column flex-lg-row d-flex align-items-lg-center gap-2 justify-content-between">
@@ -4297,7 +4297,7 @@
                         {{ Form::close() }}
                     </div>
 
-                    {{-- Cache settings --}}
+                     Cache settings 
                     <div class="card" id="cache-settings">
                         <div class="card-header">
                             <h5>{{ 'Cache Settings' }}</h5>
@@ -4327,7 +4327,7 @@
 
                     </div>
 
-                    {{-- chat gpt settings --}}
+                    
                     <div id="chat-gpt-settings" class="card" style="display: none;">
                         {{Form::model($settings,array('route'=>'chatgpt.settings','method'=>'post'))}}
 
@@ -4361,7 +4361,7 @@
                         {{ Form::close() }}
                     </div>
 
-                    <div id="ip-restriction-settings" class="card" style="display: none;">
+                    <div id="ip-restriction-settings" class="card"  style="display: none;">
                         <div class="col-md-12">
                             <div class="card-header">
                                 <div class="row">
