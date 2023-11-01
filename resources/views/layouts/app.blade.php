@@ -452,11 +452,11 @@
        <!-- Apex Chart p-->
 <script src="{{asset('new_assets/assets/js/plugins/apexcharts.min.js')}}"></script>
 <script src="{{asset('new_assets/assets/js/plugins/choices.min.js')}}"></script>
-<script src="{{asset('new_assets/assets/js/plugins/flatpickr.min.js')}}"></script>
+{{-- <script src="{{asset('new_assets/assets/js/plugins/flatpickr.min.js')}}"></script> --}}
 <script src="{{asset('new_assets/assets/js/plugins/main.min.js')}}"></script>
 
-
-<script>
+{{-- 
+<script> --}}
   
     <script>
          $(document).ready(function () {
@@ -483,6 +483,8 @@ function daterange() {
             const dataTable =  new simpleDatatables.DataTable(".datatable");
         }
     });
+
+
     </script>
 
     @stack('third_party_scripts')
