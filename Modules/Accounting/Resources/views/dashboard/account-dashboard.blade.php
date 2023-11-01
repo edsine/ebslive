@@ -26,7 +26,8 @@
                                             </div>
                                             <p class="text-muted text-sm mt-4 mb-2">{{__('Total')}}</p>
                                             <h6 class="mb-3">{{__('Customers')}}</h6>
-                                            <h3 class="mb-0">{{\Auth::user()->countCustomers()}}
+                                            {{-- <h3 class="mb-0">{{\Auth::user()->countCustomers()}} --}}
+                                            <h3 class="mb-0">{{\Auth::user()->countemployers()}}
 
                                             </h3>
                                         </div>
@@ -658,7 +659,7 @@
         </div>
     </div>
     <script>
-          @if(\Auth::user()->can('show account dashboard'))
+        //   @if(\Auth::user()->can('show account dashboard'))
     (function () {
         var chartBarOptions = {
             series: [
@@ -838,7 +839,7 @@
         var chart = new ApexCharts(document.querySelector("#incomeByCategory"), options);
         chart.render();
     })();
-    @endif
+    // @endif
 </script>
     </script>
 @endsection

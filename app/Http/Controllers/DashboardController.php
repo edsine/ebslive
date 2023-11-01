@@ -75,7 +75,7 @@ class DashboardController extends Controller
             }
             else
             {
-                if(\Auth::user()->can('show account dashboard'))
+                // if(\Auth::user()->can('show account dashboard'))
                 {
                     $data['latestIncome']  = Revenue::where('created_by', '=', \Auth::user()->creatorId())->orderBy('id', 'desc')->limit(5)->get();
                     $data['latestExpense'] = Payment::where('created_by', '=', \Auth::user()->creatorId())->orderBy('id', 'desc')->limit(5)->get();
@@ -137,9 +137,9 @@ class DashboardController extends Controller
 
 
                 }
-                else {
-                    return $this->hrm_dashboard_index();
-                }
+                // else {
+                //     return $this->hrm_dashboard_index();
+                // }
 
 
             }

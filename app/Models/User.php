@@ -658,6 +658,9 @@ class User extends Authenticatable implements Auditable
         return Customer::where('created_by', '=', $this->creatorId())->count();
         
     }
+    public function countemployers(){
+        return Employer::count();
+    }
 
     public function countVenders()
     {
