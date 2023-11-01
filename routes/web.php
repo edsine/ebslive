@@ -134,3 +134,24 @@ Route::get('zoom' ,function(){
 // Route::any('/zoom-meeting/projects/select/{bid}', [ZoomMeetingController::class, 'projectwiseuser'])->name('zoom-meeting.projects.select');
 // Route::get('zoom-meeting-calender', [ZoomMeetingController::class, 'calender'])->name('zoom-meeting.calender')->middleware(['auth','XSS']);
 
+
+Route::get('report/income-summary', [ReportController::class, 'incomeSummary'])->name('report.income.summary');
+Route::get('report/expense-summary', [ReportController::class, 'expenseSummary'])->name('report.expense.summary');
+Route::get('report/income-vs-expense-summary', [ReportController::class, 'incomeVsExpenseSummary'])->name('report.income.vs.expense.summary');
+Route::get('report/tax-summary', [ReportController::class, 'taxSummary'])->name('report.tax.summary');
+//    Route::get('report/profit-loss-summary', [ReportController::class, 'profitLossSummary'])->name('report.profit.loss.summary');
+Route::get('report/invoice-summary', [ReportController::class, 'invoiceSummary'])->name('report.invoice.summary');
+Route::get('report/bill-summary', [ReportController::class, 'billSummary'])->name('report.bill.summary');
+Route::get('report/product-stock-report', [ReportController::class, 'productStock'])->name('report.product.stock.report');
+Route::get('report/invoice-report', [ReportController::class, 'invoiceReport'])->name('report.invoice');
+Route::get('report/account-statement-report', [ReportController::class, 'accountStatement'])->name('report.account.statement');
+Route::get('report/balance-sheet', [ReportController::class, 'balanceSheet'])->name('report.balance.sheet');
+Route::get('report/ledger', [ReportController::class, 'ledgerSummary'])->name('report.ledger');
+Route::get('report/trial-balance', [ReportController::class, 'trialBalanceSummary'])->name('trial.balance');
+Route::get('report/profit-loss', [ReportController::class, 'profitLoss'])->name('report.profit.loss');
+Route::get('reports-monthly-cashflow', [ReportController::class, 'monthlyCashflow'])->name('report.monthly.cashflow');
+Route::get('reports-quarterly-cashflow', [ReportController::class, 'quarterlyCashflow'])->name('report.quarterly.cashflow');
+Route::post('export/trial-balance', [ReportController::class, 'trialBalanceExport'])->name('trial.balance.export');
+Route::post('export/balance-sheet', [ReportController::class, 'balanceSheetExport'])->name('balance.sheet.export');
+Route::post('print/balance-sheet', [ReportController::class, 'balanceSheetPrint'])->name('balance.sheet.print');
+Route::post('print/trial-balance', [ReportController::class, 'trialBalancePrint'])->name('trial.balance.print');

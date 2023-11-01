@@ -100,7 +100,7 @@ Route::group(
     Route::get('proposal/{id}/sent', [ProposalController::class, 'sent'])->name('proposal.sent');
     Route::get('proposal/{id}/resent', [ProposalController::class, 'resent'])->name('proposal.resent');
     Route::resource('proposal', ProposalController::class);
-    Route::get('proposal/create/{cid}', [ProposalController::class, 'create'])->name('proposal.create');
+    // Route::get('proposal/create/{cid}', [ProposalController::class, 'create'])->name('proposal.create');
 
 }
 );
@@ -327,8 +327,8 @@ Route::group(
     Route::get('report/ledger', [ReportController::class, 'ledgerSummary'])->name('report.ledger');
     Route::get('report/trial-balance', [ReportController::class, 'trialBalanceSummary'])->name('trial.balance');
     Route::get('report/profit-loss', [ReportController::class, 'profitLoss'])->name('report.profit.loss');
-    Route::get('reports-monthly-cashflow', [ReportController::class, 'monthlyCashflow'])->name('report.monthly.cashflow')->middleware(['auth', 'XSS']);
-    Route::get('reports-quarterly-cashflow', [ReportController::class, 'quarterlyCashflow'])->name('report.quarterly.cashflow')->middleware(['auth', 'XSS']);
+    Route::get('reports-monthly-cashflow', [ReportController::class, 'monthlyCashflow'])->name('report.monthly.cashflow');
+    Route::get('reports-quarterly-cashflow', [ReportController::class, 'quarterlyCashflow'])->name('report.quarterly.cashflow');
     Route::post('export/trial-balance', [ReportController::class, 'trialBalanceExport'])->name('trial.balance.export');
     Route::post('export/balance-sheet', [ReportController::class, 'balanceSheetExport'])->name('balance.sheet.export');
     Route::post('print/balance-sheet', [ReportController::class, 'balanceSheetPrint'])->name('balance.sheet.print');
