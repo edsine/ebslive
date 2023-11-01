@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('leaves', function (Blueprint $table) {
+        Schema::create('leavesbk', function (Blueprint $table) {
             $table->id('id');
             $table->date('days');
             $table->string('title');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('leaves');
+        Schema::drop('leavesbk');
     }
 };
