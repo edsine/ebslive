@@ -9,12 +9,13 @@ use App\Http\Controllers\RoleController;
 //use App\Http\Controllers\EmailController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SupportController;
 use App\Http\Controllers\DropdownController;
+use App\Http\Controllers\AllowanceController;
+use App\Http\Controllers\SetSalaryController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\ZoomMeetingController;
-use App\Http\Controllers\SupportController;
-use App\Http\Controllers\SetSalaryController;
-use App\Http\Controllers\AllowanceController;
+use Modules\Accounting\Http\Controllers\ReportController;
 
 
 /*
