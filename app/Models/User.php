@@ -30,6 +30,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Modules\DTARequests\Notifications\UnitHeadNotification;
 
+use Modules\HRMSystem\Models\Allowance;
+use Modules\HRMSystem\Models\AllowanceOption;
+use Modules\HRMSystem\Models\Commission;
+use Modules\HRMSystem\Models\DeductionOption;
+use Modules\HRMSystem\Models\Loan;
+use Modules\HRMSystem\Models\LoanOption;
+use Modules\HRMSystem\Models\OtherPayment;
+use Modules\HRMSystem\Models\Overtime;
+use Modules\HRMSystem\Models\PayslipType;
+use Modules\HRMSystem\Models\SaturationDeduction;
+
 
 class User extends Authenticatable implements Auditable
 {
@@ -48,6 +59,8 @@ class User extends Authenticatable implements Auditable
         'middle_name',
         'last_name',
         'status',
+        'salary_type',
+        'salary',
         
     ];
 
@@ -739,5 +752,126 @@ class User extends Authenticatable implements Auditable
 
         return $totalExpense;
     }
+
+    public function salary_type()
+    {
+        return $this->hasOne('Modules\HRMSystem\Models\PayslipType', 'id', 'salary_type')->pluck('name')->first();
+    }
+
+    public function get_net_salary()
+    {
+
+        //allowance
+        $allowances      = Allowance::where('employee_id', '=', $this->id)->get();
+        $total_allowance = 0 ;
+        foreach($allowances as $allowance)
+        {
+            if($allowance->type == 'fixed')
+            {
+                $totalAllowances  = $allowance->amount;
+            }
+            else
+            {
+                $totalAllowances  = $allowance->amount * $this->salary / 100;
+            }
+            $total_allowance += $totalAllowances ;
+        }
+
+        //commission
+        $commissions      = Commission::where('employee_id', '=', $this->id)->get();
+        $total_commission = 0;
+        foreach($commissions as $commission)
+        {
+            if($commission->type == 'fixed')
+            {
+                $totalCom  = $commission->amount;
+            }
+            else
+            {
+                $totalCom  = $commission->amount * $this->salary / 100;
+            }
+            $total_commission += $totalCom ;
+        }
+
+        //Loan
+        $loans      = Loan::where('employee_id', '=', $this->id)->get();
+        $total_loan = 0;
+        foreach($loans as $loan)
+        {
+            if($loan->type == 'fixed')
+            {
+                $totalloan  = $loan->amount;
+            }
+            else
+            {
+                $totalloan  = $loan->amount * $this->salary / 100;
+            }
+            $total_loan += $totalloan ;
+        }
+
+
+        //Saturation Deduction
+        $saturation_deductions      = SaturationDeduction::where('employee_id', '=', $this->id)->get();
+        $total_saturation_deduction = 0 ;
+        foreach($saturation_deductions as $deductions)
+        {
+            if($deductions->type == 'fixed')
+            {
+                $totaldeduction  = $deductions->amount;
+            }
+            else
+            {
+                $totaldeduction  = $deductions->amount * $this->salary / 100;
+            }
+            $total_saturation_deduction += $totaldeduction ;
+        }
+
+        //OtherPayment
+        $other_payments      = OtherPayment::where('employee_id', '=', $this->id)->get();
+        $total_other_payment = 0;
+        $total_other_payment = 0 ;
+        foreach($other_payments as $otherPayment)
+        {
+            if($otherPayment->type == 'fixed')
+            {
+                $totalother  = $otherPayment->amount;
+            }
+            else
+            {
+                $totalother  = $otherPayment->amount * $this->salary / 100;
+            }
+            $total_other_payment += $totalother ;
+        }
+
+        //Overtime
+        $over_times      = Overtime::where('employee_id', '=', $this->id)->get();
+        $total_over_time = 0;
+        foreach($over_times as $over_time)
+        {
+            $total_work      = $over_time->number_of_days * $over_time->hours;
+            $amount          = $total_work * $over_time->rate;
+            $total_over_time = $amount + $total_over_time;
+        }
+
+
+        //Net Salary Calculate
+        $advance_salary = $total_allowance + $total_commission - $total_loan - $total_saturation_deduction + $total_other_payment + $total_over_time;
+
+        $employee       = User::where('id', '=', $this->id)->first();
+
+        $net_salary     = (!empty($employee->salary) ? $employee->salary : 0) + $advance_salary;
+
+        return $net_salary;
+
+    }
+
+    public function employeeIdFormat($number)
+    {
+        $settings = Utility::settings();
+
+        return $settings["employee_prefix"] . sprintf("%05d", $number);
+    }
+
+    
 
 }

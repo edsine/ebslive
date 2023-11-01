@@ -627,4 +627,11 @@ class UserController extends AppBaseController
         flash::success('only staff restored');
         return redirect()->route('users.index');
     }
+
+    /* public function employeeJson(Request $request)
+    {
+        $employees = User::where('branch_id', $request->branch)->get()->pluck('name', 'id')->toArray();
+
+        return response()->json($employees);
+    } */
 }

@@ -11,5 +11,6 @@
     "UnitManager": true,
     "Approval": true,
     "FormBuilder": true,
-    "Accounting": true
+    "Accounting": true,
+    "HRMSystem": true
 }
