@@ -128,7 +128,7 @@
 
 <!--begin:Menu sub-->
 <!--begin:Menu item-->
-<div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+{{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
         <a class="menu-link {{ Request::is('income-summary*') ? 'active' : '' }}" href="{{ route('report.income.summary') }}">
@@ -148,7 +148,7 @@
         </a>
     </span>
     <!--end:Menu link-->
-</div>
+</div> --}}
 <!--end:Menu item-->
 <!--begin:Menu sub-->
 <!--begin:Menu item-->
@@ -251,7 +251,7 @@
 <!--end:Menu sub-->
 
 <!--begin:Menu sub-->
-<!--begin:Menu item-->
+{{-- <!--begin:Menu item-->
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
@@ -271,7 +271,7 @@
             <!-- <span class="menu-arrow"></span> -->
         </a>
     </span>
-    <!--end:Menu link-->
-</div>
+    <!--end:Menu link--> --}}
+{{-- </div> --}}
 
 

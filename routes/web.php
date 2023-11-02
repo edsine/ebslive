@@ -140,6 +140,12 @@ Route::get('zoom' ,function(){
 // Route::any('/zoom-meeting/projects/select/{bid}', [ZoomMeetingController::class, 'projectwiseuser'])->name('zoom-meeting.projects.select');
 // Route::get('zoom-meeting-calender', [ZoomMeetingController::class, 'calender'])->name('zoom-meeting.calender')->middleware(['auth','XSS']);
 
+//=================================== Zoom Meeting ======================================================================
+Route::resource('zoom-meeting', ZoomMeetingController::class)->middleware(['auth']);
+Route::any('/zoom-meeting/projects/select/{bid}', [ZoomMeetingController::class, 'projectwiseuser'])->name('zoom-meeting.projects.select');
+Route::get('zoom-meeting-calender', [ZoomMeetingController::class, 'calender'])->name('zoom-meeting.calender')->middleware(['auth']);
+
+
 Route::group(
     [
         'middleware' => [

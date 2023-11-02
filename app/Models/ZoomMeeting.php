@@ -39,6 +39,7 @@ class ZoomMeeting extends Model
 
     public function projectName()
     {
+        
         return $this->hasOne('App\Models\Project', 'id', 'project_id');
     }
 

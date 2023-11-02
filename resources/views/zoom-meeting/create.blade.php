@@ -3,7 +3,8 @@
 <div class="modal-body">
     {{-- start for ai module--}}
     @php
-        $settings = \App\Models\Utility::settings();
+   
+        $settings = \Modules\Accounting\Models\Utility::settings();
     @endphp
     @if($settings['ai_chatgpt_enable'] == 'on')
         <div class="text-end">
