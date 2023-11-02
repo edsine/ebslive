@@ -1,10 +1,10 @@
 
-<!--begin:Menu sub-->
+{{-- <!--begin:Menu sub-->
 <!--begin:Menu item-->
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
-        <a class="menu-link {{ Request::is('zoom*') ? 'active' : '' }}" href="{{ route('zoom') }}">
+        <a class="menu-link {{ Request::is('zoom-meeting*') ? 'active' : '' }}" href="{{ route('zoom-meeting.index') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -23,7 +23,7 @@
     <!--end:Menu link-->
 </div>
 <!--end:Menu item-->
-<!--end:Menu sub-->
+<!--end:Menu sub--> --}}
 
 
 <!--begin:Menu sub-->
@@ -31,7 +31,7 @@
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
-        <a class="menu-link {{ Request::is('zoom*') ? 'active' : '' }}" href="{{ route('zoom') }}">
+        <a class="menu-link {{ Request::is('zoom-meeting*') ? 'active' : '' }}" href="{{ route('zoom-meeting.index') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-video3" viewBox="0 0 16 16">

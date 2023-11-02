@@ -1,10 +1,11 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('page-title')
     {{__('Manage Zoom-Meeting')}}
 @endsection
 @php
-    $setting = \App\Models\Utility::settings();
+
+    $setting = \Modules\Accounting\Models\Utility::settings();
 @endphp
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">{{__('Dashboard')}}</a></li>

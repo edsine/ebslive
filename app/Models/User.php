@@ -643,7 +643,21 @@ class User extends Authenticatable implements Auditable
 
         return $billDetail;
     }
+    public function isClient()
+    {
+        return $this->type == 'client' ? 1 : 0;
+    }
 
+    public function checkProject($project_id)
+    {
+        $user_projects = $this->projects()->pluck('project_id')->toArray();
+        if(array_key_exists($project_id, $user_projects))
+        {
+            $projectstatus = $user_projects[$project_id] == 'owner' ? 'Owner' : 'Shared';
+        }
+
+        return 'Owner';
+    }
     public function monthlyBill()
     {
         $staticstart = date('Y-m-d', strtotime('last Month'));

@@ -91,7 +91,7 @@ class ZoomMeetingController extends Controller
 
             $meeting_create = $this->createmitting($data);
 
-            Log::info('Meeting');
+            \Log::info('Meeting');
             \Log::info((array)$meeting_create);
             if(isset($meeting_create['success']) && $meeting_create['success'] == true)
             {
