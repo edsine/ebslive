@@ -18,6 +18,7 @@ use Twilio\Rest\Client;
 use Illuminate\Support\Facades\Schema;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use Modules\HRMSystem\Models\PaySlip;
 
 class Utility extends Model
 {
@@ -2787,7 +2788,7 @@ class Utility extends Model
 
     public static function employeeNumber($user_id)
     {
-        $latest = Employee::where('created_by', $user_id)->latest()->first();
+        $latest = User::where('created_by', $user_id)->latest()->first();
 
         if(!$latest)
         {
@@ -2801,7 +2802,7 @@ class Utility extends Model
     {
         $user = User::where('id', $user_id)->first();
 
-        $employee = Employee::create(
+        $employee = User::create(
             [
                 'user_id' => $user->id,
                 'name' => $user->name,
@@ -2817,7 +2818,7 @@ class Utility extends Model
     {
         $user = User::where('id', $user_id)->first();
 
-        $employee = Employee::where('user_id', $user->id)->update(
+        $employee = User::where('user_id', $user->id)->update(
             [
                 'name' => $user->name,
                 'email' => $user->email,
@@ -3025,7 +3026,7 @@ class Utility extends Model
         // allowance
         $earning['allowance'] = PaySlip::where('employee_id', $employeeId)->where('salary_month', $month)->get();
 
-        $employess = Employee::find($employeeId);
+        $employess = User::find($employeeId);
 
         $totalAllowance = 0;
 
@@ -3046,7 +3047,7 @@ class Utility extends Model
         // commission
         $earning['commission'] = PaySlip::where('employee_id', $employeeId)->where('salary_month', $month)->get();
 
-        $employess = Employee::find($employeeId);
+        $employess = User::find($employeeId);
 
         $totalCommission = 0;
 
@@ -3069,7 +3070,7 @@ class Utility extends Model
         // otherpayment
         $earning['otherPayment']      = PaySlip::where('employee_id', $employeeId)->where('salary_month', $month)->get();
 
-        $employess = Employee::find($employeeId);
+        $employess = User::find($employeeId);
 
         $totalotherpayment = 0;
 
@@ -3105,7 +3106,7 @@ class Utility extends Model
         // loan
         $deduction['loan'] = PaySlip::where('employee_id', $employeeId)->where('salary_month', $month)->get();
 
-        $employess = Employee::find($employeeId);
+        $employess = User::find($employeeId);
 
         $totalloan = 0;
 
@@ -3128,7 +3129,7 @@ class Utility extends Model
         // saturation_deduction
         $deduction['deduction']      = PaySlip::where('employee_id', $employeeId)->where('salary_month', $month)->get();
 
-        $employess = Employee::find($employeeId);
+        $employess = User::find($employeeId);
 
         $totaldeduction = 0;
 

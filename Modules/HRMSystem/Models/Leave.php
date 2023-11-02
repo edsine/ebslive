@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Leave extends Model
 {
+    public $table = "all_leaves";
     protected $fillable = [
         'employee_id',
         'Leave_type_id',

@@ -40,6 +40,8 @@ use Modules\HRMSystem\Models\OtherPayment;
 use Modules\HRMSystem\Models\Overtime;
 use Modules\HRMSystem\Models\PayslipType;
 use Modules\HRMSystem\Models\SaturationDeduction;
+use Modules\HRMSystem\Models\LeaveType;
+use Modules\HRMSystem\Models\AttendanceEmployee;
 
 
 class User extends Authenticatable implements Auditable
@@ -887,6 +889,125 @@ class User extends Authenticatable implements Auditable
         $settings = Utility::settings();
 
         return $settings["employee_prefix"] . sprintf("%05d", $number);
+    }
+    public function getEmployee($employee)
+    {
+        $employee = User::where('id', '=', $employee)->first();
+
+        return $employee;
+    }
+
+    public function getLeaveType($leave_type)
+    {
+        $leavetype = LeaveType::where('id', '=', $leave_type)->first();
+
+        return $leavetype;
+    }
+
+    public function present_status($employee_id, $data)
+    {
+        return AttendanceEmployee::where('employee_id', $employee_id)->where('date', $data)->first();
+    }
+
+    public static function employee_salary($salary)
+    {
+        $employee = User::where("salary", $salary)->first();
+        if ($employee->salary == '0' || $employee->salary == '0.0') {
+            return "-";
+        } else {
+            return $employee->salary;
+        }
+    }
+
+    public static function allowance($id)
+    {
+
+        //allowance
+        $allowances      = Allowance::where('employee_id', '=', $id)->get();
+        $total_allowance = 0;
+        foreach($allowances as $allowance)
+        {
+            $total_allowance = $allowance->amount + $total_allowance;
+        }
+
+        $allowance_json = json_encode($allowances);
+
+        return $allowance_json;
+
+    }
+
+    public static function commission($id)
+    {
+        //commission
+        $commissions      = Commission::where('employee_id', '=', $id)->get();
+        $total_commission = 0;
+        foreach($commissions as $commission)
+        {
+            $total_commission = $commission->amount + $total_commission;
+        }
+        $commission_json = json_encode($commissions);
+
+        return $commission_json;
+
+    }
+
+    public static function loan($id)
+    {
+        //Loan
+        $loans      = Loan::where('employee_id', '=', $id)->get();
+        $total_loan = 0;
+        foreach($loans as $loan)
+        {
+            $total_loan = $loan->amount + $total_loan;
+        }
+        $loan_json = json_encode($loans);
+
+        return $loan_json;
+    }
+
+    public static function saturation_deduction($id)
+    {
+        //Saturation Deduction
+        $saturation_deductions      = SaturationDeduction::where('employee_id', '=', $id)->get();
+        $total_saturation_deduction = 0;
+        foreach($saturation_deductions as $saturation_deduction)
+        {
+            $total_saturation_deduction = $saturation_deduction->amount + $total_saturation_deduction;
+        }
+        $saturation_deduction_json = json_encode($saturation_deductions);
+
+        return $saturation_deduction_json;
+
+    }
+
+    public static function other_payment($id)
+    {
+        //OtherPayment
+        $other_payments      = OtherPayment::where('employee_id', '=', $id)->get();
+        $total_other_payment = 0;
+        foreach($other_payments as $other_payment)
+        {
+            $total_other_payment = $other_payment->amount + $total_other_payment;
+        }
+        $other_payment_json = json_encode($other_payments);
+
+        return $other_payment_json;
+    }
+
+    public static function overtime($id)
+    {
+        //Overtime
+        $over_times      = Overtime::where('employee_id', '=', $id)->get();
+        $total_over_time = 0;
+        foreach($over_times as $over_time)
+        {
+            $total_work      = $over_time->number_of_days * $over_time->hours;
+            $amount          = $total_work * $over_time->rate;
+            $total_over_time = $amount + $total_over_time;
+        }
+        $over_time_json = json_encode($over_times);
+
+        return $over_time_json;
     }
 
     

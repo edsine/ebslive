@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLeavesTable extends Migration
+class CreateAttendanceEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateLeavesTable extends Migration
      */
     public function up()
     {
-        Schema::create('all_leaves', function (Blueprint $table) {
+        Schema::create('attendance_employees', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('employee_id');
-            $table->integer('leave_type_id');
-            $table->date('applied_on');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->string('total_leave_days');
-            $table->string('leave_reason');
-            $table->string('remark')->nullable();
+            $table->date('date');
             $table->string('status');
+            $table->time('clock_in');
+            $table->time('clock_out');
+            $table->time('late');
+            $table->time('early_leaving');
+            $table->time('overtime');
+            $table->time('total_rest');
             $table->integer('created_by');
             $table->timestamps();
         });
@@ -36,6 +36,6 @@ class CreateLeavesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leaves');
+        Schema::dropIfExists('attendance_employees');
     }
 }
