@@ -3,6 +3,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Modules\HRMSystem\Http\Controllers\SetSalaryController;
 use Modules\HRMSystem\Http\Controllers\AllowanceController;
+use Modules\HRMSystem\Http\Controllers\PayslipTypeController;
+use Modules\HRMSystem\Http\Controllers\LeaveController;
+use Modules\HRMSystem\Http\Controllers\AttendanceEmployeeController;
+use Modules\HRMSystem\Http\Controllers\PaySlipController;
 use App\Http\Controllers\UserController;
 
 
@@ -33,7 +37,7 @@ Route::get('allowances/create/{eid}', [AllowanceController::class, 'allowanceCre
 
 //payslip
 
-/* Route::resource('paysliptype', PayslipTypeController::class)->middleware(['auth']);
+Route::resource('paysliptype', PayslipTypeController::class)->middleware(['auth']);
 Route::resource('commission', CommissionController::class)->middleware(['auth']);
 Route::resource('allowanceoption', AllowanceOptionController::class)->middleware(['auth']);
 Route::resource('loanoption', LoanOptionController::class)->middleware(['auth']);
@@ -61,5 +65,20 @@ Route::get('payslip/pdf/{id}/{m}', [PaySlipController::class, 'pdf'])->name('pay
 Route::get('payslip/payslipPdf/{id}', [PaySlipController::class, 'payslipPdf'])->name('payslip.payslipPdf')->middleware(['auth']);
 Route::get('payslip/send/{id}/{m}', [PaySlipController::class, 'send'])->name('payslip.send')->middleware(['auth']);
 Route::get('payslip/delete/{id}', [PaySlipController::class, 'destroy'])->name('payslip.delete')->middleware(['auth']);
-Route::resource('payslip', PaySlipController::class)->middleware(['auth']); */
+Route::resource('payslip', PaySlipController::class)->middleware(['auth']);
+Route::post('export/payslip', [PaySlipController::class,'export'])->name('payslip.export');
+
+
+Route::get('leave/{id}/action', [LeaveController::class, 'action'])->name('leave.action')->middleware(['auth']);
+Route::post('leave/changeaction', [LeaveController::class, 'changeaction'])->name('leave.changeaction')->middleware(['auth']);
+Route::post('leave/jsoncount', [LeaveController::class, 'jsoncount'])->name('leave.jsoncount')->middleware(['auth']);
+
+Route::resource('leave', LeaveController::class)->middleware(['auth']);
+
+Route::get('attendanceemployee/bulkattendance', [AttendanceEmployeeController::class, 'bulkAttendance'])->name('attendanceemployee.bulkattendance')->middleware(['auth']);
+Route::post('attendanceemployee/bulkattendance', [AttendanceEmployeeController::class, 'bulkAttendanceData'])->name('attendanceemployee.bulkattendance')->middleware(['auth']);
+Route::post('attendanceemployee/attendance', [AttendanceEmployeeController::class, 'attendance'])->name('attendanceemployee.attendance')->middleware(['auth']);
+Route::resource('attendanceemployee', AttendanceEmployeeController::class)->middleware(['auth']);
+Route::get('import/attendance/file', [AttendanceEmployeeController::class, 'importFile'])->name('attendance.file.import');
+Route::post('import/attendance', [AttendanceEmployeeController::class, 'import'])->name('attendance.import');
 
