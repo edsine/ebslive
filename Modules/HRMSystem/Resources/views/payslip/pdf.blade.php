@@ -1,6 +1,6 @@
 @php
-    $logo=\Modules\Accounting\Models\Modules\Accounting\Models\Utility::get_file('uploads/logo');
-    $company_logo = \Modules\Accounting\Models\Modules\Accounting\Models\Utility::GetLogo();
+    $logo=\Modules\Accounting\Models\Utility::get_file('uploads/logo');
+    $company_logo = \Modules\Accounting\Models\Utility::GetLogo();
 @endphp
 
 

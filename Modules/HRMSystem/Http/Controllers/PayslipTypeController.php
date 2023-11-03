@@ -1,19 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Modules\HRMSystem\Http\Controllers;
 
-use App\Models\PayslipType;
+use App\Http\Controllers\AppBaseController;
+use Modules\HRMSystem\Models\PayslipType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
-class PayslipTypeController extends Controller
+class PayslipTypeController extends AppBaseController
 {
     public function index()
     {
-        if(\Auth::user()->can('manage payslip type'))
+        if(Auth::user()->can('manage payslip type'))
         {
-            $paysliptypes = PayslipType::where('created_by', '=', \Auth::user()->creatorId())->get();
+            $paysliptypes = PayslipType::where('created_by', '=', Auth::user()->creatorId())->get();
 
-            return view('paysliptype.index', compact('paysliptypes'));
+            return view('hrmsystem::paysliptype.index', compact('paysliptypes'));
         }
         else
         {
@@ -23,9 +27,9 @@ class PayslipTypeController extends Controller
 
     public function create()
     {
-        if(\Auth::user()->can('create payslip type'))
+        if(Auth::user()->can('create payslip type'))
         {
-            return view('paysliptype.create');
+            return view('hrmsystem::paysliptype.create');
         }
         else
         {
@@ -36,10 +40,10 @@ class PayslipTypeController extends Controller
     public function store(Request $request)
     {
 
-        if(\Auth::user()->can('create payslip type'))
+        if(Auth::user()->can('create payslip type'))
         {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 $request->all(), [
                                    'name' => 'required|max:20',
                                ]
@@ -52,7 +56,7 @@ class PayslipTypeController extends Controller
             }
             $paysliptype             = new PayslipType();
             $paysliptype->name       = $request->name;
-            $paysliptype->created_by = \Auth::user()->creatorId();
+            $paysliptype->created_by = Auth::user()->creatorId();
             $paysliptype->save();
 
             return redirect()->route('paysliptype.index')->with('success', __('PayslipType  successfully created.'));
@@ -70,12 +74,12 @@ class PayslipTypeController extends Controller
 
     public function edit(PayslipType $paysliptype)
     {
-        if(\Auth::user()->can('edit payslip type'))
+        if(Auth::user()->can('edit payslip type'))
         {
-            if($paysliptype->created_by == \Auth::user()->creatorId())
+            if($paysliptype->created_by == Auth::user()->creatorId())
             {
 
-                return view('paysliptype.edit', compact('paysliptype'));
+                return view('hrmsystem::paysliptype.edit', compact('paysliptype'));
             }
             else
             {
@@ -90,11 +94,11 @@ class PayslipTypeController extends Controller
 
     public function update(Request $request, PayslipType $paysliptype)
     {
-        if(\Auth::user()->can('edit payslip type'))
+        if(Auth::user()->can('edit payslip type'))
         {
-            if($paysliptype->created_by == \Auth::user()->creatorId())
+            if($paysliptype->created_by == Auth::user()->creatorId())
             {
-                $validator = \Validator::make(
+                $validator = Validator::make(
                     $request->all(), [
                                        'name' => 'required|max:20',
                                    ]
@@ -125,9 +129,9 @@ class PayslipTypeController extends Controller
 
     public function destroy(PayslipType $paysliptype)
     {
-        if(\Auth::user()->can('delete payslip type'))
+        if(Auth::user()->can('delete payslip type'))
         {
-            if($paysliptype->created_by == \Auth::user()->creatorId())
+            if($paysliptype->created_by == Auth::user()->creatorId())
             {
                 $paysliptype->delete();
 
