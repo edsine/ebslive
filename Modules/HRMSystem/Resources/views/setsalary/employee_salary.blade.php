@@ -9,12 +9,15 @@
 
 @endsection
 @section('content')
+<style>
+    .card-header1{
+        padding: 10px;
+    }
+</style>
     <div class="row">
-        <div class="col-12">
-            <div class="row">
                 <div class="col-md-6">
                     <div class="card min-height-253">
-                        <div class="card-header">
+                        <div class="card-header1">
                             <div class="row">
                                 <div class="col">
                                     <h6 class="mb-0">{{__('Employee Salary')}}</h6>
@@ -59,11 +62,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+    
                 <div class="col-md-6">
                     <div class="card min-height-253">
 
-                        <div class="card-header ">
+                        <div class="card-header1 ">
                             <div class="row">
                                 <div class="col">
                                     <h6 class="mb-0">{{__('Allowance')}}</h6>
@@ -138,7 +141,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card  min-height-253">
-                        <div class="card-header">
+                        <div class="card-header1">
                             <div class="row">
                                 <div class="col">
                                     <h6 class="mb-0">{{__('Commission')}}</h6>
@@ -210,7 +213,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card min-height-253">
-                        <div class="card-header">
+                        <div class="card-header1">
                             <div class="row">
                                 <div class="col">
                                     <h6 class="mb-0">{{__('Loan')}}</h6>
@@ -287,7 +290,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card min-height-253">
-                        <div class="card-header">
+                        <div class="card-header1">
                             <div class="row">
                                 <div class="col">
                                     <h6 class="mb-0">{{__('Saturation Deduction')}}</h6>
@@ -361,7 +364,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card min-height-253">
-                        <div class="card-header">
+                        <div class="card-header1">
                             <div class="row">
                                 <div class="col">
                                     <h6 class="mb-0">{{__('Other Payment')}}</h6>
@@ -432,7 +435,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header1">
                             <div class="row">
                                 <div class="col">
                                     <h6 class="mb-0">{{__('Overtime')}}</h6>
@@ -499,8 +502,6 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
         </div>
     </div>
 @endsection

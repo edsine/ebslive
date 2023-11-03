@@ -7,6 +7,11 @@ use Modules\HRMSystem\Http\Controllers\PayslipTypeController;
 use Modules\HRMSystem\Http\Controllers\LeaveController;
 use Modules\HRMSystem\Http\Controllers\AttendanceEmployeeController;
 use Modules\HRMSystem\Http\Controllers\PaySlipController;
+use Modules\HRMSystem\Http\Controllers\CommissionController;
+use Modules\HRMSystem\Http\Controllers\LoanController;
+use Modules\HRMSystem\Http\Controllers\SaturationDeductionController;
+use Modules\HRMSystem\Http\Controllers\OtherPaymentController;
+use Modules\HRMSystem\Http\Controllers\OvertimeController;
 use App\Http\Controllers\UserController;
 
 

@@ -101,7 +101,7 @@
                                             {{ \Auth::user()->employeeIdFormat($employee->id) }}
                                         </a>
                                     </td>
-                                    <td>{{ $employee->first_name }}</td>
+                                    <td>{{ $employee->first_name.' '.$employee->last_name }}</td>
                                     <td>{{ $employee->salary_type() }}</td>
                                     <td>{{  \Auth::user()->priceFormat($employee->salary) }}</td>
                                     <td>{{  !empty($employee->get_net_salary()) ?\Auth::user()->priceFormat($employee->get_net_salary()):'' }}</td>

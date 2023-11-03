@@ -534,7 +534,7 @@
     </div>
 @endsection
 
-@push('script-page')
+@push('page_scripts')
     <script type="text/javascript">
 
         $(document).ready(function () {
