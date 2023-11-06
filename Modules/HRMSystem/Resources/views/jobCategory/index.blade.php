@@ -1,16 +1,12 @@
 @extends('layouts.app')
 
 @section('page-title')
-    {{__('Manage Allowance Option')}}
+    {{__('Manage Job Category')}}
 @endsection
+
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('Dashboard')}}</a></li>
-    <li class="breadcrumb-item">{{__('Allowance Option')}}</li>
-@endsection
-
-
-@section('action-btn')
-    
+    <li class="breadcrumb-item">{{__('Job Category')}}</li>
 @endsection
 
 
@@ -88,8 +84,8 @@
     <div class="row">
         <div class="col-md-12">
             <div class="float-end">
-                @can('create allowance option')
-                    <a href="#" data-url="{{ route('allowanceoption.create') }}" data-ajax-popup="true" data-title="{{__('Create New Allowance Option')}}" data-bs-toggle="tooltip" title="{{__('Create')}}"  class="btn btn-sm btn-primary">
+                @can('create job category')
+                    <a href="#" data-url="{{ route('job-category.create') }}" data-ajax-popup="true" data-title="{{__('Create New Job Category')}}" data-bs-toggle="tooltip" title="{{__('Create')}}"  class="btn btn-sm btn-primary">
                         <i class="fa fa-plus"></i>
                     </a>
         
@@ -106,28 +102,25 @@
                         <table class="table datatable">
                             <thead>
                             <tr>
-                                <th>{{__('Allowance Option')}}</th>
+                                <th>{{__('Category')}}</th>
                                 <th width="200px">{{__('Action')}}</th>
                             </tr>
                             </thead>
                             <tbody class="font-style">
-                            @foreach ($allowanceoptions as $allowanceoption)
+                            @foreach ($categories as $category)
                                 <tr>
-                                    <td>{{ $allowanceoption->name }}</td>
+                                    <td>{{ $category->title }}</td>
                                     <td>
-
-                                        @can('edit allowance option')
+                                        @can('edit job category')
                                             <div class="action-btn bg-primary ms-2">
-                                                <a href="#" class="mx-3 btn1 btn-sm align-items-center" data-url="{{ URL::to('allowanceoption/'.$allowanceoption->id.'/edit') }}" data-ajax-popup="true" data-title="{{__('Edit Document Type')}}" data-bs-toggle="tooltip" title="{{__('Edit')}}" data-original-title="{{__('Edit')}}">
+                                                <a href="#" class="mx-3 btn1 btn-sm align-items-center" data-url="{{ route('job-category.edit',$category->id) }}" data-ajax-popup="true" data-title="{{__('Edit Job Category')}}" data-bs-toggle="tooltip" title="{{__('Edit')}}" data-original-title="{{__('Edit')}}">
                                                     <i class="fa fa-pencil text-white"></i>
                                                 </a>
                                             </div>
                                         @endcan
-
-
-                                        @can('delete allowance option')
+                                        @can('delete job category')
                                             <div class="action-btn bg-danger ms-2">
-                                                {!! Form::open(['method' => 'DELETE', 'route' => ['allowanceoption.destroy', $allowanceoption->id],'id'=>'delete-form-'.$allowanceoption->id]) !!}
+                                                {!! Form::open(['method' => 'DELETE', 'route' => ['job-category.destroy', $category->id],'id'=>'delete-form-'.$category->id]) !!}
                                                 <a href="#" class="mx-3 btn1 btn-sm  align-items-center bs-pass-para" data-bs-toggle="tooltip" title="{{__('Delete')}}"><i class="fa fa-trash text-white text-white"></i></a>
                                                 {!! Form::close() !!}
                                             </div>
@@ -143,5 +136,4 @@
             </div>
         </div>
     </div>
-
 @endsection

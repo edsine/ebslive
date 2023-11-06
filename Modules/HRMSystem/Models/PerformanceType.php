@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Modules\HRMSystem\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ class PerformanceType extends Model
     public function types()
     {
 
-        return $this->hasMany('App\Models\Competencies', 'type', 'id');
+        return $this->hasMany('Modules\HRMSystem\Models\Competencies', 'type', 'id');
     }
 
 }
