@@ -12,6 +12,15 @@ use Modules\HRMSystem\Http\Controllers\LoanController;
 use Modules\HRMSystem\Http\Controllers\SaturationDeductionController;
 use Modules\HRMSystem\Http\Controllers\OtherPaymentController;
 use Modules\HRMSystem\Http\Controllers\OvertimeController;
+use Modules\HRMSystem\Http\Controllers\DesignationController;
+use Modules\HRMSystem\Http\Controllers\GoalTypeController;
+use Modules\HRMSystem\Http\Controllers\TrainingTypeController;
+use Modules\HRMSystem\Http\Controllers\AwardTypeController;
+use Modules\HRMSystem\Http\Controllers\TerminationTypeController;
+use Modules\HRMSystem\Http\Controllers\JobCategoryController;
+use Modules\HRMSystem\Http\Controllers\JobStageController;
+use Modules\HRMSystem\Http\Controllers\PerformanceTypeController;
+use Modules\HRMSystem\Http\Controllers\CompetenciesController;
 use App\Http\Controllers\UserController;
 
 
@@ -87,3 +96,23 @@ Route::resource('attendanceemployee', AttendanceEmployeeController::class)->midd
 Route::get('import/attendance/file', [AttendanceEmployeeController::class, 'importFile'])->name('attendance.file.import');
 Route::post('import/attendance', [AttendanceEmployeeController::class, 'import'])->name('attendance.import');
 
+Route::resource('designation', DesignationController::class)->middleware(['auth']);
+Route::resource('goaltype', GoalTypeController::class)->middleware(['auth']);
+Route::resource('trainingtype', TrainingTypeController::class)->middleware(['auth']);
+Route::resource('awardtype', AwardTypeController::class)->middleware(['auth']);
+Route::resource('terminationtype', TerminationTypeController::class)->middleware(['auth']);
+Route::resource('job-category', JobCategoryController::class)->middleware(['auth']);
+
+Route::resource('job-stage', JobStageController::class)->middleware(['auth']);
+Route::post('job-stage/order', [JobStageController::class, 'order'])->name('job.stage.order');
+
+Route::group(
+    [
+        'middleware' => [
+            'auth',
+        ],
+    ], function (){
+    Route::resource('performanceType', PerformanceTypeController::class);
+}
+);
+Route::resource('competencies', CompetenciesController::class)->middleware(['auth']);

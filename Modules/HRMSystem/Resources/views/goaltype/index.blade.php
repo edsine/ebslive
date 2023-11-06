@@ -1,16 +1,11 @@
 @extends('layouts.app')
 
 @section('page-title')
-    {{__('Manage Allowance Option')}}
+    {{__('Manage Goal Type')}}
 @endsection
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('Dashboard')}}</a></li>
-    <li class="breadcrumb-item">{{__('Allowance Option')}}</li>
-@endsection
-
-
-@section('action-btn')
-    
+    <li class="breadcrumb-item">{{__('Goal Type')}}</li>
 @endsection
 
 
@@ -88,8 +83,8 @@
     <div class="row">
         <div class="col-md-12">
             <div class="float-end">
-                @can('create allowance option')
-                    <a href="#" data-url="{{ route('allowanceoption.create') }}" data-ajax-popup="true" data-title="{{__('Create New Allowance Option')}}" data-bs-toggle="tooltip" title="{{__('Create')}}"  class="btn btn-sm btn-primary">
+                @can('create goal type')
+                    <a href="#" data-url="{{ route('goaltype.create') }}" data-ajax-popup="true" data-title="{{__('Create New Goal Type')}}" data-bs-toggle="tooltip" title="{{__('Create')}}"  class="btn btn-sm btn-primary">
                         <i class="fa fa-plus"></i>
                     </a>
         
@@ -106,28 +101,27 @@
                         <table class="table datatable">
                             <thead>
                             <tr>
-                                <th>{{__('Allowance Option')}}</th>
+                                <th>{{__('Goal Type')}}</th>
                                 <th width="200px">{{__('Action')}}</th>
                             </tr>
                             </thead>
                             <tbody class="font-style">
-                            @foreach ($allowanceoptions as $allowanceoption)
+                            @foreach ($goaltypes as $goaltype)
                                 <tr>
-                                    <td>{{ $allowanceoption->name }}</td>
+                                    <td>{{ $goaltype->name }}</td>
                                     <td>
 
-                                        @can('edit allowance option')
+                                        @can('edit goal type')
                                             <div class="action-btn bg-primary ms-2">
-                                                <a href="#" class="mx-3 btn1 btn-sm align-items-center" data-url="{{ URL::to('allowanceoption/'.$allowanceoption->id.'/edit') }}" data-ajax-popup="true" data-title="{{__('Edit Document Type')}}" data-bs-toggle="tooltip" title="{{__('Edit')}}" data-original-title="{{__('Edit')}}">
+                                                <a href="#" class="mx-3 btn1 btn-sm align-items-center" data-url="{{ URL::to('goaltype/'.$goaltype->id.'/edit') }}" data-ajax-popup="true" data-title="{{__('Edit Goal Type')}}" data-bs-toggle="tooltip" title="{{__('Edit')}}" data-original-title="{{__('Edit')}}">
                                                     <i class="fa fa-pencil text-white"></i>
                                                 </a>
                                             </div>
                                         @endcan
 
-
-                                        @can('delete allowance option')
+                                        @can('delete goal type')
                                             <div class="action-btn bg-danger ms-2">
-                                                {!! Form::open(['method' => 'DELETE', 'route' => ['allowanceoption.destroy', $allowanceoption->id],'id'=>'delete-form-'.$allowanceoption->id]) !!}
+                                                {!! Form::open(['method' => 'DELETE', 'route' => ['goaltype.destroy', $goaltype->id],'id'=>'delete-form-'.$goaltype->id]) !!}
                                                 <a href="#" class="mx-3 btn1 btn-sm  align-items-center bs-pass-para" data-bs-toggle="tooltip" title="{{__('Delete')}}"><i class="fa fa-trash text-white text-white"></i></a>
                                                 {!! Form::close() !!}
                                             </div>
