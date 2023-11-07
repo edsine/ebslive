@@ -37,7 +37,7 @@ use App\Imports\UsersImport; // Create this import class
 use Illuminate\Support\Facades\Validator;
 use Modules\EmployerManager\Models\Employer;
 use App\Models\Signature;
-//use App\Mail\BulkStaffEmail;
+use App\Mail\BulkStaffEmail;
 
 
 
@@ -354,7 +354,8 @@ class UserController extends AppBaseController
          $user->assignRole($role);
          
          // Send notification to user about his account details
-         Notification::send($user, new UserCreated($input));
+         //Notification::send($user, new UserCreated($input));
+         Mail::to($input['alternative_email'])->send(new BulkStaffEmail($user, $input['alternative_email'], $password));
      
          Flash::success('User saved successfully.');
      
