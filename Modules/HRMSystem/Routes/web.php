@@ -21,6 +21,9 @@ use Modules\HRMSystem\Http\Controllers\JobCategoryController;
 use Modules\HRMSystem\Http\Controllers\JobStageController;
 use Modules\HRMSystem\Http\Controllers\PerformanceTypeController;
 use Modules\HRMSystem\Http\Controllers\CompetenciesController;
+use Modules\HRMSystem\Http\Controllers\CompanyPolicyController;
+use Modules\HRMSystem\Http\Controllers\AssetController;
+use Modules\HRMSystem\Http\Controllers\MeetingController;
 use App\Http\Controllers\UserController;
 
 
@@ -113,6 +116,15 @@ Route::group(
         ],
     ], function (){
     Route::resource('performanceType', PerformanceTypeController::class);
+    
 }
 );
 Route::resource('competencies', CompetenciesController::class)->middleware(['auth']);
+Route::resource('company-policy', CompanyPolicyController::class)->middleware(['auth']);
+Route::resource('account-assets', AssetController::class)->middleware(['auth']);
+
+Route::post('meeting/getdepartment', [MeetingController::class, 'getdepartment'])->name('meeting.getdepartment')->middleware(['auth']);
+Route::post('meeting/getemployee', [MeetingController::class, 'getemployee'])->name('meeting.getemployee')->middleware(['auth']);
+Route::resource('meeting', MeetingController::class)->middleware(['auth']);
+Route::any('meeting/get_meeting_data', [MeetingController::class, 'get_meeting_data'])->name('meeting.get_meeting_data')->middleware(['auth']);
+Route::get('meeting-calender', [MeetingController::class, 'calender'])->name('meeting.calender')->middleware(['auth']);
