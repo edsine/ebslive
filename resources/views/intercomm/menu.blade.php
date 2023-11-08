@@ -1,10 +1,10 @@
 
-{{-- <!--begin:Menu sub-->
+<!--begin:Menu sub-->
 <!--begin:Menu item-->
 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
     <!--begin:Menu link-->
     <span class="menu-item">
-        <a class="menu-link {{ Request::is('zoom-meeting*') ? 'active' : '' }}" href="{{ route('zoom-meeting.index') }}">
+        <a class="menu-link {{ Request::is('zoom-meeting*') ? 'active' : '' }}" href="{{ route('chats') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -23,7 +23,7 @@
     <!--end:Menu link-->
 </div>
 <!--end:Menu item-->
-<!--end:Menu sub--> --}}
+<!--end:Menu sub--> 
 
 
 <!--begin:Menu sub-->

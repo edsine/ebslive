@@ -98,13 +98,14 @@ class MessagesController extends Controller
 
 
         // User data
-        if($request['type'] == 'user')
-        {
+        // if($request['type'] == 'user')
+        // {
             $fetch = User::where('id', $request['id'])->first();
-            if($fetch->avatar==null){
+            if($fetch->avatar==null)
+            {
                 $fetch->avatar='';
             }
-        }
+        // }
 
 
         if(!empty($fetch->avatar))
@@ -354,14 +355,14 @@ class MessagesController extends Controller
         //        $members    = User::whereIn('id', $members)->get();
 
         $objUser = Auth::user();
-        if($objUser->type == 'company')
-        {
+        // if($objUser->type == 'company')
+        // {
             $members = User::where('type', '!=', 'client')->where('created_by', '=', $objUser->creatorId())->get();
-        }
-        else
-        {
-            $members = User::where('type', '!=', 'client')->where('created_by', '=', $objUser->creatorId())->where('id', '!=', $objUser->id)->orWhere('id', '=', $objUser->creatorId())->get();
-        }
+        // }
+        // else
+        // {
+        //     $members = User::where('type', '!=', 'client')->where('created_by', '=', $objUser->creatorId())->where('id', '!=', $objUser->id)->orWhere('id', '=', $objUser->creatorId())->get();
+        // }
 
         $getRecords = null;
         foreach($members as $record)
@@ -481,7 +482,8 @@ class MessagesController extends Controller
         $getRecords = null;
         $input      = trim(filter_var($request['input'], FILTER_SANITIZE_STRING));
 
-        $records = User::where('created_by', \Auth::user()->creatorId())->where('type', '!=', 'client')->where('name', 'LIKE', "%{$input}%")->get();
+        // $records = User::where('created_by', \Auth::user()->creatorId())->where('type', '!=', 'client')->where('name', 'LIKE', "%{$input}%")->get();
+        $records = User::where('created_by', \Auth::user()->creatorId())->where('name', 'LIKE', "%{$input}%")->get();
 
         foreach($records as $record)
         {
