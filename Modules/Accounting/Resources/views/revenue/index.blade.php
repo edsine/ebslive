@@ -190,7 +190,7 @@
                                     <td>{{  Auth::user()->dateFormat($revenue->date)}}</td>
                                     <td>{{  Auth::user()->priceFormat($revenue->amount)}}</td>
                                     <td>{{ !empty($revenue->bankAccount)?$revenue->bankAccount->bank_name.' '.$revenue->bankAccount->holder_name:''}}</td>
-                                    <td>{{ (!empty($revenue->customer) ? $revenue->customer->contact_firstname . ' ' . $revenue->customer->contact_surname : '-') }}</td>
+                                    <td>{{ (!empty($revenue->customer) ? $revenue->customer->first_name . ' ' . $revenue->customer->last_name : '-') }}</td>
                                     <td>{{  !empty($revenue->category)?$revenue->category->name:'-'}}</td>
                                     <td>{{  !empty($revenue->reference)?$revenue->reference:'-'}}</td>
                                     <td>{{  !empty($revenue->description)?$revenue->description:'-'}}</td>
