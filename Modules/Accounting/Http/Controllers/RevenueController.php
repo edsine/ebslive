@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Modules\EmployerManager\Models\Employer;
 
 class RevenueController extends AppBaseController
 {
@@ -23,13 +24,13 @@ class RevenueController extends AppBaseController
     {
         if(Auth::user()->can('manage revenue'))
         {
-            $customer = User::get()->map(function ($user) {
+            $customer = Employer::get()->map(function ($user) {
                 return [
                     'id' => $user->id,
-                    'full_name' => $user->first_name . ' ' . $user->last_name,
+                    'full_name' => $user->contact_firstname . ' ' . $user->contact_surname,
                 ];
-            })->pluck('full_name', 'id')->prepend('Select User', '');
-
+            })->pluck('full_name', 'id')->prepend('Select Customer', '');
+            
             $account = BankAccount::where('created_by', '=', Auth::user()->creatorId())->get()->pluck('holder_name', 'id');
             $account->prepend('Select Account', '');
 
@@ -85,10 +86,11 @@ class RevenueController extends AppBaseController
         if(Auth::user()->can('create revenue'))
         {
             
-            $customers = User::get()->map(function ($user) {
+            
+            $customers = Employer::get()->map(function ($user) {
                 return [
                     'id' => $user->id,
-                    'full_name' => $user->first_name . ' ' . $user->last_name,
+                    'full_name' => $user->contact_firstname . ' ' . $user->contact_surname,
                 ];
             })->pluck('full_name', 'id')->prepend('--', 0);
             $categories = ProductServiceCategory::where('created_by', '=', Auth::user()->creatorId())->where('type', '=','income')->get()->pluck('name', 'id');
@@ -159,7 +161,7 @@ class RevenueController extends AppBaseController
             $revenue->account    = $request->account_id;
             Transaction::addTransaction($revenue);
 
-            $customer         = User::where('id', $request->customer_id)->first();
+            $customer         = Employer::where('id', $request->customer_id)->first();
             $payment          = new InvoicePayment();
             $payment->name    = !empty($customer) ? $customer['name'] : '';
             $payment->date    = Auth::user()->dateFormat($request->date);
@@ -243,10 +245,11 @@ class RevenueController extends AppBaseController
         if(Auth::user()->can('edit revenue'))
         {
             
-            $customers = User::get()->map(function ($user) {
+            
+            $customers = Employer::get()->map(function ($user) {
                 return [
                     'id' => $user->id,
-                    'full_name' => $user->first_name . ' ' . $user->last_name,
+                    'full_name' => $user->contact_firstname . ' ' . $user->contact_surname,
                 ];
             })->pluck('full_name', 'id')->prepend('--', 0);
             $categories = ProductServiceCategory::where('created_by', '=', Auth::user()->creatorId())->where('type', '=', 'income')->get()->pluck('name', 'id');
@@ -281,7 +284,7 @@ class RevenueController extends AppBaseController
                 return redirect()->back()->with('error', $messages->first());
             }
 
-            $customer = User::where('id', $request->customer_id)->first();
+            $customer = Employer::where('id', $request->customer_id)->first();
             if(!empty($customer))
             {
                 Utility::userBalance('customer', $customer->id, $revenue->amount, 'debit');

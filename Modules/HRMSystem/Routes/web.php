@@ -24,6 +24,11 @@ use Modules\HRMSystem\Http\Controllers\CompetenciesController;
 use Modules\HRMSystem\Http\Controllers\CompanyPolicyController;
 use Modules\HRMSystem\Http\Controllers\AssetController;
 use Modules\HRMSystem\Http\Controllers\MeetingController;
+use Modules\HRMSystem\Http\Controllers\TrainingController;
+use Modules\HRMSystem\Http\Controllers\TrainerController;
+use Modules\HRMSystem\Http\Controllers\IndicatorController;
+use Modules\HRMSystem\Http\Controllers\AppraisalController;
+use Modules\HRMSystem\Http\Controllers\GoalTrackingController;
 use App\Http\Controllers\UserController;
 
 
@@ -128,3 +133,16 @@ Route::post('meeting/getemployee', [MeetingController::class, 'getemployee'])->n
 Route::resource('meeting', MeetingController::class)->middleware(['auth']);
 Route::any('meeting/get_meeting_data', [MeetingController::class, 'get_meeting_data'])->name('meeting.get_meeting_data')->middleware(['auth']);
 Route::get('meeting-calender', [MeetingController::class, 'calender'])->name('meeting.calender')->middleware(['auth']);
+
+Route::resource('trainer', TrainerController::class)->middleware(['auth']);
+Route::post('training/status', [TrainingController::class, 'updateStatus'])->name('training.status')->middleware(['auth']);
+Route::resource('training', TrainingController::class)->middleware(['auth']);
+Route::get('show-employee-profile/{id}', [TrainingController::class, 'profileShow'])->name('employee.show')->middleware(['auth']);
+
+Route::resource('indicator', IndicatorController::class)->middleware(['auth']);
+Route::resource('appraisal', AppraisalController::class)->middleware(['auth']);
+Route::resource('goaltracking', GoalTrackingController::class)->middleware(['auth']);
+Route::post('employee/json', [UserController::class, 'json'])->name('employee.json')->middleware(['auth']);
+Route::post('/appraisals', [AppraisalController::class, 'empByStar'])->name('empByStar')->middleware(['auth']);
+Route::post('/appraisals1', [AppraisalController::class, 'empByStar1'])->name('empByStar1')->middleware(['auth']);
+Route::post('/getemployee', [AppraisalController::class, 'getemployee'])->name('getemployee');

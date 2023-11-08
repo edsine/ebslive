@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Schema;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Modules\HRMSystem\Models\PaySlip;
+use Modules\HRMSystem\Models\Indicator;
 
 class Utility extends Model
 {
@@ -3971,6 +3972,7 @@ class Utility extends Model
 //                    dd(\Storage::disk(),$path);
                         //$request->$key_name->move(storage_path($path), $name);
                         $request->$key_name->move(public_path('storage/'.$path), $name);
+                        //$request->file($key_name)->storeAs('public/uploads/revenue', $name);
                         $path = $path.$name;
                     }
                     else if($settings['storage_setting'] == 'wasabi'){
