@@ -176,6 +176,7 @@ class User extends Authenticatable implements Auditable
         {
             return $this->created_by;
         } */
+        
         return $this->id;
     }
 
