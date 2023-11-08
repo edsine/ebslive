@@ -38,6 +38,7 @@ use Illuminate\Support\Facades\Validator;
 use Modules\EmployerManager\Models\Employer;
 use App\Models\Signature;
 use App\Mail\BulkStaffEmail;
+use Modules\HRMSystem\Models\Designation;
 
 
 
@@ -635,4 +636,11 @@ class UserController extends AppBaseController
 
         return response()->json($employees);
     } */
+
+    public function json(Request $request)
+    {
+        $designations = Designation::where('department_id', $request->department_id)->get()->pluck('name', 'id')->toArray();
+
+        return response()->json($designations);
+    }
 }

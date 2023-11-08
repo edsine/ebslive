@@ -18,6 +18,7 @@
 
 @endpush
 @section('content')
+@include('layouts.messages')
 <style>
     .btn-sm1, .btn-group-sm > .btn {
     --bs-btn-padding-y: 0.25rem;

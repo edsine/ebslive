@@ -63,6 +63,8 @@ class User extends Authenticatable implements Auditable
         'status',
         'salary_type',
         'salary',
+        'shipping_address',
+        'billing_address',
         
     ];
 
@@ -189,6 +191,7 @@ class User extends Authenticatable implements Auditable
         } */
         return $this->id;
     }
+
 
     public function invoiceNumberFormat($number)
     {
