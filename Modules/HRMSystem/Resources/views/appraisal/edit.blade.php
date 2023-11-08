@@ -1,4 +1,4 @@
-{{ Form::model($appraisal, ['route' => ['appraisal.update', $appraisal->id], 'method' => 'PUT']) }}
+{{ Form::model($appraisal, ['route' => ['appraisal_index.update', $appraisal->id], 'method' => 'PUT']) }}
 <div class="modal-body">
     <div class="row">
         <div class="col-md-12">
