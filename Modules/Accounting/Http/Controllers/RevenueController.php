@@ -24,10 +24,16 @@ class RevenueController extends AppBaseController
     {
         if(Auth::user()->can('manage revenue'))
         {
-            $customer = Employer::get()->map(function ($user) {
+            /* $customer = Employer::get()->map(function ($user) {
                 return [
                     'id' => $user->id,
                     'full_name' => $user->contact_firstname . ' ' . $user->contact_surname,
+                ];
+            })->pluck('full_name', 'id')->prepend('Select Customer', ''); */
+            $customer = User::get()->map(function ($user) {
+                return [
+                    'id' => $user->id,
+                    'full_name' => $user->first_name . ' ' . $user->last_name,
                 ];
             })->pluck('full_name', 'id')->prepend('Select Customer', '');
             
