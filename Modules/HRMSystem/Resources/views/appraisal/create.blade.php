@@ -1,5 +1,5 @@
 
-{{ Form::open(['url' => 'appraisal', 'method' => 'post']) }}
+{{ Form::open(['url' => 'appraisal_index', 'method' => 'post']) }}
 <div class="modal-body">
     <div class="row">
         <div class="col-md-12">

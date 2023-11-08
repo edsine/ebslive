@@ -124,7 +124,7 @@
         <div class="col-md-12">
             <div class="float-end">
                 @can('create appraisal')
-                   <a href="#" data-size="lg" data-url="{{ route('appraisal.create') }}" data-ajax-popup="true" data-bs-toggle="tooltip" title="{{__('Create')}}" data-title="{{__('Create New Appraisal')}}" class="btn btn-sm btn-primary">
+                   <a href="#" data-size="lg" data-url="{{ route('appraisal_index.create') }}" data-ajax-popup="true" data-bs-toggle="tooltip" title="{{__('Create')}}" data-title="{{__('Create New Appraisal')}}" class="btn btn-sm btn-primary">
                         <i class="fa fa-plus"></i>
                     </a>
                     @endcan
@@ -218,19 +218,19 @@
                                         <td>
                                             @can('show appraisal')
                                             <div class="action-btn bg-info ms-2">
-                                                <a href="#" data-url="{{ route('appraisal.show',$appraisal->id) }}" data-size="lg" data-ajax-popup="true" data-title="{{__('Appraisal Detail')}}" data-bs-toggle="tooltip" title="{{__('View')}}" data-original-title="{{__('View Detail')}}" class="mx-3 btn1 btn-sm align-items-center">
+                                                <a href="#" data-url="{{ route('appraisal_index.show',$appraisal->id) }}" data-size="lg" data-ajax-popup="true" data-title="{{__('Appraisal Detail')}}" data-bs-toggle="tooltip" title="{{__('View')}}" data-original-title="{{__('View Detail')}}" class="mx-3 btn1 btn-sm align-items-center">
                                                     <i class="fa fa-eye text-white"></i></a>
                                             </div>
                                                 @endcan
                                             @can('edit appraisal')
                                             <div class="action-btn bg-primary ms-2">
-                                                <a href="#" data-url="{{ route('appraisal.edit',$appraisal->id) }}" data-size="lg" data-ajax-popup="true" data-title="{{__('Edit Appraisal')}}" data-bs-toggle="tooltip" title="{{__('Edit')}}" data-original-title="{{__('Edit')}}" class="mx-3 btn1 btn-sm align-items-center">
+                                                <a href="#" data-url="{{ route('appraisal_index.edit',$appraisal->id) }}" data-size="lg" data-ajax-popup="true" data-title="{{__('Edit Appraisal')}}" data-bs-toggle="tooltip" title="{{__('Edit')}}" data-original-title="{{__('Edit')}}" class="mx-3 btn1 btn-sm align-items-center">
                                                 <i class="fa fa-pencil text-white"></i></a>
                                             </div>
                                                 @endcan
                                             @can('delete appraisal')
                                             <div class="action-btn bg-danger ms-2">
-                                            {!! Form::open(['method' => 'DELETE', 'route' => ['appraisal.destroy', $appraisal->id],'id'=>'delete-form-'.$appraisal->id]) !!}
+                                            {!! Form::open(['method' => 'DELETE', 'route' => ['appraisal_index.destroy', $appraisal->id],'id'=>'delete-form-'.$appraisal->id]) !!}
                                                 <a href="#" class="mx-3 btn1 btn-sm align-items-center bs-pass-para" data-confirm="{{__('Are You Sure?').'|'.__('This action can not be undone. Do you want to continue?')}}" data-bs-toggle="tooltip" title="{{__('Delete')}}" data-original-title="{{__('Delete')}}" data-confirm-yes="document.getElementById('delete-form-{{$appraisal->id}}').submit();">
                                                 <i class="fa fa-trash text-white"></i></a>
                                                 {!! Form::close() !!}

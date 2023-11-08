@@ -182,7 +182,7 @@
                 </div>
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a href="{{ route('appraisal.index') }}" class="menu-link {{ Request::is('appraisal.index*') ? 'active' : '' }}">
+                    <a href="{{ route('appraisal_index.index') }}" class="menu-link {{ Request::is('appraisal_index.index*') ? 'active' : '' }}">
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>

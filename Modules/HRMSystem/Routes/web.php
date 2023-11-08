@@ -140,7 +140,7 @@ Route::resource('training', TrainingController::class)->middleware(['auth']);
 Route::get('show-employee-profile/{id}', [TrainingController::class, 'profileShow'])->name('employee.show')->middleware(['auth']);
 
 Route::resource('indicator', IndicatorController::class)->middleware(['auth']);
-Route::resource('appraisal', AppraisalController::class)->middleware(['auth']);
+Route::resource('appraisal_index', AppraisalController::class)->middleware(['auth']);
 Route::resource('goaltracking', GoalTrackingController::class)->middleware(['auth']);
 Route::post('employee/json', [UserController::class, 'json'])->name('employee.json')->middleware(['auth']);
 Route::post('/appraisals', [AppraisalController::class, 'empByStar'])->name('empByStar')->middleware(['auth']);
