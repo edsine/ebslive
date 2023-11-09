@@ -88,7 +88,7 @@
             </span>
             <!--end::Svg Icon-->
         </span>
-        <span class="menu-title">Sales</span>
+        <span class="menu-title">Income</span>
         <span class="menu-arrow"></span>
     </span>
     <!--end:Menu link-->
@@ -107,7 +107,7 @@
         </div> --}}
         <!--end:Menu item-->
         <!--begin:Menu item-->
-        <div class="menu-item">
+      {{--   <div class="menu-item">
             <!--begin:Menu link-->
             <a href="{{ route('proposal.index') }}"
                 class="menu-link {{ Request::is('proposal.index') ? 'active' : '' }}">
@@ -130,7 +130,7 @@
                 <span class="menu-title">Invoice</span>
             </a>
             <!--end:Menu link-->
-        </div>
+        </div> --}}
         <!--end:Menu item-->
         <!--begin:Menu item-->
         <div class="menu-item">
