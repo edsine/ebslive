@@ -1,6 +1,3 @@
-@extends('layouts.app')
-@section('content')
-
 
 @include('Chatify::layouts.headLinks')
 <div class="messenger">
@@ -114,4 +111,3 @@
 
 @include('Chatify::layouts.modals')
 @include('Chatify::layouts.footerLinks')
-@endsection
