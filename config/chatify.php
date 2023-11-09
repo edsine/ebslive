@@ -6,8 +6,7 @@ return [
     | Messenger display name
     |-------------------------------------
     */
-    // 'name' => env('CHATIFY_NAME', 'Chatify Messenger'),
-    'name' => env('CHATIFY_NAME', 'NSITF Messenger'),
+    'name' => env('CHATIFY_NAME', 'NSITFEBS Messenger'),
 
     /*
     |-------------------------------------
@@ -15,7 +14,6 @@ return [
     | files and derived images by default.
     |-------------------------------------
     */
-    // 'storage_disk_name' => env('CHATIFY_STORAGE_DISK', 'public'),
     'storage_disk_name' => env('CHATIFY_STORAGE_DISK', 'public'),
 
     /*
@@ -24,18 +22,14 @@ return [
     |-------------------------------------
     */
     'routes' => [
-        // 'prefix' => env('CHATIFY_ROUTES_PREFIX', 'chatify'),
         'prefix' => env('CHATIFY_ROUTES_PREFIX', 'chats'),
         'middleware' => env('CHATIFY_ROUTES_MIDDLEWARE', ['web','auth']),
-        // 'namespace' => env('CHATIFY_ROUTES_NAMESPACE', 'Chatify\Http\Controllers'),
-        'namespace' => env('CHATIFY_ROUTES_NAMESPACE', 'App\Http\Controllers\vendor\Chatify'),
+        'namespace' => env('CHATIFY_ROUTES_NAMESPACE', 'Chatify\Http\Controllers'),
     ],
     'api_routes' => [
-        'prefix' => env('CHATIFY_API_ROUTES_PREFIX', 'chatify/api'),
+        'prefix' => env('CHATIFY_API_ROUTES_PREFIX', 'chats/api'),
         'middleware' => env('CHATIFY_API_ROUTES_MIDDLEWARE', ['api']),
-        // 'namespace' => env('CHATIFY_API_ROUTES_NAMESPACE', 'Chatify\Http\Controllers\Api'),
-         
-        'namespace' => env('CHATIFY_API_ROUTES_NAMESPACE', 'App\Http\Controllers\vendor\Chatify\Api')
+        'namespace' => env('CHATIFY_API_ROUTES_NAMESPACE', 'Chatify\Http\Controllers\Api'),
     ],
 
     /*
