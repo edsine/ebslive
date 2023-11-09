@@ -64,6 +64,7 @@ class Staff extends Model implements Auditable
     public function department(){
         return $this->belongsTo(Department::class);
     }
+    
     public function ranking()
     {
         return $this->belongsTo(Ranking::class);

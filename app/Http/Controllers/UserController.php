@@ -95,11 +95,26 @@ class UserController extends AppBaseController
 
 
 
-       
-        $usersQuery = DB::table('users')
-        
-        
+         if(Auth::user()->hasRole('super-admin')){
 
+        $usersQuery = DB::table('users')
+            ->join('staff', 'users.id', '=', 'staff.user_id')
+            ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+            ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
+            ->join('departments', 'staff.department_id', '=', 'departments.id')
+            ->join('branches', 'staff.branch_id', '=', 'branches.id')
+            ->select('users.id', 'roles.name as role', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name');
+
+        $noroleQuery = DB::table('users')
+            ->leftJoin('staff', 'users.id', '=', 'staff.user_id')
+            ->leftJoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+            ->whereNull('model_has_roles.role_id')
+            ->join('departments', 'staff.department_id', '=', 'departments.id')
+            ->join('branches', 'staff.branch_id', '=', 'branches.id')
+            ->select('users.id', DB::raw("NULL as role"), 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name');
+         
+        }else{
+            $usersQuery = DB::table('users')
             ->join('staff', 'users.id', '=', 'staff.user_id')
             ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
             ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
@@ -116,6 +131,8 @@ class UserController extends AppBaseController
             ->join('branches', 'staff.branch_id', '=', 'branches.id')
             ->where('staff.branch_id',$userbranch_id)
             ->select('users.id', DB::raw("NULL as role"), 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name');
+
+         }
 
         $uid = Auth::user()->user_id;
 

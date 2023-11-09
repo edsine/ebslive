@@ -29,6 +29,10 @@ use Modules\HRMSystem\Http\Controllers\TrainerController;
 use Modules\HRMSystem\Http\Controllers\IndicatorController;
 use Modules\HRMSystem\Http\Controllers\AppraisalController;
 use Modules\HRMSystem\Http\Controllers\GoalTrackingController;
+use Modules\HRMSystem\Http\Controllers\AwardController;
+use Modules\HRMSystem\Http\Controllers\TransferController;
+use Modules\HRMSystem\Http\Controllers\ResignationController;
+use Modules\HRMSystem\Http\Controllers\TravelController;
 use App\Http\Controllers\UserController;
 
 
@@ -146,3 +150,8 @@ Route::post('employee/json', [UserController::class, 'json'])->name('employee.js
 Route::post('/appraisals', [AppraisalController::class, 'empByStar'])->name('empByStar')->middleware(['auth']);
 Route::post('/appraisals1', [AppraisalController::class, 'empByStar1'])->name('empByStar1')->middleware(['auth']);
 Route::post('/getemployee', [AppraisalController::class, 'getemployee'])->name('getemployee');
+
+Route::resource('award', AwardController::class)->middleware(['auth']);
+Route::resource('transfer', TransferController::class)->middleware(['auth']);
+Route::resource('resignation', ResignationController::class)->middleware(['auth']);
+Route::resource('travel', TravelController::class)->middleware(['auth']);

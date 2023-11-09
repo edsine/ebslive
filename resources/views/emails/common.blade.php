@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 @php
     $logo=asset(Storage::url('uploads/logo/'));
- $company_logo = Utility::getValByName('company_logo');
+ $company_logo = \Modules\Accounting\Models\Utility::getValByName('company_logo');
 @endphp
 <head>
     <title>
