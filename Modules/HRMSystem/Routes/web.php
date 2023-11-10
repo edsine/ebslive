@@ -33,6 +33,12 @@ use Modules\HRMSystem\Http\Controllers\AwardController;
 use Modules\HRMSystem\Http\Controllers\TransferController;
 use Modules\HRMSystem\Http\Controllers\ResignationController;
 use Modules\HRMSystem\Http\Controllers\TravelController;
+use Modules\HRMSystem\Http\Controllers\PromotionController;
+use Modules\HRMSystem\Http\Controllers\ComplaintController;
+use Modules\HRMSystem\Http\Controllers\WarningController;
+use Modules\HRMSystem\Http\Controllers\TerminationController;
+use Modules\HRMSystem\Http\Controllers\AnnouncementController;
+use Modules\HRMSystem\Http\Controllers\HolidayController;
 use App\Http\Controllers\UserController;
 
 
@@ -155,3 +161,13 @@ Route::resource('award', AwardController::class)->middleware(['auth']);
 Route::resource('transfer', TransferController::class)->middleware(['auth']);
 Route::resource('resignation', ResignationController::class)->middleware(['auth']);
 Route::resource('travel', TravelController::class)->middleware(['auth']);
+Route::resource('promotion', PromotionController::class)->middleware(['auth']);
+Route::resource('complaint', ComplaintController::class)->middleware(['auth']);
+Route::resource('warning', WarningController::class)->middleware(['auth']);
+Route::resource('termination', TerminationController::class)->middleware(['auth']);
+Route::get('termination/{id}/description', [TerminationController::class, 'description'])->name('termination.description');
+Route::post('announcement/getdepartment', [AnnouncementController::class, 'getdepartment'])->name('announcement.getdepartment');
+Route::post('announcement/getemployee', [AnnouncementController::class, 'getemployee'])->name('announcement.getemployee');
+Route::resource('announcement', AnnouncementController::class)->middleware(['auth',]);
+Route::resource('holiday', HolidayController::class)->middleware(['auth']);
+Route::get('holiday-calender', [HolidayController::class, 'calender'])->name('holiday.calender');

@@ -33,7 +33,7 @@ class UpdateEmployeesTable extends Migration
             $table->integer('salary_type')->nullable();
             $table->integer('salary')->nullable();
             $table->integer('is_active')->default('1');
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
         });
     }
 
