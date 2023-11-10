@@ -320,6 +320,67 @@
                     </a>
                     <!--end:Menu link-->
                 </div>
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a href="{{ route('promotion.index') }}" class="menu-link {{ Request::is('promotion.index*') ? 'active' : '' }}">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Promotion</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a href="{{ route('complaint.index') }}" class="menu-link {{ Request::is('complaint.index*') ? 'active' : '' }}">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Complains</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a href="{{ route('warning.index') }}" class="menu-link {{ Request::is('warning.index*') ? 'active' : '' }}">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Warning</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a href="{{ route('termination.index') }}" class="menu-link {{ Request::is('termination.index*') ? 'active' : '' }}">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Termination</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a href="{{ route('announcement.index') }}" class="menu-link {{ Request::is('announcement.index*') ? 'active' : '' }}">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Announcement</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a href="{{ route('holiday.index') }}" class="menu-link {{ Request::is('holiday.index*') ? 'active' : '' }}">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Holidays</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                
                 <!--end:Menu item-->
             
         <!--end:Menu item-->
