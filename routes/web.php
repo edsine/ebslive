@@ -16,6 +16,7 @@ use App\Http\Controllers\SetSalaryController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\ZoomMeetingController;
 use Modules\Accounting\Http\Controllers\ReportController;
+use App\Http\Controllers\ESSPPaymentController;
 
 
 /*
@@ -63,7 +64,9 @@ Route::group(['middleware' => ['auth']], function () {
 // });
 Route::middleware(['auth'])->group(function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+    Route::get('/essp/payments', [ESSPPaymentController::class, 'index'])->name('essp.payments');
+    Route::patch('/approve-payment/{id}', [ESSPPaymentController::class, 'approvePayment'])
+    ->name('approvePayment');
 });
 
 
