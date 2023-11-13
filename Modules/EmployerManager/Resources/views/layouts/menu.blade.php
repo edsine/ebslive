@@ -45,6 +45,12 @@
                 </span>
                 <span class="menu-title">Employees</span>
             </a>
+            <a href="{{ route('essp.payments') }}" class="menu-link {{ Request::is('essp.payments*') ? 'active' : '' }}">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Payments</span>
+            </a>
             @endif
             @if (in_array(Auth()->user()->staff->department_id, $departmentData['departmentIdsToCheck']))
             <a href="{{ route('certificates') }}" class="menu-link {{ Request::is('employers*') ? 'active' : '' }}">
