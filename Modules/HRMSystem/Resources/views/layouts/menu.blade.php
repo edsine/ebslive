@@ -14,7 +14,7 @@
             <!--end::Svg Icon-->
         </span>
         <span class="menu-title">HRM System</span>
-        <span class="menu-arrow"></span>
+        <span class="menu-arrow"></span>g
     </a>
     <div class="menu-sub menu-sub-accordion menu-active-bg">
        <!--begin:Menu item-->
