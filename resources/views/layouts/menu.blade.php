@@ -192,9 +192,7 @@ $departmentData = getDepartmentData();
 								</div>
                                 @include('hrmsystem::layouts.menu')
 							
-
 								@if ((auth()->user()->staff->department_id==5) || auth()->user()->hasRole('super-admin'))
-
 								
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
@@ -208,9 +206,7 @@ $departmentData = getDepartmentData();
 											</span>
 											<!--end::Svg Icon-->
 										</span>
-
 										<span class="menu-title spicyj">Reports </span>
-
 										<span class="menu-arrow"></span>
 									</span>
                                     <div class="menu-sub menu-sub-accordion menu-active-bg">
@@ -222,10 +218,8 @@ $departmentData = getDepartmentData();
     </div>
 								</div>
 
-
 								@endif
 								
-
 								
 								
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
