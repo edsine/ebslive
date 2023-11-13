@@ -45,9 +45,37 @@ class HomeController extends Controller
 
             return redirect()->route('permsec');
         }
+        else if(Auth::check() && Auth::user()->hasRole('Regional Manager'))
+        {
+
+            return redirect()->route('region');
+        }
+        else if(Auth::check() && Auth::user()->hasRole('Branch Manager'))
+        {
+
+            return redirect()->route('branch');
+        }
+        else if(Auth::check() && Auth::user()->hasRole('ED FINANCE & ACCOUNT'))
+        {
+
+            return redirect()->route('ed_md');
+        }
+        else if(Auth::check() && Auth::user()->hasRole('ED ADMIN'))
+        {
+
+            return redirect()->route('ed_md');
+        }
+        else if(Auth::check() && Auth::user()->hasRole('MD'))
+        {
+
+            return redirect()->route('ed_md');
+        }
+
         else if(Auth::check() && Auth::user()->staff->department_id==6){
             return redirect()->route('dashboard');
+        
         }
+
         else {
 
             
@@ -78,6 +106,75 @@ class HomeController extends Controller
             'totalemployers','pendingclaims','approvedclaims'));
         }
     }
+
+
+public function regional(){
+    $allstaff=Staff::count();
+        $totalregion = Region::count();
+        $totaldept= Department::count();
+        $totalemployer=Employer::count();
+        $managementstaff =Staff::where('ranking_id','!==',1)->count();
+        
+        return view('regionaladmin',compact('allstaff','totalregion','totaldept',
+        'totalemployer','managementstaff'));
+
+}
+public function branch(Request $request){
+    $allstaff=Staff::count();
+    $totalregion = Region::count();
+    $totaldept= Department::count();
+    $totalemployer=Employer::count();
+    $managementstaff =Staff::where('ranking_id','!==',1)->count();
+    
+    return view('branchadmin',compact('allstaff','totalregion','totaldept',
+    'totalemployer','managementstaff'));                 
+            
+
+}
+
+public function edfinance(){
+    $branchtotal= Branch::count();
+        
+    
+    $departmenttotal = Department::count();
+    $regiontotal= Region::count();
+    $revenuefromecs=Payment::where('payment_type',1)->count();
+    $revenuefromcertificate=Payment::where('payment_type',2)->count();
+    $revenuefromregistration=Payment::where('payment_type',3)->count();
+    $totalstaff =Staff::count();
+    $totalemployers=Employer::count();
+    $totalemployees=Employee::count();
+    $totalcertificate=Certificate::count();
+
+    return view('ed_md',compact('branchtotal','departmenttotal',
+    'regiontotal','revenuefromecs',
+    'revenuefromcertificate','revenuefromregistration','totalemployers',
+    'totalemployees','totalcertificate',
+   
+    'totalstaff'));
+}
+public function edadmin(){
+    $branchtotal= Branch::count();
+        
+    
+    $departmenttotal = Department::count();
+    $regiontotal= Region::count();
+    $revenuefromecs=Payment::where('payment_type',1)->count();
+    $revenuefromcertificate=Payment::where('payment_type',2)->count();
+    $revenuefromregistration=Payment::where('payment_type',3)->count();
+    $totalstaff =Staff::count();
+    $totalemployers=Employer::count();
+    $totalemployees=Employee::count();
+    $totalcertificate=Certificate::count();
+
+    return view('minister',compact('branchtotal','departmenttotal',
+    'regiontotal','revenuefromecs',
+    'revenuefromcertificate','revenuefromregistration','totalemployers',
+    'totalemployees','totalcertificate',
+   
+    'totalstaff'));
+}
+
 
     public function minister()
     {
