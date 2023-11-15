@@ -491,6 +491,20 @@ function daterange() {
 
     @stack('page_scripts')
 
+    <script>
+        var botmanWidget = {
+            aboutText: 'Start the conversation with hi',
+            introMessage: "WELCOME TO  NSITF chatbots",
+            title:'NSITF Chat Bots ',
+            mainColor: '#006400',
+            bubbleBackground:'#006400',
+            aboutLink: 'nsitf.gov.ng'
+            
+        };
+    </script>
+   
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+    
 </body>
 
 </html>
