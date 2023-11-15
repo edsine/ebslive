@@ -10,7 +10,7 @@
             </span>
             <!--end::Svg Icon-->
         </span>
-        <span class="menu-title">Accounting System</span>
+        <span class="menu-title spicyj">Accounting System</span>
         <span class="menu-arrow"></span>
     </a>
     <div class="menu-sub menu-sub-accordion menu-active-bg">

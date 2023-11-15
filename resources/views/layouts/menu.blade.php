@@ -190,6 +190,7 @@ $departmentData = getDepartmentData();
                     
                 </div>
 								</div>
+								@include('accounting::layouts.menu')
                                 @include('hrmsystem::layouts.menu')
 							
               			
