@@ -83,6 +83,10 @@ Route::get('/itmadmin', [HomeController::class, 'itmadmin'])->name('itmadmin');
 Route::get('/complianceadmin', [HomeController::class, 'complianceadmin'])->name('complianceadmin');
 Route::get('/hseadmin', [HomeController::class, 'hseadmin'])->name('hseadmin');
 Route::get('/permsec', [HomeController::class, 'pamsec'])->name('permsec');
+Route::get('/branch', [HomeController::class, 'branch'])->name('branch');
+Route::get('/region', [HomeController::class, 'regional'])->name('region');
+Route::get('/ed_md', [HomeController::class, 'edfinance'])->name('ed_md');
+
 Route::get('/riskadmin',[HomeController::class,'riskadmin']);
 
 Route::get('/aprd',[HomeController::class,'aprd']);
@@ -147,6 +151,8 @@ Route::get('zoom' ,function(){
 Route::resource('zoom-meeting', ZoomMeetingController::class)->middleware(['auth']);
 Route::any('/zoom-meeting/projects/select/{bid}', [ZoomMeetingController::class, 'projectwiseuser'])->name('zoom-meeting.projects.select');
 Route::get('zoom-meeting-calender', [ZoomMeetingController::class, 'calender'])->name('zoom-meeting.calender')->middleware(['auth']);
+
+
 
 
 Route::group(

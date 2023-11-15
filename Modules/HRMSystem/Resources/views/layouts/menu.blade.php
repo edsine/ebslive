@@ -1,3 +1,6 @@
+@if ((auth()->user()->staff->department_id==2) || auth()->user()->hasRole('super-admin'))
+	
+
 <div class="menu-item main-menu-item">
     <a href="javascript:;" class="menu-link menu-toggle">
         <span class="menu-icon">
@@ -597,3 +600,5 @@
 
    
 </div> 
+
+@endif
