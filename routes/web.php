@@ -238,3 +238,6 @@ Route::any('email_template_store', [EmailTemplateController::class, 'updateStatu
 Route::resource('email_template', EmailTemplateController::class)->middleware(['auth']);
 
 // End Email Templates
+
+//Botman side that i do match route
+Route::match(['get','post'],'/botman','App\Http\Controllers\BotmanController@handle')->name('botman');

@@ -7,6 +7,8 @@
     "require": {
         "php": "^8.0.2",
         "aws/aws-sdk-php-laravel": "^3.8",
+        "botman/botman": "^2.8",
+        "botman/driver-web": "^1.5",
         "darkaonline/l5-swagger": "8.*",
         "doctrine/dbal": "~2.3",
         "guzzlehttp/guzzle": "^7.2",
