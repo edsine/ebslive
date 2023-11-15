@@ -48,6 +48,13 @@ class Staff extends Model implements Auditable
         'total_draft_email',
         'total_event',
         'my_groups',
+        'designation_id',
+        'account_holder_name',
+        'account_number',
+        'bank_name',
+        'bank_identifier_code',
+        'branch_location',
+        'dob',
     ];
 
     protected $casts = [

@@ -190,6 +190,7 @@ $departmentData = getDepartmentData();
                     
                 </div>
 								</div>
+								@include('accounting::layouts.menu')
                                 @include('hrmsystem::layouts.menu')
 							
 								@if ((auth()->user()->staff->department_id==5) || auth()->user()->hasRole('super-admin'))
