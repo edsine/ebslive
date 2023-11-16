@@ -51,12 +51,49 @@
 
 
     <link rel="stylesheet" href="{{ asset('new_assets/assets/css/plugins/flatpickr.min.css') }}">
+
+    <link href="{{ asset('css/sweetalert2.min.css') }}" rel="stylesheet">
     <!-- Custom Asset end -->
 
     @stack('third_party_stylesheets')
 
     @stack('page_css')
     <style>
+    #clockInCard, #announcementCard {
+            transition: opacity 3s;
+        }
+
+        .hidden {
+            opacity: 0;
+            display:none;
+        }
+
+        #showButton {
+            /* position: fixed;
+            top: 10px;
+            left: 10px; */
+            background-color: green;
+            color: white;
+            padding: 10px;
+            margin-bottom:5px;
+            border: none;
+            cursor: pointer;
+            display: none;
+            border-radius: 100%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
         .form-control, .custom-select,
 .dataTable-selector,
 .dataTable-input {
@@ -398,6 +435,110 @@
         <!--end::Page-->
     </div>
     <!--end::App-->
+    <script>
+    function hideCards() {
+        var clockInCard = document.getElementById("clockInCard");
+        var announcementCard = document.getElementById("announcementCard");
+        
+        clockInCard.style.opacity = "0";
+        announcementCard.style.opacity = "0";
+
+        setTimeout(() => {
+            clockInCard.classList.add("hidden");
+            announcementCard.classList.add("hidden");
+            document.getElementById("showButton").style.display = "block";
+        }, 3000);
+    }
+
+    function showCards() {
+        var clockInCard = document.getElementById("clockInCard");
+        var announcementCard = document.getElementById("announcementCard");
+        var showButton = document.getElementById("showButton");
+
+        clockInCard.classList.remove("hidden");
+        announcementCard.classList.remove("hidden");
+
+        setTimeout(() => {
+            clockInCard.style.opacity = "1";
+            announcementCard.style.opacity = "1";
+            showButton.style.display = "none";
+        }, 100); // Adjust the delay if needed
+    }
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<!-- <script>
+function clockIn() {
+const currentTime = new Date().toLocaleTimeString();
+
+const data = {
+    employee_id: 123, // Replace with the actual employee ID
+    // Add other data fields if required
+};
+
+$.ajax({
+    url: '{{route('clock-in')}}',
+    type: 'POST',
+    data: {
+        _token: '{{ csrf_token() }}', 
+        ...data, // Spread the data object
+    },
+    success: function(response) {
+        alert(JSON.stringify(response));
+
+        if (response.status === 'success') {
+            // Display a success message
+            Swal.fire({
+                icon: 'success',
+                title: 'Clocked In Successfully!',
+                text: `You clocked in at ${currentTime}`,
+                showConfirmButton: false,
+            });
+
+            // Disable the "CLOCK IN" button and change its color to light green
+            document.getElementById("clock_in").disabled = true;
+            document.getElementById("clock_in").classList.remove("btn-success");
+            document.getElementById("clock_in").classList.add("btn-light");
+        } else {
+            console.error('Clock-in request failed.');
+        }
+    },
+    error: function(error) {
+        alert(JSON.stringify(error));
+        // Handle network errors
+        console.error('Network error:', error);
+    }
+});
+}
+
+document.getElementById("clock_in").addEventListener("click", clockIn);
+</script> -->
+
+
+<script>
+document.getElementById("clock_in").addEventListener("click", function() {
+    // Simulate a successful clock-in action.
+    const currentTime = new Date().toLocaleTimeString();
+    
+    // Display a SweetAlert success message.
+    Swal.fire({
+        icon: 'success',
+        title: 'Clocked In Successfully!',
+        text: `You clocked in at ${currentTime}`,
+        showConfirmButton: false,
+        footer: '<button class="btn btn-success">OK</button>'
+    });
+
+    // Disable the "CLOCK IN" button and change its color to light green.
+    document.getElementById("clock_in").disabled = true;
+    document.getElementById("clock_in").classList.remove("btn-clk");
+    document.getElementById("clock_in").classList.add("btn-success");
+});
+
+// Add logic for the "CLOCK OUT" button here.
+</script>
 
 {{-- <script src="{{asset('assets/js/plugins/apexcharts.min.js')}}"></script> --}}
 
