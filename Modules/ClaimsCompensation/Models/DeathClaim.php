@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\EmployerManager\Models\Employee;
+use Modules\EmployerManager\Models\Employer;
 use App\Traits\Approval;
 
 class DeathClaim extends Model
@@ -18,7 +19,7 @@ class DeathClaim extends Model
         'incident_description', 'incident_date', 'incident_time',
         'employer_account_name', 'employer_account_number', 'employer_bank_name', 'employer_sort_code',
         'employee_account_name', 'employee_account_number', 'employee_bank_name', 'employee_sort_code',
-        'document', 'status',
+        'document', 'status', 'branch_id',
     ];
 
     /* public function employer()
@@ -29,5 +30,10 @@ class DeathClaim extends Model
     public function employee()
     {
         return $this->belongsTo(Employee::class);
+    }
+
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class);
     }
 }

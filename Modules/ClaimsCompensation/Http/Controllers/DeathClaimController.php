@@ -9,6 +9,9 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Modules\EmployerManager\Models\Employee;
 use Flash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class DeathClaimController extends AppBaseController
 {
@@ -17,7 +20,22 @@ class DeathClaimController extends AppBaseController
      */
     public function index()
     {
-        $claims = DeathClaim::with('employee')->get(); //auth()->user()->death_claims;
+        $deathClaims = DeathClaim::where('branch_id', auth()->user()->staff->branch_id)->get();
+
+         if (
+            Auth::user()->hasRole('super-admin') || Auth::user()->hasRole('MD') || Auth::user()->hasRole('HOD') ||
+            Auth::user()->hasRole('Regional Manager') || Auth::user()->hasRole('CERTIFICATE/COMPLIANCE') ||
+            Auth::user()->hasRole('MER') || Auth::user()->hasRole('ED FINANCE & ACCOUNT') ||
+            Auth::user()->hasRole('AUDIT') || Auth::user()->hasRole('GM')
+        ) {
+            $claims = DeathClaim::with('employee')->get();
+        } else if ($deathClaims->count() > 0 || Auth::user()->hasRole('Branch Manager')) {
+
+            $claims = DeathClaim::with('employee')->where('branch_id', auth()->user()->staff->branch_id)->get();
+            
+        }else {
+            return redirect()->back()->with('error', __('Permission denied.'));
+        }
         return view('claimscompensation::death_claims.index', compact('claims'));
     }
 
@@ -46,9 +64,11 @@ class DeathClaimController extends AppBaseController
     /**
      * Display the specified resource.
      */
-    public function show(DeathClaim $deathClaim)
+    public function show($id)
     {
-        //
+        $incident = DeathClaim::findOrFail($id);
+
+        return view('claimscompensation::death_claims.show', compact('incident'));
     }
 
     /**
@@ -86,5 +106,4 @@ class DeathClaimController extends AppBaseController
     {
         //
     }
-
 }
