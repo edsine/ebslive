@@ -66,9 +66,10 @@
                 <span class="menu-title">Change Signature</span>
             </a>
             @endif
-            @include('claimscompensation::layouts.menu')
+            
             <!--end:Menu link-->
         </div>
+        @include('claimscompensation::layouts.menu')
         <!--end:Menu item-->
     {{-- </div> --}}
     <!--end:Menu sub-->
