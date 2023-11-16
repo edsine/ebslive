@@ -13,6 +13,7 @@
         <!--begin::Title-->
         <h1 class="text-black-50 pt-5">Human Resource :<b style="color: #000"> Overview</b></h1>
         <!--end::Title-->
+        <br>
       </div>
       <!--end::Page title-->
     </div>
@@ -23,14 +24,25 @@
   <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-xxl">
+    <button id="showButton" onclick="showCards()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="12" y1="8" x2="12" y2="16" />
+        <line x1="8" y1="12" x2="16" y2="12" />
+    </svg>
+</button>
       <!--begin::Row-->
       <div class="row g-5 g-xl-10">
-        <!--begin::Col-->
+        
+        <!--begin::Col-->@include('clokin')
         <div class="col-xxl-6 mb-md-5 mb-xl-10">
           <!--begin::Row-->
+          
           <div class="row g-5 g-xl-10">
+
             <!--begin::Col-->
             <div class="col-md-6 col-xl-6 mb-xxl-10">
+              
               <!--begin::Card widget 8-->
               <div class="card overflow-hidden h-md-50 mb-5 mb-xl-10">
                 <!--begin::Card body-->

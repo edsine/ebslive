@@ -30,6 +30,13 @@ use App\Http\Controllers\ESSPPaymentController;
 |
 */
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [HomeController::class, 'clockIn'])->name('home');
+    Route::post('/home/clock-in', [HomeController::class, 'clockIn'])->name('clock-in');
+    Route::post('/home/clock-out', [HomeController::class, 'clockOut'])->name('clock-out');
+});
+
+
 
 Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')
     ->name('io_generator_builder');
