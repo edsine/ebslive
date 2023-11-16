@@ -1,5 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use Modules\ClaimsCompensation\Http\Controllers\AccidentClaimController;
+use Modules\ClaimsCompensation\Http\Controllers\DeathClaimController;
+use Modules\ClaimsCompensation\Http\Controllers\DiseaseClaimController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +25,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('claim/accident', AccidentClaimController::class);
     Route::resource('claim/death', DeathClaimController::class);
     Route::resource('claim/disease', DiseaseClaimController::class);
+    Route::get('/claim/death/{id}', [DeathClaimController::class, 'show'])->name('death.claims.show');
+
 
     Route::prefix('claimscompensation')->group(function () {
         Route::resource('claimscompensation', Modules\ClaimsCompensation\Http\Controllers\ClaimsCompensationController::class);

@@ -16,6 +16,7 @@ use App\Http\Controllers\SetSalaryController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\ZoomMeetingController;
 use Modules\Accounting\Http\Controllers\ReportController;
+use App\Http\Controllers\ESSPPaymentController;
 
 
 /*
@@ -70,7 +71,9 @@ Route::group(['middleware' => ['auth']], function () {
 // });
 Route::middleware(['auth'])->group(function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+    Route::get('/essp/payments', [ESSPPaymentController::class, 'index'])->name('essp.payments');
+    Route::patch('/approve-payment/{id}', [ESSPPaymentController::class, 'approvePayment'])
+    ->name('approvePayment');
 });
 
 
@@ -87,6 +90,10 @@ Route::get('/itmadmin', [HomeController::class, 'itmadmin'])->name('itmadmin');
 Route::get('/complianceadmin', [HomeController::class, 'complianceadmin'])->name('complianceadmin');
 Route::get('/hseadmin', [HomeController::class, 'hseadmin'])->name('hseadmin');
 Route::get('/permsec', [HomeController::class, 'pamsec'])->name('permsec');
+Route::get('/branch', [HomeController::class, 'branch'])->name('branch');
+Route::get('/region', [HomeController::class, 'regional'])->name('region');
+Route::get('/ed_md', [HomeController::class, 'edfinance'])->name('ed_md');
+
 Route::get('/riskadmin',[HomeController::class,'riskadmin']);
 
 Route::get('/aprd',[HomeController::class,'aprd']);
@@ -151,6 +158,8 @@ Route::get('zoom' ,function(){
 Route::resource('zoom-meeting', ZoomMeetingController::class)->middleware(['auth']);
 Route::any('/zoom-meeting/projects/select/{bid}', [ZoomMeetingController::class, 'projectwiseuser'])->name('zoom-meeting.projects.select');
 Route::get('zoom-meeting-calender', [ZoomMeetingController::class, 'calender'])->name('zoom-meeting.calender')->middleware(['auth']);
+
+
 
 
 Route::group(
@@ -236,3 +245,6 @@ Route::any('email_template_store', [EmailTemplateController::class, 'updateStatu
 Route::resource('email_template', EmailTemplateController::class)->middleware(['auth']);
 
 // End Email Templates
+
+//Botman side that i do match route
+Route::match(['get','post'],'/botman','App\Http\Controllers\BotmanController@handle')->name('botman');

@@ -33,6 +33,16 @@ use Modules\HRMSystem\Http\Controllers\AwardController;
 use Modules\HRMSystem\Http\Controllers\TransferController;
 use Modules\HRMSystem\Http\Controllers\ResignationController;
 use Modules\HRMSystem\Http\Controllers\TravelController;
+use Modules\HRMSystem\Http\Controllers\PromotionController;
+use Modules\HRMSystem\Http\Controllers\ComplaintController;
+use Modules\HRMSystem\Http\Controllers\WarningController;
+use Modules\HRMSystem\Http\Controllers\TerminationController;
+use Modules\HRMSystem\Http\Controllers\AnnouncementController;
+use Modules\HRMSystem\Http\Controllers\HolidayController;
+use Modules\HRMSystem\Http\Controllers\JobController;
+use Modules\HRMSystem\Http\Controllers\JobApplicationController;
+use Modules\HRMSystem\Http\Controllers\CustomQuestionController;
+use Modules\HRMSystem\Http\Controllers\InterviewScheduleController;
 use App\Http\Controllers\UserController;
 
 
@@ -155,3 +165,42 @@ Route::resource('award', AwardController::class)->middleware(['auth']);
 Route::resource('transfer', TransferController::class)->middleware(['auth']);
 Route::resource('resignation', ResignationController::class)->middleware(['auth']);
 Route::resource('travel', TravelController::class)->middleware(['auth']);
+Route::resource('promotion', PromotionController::class)->middleware(['auth']);
+Route::resource('complaint', ComplaintController::class)->middleware(['auth']);
+Route::resource('warning', WarningController::class)->middleware(['auth']);
+Route::resource('termination', TerminationController::class)->middleware(['auth']);
+Route::get('termination/{id}/description', [TerminationController::class, 'description'])->name('termination.description');
+Route::post('announcement/getdepartment', [AnnouncementController::class, 'getdepartment'])->name('announcement.getdepartment');
+Route::post('announcement/getemployee', [AnnouncementController::class, 'getemployee'])->name('announcement.getemployee');
+Route::resource('announcement', AnnouncementController::class)->middleware(['auth',]);
+Route::resource('holiday', HolidayController::class)->middleware(['auth']);
+Route::get('holiday-calender', [HolidayController::class, 'calender'])->name('holiday.calender');
+
+Route::resource('job', JobController::class)->middleware(['auth']);
+Route::get('career/{id}/{lang}', [JobController::class, 'career'])->name('career')->middleware(['auth']);
+Route::get('job/requirement/{code}/{lang}', [JobController::class, 'jobRequirement'])->name('job.requirement')->middleware(['auth']);
+Route::get('job/apply/{code}/{lang}', [JobController::class, 'jobApply'])->name('job.apply')->middleware(['auth']);
+Route::post('job/apply/data/{code}', [JobController::class, 'jobApplyData'])->name('job.apply.data')->middleware(['auth']);
+
+Route::resource('job-application', JobApplicationController::class)->middleware(['auth']);
+Route::post('job-application/order', [JobApplicationController::class, 'order'])->name('job.application.order')->middleware(['auth']);
+Route::post('job-application/{id}/rating', [JobApplicationController::class, 'rating'])->name('job.application.rating')->middleware(['auth']);
+Route::delete('job-application/{id}/archive', [JobApplicationController::class, 'archive'])->name('job.application.archive')->middleware(['auth']);
+Route::post('job-application/{id}/skill/store', [JobApplicationController::class, 'addSkill'])->name('job.application.skill.store')->middleware(['auth']);
+Route::post('job-application/{id}/note/store', [JobApplicationController::class, 'addNote'])->name('job.application.note.store')->middleware(['auth']);
+Route::delete('job-application/{id}/note/destroy', [JobApplicationController::class, 'destroyNote'])->name('job.application.note.destroy')->middleware(['auth']);
+Route::post('job-application/getByJob', [JobApplicationController::class, 'getByJob'])->name('get.job.application')->middleware(['auth']);
+Route::get('job-onboard', [JobApplicationController::class, 'jobOnBoard'])->name('job.on.board')->middleware(['auth']);
+Route::get('job-onboard/create/{id}', [JobApplicationController::class, 'jobBoardCreate'])->name('job.on.board.create')->middleware(['auth']);
+Route::post('job-onboard/store/{id}', [JobApplicationController::class, 'jobBoardStore'])->name('job.on.board.store')->middleware(['auth']);
+Route::get('job-onboard/edit/{id}', [JobApplicationController::class, 'jobBoardEdit'])->name('job.on.board.edit')->middleware(['auth']);
+Route::post('job-onboard/update/{id}', [JobApplicationController::class, 'jobBoardUpdate'])->name('job.on.board.update')->middleware(['auth']);
+Route::delete('job-onboard/delete/{id}', [JobApplicationController::class, 'jobBoardDelete'])->name('job.on.board.delete')->middleware(['auth']);
+Route::get('job-onboard/convert/{id}', [JobApplicationController::class, 'jobBoardConvert'])->name('job.on.board.convert')->middleware(['auth']);
+Route::post('job-onboard/convert/{id}', [JobApplicationController::class, 'jobBoardConvertData'])->name('job.on.board.convert')->middleware(['auth']);
+Route::post('job-application/stage/change', [JobApplicationController::class, 'stageChange'])->name('job.application.stage.change')->middleware(['auth']);
+Route::get('candidates-job-applications', [JobApplicationController::class, 'candidate'])->name('job.application.candidate')->middleware(['auth']);
+
+Route::resource('custom-question', CustomQuestionController::class)->middleware(['auth']);
+Route::resource('interview-schedule', InterviewScheduleController::class)->middleware(['auth']);
+

@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_email_templates', function (Blueprint $table) {
+        Schema::create('notification_templates', function (Blueprint $table) {
             $table->id();
-            $table->integer('template_id');
-            $table->integer('user_id');
-            $table->integer('is_active')->default(1);
-            $table->timestamps();
+            $table->string('name');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_email_templates');
+        Schema::dropIfExists('notification_templates');
     }
 };

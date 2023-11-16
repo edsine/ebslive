@@ -9,6 +9,9 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Modules\EmployerManager\Models\Employee;
 use Flash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class DiseaseClaimController extends AppBaseController
 {
@@ -17,14 +20,30 @@ class DiseaseClaimController extends AppBaseController
      */
     public function index()
     {
-        $claims = DiseaseClaim::with('employee')->get(); //auth()->user()->disease_claims;
+        $deathClaims = DiseaseClaim::where('branch_id', auth()->user()->staff->branch_id)->get();
+
+         if (
+            Auth::user()->hasRole('super-admin') || Auth::user()->hasRole('MD') || Auth::user()->hasRole('HOD') ||
+            Auth::user()->hasRole('Regional Manager') || Auth::user()->hasRole('CERTIFICATE/COMPLIANCE') ||
+            Auth::user()->hasRole('MER') || Auth::user()->hasRole('ED FINANCE & ACCOUNT') ||
+            Auth::user()->hasRole('AUDIT') || Auth::user()->hasRole('GM')
+        ) {
+            
+            $claims = DiseaseClaim::with('employee')->get();
+        } else if ($deathClaims->count() > 0 || Auth::user()->hasRole('Branch Manager')) {
+
+            $claims = DiseaseClaim::with('employee')->where('branch_id', auth()->user()->staff->branch_id)->get();
+        } else {
+            return redirect()->back()->with('error', __('Permission denied.'));
+        }
+
         return view('claimscompensation::disease_claims.index', compact('claims'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-   /*  public function create()
+    /*  public function create()
     {
         $employees = auth()->user()->employees;
         return view('claimscompensation::disease_claims.create', compact('employees'));

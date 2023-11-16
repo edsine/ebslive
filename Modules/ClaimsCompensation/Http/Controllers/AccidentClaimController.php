@@ -9,6 +9,9 @@ use Modules\EmployerManager\Models\Employer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Flash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class AccidentClaimController extends AppBaseController
 {
@@ -17,7 +20,22 @@ class AccidentClaimController extends AppBaseController
      */
     public function index()
     {
-        $claims = AccidentClaim::with('employee')->get(); //auth()->user()->accident_claims;
+        $deathClaims = AccidentClaim::where('branch_id', auth()->user()->staff->branch_id)->get();
+
+         if (
+            Auth::user()->hasRole('super-admin') || Auth::user()->hasRole('MD') || Auth::user()->hasRole('HOD') ||
+            Auth::user()->hasRole('Regional Manager') || Auth::user()->hasRole('CERTIFICATE/COMPLIANCE') ||
+            Auth::user()->hasRole('MER') || Auth::user()->hasRole('ED FINANCE & ACCOUNT') ||
+            Auth::user()->hasRole('AUDIT') || Auth::user()->hasRole('GM')
+        ) {
+            $claims = AccidentClaim::with('employee')->get();
+        } else if ($deathClaims->count() > 0 || Auth::user()->hasRole('Branch Manager')) {
+
+            $claims = AccidentClaim::with('employee')->where('branch_id', auth()->user()->staff->branch_id)->get();
+        } else {
+            return redirect()->back()->with('error', __('Permission denied.'));
+        }
+
         return view('claimscompensation::accident_claims.index', compact('claims'));
     }
 

@@ -65,6 +65,11 @@ class User extends Authenticatable implements Auditable
         'salary',
         'shipping_address',
         'billing_address',
+        'company_doj',
+        'documents',
+        'tax_payer_id',
+        'salary',
+        'salary_type'
         
     ];
 
@@ -1013,7 +1018,10 @@ class User extends Authenticatable implements Auditable
 
         return $over_time_json;
     }
-
+    public function documents()
+    {
+        return $this->hasMany('Modules\HRMSystem\Models\EmployeeDocument', 'employee_id', 'employee_id')->get();
+    }
     
 
 }

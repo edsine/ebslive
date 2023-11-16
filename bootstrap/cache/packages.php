@@ -10,6 +10,24 @@
       'AWS' => 'Aws\\Laravel\\AwsFacade',
     ),
   ),
+  'botman/botman' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BotMan\\BotMan\\BotManServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'BotMan' => 'BotMan\\BotMan\\Facades\\BotMan',
+    ),
+  ),
+  'botman/driver-web' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BotMan\\Drivers\\Web\\Providers\\WebServiceProvider',
+    ),
+  ),
   'darkaonline/l5-swagger' => 
   array (
     'providers' => 
