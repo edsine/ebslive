@@ -72,8 +72,8 @@
                                     @endif
                                 </td> --}}
                                 <td>
-                                    <a href="{{  }}"><span class="nk-menu-icon text-info"><em
-                                                class="icon ni ni-eye"></em></span></a>
+                                    <a href="{{ route('disease.claims.show', ['id' => $claim->id]) }}" class="text-dark"><i class="fa fa-eye"></i> View Details</a>
+
                                 </td>
                             </tr>
                         @endforeach

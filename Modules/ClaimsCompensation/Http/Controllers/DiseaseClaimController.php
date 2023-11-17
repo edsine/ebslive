@@ -65,9 +65,11 @@ class DiseaseClaimController extends AppBaseController
     /**
      * Display the specified resource.
      */
-    public function show(DiseaseClaim $diseaseClaim)
+    public function show($id)
     {
-        //
+        $incident = DiseaseClaim::findOrFail($id);
+
+        return view('claimscompensation::disease_claims.show', compact('incident'));
     }
 
     /**
