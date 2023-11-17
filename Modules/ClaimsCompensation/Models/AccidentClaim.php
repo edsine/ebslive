@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\EmployerManager\Models\Employee;
+use Modules\EmployerManager\Models\Employer;
 use App\Traits\Approval;
+use Modules\Shared\Models\Branch;
 
 class AccidentClaim extends Model
 {
@@ -28,5 +30,15 @@ class AccidentClaim extends Model
     public function employee()
     {
         return $this->belongsTo(Employee::class);
+    }
+
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class);
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
     }
 }

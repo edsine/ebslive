@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\EmployerManager\Models\Employee;
 use Modules\EmployerManager\Models\Employer;
 use App\Traits\Approval;
+use Modules\Shared\Models\Branch;
 
 class DeathClaim extends Model
 {
@@ -35,5 +36,10 @@ class DeathClaim extends Model
     public function employer()
     {
         return $this->belongsTo(Employer::class);
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
     }
 }

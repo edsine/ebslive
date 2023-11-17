@@ -39,56 +39,64 @@
             <td>{{ $incident->employee->first_name.' '.$incident->employee->last_name }}</td>
         </tr>
         <tr>
-            <th>Last Salary</th>
-            <td>{{ $incident->last_salary }}</td>
+            <th>Network Of Work</th>
+            <td>{{ $incident->nature_of_work }}</td>
         </tr>
         <tr>
-            <th>Monthly Contribution</th>
-            <td>{{ $incident->monthly_contribution }}</td>
+            <th>Nature Of Disease</th>
+            <td>{{ $incident->nature_of_disease }}</td>
         </tr>
         <tr>
-            <th>Incident Description</th>
-            <td>{{ $incident->incident_description }}</td>
+            <th>Diagnosed Date </th>
+            <td>{{ $incident->date_disease_diagnosed }}</td>
         </tr>
         <tr>
-            <th>Incident Date</th>
-            <td>{{ $incident->incident_date }}</td>
+            <th>Nature Of Injury</th>
+            <td>{{ $incident->nature_of_injury }}</td>
         </tr>
         <tr>
-            <th>Incident Time</th>
-            <td>{{ $incident->incident_time }}</td>
+            <th>Exposure Years</th>
+            <td>{{ $incident->exposure_years }}</td>
         </tr>
         <tr>
-            <th>Employer Account Name</th>
-            <td>{{ $incident->employer_account_name }}</td>
+            <th>Exposure Months</th>
+            <td>{{ $incident->exposure_months }}</td>
         </tr>
         <tr>
-            <th>Employer Account Number</th>
-            <td>{{ $incident->employer_account_number }}</td>
+            <th>Exposure Days</th>
+            <td>{{ $incident->exposure_days }}</td>
         </tr>
         <tr>
-            <th>Employer Bank Name</th>
-            <td>{{ $incident->employer_bank_name }}</td>
+            <th>Accident Report Date</th>
+            <td>{{ $incident->accident_report_date }}</td>
         </tr>
         <tr>
-            <th>Employer Sort Code</th>
-            <td>{{ $incident->employer_sort_code }}</td>
+            <th>Course Of Work</th>
+            <td>{{ $incident->course_of_work }}</td>
         </tr>
         <tr>
-            <th>Employee Account Name</th>
-            <td>{{ $incident->employee_account_name }}</td>
+            <th>Employment Years</th>
+            <td>{{ $incident->employment_years }}</td>
         </tr>
         <tr>
-            <th>Employee Account Number</th>
-            <td>{{ $incident->employee_account_number }}</td>
+            <th>Employment Months</th>
+            <td>{{ $incident->employment_months }}</td>
         </tr>
         <tr>
-            <th>Employee Bank Name</th>
-            <td>{{ $incident->employee_bank_name }}</td>
+            <th>Former Employers</th>
+            <td>{{ $incident->former_employers }}</td>
         </tr>
         <tr>
-            <th>Employee Sort Code</th>
-            <td>{{ $incident->employee_sort_code }}</td>
+            <th>Medical First Name</th>
+            <td>{{ $incident->medical_first_name }}</td>
+        </tr>
+        <tr>
+            <th>Medical Last Name</th>
+            <td>{{ $incident->medical_last_name }}</td>
+        </tr>
+        <tr>
+            <th>Medical Practice Number</th>
+            <td>{{ $incident->medical_practice_number }}</td>
         </tr>
         <tr>
             <th>Branch Name</th>

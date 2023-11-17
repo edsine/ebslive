@@ -64,9 +64,11 @@ class AccidentClaimController extends AppBaseController
     /**
      * Display the specified resource.
      */
-    public function show(AccidentClaim $accidentClaim)
+    public function show($id)
     {
-        //
+        $incident = AccidentClaim::findOrFail($id);
+
+        return view('claimscompensation::accident_claims.show', compact('incident'));
     }
 
     /**

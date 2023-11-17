@@ -45,7 +45,7 @@
                             <th>Claim Date</th>
                             <th>Approval Status</th>
                            {{--  <th>Manage</th> --}}
-                           <th></th>
+                           <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,7 +57,7 @@
                                 <td>
                                     <span class="tb-status text-{{$claim->status ==0 ? 'warning' : 'success'}}">{{$claim->status ? 'APPROVED' : 'PENDING'}}</span>
                                 </td>
-                                <td>
+                                {{-- <td>
                                     @if (!$claim->request && $claim->status == 0)
                                         <a class="btn btn-primary"
                                             onclick="event.preventDefault();
@@ -70,11 +70,11 @@
                                             <input type="hidden" name="id" id="id" value="{{ $claim->id }}">
                                         </form>
                                     @endif
-                                </td>
-                                {{-- <td>
-                                    <a href="/approval/request/timeline"><span class="nk-menu-icon text-info"><em
-                                                class="icon ni ni-eye"></em></span></a>
                                 </td> --}}
+                                <td>
+                                    <a href="{{ route('accident.claims.show', ['id' => $claim->id]) }}" class="text-dark"><i class="fa fa-eye"></i> View Details</a>
+
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

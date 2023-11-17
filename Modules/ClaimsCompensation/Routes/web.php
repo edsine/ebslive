@@ -26,6 +26,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('claim/death', DeathClaimController::class);
     Route::resource('claim/disease', DiseaseClaimController::class);
     Route::get('/claim/death/{id}', [DeathClaimController::class, 'show'])->name('death.claims.show');
+    Route::get('/claim/disease/{id}', [DiseaseClaimController::class, 'show'])->name('disease.claims.show');
+    Route::get('/claim/accident/{id}', [AccidentClaimController::class, 'show'])->name('accident.claims.show');
 
 
     Route::prefix('claimscompensation')->group(function () {
