@@ -115,7 +115,24 @@ public function regional(){
     //     $totalemployer=Employer::count();
     //     $managementstaff =Staff::where('ranking_id','!==',1)->count();
     
-    
+    $userdepartment=auth()->user()->staff->department_id;
+    $userbranch=auth()->user()->staff->branch_id;
+    $allstaff=Staff::where('branch_id',$userbranch)->count() ;
+   
+    $totalregion = Region::count();
+    // $totaldept= Department::count();
+    $totaldept= DB::table('departments')
+    ->join('staff','staff.department_id','=','departments.id')
+    ->join('branches','staff.branch_id','=','branches.id')
+    ->count();
+    // dd($totaldept);
+
+
+
+    // dd(auth()->user()->employer);
+    $totalemployer=Employer::count();
+
+    $managementstaff =Staff::where('ranking_id','!==',1)->count();
     
 
         return view('regionaladmin',compact('allstaff','totalregion','totaldept',
