@@ -51,6 +51,7 @@
                         </table>
                         <center><b>No any announcements at the moment</b></center>
                     </div>
+                    <BR>
                 </div>
             </div>
         </div>
