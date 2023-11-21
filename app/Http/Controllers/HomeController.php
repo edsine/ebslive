@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Modules\Shared\Models\Department;
+
 use Modules\UnitManager\Models\Region;
 use Modules\WorkflowEngine\Models\Staff;
 use Modules\EmployerManager\Models\Payment;
@@ -108,35 +109,45 @@ class HomeController extends Controller
     }
 
 
-public function regional(){
     // $allstaff=Staff::count();
     //     $totalregion = Region::count();
     //     $totaldept= Department::count();
     //     $totalemployer=Employer::count();
     //     $managementstaff =Staff::where('ranking_id','!==',1)->count();
     
-    $userdepartment=auth()->user()->staff->department_id;
-    $userbranch=auth()->user()->staff->branch_id;
-    $allstaff=Staff::where('branch_id',$userbranch)->count() ;
+    // $userdepartment=auth()->user()->staff->department_id;
+    // $userbranch=auth()->user()->staff->branch_id;
+    // $allstaff=Staff::where('branch_id',$userbranch)->count() ;
    
-    $totalregion = Region::count();
-    // $totaldept= Department::count();
-    $totaldept= DB::table('departments')
-    ->join('staff','staff.department_id','=','departments.id')
-    ->join('branches','staff.branch_id','=','branches.id')
-    ->count();
-    // dd($totaldept);
+    // $totalregion = Region::count();
+    // // $totaldept= Department::count();
+    // $totaldept= DB::table('departments')
+    // ->join('staff','staff.department_id','=','departments.id')
+    // ->join('branches','staff.branch_id','=','branches.id')
+    // ->count();
+    // // dd($totaldept);
 
 
 
-    // dd(auth()->user()->employer);
-    $totalemployer=Employer::count();
+    // // dd(auth()->user()->employer);
+    // $totalemployer=Employer::count();
+public function regional(){
 
-    $managementstaff =Staff::where('ranking_id','!==',1)->count();
+    $totalbranches= Branch::count();
+    $totalregional= Region::count();
+    $totaldepartment=Department::count();
+    // dd(auth()->user()->staff->branch);
+    $region =Region::all();
+
+    // $userregionid
+dd(auth()->user()->staff->branch);
+
+    // $managementstaff =Staff::where('ranking_id','!==',1)->count();
     
+    return view('regionaladmin',compact('totalbranches','totaldepartment','totalregional'));
 
-        return view('regionaladmin',compact('allstaff','totalregion','totaldept',
-        'totalemployer','managementstaff'));
+        // return view('regionaladmin',compact('allstaff','totalregion','totaldept',
+        // 'totalemployer','managementstaff'));
 
 }
 public function branch(Request $request){
