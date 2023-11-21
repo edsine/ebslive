@@ -103,8 +103,8 @@ class EmployerController extends AppBaseController
     public function certificates()
     {
         /* $id = Auth::user()->staff->branch_id; */
-        $certificates = Certificate::where('payment_status', 1)->paginate(10);
-        $pending = Certificate::where('payment_status', 0)->paginate(10);
+        $certificates = Certificate::where('payment_status', 1)->where('processing_status', 1)->paginate(10);
+        $pending = Certificate::where('processing_status', 0)->paginate(10);
 
 
         return view('employermanager::certificates.index', compact('certificates', 'pending'));
