@@ -16,15 +16,12 @@
                     {!! Form::label('ranking_id', 'Rank') !!}
                     {!! Form::select('ranking_id', $rank, null, ['class' => 'form-control form-control-solid border border-2 form-select']) !!}
                 </div>
-
                 <!-- Role Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('roles', 'Roles') !!}
                     {{-- {!! Form::select('roles[]',$roles,$userrole ,['class' => 'form-control form-control-solid border border-2 form-select']) !!} --}}
-                    {!! Form::select('roles[]',$roles,null, ['class' => 'form-control form-control-solid border border-2 form-select','multiple']) !!}
-                   
+                    {!! Form::select('roles[]', $roles, $single_user->roles->pluck('id')->toArray(), ['class' => 'form-control form-control-solid border border-2 form-select', 'multiple']) !!}                   
                 </div>
-
                 <!-- Email Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                     {!! Form::label('email', 'Email Address') !!}

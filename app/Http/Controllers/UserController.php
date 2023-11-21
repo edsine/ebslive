@@ -510,10 +510,11 @@ class UserController extends AppBaseController
         $roles=Role::all()->pluck('name','id')->all();
         $userrole=$user->roles->pluck('name','id')->all();
         // $roles->prepend('Select role', '');
+        $single_user = User::find($id);
 
         return view('users.edit', compact('user','roles',
         'branch', 'department', 'id',
-         'rank','userrole'));
+         'rank','userrole','single_user'));
     }
 
     /**
