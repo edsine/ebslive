@@ -95,7 +95,7 @@ class UserController extends AppBaseController
 
 
 
-         if(Auth::user()->hasRole('super-admin') || Auth::user()->hasRole('Regional Manager')){
+         if(Auth::user()->hasRole('super-admin')){
 
         $usersQuery = DB::table('users')
             ->join('staff', 'users.id', '=', 'staff.user_id')
