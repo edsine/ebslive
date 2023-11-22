@@ -80,13 +80,17 @@
                 {{-- <svg id="barcode"></svg> --}}
                 
                 <div class="nav1">
-               <div class="nav2">
+               <div class="nav2 qrcode-container">
                 {!! $qrCode !!}
                </div>
                @if (isset($signature))
                 <div class="nav2 navv">
                    <img src="{{ $signature->signature_data }}" style="width: 200px;height: auto;"/>
-                   <p style="margin-top: 0px;padding-top:0px;"><b>{{ !empty($signature->user->first_name) .' '.!empty($signature->user->middle_name).' '.!empty($signature->user->last_name) }}</b></p>
+                   <p>
+                    <b>
+                        @if(!empty($signature->user))
+                    {{ $signature->user->first_name .' '.$signature->user->middle_name.' '.$signature->user->last_name }}
+                @endif</b></p>
                 </div>
                     
                 @endif
@@ -96,21 +100,37 @@
     </div>
     </div>
     <style>
-        .nav1 {
-  text-align: left; 
-  padding: 0;
-  margin: 0;
+       .nav1 {
+    text-align: left;
+    padding: 0;
+    margin: 0;
 }
 
-.nav1 .navv{
-  text-align: right; 
+.nav2 {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
 }
 
-.nav1 .nav2 {
-  display: inline-block;
-  font-size: 20px;
-  padding: 20px;
+.qrcode-container {
+    float: left; /* Align QR code to the left */
+    margin-right: 20px; /* Adjust margin as needed */
 }
+
+.navv {
+    text-align: left; /* Align the image and text to the left */
+}
+
+.nav2 img {
+    width: 200px;
+    height: auto;
+}
+
+.nav2 p {
+    margin-top: 0;
+    padding-top: 0;
+}
+
     </style>
     {{-- <script>
         
