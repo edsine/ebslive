@@ -96,6 +96,8 @@
                         </div>
                     </div>
 
+                    
+                    
                     <!-- Branch Field -->
                     <div class="d-flex flex-column col-md-12 mb-8 fv-row">
                         {!! Form::label('branch_id', 'Branch') !!}

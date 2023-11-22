@@ -7,6 +7,7 @@ use App\Models\Vender;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Shared\Models\Branch;
 use Illuminate\Support\Facades\DB;
+use Modules\HRMSystem\Models\Loan;
 use Modules\Accounting\Models\Bill;
 use Illuminate\Support\Facades\Auth;
 use Modules\Shared\Models\Department;
@@ -14,34 +15,34 @@ use Modules\Accounting\Models\Invoice;
 use Modules\Accounting\Models\Payment;
 use Modules\Accounting\Models\Revenue;
 use Modules\Accounting\Models\Utility;
+use Modules\HRMSystem\Models\Overtime;
 use Spatie\Permission\Traits\HasRoles;
 use Modules\Accounting\Models\Customer;
 use Modules\Accounting\Models\Proposal;
+use Modules\HRMSystem\Models\Allowance;
+use Modules\HRMSystem\Models\LeaveType;
 use Illuminate\Notifications\Notifiable;
+use Modules\HRMSystem\Models\Commission;
+use Modules\HRMSystem\Models\LoanOption;
 use Modules\UnitManager\Models\UnitHead;
 use Modules\WorkflowEngine\Models\Staff;
 use OwenIt\Auditing\Contracts\Auditable;
+use Modules\HRMSystem\Models\PayslipType;
 use Modules\HumanResource\Models\Ranking;
+
 use Illuminate\Notifications\Notification;
+use Modules\HRMSystem\Models\OtherPayment;
 use Modules\EmployerManager\Models\Employer;
+use Modules\HRMSystem\Models\AllowanceOption;
+use Modules\HRMSystem\Models\DeductionOption;
+use Modules\HRMSystem\Models\AttendanceEmployee;
 use Modules\ClaimsCompensation\Models\DeathClaim;
+use Modules\HRMSystem\Models\SaturationDeduction;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
+use SebastianBergmann\CodeCoverage\Report\Xml\Unit;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Modules\DTARequests\Notifications\UnitHeadNotification;
-
-use Modules\HRMSystem\Models\Allowance;
-use Modules\HRMSystem\Models\AllowanceOption;
-use Modules\HRMSystem\Models\Commission;
-use Modules\HRMSystem\Models\DeductionOption;
-use Modules\HRMSystem\Models\Loan;
-use Modules\HRMSystem\Models\LoanOption;
-use Modules\HRMSystem\Models\OtherPayment;
-use Modules\HRMSystem\Models\Overtime;
-use Modules\HRMSystem\Models\PayslipType;
-use Modules\HRMSystem\Models\SaturationDeduction;
-use Modules\HRMSystem\Models\LeaveType;
-use Modules\HRMSystem\Models\AttendanceEmployee;
 
 
 class User extends Authenticatable implements Auditable
@@ -142,6 +143,10 @@ class User extends Authenticatable implements Auditable
     {
         // Return email address only...
         return $this->email;
+    }
+
+    public function unit(){
+        return $this->belongsTo(Unit::class);
     }
 
     public function sendUnitHeadNotification()

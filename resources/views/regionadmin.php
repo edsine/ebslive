@@ -6,9 +6,6 @@
 							<!--begin::Container-->
 							<div id="kt_content_container" class="container-xxl">
 
-									<!--begin::Toolbar-->
-		<center><h3 class="fw-bolder">Funds'  Structural Composition
-		</h3></center>
                             <div class="row g-5 g-xl-8">
 									<div class="col-xl-3">
 										<!--begin::Statistics Widget 5-->
@@ -25,8 +22,8 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalregion}}</div>
-												<div class="fw-bold"><b>Total Regional Offices</b></div>
+												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">57</div>
+												<div class="fw-bold"><b>Total No OF Branch Offices</b></div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -46,8 +43,8 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->
-												<div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">{{$totalbranches}}</div>
-												<div class="fw-bold text-gray-100">Total Branches</div>
+												<div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">{{$totalregion}}</div>
+												<div class="fw-bold text-gray-100">Total No Of Regional Offices</div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -106,9 +103,6 @@
 									
 								</div>
 
-									<!--begin::Toolbar-->
-		<center><h3 class="fw-bolder">Branch Office  Structural Composition
-		</h3></center>
 								
 								<!--begin::Row-->
 								<div class="row g-5 g-xl-10">
@@ -129,7 +123,7 @@
 																<!--end::Currency-->
 																<!--begin::Value-->
 																
-																<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1">{{$totaldept}}</span>
+																<span class="fs-2hx fw-bolder text-gray-800 me-2 lh-1">{{$managementstaff}}</span>
 																<!--end::Value-->
 																<!--begin::Label-->
 																
@@ -137,7 +131,7 @@
 															</div>
 															<!--end::Info-->
 															<!--begin::Description-->
-															<span class="fs-6 fw-bold text-gray-400">Total Department </span>
+															<span class="fs-6 fw-bold text-gray-400">Total No Of Management Staff</span>
 															<!--end::Description-->
 														</div>
 														<!--end::Statistics-->
@@ -165,7 +159,7 @@
 															<!--end::Info-->
 															<!--begin::Subtitle-->
 															<span class="text-gray-400 pt-1 fw-bold fs-6">
-Total Branch Staff</span>
+Total No of Funds Staff</span>
 															<!--end::Subtitle-->
 														</div>
 														<!--end::Title-->
@@ -222,11 +216,11 @@ Total No of Certificate Issued</span>
 														<div class="card-title d-flex flex-column">
 															
 															<!--begin::Amount-->
-															<span class="fs-2hx fw-bolder text-dark me-2 lh-1 ls-n2">0</span>
+															<span class="fs-2hx fw-bolder text-dark me-2 lh-1 ls-n2">{{$totalemployer}}</span>
 															<!--end::Amount-->
 															<!--begin::Subtitle-->
 															<span class="text-gray-400 pt-1 fw-bold fs-6">
-Claims Notification</span>
+Total No of Employers</span>
 															<!--end::Subtitle-->
 														</div>
 														<!--end::Title-->
@@ -247,7 +241,7 @@ Claims Notification</span>
 											<div class="card-header pt-7">
 												<!--begin::Title-->
 												<h3 class="card-title align-items-start flex-column">
-													<span class="card-label fw-bolder text-dark">Statistics Of Certificate Issued</span>
+													<span class="card-label fw-bolder text-dark">Annual Expenditure </span>
 													<!-- <span class="text-gray-400 pt-2 fw-bold fs-6">per Year</span> -->
 												</h3>
 												<!--end::Title-->

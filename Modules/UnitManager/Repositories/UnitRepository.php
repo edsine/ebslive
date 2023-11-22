@@ -28,6 +28,8 @@ class UnitRepository extends BaseRepository
         return $query->where('department_id', $department_id)->get();
     }
 
+    
+
     public function findByUnitHead($unit_head_id)
     {
         $query = $this->model->newQuery();
