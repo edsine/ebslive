@@ -86,19 +86,18 @@
                 </div>
 
                 <!-- Staff Form Fields -->
-                <div class="col-sm-12" id="staffDiv" style="display: none; width: 100%;">
-                    <div>
+                <div class="flex-sm-12" id="staffDiv" style="display: none; width: 100%;">
+                    <div class="row">
                         <!-- Department Field -->
-                        <div class="d-flex flex-column col-md-12 mb-8 fv-row">
+                        <div class="d-flex flex-column col-md-6 mb-8 fv-row">
                             {!! Form::label('department_id', 'Department') !!}
-                            {!! Form::select('department_id',$department,null, ['class' => 'form-control form-control-solid border border-2']) !!}
-                            
-                            {{-- @if ($user->department)
-                            {!! Form::select('department_id', $user->department->pluck('name','id'), $user->department_id, ['class' => 'form-control form-control-solid border border-2']) !!}
-                        @else
-                            {!! Form::select('department_id', [], $user->department_id, ['class' => 'form-control form-control-solid border border-2']) !!}
-                        @endif --}}
-                        
+                            {!! Form::select('department_id',$department,null, ['class' => 'form-control form-control-solid border border-2','id' => 'departmentSelect']) !!}
+                           
+                        </div>
+
+                        <div class="d-flex flex-column col-md-6 mb-8 fv-row">
+                            {!! Form::label('unit_id', 'SELECT UINIT') !!}
+                            {!! Form::select('unit_id', [] ,null, ['class' => 'form-control form-control-solid border border-2','id' => 'unitSelect']) !!}
                         </div>
 
                     </div>
@@ -108,6 +107,7 @@
                         {!! Form::label('branch_id', 'Branch') !!}
                         {!! Form::select('branch_id',$branch,null, ['class' => 'form-control form-control-solid border border-2']) !!}
                     </div>
+                   
                 </div>
             </div>
         </div>
@@ -311,4 +311,28 @@
     });
 </script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // JavaScript to handle the department selection and update user dropdown
+    $('#departmentSelect').on('change', function () {
+        const selectedDepartmentId = $(this).val();
+        var homeUrl = window.location.origin;
+        if (selectedDepartmentId) {
+           
 
+            $.get(`${homeUrl}/dept/${selectedDepartmentId}`, function (units) {
+                $('#unitSelect').empty().append('<option value="">Select Unit </option>');
+                
+                var u = JSON.stringify(units);
+                  
+                $.each(units, function (index,unit) {
+                    // alert(unit)
+                    $('#unitSelect').append(`<option value="${unit.id}">${unit.unit_name}</option>`);
+                });
+            
+            });
+        } else {
+            $('#unitSelect').empty().append('<option value="">Select Unit </option>');
+        }
+    });
+</script>

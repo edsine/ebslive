@@ -2,23 +2,24 @@
 
 namespace Modules\UnitManager\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
+use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
+use Illuminate\Support\Facades\DB;
+use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Auth;
+use App\Repositories\StaffRepository;
+use Modules\UnitManager\Models\UnitHead;
+use App\Http\Controllers\AppBaseController;
+use Illuminate\Contracts\Support\Renderable;
+
+use Modules\UnitManager\Repositories\UnitRepository;
+use Modules\Shared\Repositories\DepartmentRepository;
 use Modules\UnitManager\Http\Requests\CreateUnitRequest;
 use Modules\UnitManager\Http\Requests\UpdateUnitRequest;
-use App\Http\Controllers\AppBaseController;
-use Modules\UnitManager\Repositories\UnitRepository;
+use Modules\UnitManager\Models\Units;
 use Modules\UnitManager\Repositories\UnitHeadRepository;
-use Laracasts\Flash\Flash;
-use App\Repositories\UserRepository;
-use App\Repositories\StaffRepository;
-use Illuminate\Support\Facades\Auth;
-use Modules\Shared\Repositories\DepartmentRepository;
-use Illuminate\Support\Facades\DB;
-use Modules\UnitManager\Models\UnitHead;
-
 
 
 class UnitController extends AppBaseController
@@ -87,6 +88,17 @@ class UnitController extends AppBaseController
         $u = array();
         $u = $users;
         return $u;
+    }
+
+    public function getUnitsByDepartment($departmentid)
+    {
+        // $units = Units::where('department_id', $departmentid)->get();
+       
+           $units= DB::table('units')
+           ->where('department_id',$departmentid)
+           ->select('id','unit_name')->get();
+       return $units;
+       
     }
 
     public function getUsersByBranch($branchId)

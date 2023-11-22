@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
 use OwenIt\Auditing\Contracts\Auditable;
 use Modules\HumanResource\Models\Event;
+use SebastianBergmann\CodeCoverage\Report\Xml\Unit;
 
 /**
  * @OA\Schema(
@@ -76,6 +77,9 @@ use Modules\HumanResource\Models\Event;
        /*  'branch_id' => 'required' */
     ];
 
+    public function unit(){
+        return $this->hasMany(Unit::class);
+    }
     public function branch(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(\Modules\Shared\Models\Branch::class, 'branch_id', 'id');

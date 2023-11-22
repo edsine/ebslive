@@ -7,38 +7,39 @@ use view;
 
 use Response;
 use App\Models\User;
+use App\Mail\EBSMail;
+use App\Models\Signature;
 use Laracasts\Flash\Flash;
+use App\Mail\BulkStaffEmail;
 use Illuminate\Http\Request;
 use App\Notifications\UserCreated;
 use Illuminate\Support\Collection;
+
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
-use App\Repositories\RoleRepository;
 
+use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Repositories\StaffRepository;
 use Modules\Shared\Models\Department;
+use Modules\UnitManager\Models\Region;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Modules\WorkflowEngine\Models\Staff;
+use Illuminate\Support\Facades\Validator;
+use Modules\HRMSystem\Models\Designation;
 use Modules\HumanResource\Models\Ranking;
 use App\Http\Controllers\AppBaseController;
-use App\Mail\EBSMail;
 use Illuminate\Support\Facades\Notification;
+use Modules\EmployerManager\Models\Employer;
 use Modules\Shared\Repositories\BranchRepository;
 use Modules\Shared\Repositories\DepartmentRepository;
-use Modules\HumanResource\Repositories\RankingRepository;
-use Illuminate\Support\Facades\Mail;
-use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\UsersImport; // Create this import class
-use Illuminate\Support\Facades\Validator;
-use Modules\EmployerManager\Models\Employer;
-use App\Models\Signature;
-use App\Mail\BulkStaffEmail;
-use Modules\HRMSystem\Models\Designation;
+use Modules\HumanResource\Repositories\RankingRepository;
 
 
 
@@ -279,10 +280,13 @@ class UserController extends AppBaseController
         $roles = $this->roleRepository->all()->pluck('name', 'id');
         $roles->prepend('Select role', '');
         $branch = $this->branchRepository->all()->pluck('branch_name', 'id');
+      
+      
         $department = $this->departmentRepository->all()->pluck('department_unit', 'id');
         return view('users.create', compact('roles', 'branch', 'department', 'rank'));
     }
 
+    
     /**
      * Store a newly created User in storage.
      *
@@ -356,6 +360,7 @@ class UserController extends AppBaseController
              // Email password creation was successful
              // Continue with user data saving
              // Create a new staff
+             
              $this->staffRepository->create($input);
          }
      
@@ -542,14 +547,18 @@ class UserController extends AppBaseController
 
         $input =  $request->all();
 
+        
         // Retrieve the value of the checkbox
         $checkboxValue = $request->input('checkbox');
-
+        
         // Check if the checkbox is checked
         if ($checkboxValue == 1) {
             // Checkbox is checked
             //Get user id from newly created user and assign it to user_id post input
             $input['user_id'] = $user->userId;
+            
+           
+            
             //Check for file upload and upload to public  directory
             if ($request->hasFile('profile_picture')) {
                 $file = $request->file('profile_picture');
@@ -584,6 +593,7 @@ class UserController extends AppBaseController
        //updating their staff_id
        $input['staff_id']=$request->input('staff_id');
        
+        $input['unit_id']=$request->input('unit_id');
 
         $user = $this->userRepository->update($input, $id);
         DB::table('model_has_roles')->where('model_id', $id)->delete();

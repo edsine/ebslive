@@ -16,6 +16,7 @@
 		<!--begin::Toolbar-->
 		<center><h3 class="fw-bolder">Funds'  Structural Composition
 			</h3></center>
+			
 
 			<div class="d-flex flex-wrap flex-stack mb-6">
 				<!--begin::Title-->
@@ -41,7 +42,7 @@
 							</span>
 							
 							<!--end::Svg Icon-->
-							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">0
+							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalbranches}}
 							
 							</div>
 							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF BRANCHES </b></div>
@@ -68,7 +69,7 @@
 							</span>
 							
 							<!--end::Svg Icon-->
-							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">11
+							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalregional}}
 							
 							</div>
 							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF REGIONAL OFFICES</b></div>
@@ -95,7 +96,7 @@
 							</span>
 							
 							<!--end::Svg Icon-->
-							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">0
+							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totaldepartment}}
 							
 							</div>
 							<div class="fw-bold" style="color:green"><b>TOTAL NO OF DEPARTMENTS</b></div>
@@ -156,7 +157,7 @@
 							</span>
 							
 							<!--end::Svg Icon-->
-							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">0
+							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalbranchinregion}}
 							
 							</div>
 							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF BRANCH IN MY REGION</b></div>
@@ -183,7 +184,7 @@
 							</span>
 							
 							<!--end::Svg Icon-->
-							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">0
+							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totaldepartmentinregion}}
 							
 							</div>
 							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF DEPARTMENT</b></div>
@@ -210,7 +211,7 @@
 							</span>
 							
 							<!--end::Svg Icon-->
-							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">0
+							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalstaffinregion}}
 							
 							</div>
 							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF STAFF</b></div>
@@ -237,7 +238,7 @@
 							</span>
 							
 							<!--end::Svg Icon-->
-							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">0
+							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalunitinregion}}
 							
 							</div>
 							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF UNIT</b></div>
@@ -271,7 +272,7 @@
 							</span>
 							
 							<!--end::Svg Icon-->
-							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">0
+							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalemployersinbranch}}
 							
 							</div>
 							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF EMPLOYER</b></div>
@@ -298,7 +299,7 @@
 							</span>
 							
 							<!--end::Svg Icon-->
-							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">0
+							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalcerticateinbranches}}
 							
 							</div>
 							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF CERTIFICATE ISSUED</b></div>
