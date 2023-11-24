@@ -40,6 +40,7 @@ use Modules\Shared\Repositories\BranchRepository;
 use Modules\Shared\Repositories\DepartmentRepository;
 use App\Imports\UsersImport; // Create this import class
 use Modules\HumanResource\Repositories\RankingRepository;
+use Illuminate\Support\Facades\Log;
 
 
 
@@ -378,11 +379,20 @@ class UserController extends AppBaseController
          
          // Send notification to user about his account details
          //Notification::send($user, new UserCreated($input));
-         Mail::to($input['alternative_email'])->send(new BulkStaffEmail($user, $input['alternative_email'], $password));
-     
-         Flash::success('User saved successfully.');
-     
-         return redirect(route('users.index'));
+         try {
+            Mail::to($input['alternative_email'])->send(new BulkStaffEmail($user, $input['alternative_email'], $password));
+            
+            Flash::success('User saved successfully.');
+            return redirect(route('users.index'));
+        } catch (\Exception $e) {
+            // Handle the exception here
+            Flash::error('Failed to send email: ' . $e->getMessage());
+            // You might want to log the exception for further investigation
+            Log::error('Failed to send email: ' . $e->getMessage());
+            
+            // Redirect back to the form or wherever you need
+            return redirect(route('users.index'));
+        }
      }
      
      public function showChangePasswordForm()
