@@ -101,7 +101,7 @@
         @if ($incident->document)
         <tr>
             <th>Document</th>
-            <td><a href="{{ asset($incident->document) }}" target="_blank" class="text-dark">Open PDF Document</a>
+            <td><a href="{{ 'https://essp.nsitf.gov.ng/'.$incident->document }}" target="_blank" class="text-dark">Open PDF Document</a>
             </td>
         </tr>
         @endif
