@@ -5,7 +5,7 @@
         <span class="menu-bullet">
             <span class="fa fa-table"></span>
         </span>
-        <span class="menu-title">Form Builder</span>
+        <span class="menu-title spicyj">Form Builder</span>
     </a>
     <!--end:Menu link-->
 </div>
