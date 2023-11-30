@@ -11,6 +11,7 @@ use Modules\WorkflowEngine\Models\Staff;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ResetPassword;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Auth\Passwords\PasswordBrokerManager;
 
 class ForgotPasswordController extends Controller
 {
@@ -40,20 +41,49 @@ class ForgotPasswordController extends Controller
         $this->sendEmailsToUsers($request->input('email'));
 
         // Send reset link to staff
-       $alt_email = $this->sendEmailsToStaff($email);
+        $alt_email = $this->sendEmailsToStaff($email);
 
         return redirect()->back()->with('status', "Password reset link sent to both $email and $alt_email successfully. Incase you did not see it in your inbox after 10 minutes, check your spam.");
     }
 
-    protected function sendEmailsToUsers($email)
+    /* protected function sendEmailsToUsers($email)
     {
         // Implement logic to send reset link to users
     
         // Send reset link to users
         Password::broker()->sendResetLink(['email' => $email]);
+    } */
+    protected function sendEmailsToUsers($email)
+    {
+        $token = Password::broker()->createToken(User::where('email', $email)->first());
+
+        $token_url = url("/password/reset/$token?email=$email");
+
+        Mail::to($email)->send(new ResetPassword($token_url));
     }
 
     protected function sendEmailsToStaff($email)
+    {
+        $user = User::where('email', $email)->first();
+
+        if ($user) {
+            $alternativeEmail = optional($user->staff)->alternative_email;
+
+            // Use Laravel's PasswordBrokerManager to create a reset token
+            $tokenBroker = app(PasswordBrokerManager::class)->broker();
+            $token = $tokenBroker->createToken($user);
+
+            if ($alternativeEmail) {
+                $token_url = url("/password/reset/$token?email=$email");
+
+                // Use Laravel's Mailables to send the email
+                Mail::to($alternativeEmail)->send(new ResetPassword($token_url));
+
+                return $alternativeEmail;
+            }
+        }
+    }
+    /*  protected function sendEmailsToStaff($email)
     {
         // Implement logic to send reset link to staff
         // Fetch the user's user_id based on their email
@@ -77,7 +107,5 @@ class ForgotPasswordController extends Controller
                return $alternativeEmail;
             }
         }
-    }
-    
-
+    } */
 }
