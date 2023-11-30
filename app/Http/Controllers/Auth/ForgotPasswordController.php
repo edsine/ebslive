@@ -46,13 +46,6 @@ class ForgotPasswordController extends Controller
         return redirect()->back()->with('status', "Password reset link sent to both $email and $alt_email successfully. Incase you did not see it in your inbox after 10 minutes, check your spam.");
     }
 
-    /* protected function sendEmailsToUsers($email)
-    {
-        // Implement logic to send reset link to users
-    
-        // Send reset link to users
-        Password::broker()->sendResetLink(['email' => $email]);
-    } */
     protected function sendEmailsToUsers($email)
     {
         $token = Password::broker()->createToken(User::where('email', $email)->first());
@@ -83,29 +76,5 @@ class ForgotPasswordController extends Controller
             }
         }
     }
-    /*  protected function sendEmailsToStaff($email)
-    {
-        // Implement logic to send reset link to staff
-        // Fetch the user's user_id based on their email
-        $user = User::where('email', $email)->first();
-    
-        if ($user) {
-            $userId = $user->id;
-    
-            // Use $userId to fetch the alternative_email from the staff table
-            $alternativeEmail = Staff::where('user_id', $userId)->value('alternative_email');
-    
-            $token = DB::table('password_resets')->where('email', $email)->value('token');
-    
-            if ($alternativeEmail) {
-                // Build the reset password URL
-                $token_url = (string)url("/password/reset/$token?email=$email");
-    
-                // Pass the $token argument to the ResetPassword constructor
-               Mail::to($alternativeEmail)->send(new ResetPassword($token_url));
-
-               return $alternativeEmail;
-            }
-        }
-    } */
+   
 }
