@@ -8,7 +8,8 @@
                 <div class="d-flex flex-stack flex-grow-1 card-p">
                     <div class="d-flex flex-column me-2">
                         <a href="#" class="text-dark text-hover-primary fw-bold fs-3">REGISTERED EMPLOYERS</a>
-                        <span class="text-muted fw-semibold mt-1">Analytics as at 10:32:38A today</span>
+                        <span class="text-muted fw-semibold mt-1">Analytics as at {{ now()->format('Y-m-d H:i:s') }}
+ </span>
                     </div>
                     <span class="symbol symbol-50px">
                         <span class="symbol-label fs-5 fw-bold bg-light-success text-success">{{$registered_employers}}</span>
@@ -30,7 +31,8 @@
                 <div class="d-flex flex-stack flex-grow-1 card-p">
                     <div class="d-flex flex-column me-2">
                         <a href="#" class="text-dark text-hover-primary fw-bold fs-3">PENDING EMPLOYERS</a>
-                        <span class="text-muted fw-semibold mt-1">Analytics as at 10:32:38A toady</span>
+                        <span class="text-muted fw-semibold mt-1">Analytics as at {{ now()->format('Y-m-d H:i:s') }}
+ </span>
                     </div>
                     <span class="symbol symbol-50px">
                         <span class="symbol-label fs-5 fw-bold bg-light-success text-success">{{$pending_employers}}</span>
@@ -52,7 +54,8 @@
                 <div class="d-flex flex-stack flex-grow-1 card-p">
                     <div class="d-flex flex-column me-2">
                         <a href="#" class="text-dark text-hover-primary fw-bold fs-3">REGISTERED EMPLOYEES</a>
-                        <span class="text-muted fw-semibold mt-1">Analytics as at 10:32:38A toady</span>
+                        <span class="text-muted fw-semibold mt-1">Analytics as at {{ now()->format('Y-m-d H:i:s') }}
+ </span>
                     </div>
                     <span class="symbol symbol-50px">
                         <span class="symbol-label fs-5 fw-bold bg-light-success text-success">{{$registered_employees}}</span>
@@ -74,7 +77,8 @@
                 <div class="d-flex flex-stack flex-grow-1 card-p">
                     <div class="d-flex flex-column me-2">
                         <a href="#" class="text-dark text-hover-primary fw-bold fs-3">INCOMPLETE EMPLOYEES</a>
-                        <span class="text-muted fw-semibold mt-1">Analytics as at 10:32:38A toady</span>
+                        <span class="text-muted fw-semibold mt-1">Analytics as at {{ now()->format('Y-m-d H:i:s') }}
+ </span>
                     </div>
                     <span class="symbol symbol-50px">
                         <span class="symbol-label fs-5 fw-bold bg-light-success text-success">{{$pending_employees}}</span>
