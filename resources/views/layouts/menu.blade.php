@@ -266,6 +266,7 @@ $departmentData = getDepartmentData();
 
                 </div>
 								</div>
+								@include('formbuilder::layouts.menu')
                                 <div class="menu-item">
                 <!--begin:Menu link-->
                 <span class="menu-link">
