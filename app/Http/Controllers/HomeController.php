@@ -17,6 +17,8 @@ use Modules\EmployerManager\Models\Employee;
 use Modules\EmployerManager\Models\Employer;
 use Modules\EmployerManager\Models\Certificate;
 use Modules\ClaimsCompensation\Models\ClaimsCompensation;
+use App\Models\AttendanceEmployee;
+
 
 class HomeController extends Controller
 {
@@ -509,5 +511,66 @@ public function procurementadmin(){
 
         return response()->json($response);
     }
+
+    public function clockIn(Request $request)
+{
+    // Validate the request data as needed
+    $data = $request->validate([
+        'employee_id' => 'required',
+        // Add validation rules for other fields
+    ]);
+
+    // Check if the user has already clocked in for the current day
+    $existingAttendance = AttendanceEmployee::where('employee_id', Auth::user()->id)
+        ->where('date', now()->toDateString())
+        ->where('status', 'Clock In')
+        ->first();
+
+    if ($existingAttendance) {
+        return response()->json(['message' => 'You have already clocked in for today.']);
+    }
+
+    // Insert the clock-in record
+    $data['date'] = now()->toDateString(); // Current date
+    $data['status'] = 'Clock In';
+    $data['clock_in'] = now()->toTimeString(); // Current time
+    $data['clock_out'] = now()->toTimeString(); // Current time
+    $data['employee_id'] = Auth::user()->id;
+    $data['late'] = now()->toTimeString();
+    $data['early_leaving'] = now()->toTimeString();
+    $data['overtime'] = now()->toTimeString();
+    $data['total_rest'] = "23";
+    $data['created_by'] = "4";
+
+    $attendance = AttendanceEmployee::create($data);
+
+    return response()->json(['message' => 'Clock In Successful']);
+}
+
+    public function clockOut(Request $request)
+    {
+        // Validate the request data as needed
+        $data = $request->validate([
+            'employee_id' => 'required',
+            // Add validation rules for other fields
+        ]);
+
+        // Find the last clock-in record for the user and update the clock-out time
+        $attendance = AttendanceEmployee::where('employee_id', $data['employee_id'])
+            ->where('date', now()->toDateString()) // Current date
+            ->where('status', 'Clock In')
+            ->latest()
+            ->first();
+
+        if ($attendance) {
+            $attendance->status = 'Clock Out';
+            $attendance->clock_out = now()->toTimeString(); // Current time
+            $attendance->save();
+            return response()->json(['message' => 'Clock Out Successful']);
+        }
+
+        return response()->json(['message' => 'No matching Clock In record found'], 404);
+    }
+
 
 }

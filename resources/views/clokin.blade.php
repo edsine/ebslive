@@ -7,13 +7,14 @@
                     <h3>Mark Attendance</h3>
                 </div>
                 <div class="card-body dash-card-body">
-                    <h5 class="text-muted pb-0-5">My Office Time: 08:00am to 05:00pm</h5>
+                    <h5 class="text-muted pb-0-5">My Office Time: 08:00am to 05:00pm </h5>
                     <br>
                     <center>
                         <div class="row">
                             <div class="col-md-6">
-                                <button type="button" id="clock_in" class="btn btn-success" onclick="hideCards()">CLOCK IN</button>
+                                <button type="button" id="clock_in" class="btn btn-success" @if(auth()->user()->hasClockedInToday()) disabled @endif onclick="hideCards()">CLOCK IN</button>
                             </div>
+                            
                             <div class="col-md-6">
                                 <button type="button" id="clock_out" class="btn btn-danger" disabled>CLOCK OUT</button>
                             </div>

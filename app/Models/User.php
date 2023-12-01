@@ -1027,6 +1027,17 @@ class User extends Authenticatable implements Auditable
     {
         return $this->hasMany('Modules\HRMSystem\Models\EmployeeDocument', 'employee_id', 'employee_id')->get();
     }
+
+    public function hasClockedInToday()
+    {
+        return $this->attendance()->whereDate('date', now()->toDateString())->where('status', 'Clock In')->exists();
+    }
+
+    // Add this relationship to the User model
+    public function attendance()
+    {
+        return $this->hasMany(AttendanceEmployee::class, 'employee_id');
+    }
     
 
 }
