@@ -469,76 +469,88 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-<!-- <script>
+<script>
+
 function clockIn() {
-const currentTime = new Date().toLocaleTimeString();
+    const currentTime = new Date().toLocaleTimeString();
 
-const data = {
-    employee_id: 123, // Replace with the actual employee ID
-    // Add other data fields if required
-};
+    const data = {
+        employee_id: 123, // Replace with the actual employee ID
+        // Add other data fields if required
+    };
 
-$.ajax({
-    url: '{{route('clock-in')}}',
-    type: 'POST',
-    data: {
-        _token: '{{ csrf_token() }}', 
-        ...data, // Spread the data object
-    },
-    success: function(response) {
-        alert(JSON.stringify(response));
+    $.ajax({
+        url: '{{route('clock-in')}}',
+        type: 'POST',
+        data: {
+            _token: '{{ csrf_token() }}',
+            ...data, // Spread the data object
+        },
+        success: function (response) {
+            if (response.status === 'success') {
+                // Display a success message using SweetAlert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Clocked In Successfully!',
+                    text: `You clocked in at ${currentTime}`,
+                    showConfirmButton: false,
+                });
 
-        if (response.status === 'success') {
-            // Display a success message
+                // Disable the "CLOCK IN" button and change its color to light green
+                document.getElementById("clock_in").disabled = true;
+                document.getElementById("clock_in").classList.remove("btn-success");
+                document.getElementById("clock_in").classList.add("btn-light");
+            } else {
+                console.error('Clock-in request failed.');
+                // Optionally, you can show an error message using SweetAlert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Clocked In Successfully!',
+                    text: `You clocked in at ${currentTime}`,
+                    showConfirmButton: false,
+                });
+            }
+        },
+        error: function (error) {
+            // Handle network errors
+            console.error('Network error:', error);
+            // Optionally, you can show an error message using SweetAlert
             Swal.fire({
-                icon: 'success',
-                title: 'Clocked In Successfully!',
-                text: `You clocked in at ${currentTime}`,
-                showConfirmButton: false,
+                icon: 'error',
+                title: 'Clock In Failed',
+                text: 'There was a network error during clock in.',
             });
-
-            // Disable the "CLOCK IN" button and change its color to light green
-            document.getElementById("clock_in").disabled = true;
-            document.getElementById("clock_in").classList.remove("btn-success");
-            document.getElementById("clock_in").classList.add("btn-light");
-        } else {
-            console.error('Clock-in request failed.');
-        }
-    },
-    error: function(error) {
-        alert(JSON.stringify(error));
-        // Handle network errors
-        console.error('Network error:', error);
-    }
-});
+        },
+    });
 }
 
 document.getElementById("clock_in").addEventListener("click", clockIn);
-</script> -->
 
-
-<script>
-document.getElementById("clock_in").addEventListener("click", function() {
-    // Simulate a successful clock-in action.
-    const currentTime = new Date().toLocaleTimeString();
-    
-    // Display a SweetAlert success message.
-    Swal.fire({
-        icon: 'success',
-        title: 'Clocked In Successfully!',
-        text: `You clocked in at ${currentTime}`,
-        showConfirmButton: false,
-        footer: '<button class="btn btn-success">OK</button>'
-    });
-
-    // Disable the "CLOCK IN" button and change its color to light green.
-    document.getElementById("clock_in").disabled = true;
-    document.getElementById("clock_in").classList.remove("btn-clk");
-    document.getElementById("clock_in").classList.add("btn-success");
-});
-
-// Add logic for the "CLOCK OUT" button here.
 </script>
+
+
+// <script>
+// document.getElementById("clock_in").addEventListener("click", function() {
+//     // Simulate a successful clock-in action.
+//     const currentTime = new Date().toLocaleTimeString();
+    
+//     // Display a SweetAlert success message.
+//     Swal.fire({
+//         icon: 'success',
+//         title: 'Clocked In Successfully!',
+//         text: `You clocked in at ${currentTime}`,
+//         showConfirmButton: false,
+//         footer: '<button class="btn btn-success">OK</button>'
+//     });
+
+//     // Disable the "CLOCK IN" button and change its color to light green.
+//     document.getElementById("clock_in").disabled = true;
+//     document.getElementById("clock_in").classList.remove("btn-clk");
+//     document.getElementById("clock_in").classList.add("btn-success");
+// });
+
+// // Add logic for the "CLOCK OUT" button here.
+// </script> -->
 
 {{-- <script src="{{asset('assets/js/plugins/apexcharts.min.js')}}"></script> --}}
 
