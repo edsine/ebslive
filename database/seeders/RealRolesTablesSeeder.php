@@ -36,7 +36,8 @@ class RealRolesTablesSeeder extends Seeder
                 'Branch Manager',
                 'Regional Manager',
                 'permsec',
-                'minister'
+                'minister',
+                
                 
             ];
 

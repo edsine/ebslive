@@ -93,6 +93,7 @@ Route::get('/permsec', [HomeController::class, 'pamsec'])->name('permsec');
 Route::get('/branch', [HomeController::class, 'branch'])->name('branch');
 Route::get('/region', [HomeController::class, 'regional'])->name('region');
 Route::get('/ed_md', [HomeController::class, 'edfinance'])->name('ed_md');
+Route::get('/ed_admin', [HomeController::class, 'edadmin'])->name('ed_admin');
 
 Route::get('/riskadmin',[HomeController::class,'riskadmin']);
 
