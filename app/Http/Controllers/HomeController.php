@@ -66,7 +66,13 @@ class HomeController extends Controller
         else if(Auth::check() && Auth::user()->hasRole('ED ADMIN'))
         {
 
-            return redirect()->route('ed_md');
+            return redirect()->route('ed_admin');
+        }
+        else if(Auth::check() && Auth::user()->hasRole('ED OPERATION'))
+        {
+
+            return redirect()->route('ed_op');
+            //atp take note, you have not yet done page for ed_op,no role as ed operation yet
         }
         else if(Auth::check() && Auth::user()->hasRole('MD'))
         {
@@ -249,26 +255,13 @@ public function edfinance(){
     'totalstaff'));
 }
 public function edadmin(){
-    $branchtotal= Branch::count();
-        
-    
-    $departmenttotal = Department::count();
-    $regiontotal= Region::count();
-    $revenuefromecs=Payment::where('payment_type',1)->count();
-    $revenuefromcertificate=Payment::where('payment_type',2)->count();
-    $revenuefromregistration=Payment::where('payment_type',3)->count();
-    $totalstaff =Staff::count();
-    $totalemployers=Employer::count();
-    $totalemployees=Employee::count();
-    $totalcertificate=Certificate::count();
+    $totalbranch=Branch::count();
+    $totalregion=Region::count();
+    $totaldept=Department::count();
 
-    return view('minister',compact('branchtotal','departmenttotal',
-    'regiontotal','revenuefromecs',
-    'revenuefromcertificate','revenuefromregistration','totalemployers',
-    'totalemployees','totalcertificate',
-   
-    'totalstaff'));
+    return view('ed_admin',compact('totalbranch','totalregion','totaldept'));
 }
+
 
 
     public function minister()
