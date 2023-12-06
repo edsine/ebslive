@@ -497,7 +497,7 @@ class FormBuilderController extends AppBaseController
                 } */
             }
 
-            return redirect()->back()->with('success', __('Data submit successfully.'));
+            return redirect()->back()->with('success', __('Data submitted successfully.'));
         }
         else
         {
