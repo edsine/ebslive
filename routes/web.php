@@ -121,6 +121,7 @@ Route::get('/viewreplymail', [HomeController::class, 'viewReplyMail'])->name('vi
 
 Auth::routes();
 
+Route::view('op','ed_op');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('myedit/{id}', [UserController::class, 'myedit'])->name('myedit');
