@@ -82,6 +82,18 @@
                                 <img src="{{asset($logo.$favicon)}}" class="navbar-brand-img big-logo">
                             </a>
                         </div>
+                        <div>
+                            @if(session()->has('success'))
+<div class="alert alert-success" style="color: green; font-weight:bold">
+{{ session()->get('success') }}
+</div>
+@endif
+@if(session()->has('error'))
+<div class="alert alert-error" style="color: red; font-weight:bold">
+{{ session()->get('error') }}
+</div>
+@endif
+                        </div>
                         <div class="card shadow zindex-100 mb-0">
                             @if($form->is_active == 1)
                                 {{Form::open(array('route'=>array('form.view.store'),'method'=>'post'))}}

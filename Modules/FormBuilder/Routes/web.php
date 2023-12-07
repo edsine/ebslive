@@ -37,6 +37,7 @@ Route::delete('/form_builder/{id}/field/{fid}', [FormBuilderController::class, '
 
 // Form Response
 Route::get('/form_response/{id}', [FormBuilderController::class, 'viewResponse'])->name('form.response')->middleware(['auth']);
+//Route::get('/form_builder/show/{id}', [FormBuilderController::class, 'viewResponse'])->name('form_builder.show')->middleware(['auth']);
 Route::get('/response/{id}', [FormBuilderController::class, 'responseDetail'])->name('response.detail')->middleware(['auth']);
 
 
