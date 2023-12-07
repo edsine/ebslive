@@ -29,6 +29,7 @@ use Modules\HumanResource\Repositories\LeaveRequestRepository;
 use Modules\UnitManager\Repositories\UnitHeadRepository;
 use Modules\UnitManager\Models\UnitHead;
 use Modules\Shared\Models\DepartmentHead;
+use Modules\Approval\Models\Request as ModelsRequest;
 
 
 
@@ -191,7 +192,13 @@ public function __construct(UnitHeadRepository $unitHeadRepo,UserRepository $use
             'staff_id' => $user->staff->id,
             'type_id' => 2,//for casual leave requests
             'order' => 1,//order/step of the flow
+            'next_step' => 1,
             'action_id' => 1,//action taken id 1= create
+        ]);
+
+        ModelsRequest::where('id', $approval_request->id)->update([
+            'next_step' => 1,
+            // Add other columns and their values as needed
         ]);
 
         Flash::success('Leave Requests sent successfully.');

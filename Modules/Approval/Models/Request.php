@@ -10,6 +10,7 @@ use Modules\Approval\Events\RequestCreated;
 use Modules\Approval\Events\RequestUpdated;
 use Modules\Approval\Events\RequestSavedEvent;
 use Modules\WorkflowEngine\Models\Staff;
+use Modules\EmployerManager\Models\Employer;
 
 class Request extends Model
 {
@@ -46,6 +47,11 @@ class Request extends Model
     {
         return $this->type()->with('flows');
     } */
+
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class);
+    }
 
     public function staff()
     {

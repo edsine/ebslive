@@ -57,8 +57,17 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="px-2">{{ $request->staff->user->first_name }}
-                                {{ $request->staff->user->last_name }}</td>
+                            <td class="px-2">{{-- {{ $request->staff->user->first_name }}
+                                {{ $request->staff->user->last_name }} --}}
+                                {{
+                                    !empty($request->staff->user) ?
+                                    $request->staff->user->first_name.' '.$request->staff->user->last_name :
+                                    optional(Modules\EmployerManager\Models\Employer::find($request->staff_id))->contact_firstname.' '.
+                                    optional(Modules\EmployerManager\Models\Employer::find($request->staff_id))->contact_surname ??
+                                    'Unknown Contact'
+                                    
+                                }}
+                            </td>
                             <td>{{ $request->type->name }}</td>
                             <td>{{ $request->order }} of {{ $request->type->flows->count() }}</td>
                             <td>{{ Modules\Approval\Models\Action::find($request->action_id)->status }}</td>
@@ -199,7 +208,8 @@
             }
         @endphp
 
-        @if($request->status != 1 && $user_can_appraise)
+        {{-- @if($request->status != 1 && $user_can_appraise) --}}
+        @if($user_can_appraise)
         {{$request->type->flow}}
         <div class="card mb-5">
             <form action="{{ route('appraisal.store') }}" method="POST" enctype="multipart/form-data">
@@ -214,7 +224,7 @@
                         ->orderBy('approval_order', 'ASC')
                         ->first();
                 @endphp
-                <input type="hidden" name="order" id="order" value="{{ $next_step->approval_order }}">
+                <input type="hidden" name="order" id="order" value="{{ isset($next_step) ? $next_step->approval_order : '1' }}">
 
                 <div class="card-body p-5">
                     <h4>Current Step::{{ $request->next_step }} - Your appraisal on this request</h4>

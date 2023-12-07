@@ -20,6 +20,54 @@ class AppraisalController extends Controller
      */
     public function index()
     {
+        // Check if the user has staff information
+if (auth()->user()->staff == null) {
+    $requests = [];
+} else {
+    // Get the user's roles
+    $userRoleId = auth()->user()->roles->pluck('id')->first();
+    $staffId = auth()->user()->staff->id;
+
+    // Check if the user has roles
+    //if (count($userRoles) > 0) {
+        // Build the query using the Laravel Query Builder
+        $sqlQuery = "
+    SELECT requests.id
+    FROM requests
+    JOIN flows ON requests.type_id = flows.type_id AND requests.next_step = flows.approval_order
+    WHERE flows.id IN (
+        SELECT flow_id
+        FROM flow_role
+        WHERE role_id = $userRoleId
+        GROUP BY flow_id
+    )
+    AND requests.deleted_at IS NULL
+    AND requests.status = 0
+    AND (
+        requests.order = requests.next_step
+        OR (
+            requests.staff_id = $staffId
+            AND requests.order <> requests.next_step
+        )
+    );
+";
+
+// Execute the raw SQL query
+$requests = DB::select($sqlQuery);
+    //} else {
+        // User has no roles
+    //    $requests = [];
+   // }
+}
+
+// Pass the data to the view
+return view('approval::appraisal.index', compact('requests'));
+
+        
+    }
+
+    public function index_old()
+    {
         if (auth()->user()->staff == null) {
             $requests = [];
         } else {
@@ -123,6 +171,7 @@ class AppraisalController extends Controller
 
         if ($request->action_id < 4) { //created|modified|approved
             $mr->order = $request->order;
+            $mr->next_step = $request->order;
         } elseif ($request->action_id == 4) { //returned
             //take to previous order
             $prev_step = $mr->type->flows()
@@ -140,12 +189,20 @@ class AppraisalController extends Controller
                 ->first();
 
             $mr->order = $new_order;
-            $mr->next_step = $prev_step ? $next_step->approval_order : $mr->order;
+            //$mr->next_step = $prev_step ? $next_step->approval_order : $mr->order;
+            $mr->next_step = $mr->order;
         } else { //declined
-
+            
         }
         $mr->action_id = $request->action_id;
+            $mr->next_step = $request->order;
+            //$mr->status = ($request->order === 1) ? 1 : 0;
+        
         $mr->save();
+        ModelsRequest::where('id', $request->id)->update([
+            'next_step' => $request->order,
+            // Add other columns and their values as needed
+        ]);
 
         Flash::success('Request appraised successfully.');
 

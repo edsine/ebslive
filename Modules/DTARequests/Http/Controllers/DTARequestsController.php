@@ -24,6 +24,7 @@ use Modules\DTARequests\Repositories\DTARequestsRepository;
 use Illuminate\Support\Facades\Notification;
 use Modules\DTARequests\Notifications\UnitHeadNotification;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Modules\Approval\Models\Request as ModelsRequest;
 
 
 
@@ -196,7 +197,12 @@ class DTARequestsController extends AppBaseController
                 'staff_id' => $staff_id->id,
                 'type_id' => 3,//for dta requests
                 'order' => 1,//order/step of the flow
+                'next_step' => 1,
                 'action_id' => 1,//action taken id 1= create
+            ]);
+            ModelsRequest::where('id', $approval_request->id)->update([
+                'next_step' => 1,
+                // Add other columns and their values as needed
             ]);
 
             return redirect(route('dtarequests.index'));
@@ -215,6 +221,8 @@ class DTARequestsController extends AppBaseController
      */
     public function show($id)
     {
+        // Explicitly cast $id to an integer
+    //$id = (int)$id;
         $dtarequests = $this->dtaRequestsRepository->find($id);
 
         if (empty($dtarequests)) {

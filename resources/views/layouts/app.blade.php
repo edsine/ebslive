@@ -52,7 +52,7 @@
 
     <link rel="stylesheet" href="{{ asset('new_assets/assets/css/plugins/flatpickr.min.css') }}">
 
-    <link href="{{ asset('css/sweetalert2.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/sweetalert2.min.css') }}" rel="stylesheet"> --}}
     <!-- Custom Asset end -->
 
     @stack('third_party_stylesheets')
@@ -467,7 +467,7 @@
 </script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+   {{--  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> --}}
 
 <script>
 
@@ -560,7 +560,7 @@ document.getElementById("clock_in").addEventListener("click", clockIn);
     </script>
 
     <!-- Start::bootstrap-sweet-alert -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/sweetalert2.min.js') }}"></script>
     <!-- end::bootstrap-sweet-alert -->

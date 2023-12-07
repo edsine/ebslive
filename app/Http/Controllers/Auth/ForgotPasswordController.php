@@ -48,6 +48,7 @@ class ForgotPasswordController extends Controller
 
     protected function sendEmailsToUsers($email)
     {
+        //$token = Password::broker()->createToken(User::where('email', $email)->first());
         $token = Password::broker()->createToken(User::where('email', $email)->first());
 
         $token_url = url("/password/reset/$token?email=$email");
@@ -63,8 +64,9 @@ class ForgotPasswordController extends Controller
             $alternativeEmail = optional($user->staff)->alternative_email;
 
             // Use Laravel's PasswordBrokerManager to create a reset token
-            $tokenBroker = app(PasswordBrokerManager::class)->broker();
-            $token = $tokenBroker->createToken($user);
+            //$tokenBroker = app(PasswordBrokerManager::class)->broker();
+            //$token = $tokenBroker->createToken($user);
+            $token = Password::createToken($user);
 
             if ($alternativeEmail) {
                 $token_url = url("/password/reset/$token?email=$email");
