@@ -7,7 +7,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class RealRolesTablesSeeder extends Seeder
+class LatestRolesTablesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,23 +20,10 @@ class RealRolesTablesSeeder extends Seeder
 
         $roleNames =
             [
-                'MD',
-                'INSPECTION',
-                'HOD',
-                'ED FINANCE & ACCOUNT',
-            
-                'ADMINISTRATION',
-                'USER',
-                'SUPERVISOR',
-                'CERTIFICATE/COMPLIANCE',
-                'LEAVE PROCESSING OFFICER',
-                'REGISTRY OFFICER',
-                'ED ADMIN',
-                'HR',
-                'Branch Manager',
-                'Regional Manager',
-                'permsec',
-                'minister',
+                'ED OPERATIONS',
+                'MVT',
+                'MER',
+                'DRILL OFFICER'
             
                 
                 
