@@ -68,7 +68,7 @@ class HomeController extends Controller
 
             return redirect()->route('ed_admin');
         }
-        else if(Auth::check() && Auth::user()->hasRole('ED OPERATION'))
+        else if(Auth::check() && Auth::user()->hasRole('ED OPERATIONS'))
         {
 
             return redirect()->route('ed_op');
@@ -262,7 +262,13 @@ public function edadmin(){
     return view('ed_admin',compact('totalbranch','totalregion','totaldept'));
 }
 
+public function edops(){
 
+    $totalbranch=Branch::count();
+    $totalregion=Region::count();
+    $totaldept=Department::count();
+    return view('ed_op',compact('totalbranch','totalregion','totaldept'));
+}
 
     public function minister()
     {
@@ -286,6 +292,8 @@ public function edadmin(){
        
         'totalstaff'));
     }
+
+
 
 
     public function hradmin()
