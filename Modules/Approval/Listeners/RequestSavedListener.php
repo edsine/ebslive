@@ -17,6 +17,8 @@ use Modules\Approval\Notifications\RequestDeclinedNotification;
 use Modules\Approval\Notifications\RequestSavedNotification;
 use Modules\Shared\Models\Branch;
 use Modules\Shared\Models\Department;
+use Illuminate\Support\Facades\Log;
+use Modules\EmployerManager\Models\Employer;
 
 class RequestSavedListener
 {
@@ -52,9 +54,18 @@ class RequestSavedListener
         //if new approval request - CREATED
         if ($event->request && $event->request->action_id == 1) {
             //notify request creator
-            $email = $request->staff->user->email;
-            Notification::route('mail', $email)
-                ->notify(new RequestSavedNotification($event->request));
+            
+            $email = !empty($request->staff->user) ? $request->staff->user->email : 
+             Employer::find($request->staff_id)->company_email;
+            /* Notification::route('mail', $email)
+                ->notify(new RequestSavedNotification($event->request)); */
+                try {
+                    Notification::route('mail', $email)
+                        ->notify(new RequestSavedNotification($event->request));
+                } catch (\Exception $exception) {
+                    // Handle the exception for this specific notification
+                    Log::error("Error notifying request creator: " . $exception->getMessage());
+                }
         }
 
 
@@ -82,9 +93,17 @@ class RequestSavedListener
                     if ($last_step == null) {
                         //if ($last_step->approval_order == $request->order) {
                         //send email to creator about completion
-                        $email = $request->staff->user->email;
-                        Notification::route('mail', $email)
-                            ->notify(new RequestApprovedNotification($event->request));
+                        $email = !empty($request->staff->user) ? $request->staff->user->email : 
+             Employer::find($request->staff_id)->company_email;
+                        /* Notification::route('mail', $email)
+                            ->notify(new RequestApprovedNotification($event->request)); */
+                            try {
+                                Notification::route('mail', $email)
+                                    ->notify(new RequestApprovedNotification($event->request));
+                            } catch (\Exception $exception) {
+                                // Handle the exception for this specific notification
+                                Log::error("Error notifying request creator: " . $exception->getMessage());
+                            }
                     }
 
                     //if has next step
@@ -95,9 +114,10 @@ class RequestSavedListener
                         ->first();
 
                     //update request to show next step or null if non
-                    $request->next_step = $next_step ? $next_step->approval_order : null;
-                    $request->status = $next_step ? 0 : 1; //request is completed or closed
-                    $request->saveQuietly(); //do not trigger notifications
+                    //$request->next_step = $next_step ? $next_step->approval_order : null;
+                    $request->next_step = $next_step ? $next_step->approval_order : 1;
+                    $request->status = 0;//$next_step ? 0 : 1; //request is completed or closed
+                    $request->saveQuietly(); //do not trigger notifications $mr->status = ($request->order === 1) ? 1 : 0;
 
                     if ($next_step) {
                         /*
@@ -136,7 +156,13 @@ class RequestSavedListener
 
                         //notify request receiver | next step scope
                         //-send notification
-                        Notification::send($all_users, new RequestSavedNotification($event->request, 0));
+                        //Notification::send($all_users, new RequestSavedNotification($event->request, 0));
+                        try {
+                            Notification::send($all_users, new RequestSavedNotification($event->request, 0));
+                        } catch (\Exception $exception) {
+                            // Handle the exception for this specific notification
+                            Log::error("Error notifying request creator: " . $exception->getMessage());
+                        }
                     }
                 };
                 break;
@@ -206,7 +232,13 @@ class RequestSavedListener
                                 ->get();
                         }
 
-                        Notification::send($all_users, new RequestSavedNotification($event->request, 0));
+                        //Notification::send($all_users, new RequestSavedNotification($event->request, 0));
+                        try {
+                            Notification::send($all_users, new RequestSavedNotification($event->request, 0));
+                        } catch (\Exception $exception) {
+                            // Handle the exception for this specific notification
+                            Log::error("Error notifying request creator: " . $exception->getMessage());
+                        }
                     }
                 };
                 break;
@@ -216,9 +248,17 @@ class RequestSavedListener
                     $request->saveQuietly();
 
                     //notify creator of declined status
-                    $email = $request->staff->user->email;
-                    Notification::route('mail', $email)
+                    $email = !empty($request->staff->user) ? $request->staff->user->email : 
+             Employer::find($request->staff_id)->company_email;
+                    /* Notification::route('mail', $email)
+                        ->notify(new RequestDeclinedNotification($event->request)); */
+                        try {
+                            Notification::route('mail', $email)
                         ->notify(new RequestDeclinedNotification($event->request));
+                        } catch (\Exception $exception) {
+                            // Handle the exception for this specific notification
+                            Log::error("Error notifying request creator: " . $exception->getMessage());
+                        }
                 };
                 break;
             default: {

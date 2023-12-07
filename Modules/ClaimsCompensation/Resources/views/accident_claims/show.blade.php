@@ -14,11 +14,11 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1>
-                    Death Claims Details
+                    Accident Claims Details
                 </h1>
             </div>
             <div class="col-sm-6">
-                <a class="btn btn-default float-right" href="{{ url('claim/death/') }}">
+                <a class="btn btn-default float-right" href="{{ url('claim/accident/') }}">
                     Back
                 </a>
             </div>
@@ -38,57 +38,50 @@
             <th>Employee Name</th>
             <td>{{ $incident->employee->first_name.' '.$incident->employee->last_name }}</td>
         </tr>
+        
         <tr>
-            <th>Last Salary</th>
-            <td>{{ $incident->last_salary }}</td>
+            <th>Accident Date</th>
+            <td>{{ $incident->accident_date }}</td>
         </tr>
         <tr>
-            <th>Monthly Contribution</th>
-            <td>{{ $incident->monthly_contribution }}</td>
+            <th>Accident Time</th>
+            <td>{{ $incident->accident_time }}</td>
         </tr>
         <tr>
-            <th>Incident Description</th>
-            <td>{{ $incident->incident_description }}</td>
+            <th>Accident Town</th>
+            <td>{{ $incident->accident_town }}</td>
         </tr>
         <tr>
-            <th>Incident Date</th>
-            <td>{{ $incident->incident_date }}</td>
+            <th>Employee Earning</th>
+            <td>{{ $incident->employee_earning }}</td>
         </tr>
         <tr>
-            <th>Incident Time</th>
-            <td>{{ $incident->incident_time }}</td>
+            <th>Employee Task</th>
+            <td>{{ $incident->employee_task }}</td>
         </tr>
         <tr>
-            <th>Employer Account Name</th>
-            <td>{{ $incident->employer_account_name }}</td>
+            <th>Nature Of Injury</th>
+            <td>{{ $incident->nature_of_injury }}</td>
         </tr>
         <tr>
-            <th>Employer Account Number</th>
-            <td>{{ $incident->employer_account_number }}</td>
+            <th>Course Of Work</th>
+            <td>{{ $incident->course_of_work }}</td>
         </tr>
         <tr>
-            <th>Employer Bank Name</th>
-            <td>{{ $incident->employer_bank_name }}</td>
+            <th>First Aid Given</th>
+            <td>{{ $incident->first_aid_given }}</td>
         </tr>
         <tr>
-            <th>Employer Sort Code</th>
-            <td>{{ $incident->employer_sort_code }}</td>
+            <th>Medical First Name</th>
+            <td>{{ $incident->medical_first_name }}</td>
         </tr>
         <tr>
-            <th>Employee Account Name</th>
-            <td>{{ $incident->employee_account_name }}</td>
+            <th>Medical Last Name</th>
+            <td>{{ $incident->medical_last_name }}</td>
         </tr>
         <tr>
-            <th>Employee Account Number</th>
-            <td>{{ $incident->employee_account_number }}</td>
-        </tr>
-        <tr>
-            <th>Employee Bank Name</th>
-            <td>{{ $incident->employee_bank_name }}</td>
-        </tr>
-        <tr>
-            <th>Employee Sort Code</th>
-            <td>{{ $incident->employee_sort_code }}</td>
+            <th>Medical Practice Number</th>
+            <td>{{ $incident->medical_practice_number }}</td>
         </tr>
         <tr>
             <th>Branch Name</th>

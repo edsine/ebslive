@@ -12,6 +12,7 @@ use Modules\FormBuilder\Models\FormResponse;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Modules\Approval\Models\Request as ModelsRequest;
 
 
 class FormBuilderController extends AppBaseController
@@ -358,14 +359,15 @@ class FormBuilderController extends AppBaseController
         /* if(Auth::user()->can('view form response'))
         { */
             $form = FormBuilder::find($form_id);
-            if($form->created_by == Auth::user()->id)
+           /*  if($form->created_by == Auth::user()->id)
             {
                 return view('formbuilder::form_builder.response', compact('form'));
             }
             else
             {
                 return response()->json(['error' => __('Permission Denied . ')], 401);
-            }
+            } */
+            return view('formbuilder::form_builder.response', compact('form'));
         /* }
         else
         {
@@ -380,7 +382,10 @@ class FormBuilderController extends AppBaseController
         { */
             $formResponse = FormResponse::find($response_id);
             $form         = FormBuilder::find($formResponse->form_id);
-            if($form->created_by == Auth::user()->id)
+            $response = json_decode($formResponse->response, true);
+
+                return view('formbuilder::form_builder.response_detail', compact('response'));
+            /* if($form->created_by == Auth::user()->id)
             {
                 $response = json_decode($formResponse->response, true);
 
@@ -389,7 +394,7 @@ class FormBuilderController extends AppBaseController
             else
             {
                 return response()->json(['error' => __('Permission Denied . ')], 401);
-            }
+            } */
         /* }
         else
         {
@@ -444,12 +449,20 @@ class FormBuilderController extends AppBaseController
             }
 
             // store response
-            FormResponse::create(
+            $form_response = FormResponse::create(
                 [
                     'form_id' => $form->id,
                     'response' => json_encode($arrFieldResp),
                 ]
             );
+
+            $formResponse = $form_response->request()->create([
+                'staff_id' => auth()->user()->staff->id,
+                'type_id' => 9,//for form builder
+                'order' => 1,//order/step of the flow
+                'next_step' => 1,
+                'action_id' => 1,//action taken id 1= create
+            ]);
 
             // in form convert lead is active then creat lead
             if($form->is_lead_active == 1)
@@ -496,6 +509,10 @@ class FormBuilderController extends AppBaseController
                     }
                 } */
             }
+            ModelsRequest::where('id', $formResponse->id)->update([
+                'next_step' => 1,
+                // Add other columns and their values as needed
+            ]);
 
             return redirect()->back()->with('success', __('Data submitted successfully.'));
         }

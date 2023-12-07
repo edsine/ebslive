@@ -93,6 +93,15 @@ class TypeTableSeeder extends Seeder
                 'duration' => 3,
                 'status' => true,
             ],
+            [
+                'name' => 'Form Builder',
+                'cycle' => 'Periodically',
+                'scopeable_type' => null,
+                'scopeable_id' => null,
+                'metric' => 'Days',
+                'duration' => 7,
+                'status' => true,
+            ],
         ];
 
         DB::table('types')->insert($types);
