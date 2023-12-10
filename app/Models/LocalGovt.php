@@ -15,4 +15,5 @@ class LocalGovt extends Model
         'state_id',
         'status'
     ];
+
 }
