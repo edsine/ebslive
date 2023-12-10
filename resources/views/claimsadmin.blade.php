@@ -2,7 +2,6 @@
 
 @section('content')
 
-<div class="container-fluid">
   {{-- Start::Sweet-alert --}}
   @include('flash::message')
   {{-- end::Sweet-alert --}}

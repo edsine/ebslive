@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-
+Route::get('/user-info', [HomeController::class, 'getUserInfo'])->middleware('auth');
 Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')
     ->name('io_generator_builder');
 Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@fieldTemplate')

@@ -18,6 +18,7 @@ use Modules\EmployerManager\Models\Employer;
 use Modules\EmployerManager\Models\Certificate;
 use Modules\ClaimsCompensation\Models\ClaimsCompensation;
 use App\Models\AttendanceEmployee;
+use App\Models\Staffs;
 
 
 class HomeController extends Controller
@@ -232,6 +233,7 @@ public function branch(Request $request){
             
 
 }
+
 
 public function edfinance(){
     $branchtotal= Branch::count();
@@ -548,6 +550,8 @@ public function procurementadmin(){
     return response()->json(['message' => 'Clock In Successful']);
 }
 
+
+
     public function clockOut(Request $request)
     {
         // Validate the request data as needed
@@ -571,6 +575,30 @@ public function procurementadmin(){
         }
 
         return response()->json(['message' => 'No matching Clock In record found'], 404);
+    }
+
+
+    public function getUserInfo()
+    {
+        // Get the user ID of the currently authenticated user
+        $userId = Auth::user()->id;
+
+        // Retrieve user information based on the user ID
+        $user = Staff::with('branch')->find($userId);
+
+        if ($user) {
+            $branch = $user->branch;
+
+            if ($branch) {
+                $branchName = $branch->branch_name;
+                $region = $branch->branch_region;
+
+                return view('home', compact('branchName', 'region'));
+            }
+        }
+
+        // Handle the case where the user or branch is not found
+        return abort(404);
     }
 
 
