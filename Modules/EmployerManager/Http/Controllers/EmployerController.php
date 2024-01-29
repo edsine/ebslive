@@ -151,8 +151,10 @@ class EmployerController extends AppBaseController
                 ->sum('amount');
         }
 
-        $currentYearExpiration1 = Payment::where('employer_id', $certificate->employer->id)
+        /* $currentYearExpiration1 = Payment::where('employer_id', $certificate->employer->id)
             ->whereYear('invoice_generated_at', '=', $currentYear)
+            ->value('invoice_duration'); */
+            $currentYearExpiration1 = Payment::where('id', $certificate->payment_id)
             ->value('invoice_duration');
 
         $currentYearExpiration = Carbon::createFromFormat('Y-m-d', $currentYearExpiration1)->format('F d, Y');

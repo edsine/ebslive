@@ -115,8 +115,13 @@ class RequestSavedListener
 
                     //update request to show next step or null if non
                     //$request->next_step = $next_step ? $next_step->approval_order : null;
+                    $lastStep = $request->type->flows()
+    //->where('approval_order', '>', $request->order)
+    ->where('status', 1)
+    ->latest('approval_order')
+    ->first();
                     $request->next_step = $next_step ? $next_step->approval_order : 1;
-                    $request->status = 0;//$next_step ? 0 : 1; //request is completed or closed
+                    $request->status = 0; //($lastStep == null) ? 1 : 0; //request is completed or closed
                     $request->saveQuietly(); //do not trigger notifications $mr->status = ($request->order === 1) ? 1 : 0;
 
                     if ($next_step) {
