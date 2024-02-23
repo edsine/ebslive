@@ -52,10 +52,17 @@ class EmployerController extends AppBaseController
         $local_govt = LocalGovt::where('status', 1)->get();
 
         $s_branchId = intval(session('branch_id'));
-        $employers = Employer::where('branch_id', $s_branchId)->orderBy('created_at', 'DESC');
+        if(Auth::user()->hasRole('super-admin')){
+        $employers = Employer::orderBy('created_at', 'DESC');
+
+        $pendingstaff1 = Employer::where('status', 0);
+        $activestaff1 = Employer::where('status', 1);
+        }else{
+            $employers = Employer::where('branch_id', $s_branchId)->orderBy('created_at', 'DESC');
 
         $pendingstaff1 = Employer::where('branch_id', $s_branchId)->where('status', 0);
         $activestaff1 = Employer::where('branch_id', $s_branchId)->where('status', 1);
+        }
 
         if ($request->filled('search')) {
             $employers->where('ecs_number', 'like', '%' . $request->search . '%')
