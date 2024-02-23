@@ -70,7 +70,7 @@ $departmentData = getDepartmentData();
 										<span class="menu-arrow"></span>
 									</span>
                                     <div class="menu-sub menu-sub-accordion menu-active-bg">
-                    @if (in_array(Auth()->user()->staff->department_id, $departmentData['departmentIdsToCheck1']))
+                    @if (in_array(Auth()->user()->staff->department_id, $departmentData['departmentIdsToCheck1'])  || \Auth::id() == 1)
 
                     @include('employermanager::layouts.menu')
                     @endif
