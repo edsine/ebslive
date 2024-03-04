@@ -190,17 +190,24 @@
 <!--end::Content-->
 
 @endsection
+@push('page_css')
+<!-- Select2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css" rel="stylesheet" />
 
+@endpush
 
-@push('page_scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+@push('page_scripts'){{-- 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
 <script>
     $(document).ready(function () {
         $('select[name="user_id"]').select2({
             theme: 'bootstrap',
             placeholder: 'Select a Team Member',
-            minimumResultsForSearch: 0 // Show search input
+            minimumInputLength: 1 // Show results only when at least one character is typed
+            //minimumResultsForSearch: 5 // Show search input
+           // maximumInputLength: 5 // Limit the number of characters in the search input
+
         });
     });
 </script>

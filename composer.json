@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0.2",
         "aws/aws-sdk-php-laravel": "^3.8",
+        "barryvdh/laravel-dompdf": "^2.0",
         "botman/botman": "^2.8",
         "botman/driver-web": "^1.5",
         "darkaonline/l5-swagger": "8.*",

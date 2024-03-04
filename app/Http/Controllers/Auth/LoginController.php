@@ -47,9 +47,9 @@ class LoginController extends Controller
 
     public function login(Request $request)
 {
-    // Validate the user's input
+    // Validate the user's input |regex:/@nsitf\.gov\.ng$/i
     $request->validate([
-        'email' => 'required|email|regex:/@nsitf\.gov\.ng$/i',
+        'email' => 'required|email',
         'password' => 'required',
     ]);
 

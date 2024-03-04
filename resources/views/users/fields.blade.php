@@ -65,7 +65,7 @@
             <div class="row">
                 <!-- Password Field -->
                 <div class="form-group col-sm-6">
-                    {!! Form::label('password', 'Password (Password must be a minimum of 12 characters including atleast a number and symbol)') !!}
+                    {!! Form::label('password', 'Password') !!}
                     {!! Form::password('password', ['id' => 'password','class' => 'form-control form-control-solid border border-2','autocomplete' => "off"]) !!}
                     <div id="password-strength" class="form-text" style="color:brown;font-weight: bolder"></div>
                 </div>
@@ -369,11 +369,11 @@
     const passwordStrength = document.getElementById('password-strength');
     const passwordMatch = document.getElementById('password-match');
     
-    passwordInput.addEventListener('input', function() {
+    /* passwordInput.addEventListener('input', function() {
         const password = this.value;
         const strength = checkPasswordStrength(password);
         displayPasswordStrength(strength);
-    });
+    }); */
     
     passwordConfirmationInput.addEventListener('input', function() {
         checkPasswordMatch();

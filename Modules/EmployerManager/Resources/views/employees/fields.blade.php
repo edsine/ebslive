@@ -26,7 +26,7 @@
 <!-- Date Of Birth Field -->
 <div class="form-group d-flex flex-column col-md-6 mb-8 fv-row">
     {!! Form::label('date_of_birth', 'Date Of Birth:', ['class' => 'required fs-6 fw-semibold mb-2']) !!}
-    {!! Form::text('date_of_birth', null, [
+    {!! Form::date('date_of_birth', null, [
         'class' => 'form-control form-control-solid border',
         'id' => 'date_of_birth',
     ]) !!}
@@ -34,7 +34,7 @@
 
 @push('page_scripts')
     <script type="text/javascript">
-        $('#date_of_birth').datepicker()
+       // $('#date_of_birth').datepicker()
     </script>
 @endpush
 
@@ -59,7 +59,7 @@
 <!-- Employment Date Field -->
 <div class="form-group d-flex flex-column col-md-6 mb-8 fv-row">
     {!! Form::label('employment_date', 'Employment Date:', ['class' => 'required fs-6 fw-semibold mb-2']) !!}
-    {!! Form::text('employment_date', null, [
+    {!! Form::date('employment_date', null, [
         'class' => 'form-control form-control-solid border',
         'id' => 'employment_date',
     ]) !!}
@@ -67,7 +67,7 @@
 
 @push('page_scripts')
     <script type="text/javascript">
-        $('#employment_date').datepicker()
+      //  $('#employment_date').datepicker()
     </script>
 @endpush
 
@@ -120,7 +120,7 @@
 <!-- Identity Issue Date Field -->
 <div class="form-group d-flex flex-column col-md-6 mb-8 fv-row">
     {!! Form::label('identity_issue_date', 'Identity Issue Date:', ['class' => 'required fs-6 fw-semibold mb-2']) !!}
-    {!! Form::text('identity_issue_date', null, [
+    {!! Form::date('identity_issue_date', null, [
         'class' => 'form-control form-control-solid border',
         'id' => 'identity_issue_date',
     ]) !!}
@@ -128,14 +128,14 @@
 
 @push('page_scripts')
     <script type="text/javascript">
-        $('#identity_issue_date').datepicker()
+        //$('#identity_issue_date').datepicker()
     </script>
 @endpush
 
 <!-- Identity Expiry Date Field -->
 <div class="form-group d-flex flex-column col-md-6 mb-8 fv-row">
     {!! Form::label('identity_expiry_date', 'Identity Expiry Date:', ['class' => 'required fs-6 fw-semibold mb-2']) !!}
-    {!! Form::text('identity_expiry_date', null, [
+    {!! Form::date('identity_expiry_date', null, [
         'class' => 'form-control form-control-solid border',
         'id' => 'identity_expiry_date',
     ]) !!}
@@ -143,7 +143,7 @@
 
 @push('page_scripts')
     <script type="text/javascript">
-        $('#identity_expiry_date').datepicker()
+       // $('#identity_expiry_date').datepicker()
     </script>
 @endpush
 

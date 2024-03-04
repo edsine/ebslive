@@ -24,13 +24,10 @@
             <div class="row">
                 <!--begin::Col for User Id Field -->
                 <div class="col-md-6 fv-row">
-                    <label class="required fs-6 fw-semibold mb-2">@lang('Staff') ( <small
-                            class="help-block text-success">@lang('Select a staff')</small>) </label>
-                    <select name="user_id" class="form-select form-select-solid select-box" data-hide-search="true"
-                        data-placeholder="Select a Team Member">
+                    <label class="required fs-6 fw-semibold mb-2">@lang('Staff') (<small class="help-block text-success">@lang('Select a staff')</small>)</label>
+                    <select name="user_id" class="form-select form-select-solid selectpicker" data-live-search="true" data-style="btn-select" title="Select a Team Member">
                         @foreach ($employers as $item)
-                            <option value="{{ $item->id }}">
-                                {{ $item->name . ' ' . $item->last_name . ' - ' . $item->email }}</option>
+                        <option value="{{ $item->id }}">{{ $item->name . ' ' . $item->last_name . ' - ' . $item->email }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -213,7 +210,7 @@
         <!-- Company Registered date Field -->
         <div class="d-flex flex-column col-md-12 mb-8 fv-row">
             {!! Form::label('registered_date', 'Company Registered Date ', ['class' => 'required fs-6 fw-semibold mb-2']) !!}
-            {!! Form::text('registered_date', null, [
+            {!! Form::date('registered_date', null, [
                 'class' => 'form-control form-control-solid border',
                 'placeholder' => 'Enter Company Registered Date',
             ]) !!}
@@ -246,7 +243,7 @@
         <!-- Company Localgovt Field -->
         <div class="d-flex flex-column col-md-6 mb-8 fv-row">
             {!! Form::label('company_localgovt', 'Company Localgovt: ', ['class' => 'required fs-6 fw-semibold mb-2']) !!}
-            <select id="local-dd" class="form-control">
+            <select name="company_localgovt" id="local-dd" class="form-control">
             </select>
             {{-- <select id="local" name="company_localgovt" class="form-control" required="">
         <option>Select Local Government</option>
@@ -285,13 +282,13 @@
         </div>
 
         <!-- Inspection Status Field -->
-        <div class="d-flex flex-column col-md-12 mb-8 fv-row">
+        {{-- <div class="d-flex flex-column col-md-12 mb-8 fv-row" style="">
             {!! Form::label('inspection_status', 'Inspection Status: ', ['class' => 'required fs-6 fw-semibold mb-2']) !!}
             {!! Form::text('inspection_status', null, [
                 'class' => 'form-control form-control-solid border',
                 'placeholder' => 'Enter Inspection Status',
             ]) !!}
-        </div>
+        </div> --}}
 
         <!--  Status Field -->
         <div class="d-flex flex-column col-md-12 mb-8 fv-row">
@@ -301,6 +298,18 @@
                 'placeholder' => 'Enter Status',
             ]) !!}
         </div>
+         <!-- Password Field -->
+         <div class="form-group col-sm-6">
+            {!! Form::label('password', 'Password ') !!}
+            {!! Form::password('password', ['id' => 'password','class' => 'form-control form-control-solid border border-2','autocomplete' => "off"]) !!}
+            <div id="password-strength" class="form-text" style="color:brown;font-weight: bolder"></div>
+        </div>
+        <div class="d-flex flex-column col-md-12 mb-8 fv-row">
+            {!! Form::label('branch_id', 'Branch') !!}
+            {!! Form::select('branch_id',$branches,null, ['class' => 'form-control form-control-solid border border-2']) !!}
+        </div>
+
+       
     </div>
     <!--end::Wrapper-->
 </div>
