@@ -27,6 +27,7 @@ use App\Imports\UsersImport; // Create this import class
 use Illuminate\Support\Facades\Validator;
 use Modules\EmployerManager\Imports\EmployersImport;
 use App\Models\Signature;
+use Illuminate\Support\Facades\Hash;
 
 class EmployerController extends AppBaseController
 {
@@ -76,27 +77,30 @@ class EmployerController extends AppBaseController
                 ->orWhere('business_area', 'like', '%' . $request->search . '%')
                 ->orWhere('status', 'like', '%' . $request->search . '%');
 
-            $pendingstaff1->where('ecs_number', 'like', '%' . $request->search . '%')
-                ->orWhere('company_name', 'like', '%' . $request->search . '%')
-                ->orWhere('company_email', 'like', '%' . $request->search . '%')
-                ->orWhere('company_address', 'like', '%' . $request->search . '%')
-                ->orWhere('company_rcnumber', 'like', '%' . $request->search . '%')
-                ->orWhere('company_phone', 'like', '%' . $request->search . '%')
-                ->orWhere('company_localgovt', 'like', '%' . $request->search . '%')
-                ->orWhere('company_state', 'like', '%' . $request->search . '%')
-                ->orWhere('business_area', 'like', '%' . $request->search . '%')
-                ->orWhere('status', 'like', '%' . $request->search . '%');
-
-            $activestaff1->where('ecs_number', 'like', '%' . $request->search . '%')
-                ->orWhere('company_name', 'like', '%' . $request->search . '%')
-                ->orWhere('company_email', 'like', '%' . $request->search . '%')
-                ->orWhere('company_address', 'like', '%' . $request->search . '%')
-                ->orWhere('company_rcnumber', 'like', '%' . $request->search . '%')
-                ->orWhere('company_phone', 'like', '%' . $request->search . '%')
-                ->orWhere('company_localgovt', 'like', '%' . $request->search . '%')
-                ->orWhere('company_state', 'like', '%' . $request->search . '%')
-                ->orWhere('business_area', 'like', '%' . $request->search . '%')
-                ->orWhere('status', 'like', '%' . $request->search . '%');
+                $pendingstaff1->where(function($query) use ($request) {
+                    $query->where('ecs_number', 'like', '%' . $request->search . '%')
+                        ->where('status', '=', 0)
+                        ->orWhere('company_name', 'like', '%' . $request->search . '%')
+                        ->orWhere('company_email', 'like', '%' . $request->search . '%')
+                        ->orWhere('company_address', 'like', '%' . $request->search . '%')
+                        ->orWhere('company_rcnumber', 'like', '%' . $request->search . '%')
+                        ->orWhere('company_phone', 'like', '%' . $request->search . '%')
+                        ->orWhere('company_localgovt', 'like', '%' . $request->search . '%')
+                        ->orWhere('company_state', 'like', '%' . $request->search . '%')
+                        ->orWhere('business_area', 'like', '%' . $request->search . '%');
+                });
+            $activestaff1->where(function($query) use ($request) {
+                $query->where('ecs_number', 'like', '%' . $request->search . '%')
+                    ->where('status', '=', 1)
+                    ->orWhere('company_name', 'like', '%' . $request->search . '%')
+                    ->orWhere('company_email', 'like', '%' . $request->search . '%')
+                    ->orWhere('company_address', 'like', '%' . $request->search . '%')
+                    ->orWhere('company_rcnumber', 'like', '%' . $request->search . '%')
+                    ->orWhere('company_phone', 'like', '%' . $request->search . '%')
+                    ->orWhere('company_localgovt', 'like', '%' . $request->search . '%')
+                    ->orWhere('company_state', 'like', '%' . $request->search . '%')
+                    ->orWhere('business_area', 'like', '%' . $request->search . '%');
+            });
         }
 
         $pendingstaff = $pendingstaff1->paginate(10);
@@ -242,6 +246,10 @@ class EmployerController extends AppBaseController
     {
         $input = $request->all();
         $input['created_by'] =  Auth::user()->id;
+        $input['inspection_status'] =  0;
+        $input['company_phone'] =  $request->contact_number;
+        $input['password'] = Hash::make($request->password);
+        $input['branch_id'] =  $request->branch_id;
 
         // $document_url = $path . "/" . $file;
         $file = $request->file('certificate_of_incorporation');
@@ -384,5 +392,14 @@ class EmployerController extends AppBaseController
         $employees = $employees->paginate(10);
 
         return view('employermanager::employers.employee', compact('employer', 'employees'));
+    }
+
+    public function employerECSPayment(Request $request, $id)
+    {
+
+        $employer = $this->employerRepository->find($id);
+        
+
+        return view('employermanager::employers.ecs-payment', compact('employer'));
     }
 }

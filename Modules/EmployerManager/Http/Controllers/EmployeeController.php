@@ -48,7 +48,7 @@ class EmployeeController extends AppBaseController
         $state = State::where('status', 1)->get();
         $local_govt = LocalGovt::where('status', 1)->get();
         $employer = $employerData->id;
-        return view('employermanager::employees.create', compact('employer','state', 'local_govt'));
+        return view('employermanager::employees.create', compact('employer','state', 'local_govt', 'employerData'));
     }
 
     /**

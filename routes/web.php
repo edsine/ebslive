@@ -74,6 +74,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/essp/payments', [ESSPPaymentController::class, 'index'])->name('essp.payments');
     Route::patch('/approve-payment/{id}', [ESSPPaymentController::class, 'approvePayment'])
     ->name('approvePayment');
+    Route::get('essp/payment/remita', [ESSPPaymentController::class, 'callbackRemita'])->name('essp.payment.callback');
+    Route::post('essp/payment/remita', [ESSPPaymentController::class, 'generateRemita'])->name('essp.payment.remita');
 });
 
 
@@ -141,6 +143,9 @@ Route::get('certicate',[CertificateController::class,'index'])->name('certicate'
     Route::post('change-email-password', [UserController::class,'changePassword'])->name('change.email.password');
     Route::post('/save-signature', [UserController::class,'saveSignature']);
     Route::get('/change-signature', [UserController::class,'changeSignature'])->name('change.signature');
+
+    Route::get('new-email-password', [UserController::class,'newWebmail'])->name('new.email.password.form');
+    Route::post('new-email-password', [UserController::class,'saveWebmail'])->name('new.email.password');
 });
 
 // Route::get('/account', function () {

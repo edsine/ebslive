@@ -102,12 +102,12 @@ class Employer extends Model implements Auditable
 
     public function state()
     {
-        return $this->belongsTo('app\Models\State','company_state');
+        return $this->belongsTo('App\Models\State','company_state');
     }
 
     public function localGovernment()
     {
-        return $this->belongsTo('app\Models\LocalGovt','company_localgovt');
+        return $this->belongsTo('App\Models\LocalGovt','company_localgovt');
     }
 
     public function employees()
@@ -119,5 +119,6 @@ class Employer extends Model implements Auditable
     {
         return $this->hasMany(Payment::class);
     }
+
 
 }

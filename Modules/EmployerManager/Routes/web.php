@@ -30,3 +30,5 @@ Route::get('employer/employees/{id}', 'EmployerController@employees')->name('emp
 Route::resource('employees', Modules\EmployerManager\Http\Controllers\EmployeeController::class);
 
 Route::get('employer/create-employees/{id}', 'EmployeeController@createEmployee')->name('employer.create-employees');
+
+Route::get('employer/ecs/payment/{id}', 'EmployerController@employerECSPayment')->name('employer.ecs.payment');

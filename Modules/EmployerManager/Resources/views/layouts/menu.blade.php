@@ -33,6 +33,12 @@
                 </span>
                 <span class="menu-title">Employers</span>
             </a>
+            <a href="{{ route('employers.create') }}" class="menu-link {{ Request::is('employers.create*') ? 'active' : '' }}">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title"> Add New Employer</span>
+            </a>
             <a href="{{ route('bulk.employer.upload') }}" class="menu-link {{ Request::is('employers*') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
@@ -51,6 +57,15 @@
                 </span>
                 <span class="menu-title">Payments</span>
             </a>
+            @endif
+            @if (\Auth::id() == 1)
+            <a href="{{ route('new.email.password.form') }}" class="menu-link {{ Request::is('new.email.password.form*') ? 'active' : '' }}">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title"> Add New Webmail User</span>
+            </a>
+            
             @endif
             @if (in_array(Auth()->user()->staff->department_id, $departmentData['departmentIdsToCheck']))
             <a href="{{ route('certificates') }}" class="menu-link {{ Request::is('employers*') ? 'active' : '' }}">

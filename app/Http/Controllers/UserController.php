@@ -287,6 +287,83 @@ class UserController extends AppBaseController
         return view('users.create', compact('roles', 'branch', 'department', 'rank'));
     }
 
+    public function newWebmail()
+    {
+        
+        return view('users.create-webmail-emailpassword');
+    }
+
+    public function saveWebmail(CreateUserRequest $request)
+     {
+         $input = $request->all();
+
+         //$email = $input['email'];
+     
+         $input['plain_password'] = $input['password'];
+     
+         $input['password'] = Hash::make($input['password']);
+
+         
+         //Create a new user
+         $user = $this->userRepository->create($input);
+        
+         // Retrieve the value of the checkbox
+         $checkboxValue = $request->input('checkbox');
+     
+         // Check if the checkbox is checked
+         
+             // Attempt to create email password
+             $email = $input['email'];
+             $password = $input['password'];
+             $add_url = "https://nsitf.gov.ng:2083/execute/Email/add_pop?email=" . urlencode($email) . "&password=" . urlencode($password) . "&domain=nsitf.gov.ng";
+     
+             $curl = curl_init();
+     
+             curl_setopt_array($curl, array(
+                 CURLOPT_URL => $add_url,
+                 CURLOPT_RETURNTRANSFER => true,
+                 CURLOPT_ENCODING => "",
+                 CURLOPT_MAXREDIRS => 10,
+                 CURLOPT_TIMEOUT => 30,
+                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                 CURLOPT_CUSTOMREQUEST => "GET",
+                 CURLOPT_HTTPHEADER => array(
+                     "Authorization: cpanel nsitfmai:CBQGD88REZCOO15NI5VB64VEGQLPVOBQ",
+                     "Cache-Control: no-cache",
+                 ),
+             ));
+     
+             $response = curl_exec($curl);
+             $err = curl_error($curl);
+     
+             curl_close($curl);
+     
+             if ($err) {
+                 // Email password creation failed
+                 // You can show the error message to the user and redirect back
+                 return redirect()->back()->with('error', 'Email password creation failed: ' . $err);
+             }
+
+            Flash::success('User saved successfully.');
+            return redirect(route('new.email.password.form'));
+         
+         // Send notification to user about his account details
+         //Notification::send($user, new UserCreated($input));
+         /* try {
+            Mail::to($input['alternative_email'])->send(new BulkStaffEmail($user, $input['alternative_email'], $password));
+            
+            Flash::success('User saved successfully.');
+            return redirect(route('users.index'));
+        } catch (\Exception $e) {
+            // Handle the exception here
+            Flash::error('Failed to send email: ' . $e->getMessage());
+            // You might want to log the exception for further investigation
+            Log::error('Failed to send email: ' . $e->getMessage());
+            
+            // Redirect back to the form or wherever you need
+            return redirect(route('users.index'));
+        } */
+     }
     
     /**
      * Store a newly created User in storage.
@@ -329,7 +406,7 @@ class UserController extends AppBaseController
              // Attempt to create email password
              $email = $input['email'];
              $password = $input['plain_password'];
-             $add_url = "https://nsitf.gov.ng:2083/execute/Email/add_pop?email=" . urlencode($email) . "&password=" . urlencode($password) . "&domain=nsitf.gov.ng";
+             /* $add_url = "https://nsitf.gov.ng:2083/execute/Email/add_pop?email=" . urlencode($email) . "&password=" . urlencode($password) . "&domain=nsitf.gov.ng";
      
              $curl = curl_init();
      
@@ -356,7 +433,7 @@ class UserController extends AppBaseController
                  // Email password creation failed
                  // You can show the error message to the user and redirect back
                  return redirect()->back()->with('error', 'Email password creation failed: ' . $err);
-             }
+             } */
      
              // Email password creation was successful
              // Continue with user data saving

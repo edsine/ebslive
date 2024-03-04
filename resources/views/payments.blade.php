@@ -24,6 +24,7 @@
         <table class="datatable-init-export nowrap table" data-export-title="Export">
             <thead>
                 <tr>
+                    <th>Employer Name</th>
                     <th>Payment Type</th>
                     <th>Invoice Number</th>
                     <th>Remita RR</th>
@@ -37,6 +38,7 @@
             <tbody>
                 @foreach ($payments as $payment)
                     <tr>
+                        <td>{{ $payment->employer->contact_firstname . ' '.$payment->employer->contact_surname ?? 'NILL' }}</td>
                         <td>{{ $payment->payment_type == 1 ? 'ECS Registration Fee' : ($payment->payment_type == 2 ? 'Certificate Request' : 'ECS Payment '.$payment->contribution_year . ($payment->contribution_period=='Monthly' ? ' ('.$payment->contribution_months.' months)' : '')) }}
                         </td>
                         <td>{{ $payment->invoice_number }}</td>

@@ -251,7 +251,7 @@
     <!--end::Javascript-->
 
     <script>
-        document.querySelector('form').addEventListener('submit', function (e) {
+        /* document.querySelector('form').addEventListener('submit', function (e) {
             const emailInput = document.getElementById('email');
             const email = emailInput.value;
     
@@ -260,7 +260,7 @@
                 e.preventDefault(); // Prevent form submission
                 alert('Only email addresses with @nsitf.gov.ng domain are allowed.');
             }
-        });
+        }); */
     </script>
 </body>
 
