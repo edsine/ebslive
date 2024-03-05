@@ -187,12 +187,12 @@
                                     'onclick' => "return confirm('Are you sure?')",
                                 ]) !!}
                                  @if ($employer->paid_registration != 1)
-                                 <a title="ECS Registration Fee Payment" href="{{ route('employer.ecs.payment', [$employer->id]) }}"
+                                 <a target="_blank" title="ECS Registration Fee Payment" href="{{ route('employer.ecs.payment', [$employer->id]) }}"
                                      class='btn btn-default btn-xs'>
                                      <i class="fa fa-credit-card"></i>
                                  </a>
                                  @else
-                                 <a title="View/Register New Employee" href="{{ route('employer.employees', [$employer->id]) }}"
+                                 <a target="_blank" title="View/Register New Employee" href="{{ route('employer.employees', [$employer->id]) }}"
                                      class='btn btn-default btn-xs'>
                                      <i class="fa fa-user"></i>
                                  </a>

@@ -31,6 +31,14 @@ class ESSPPaymentController extends AppBaseController
         return view('payments', compact('payments'));
     }
 
+    public function employerPayments(Request $request, $id)
+    {
+        
+          $payments = Payment::where('employer_id', $id)->paginate(10);
+        return view('payments.payment-list', compact('payments'));
+    }
+    
+
     public function approvePayment($id)
     {
         // Find the payment by ID
@@ -258,5 +266,79 @@ class ESSPPaymentController extends AppBaseController
 
             return redirect()->route('essp.payments')->with('info', $result['responseMsg']);
         }
+    }
+    public function pendingPayment(Request $request, $id)
+    {
+        $user = DB::table('employers')->where('id', $id)->first();
+        //year to start ECS payment count: 2023- system deployment OR year employer registered
+        $cac = date('Y', strtotime($user->cac_reg_year));
+        $initial_year = date('Y') - $cac > 2 ? date('Y') - 2 : $cac;
+        $start_year = date('Y', strtotime($user->created_at)) > $initial_year ? date('Y', strtotime($user->created_at)) : $initial_year;
+
+        //get total employees for this employer
+        if ($user) {
+            $employees_count = DB::table('employees')->where('employer_id', $user->id)->count();
+        } else {
+            $employees_count = 0;
+        }
+
+        //get total payments for this year
+        $year_total_payment = DB::table('payments')
+    ->where('employer_id', $user->id)
+    ->whereNotIn('payment_type', [1])
+    ->whereBetween('paid_at', [date('Y-01-01'), date('Y-12-31')])
+    ->sum('amount');
+
+        //calculate current payment due
+        if ($user) {
+            $payment_due = DB::table('employees')->where('employer_id', $user->id)->sum('monthly_renumeration');
+        } else {
+            $payment_due = 0;
+        }
+        $payment_due = (1 / 100) * $payment_due * 12; //for a year
+        $employer_minimum_payment = $user->business_area == "Public / Private Limited Company" ? 100000 : 50000;
+        $payment_due = $payment_due > $employer_minimum_payment ? $payment_due : $employer_minimum_payment;
+
+        $paid_months = 0;
+        --$start_year;
+        //check if user has a pending ECS payments from date of registration
+        do {
+            ++$start_year;
+            $pending_payment = DB::table('payments')
+    ->where('employer_id', $user->id)
+    ->where('payment_type', 4)
+    ->where('contribution_year', $start_year)
+    ->orderBy('created_at', 'desc')
+    ->first();
+            //if there is a pending payment
+            if ($pending_payment && $pending_payment->payment_status == 0) break;
+
+            $paid_months = 0;
+
+            //if monthly, check if all months for the year have been paid
+            if ($pending_payment && $pending_payment->contribution_period == 'Monthly') {
+                //get all rows for the current year and aggregate the months
+                $paid_months = DB::table('payments')
+    ->where('employer_id', $user->id)
+    ->where('payment_type', 4)
+    ->where('contribution_year', $start_year)
+    ->where('contribution_period', 'Monthly')
+    ->sum('contribution_months');
+                if ($paid_months < 12) break;
+                else $paid_months = 0;
+                //if 12 proceed
+                //else all to pay remaining months
+            }
+        } while ($pending_payment != null && $start_year < date('Y'));
+
+        //fetch all payments
+        if ($user) {
+            $payments = DB::table('payments')->where('employer_id', $user->id)->get();
+        } else {
+            $payments = [];
+        }
+        $employer = $user;
+
+        return view('payments.payment', compact('employer','payments', 'employees_count', 'year_total_payment', 'payment_due', 'pending_payment', 'start_year', 'paid_months'));
     }
 }

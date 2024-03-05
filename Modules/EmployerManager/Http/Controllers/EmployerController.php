@@ -402,4 +402,5 @@ class EmployerController extends AppBaseController
 
         return view('employermanager::employers.ecs-payment', compact('employer'));
     }
+    
 }

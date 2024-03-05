@@ -362,7 +362,7 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
 <script>
     const passwordInput = document.getElementById('password');
     const passwordConfirmationInput = document.getElementById('passwordConfirmation');
@@ -392,7 +392,7 @@
         }
     }
     
-    function checkPasswordStrength(password) {
+ /*    function checkPasswordStrength(password) {
     // Define your password strength rules here
     const minLength = 12;
     const minUppercase = 1;
@@ -437,19 +437,19 @@
     function displayPasswordStrength(strength) {
         const strengthLabels = ['Weak', 'Medium', 'Strong'];
         passwordStrength.textContent = `Password Strength: ${strengthLabels[strength]}`;
-    }
+    } */
 
     // Get the "Continue" button element
 const continueButton = document.querySelector('[data-kt-stepper-action="next"]');
 
 // Add an event listener to the password input
-passwordInput.addEventListener('input', function() {
+/* passwordInput.addEventListener('input', function() {
     const password = this.value;
     const strength = checkPasswordStrength(password);
 
     // Disable the "Continue" button if password strength is weak or medium
     continueButton.disabled = strength < 2;
-});
+}); */
 
     </script>
 <script>

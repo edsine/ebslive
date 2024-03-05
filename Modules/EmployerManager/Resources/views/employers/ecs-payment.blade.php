@@ -6,7 +6,7 @@
         <div class="nk-block-head-content">
             <h3 class="nk-block-title page-title">ECS Registration</h3>
             <div class="nk-block-des text-soft">
-                <p>You are about to make ECS registration payment for {{ $employer->contact_firstname . ' '.$employer->contact_surname }} </p>
+                <p>You are about to make ECS registration payment for {{ $employer->contact_firstname . ' '.$employer->contact_surname }} {{ '['.$employer->company_name.']' ?? '' }} </p>
             </div>
         </div><!-- .nk-block-head-content -->
     </div><!-- .nk-block-between -->
