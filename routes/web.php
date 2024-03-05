@@ -76,6 +76,8 @@ Route::middleware(['auth'])->group(function(){
     ->name('approvePayment');
     Route::get('essp/payment/remita', [ESSPPaymentController::class, 'callbackRemita'])->name('essp.payment.callback');
     Route::post('essp/payment/remita', [ESSPPaymentController::class, 'generateRemita'])->name('essp.payment.remita');
+    Route::get('employer/payment/list/{id}', [ESSPPaymentController::class, 'employerPayments'])->name('employer.payment.list');
+    Route::get('new/ecs/employer/payment/{id}', [ESSPPaymentController::class, 'pendingPayment'])->name('new.ecs.employer.payment');
 });
 
 
