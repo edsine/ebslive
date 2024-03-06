@@ -78,6 +78,11 @@ Route::middleware(['auth'])->group(function(){
     Route::post('essp/payment/remita', [ESSPPaymentController::class, 'generateRemita'])->name('essp.payment.remita');
     Route::get('employer/payment/list/{id}', [ESSPPaymentController::class, 'employerPayments'])->name('employer.payment.list');
     Route::get('new/ecs/employer/payment/{id}', [ESSPPaymentController::class, 'pendingPayment'])->name('new.ecs.employer.payment');
+    Route::get('employer/certificate/{id}', 'App\Http\Controllers\EmployerCertificateController@index')->name('employer.certificate');
+    Route::post('employer/certificate/store', 'App\Http\Controllers\EmployerCertificateController@store')->name('employer.certificate.store');
+    Route::get('employer/certificate/{certificateId}/details', 'App\Http\Controllers\EmployerCertificateController@displayCertificateDetails')->name('employer.certificate.details');
+    Route::get('employer/certificate/{certificateId}/download', 'App\Http\Controllers\EmployerCertificateController@downloadCertificateDetails')->name('employer.certificate.download');
+   
 });
 
 

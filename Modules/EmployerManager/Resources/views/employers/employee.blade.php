@@ -17,6 +17,9 @@
                           @if (DB::table('employees')->where('employer_id', $employer->id)->count() > 0)
                           <a target="_blank" href="{{ route('new.ecs.employer.payment', [$employer->id]) }}">Make ECS Payment</a>
 @endif
+@if (DB::table('certificates')->where('employer_id', $employer->id)->count() < 1 || DB::table('certificates')->where('employer_id', $employer->id)->latest()->value('payment_status')  == 1)
+                          <a target="_blank" href="{{ route('employer.certificate', [$employer->id]) }}">Generate Certificate</a>
+@endif
                     
                         </div>
                       </div>

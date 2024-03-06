@@ -64,6 +64,16 @@
                                 value="{{ $employees_count }}">
                             <input type="hidden" name="amount" id="amount"
                                 value="{{ $payment_due }}">
+                                <input type="hidden" name="employer_id" id="employer_id"
+                                value="{{ $employer->id }}">
+                                <input type="hidden" name="company_name" id="company_name"
+                                value="{{ $employer->company_name }}">
+                                <input type="hidden" name="company_email" id="company_email"
+                                value="{{ $employer->company_email }}">
+                                <input type="hidden" name="company_phone" id="company_phone"
+                                value="{{ $employer->company_phone }}">
+                                <input type="hidden" name="ecs_number" id="ecs_number"
+                                value="{{ $employer->ecs_number }}">
 
                             <label for=""><b>Note: </b>Only one contribution type
                                 can be
