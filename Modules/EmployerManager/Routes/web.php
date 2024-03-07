@@ -33,3 +33,5 @@ Route::get('employer/create-employees/{id}', 'EmployeeController@createEmployee'
 
 Route::get('employer/ecs/payment/{id}', 'EmployerController@employerECSPayment')->name('employer.ecs.payment');
 
+Route::patch('/approve-employer-status/{id}', 'EmployerController@approveEmployer')->name('approve.employer.status');
+

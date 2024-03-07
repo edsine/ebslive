@@ -56,13 +56,13 @@ class EmployerController extends AppBaseController
         if(Auth::user()->hasRole('super-admin')){
         $employers = Employer::orderBy('created_at', 'DESC');
 
-        $pendingstaff1 = Employer::where('status', 0);
-        $activestaff1 = Employer::where('status', 1);
+        $pendingstaff1 = Employer::orderBy('id', 'desc')->where('status', 0);
+        $activestaff1 = Employer::orderBy('id', 'desc')->where('status', 1);
         }else{
             $employers = Employer::where('branch_id', $s_branchId)->orderBy('created_at', 'DESC');
 
-        $pendingstaff1 = Employer::where('branch_id', $s_branchId)->where('status', 0);
-        $activestaff1 = Employer::where('branch_id', $s_branchId)->where('status', 1);
+        $pendingstaff1 = Employer::orderBy('id', 'desc')->where('branch_id', $s_branchId)->where('status', 0);
+        $activestaff1 = Employer::orderBy('id', 'desc')->where('branch_id', $s_branchId)->where('status', 1);
         }
 
         if ($request->filled('search')) {
@@ -136,7 +136,7 @@ class EmployerController extends AppBaseController
         $certificate->processing_status = 1;
         $certificate->save();
 
-        return redirect()->route('certificates')->with('success', 'Certificate approved successfully.');
+        return redirect()->back()->with('success', 'Certificate approved successfully.');
     }
 
     public function displayCertificateDetails($certificateId)
@@ -401,6 +401,19 @@ class EmployerController extends AppBaseController
         
 
         return view('employermanager::employers.ecs-payment', compact('employer'));
+    }
+
+    public function approveEmployer(Request $request, $id)
+    {
+        // Find the payment by ID
+        $employer = Employer::findOrFail($id);
+
+        // Update the payment status or perform any other necessary actions
+        $employer->status = 1; // Assuming '1' represents the approved status
+        $employer->save();
+
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Employer approved successfully ');
     }
     
 }

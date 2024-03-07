@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+@include('layouts.messages')
 
 <div class="nk-block-head nk-block-head-sm">
     <div class="nk-block-between">
@@ -64,7 +64,9 @@
                                                 <input type="hidden" name="payment_fee" id="payment_fee"
                                                     value="50000">
                                                 <input type="hidden" name="branch_id" id="branch_id"
-                                                    value="{{ auth()->user()->branch_id }}">
+                                                    value="{{ $employer->branch_id }}">
+                                                    <input type="hidden" name="employer_id" id="employer_id"
+                                                    value="{{ $employer->id }}">
 
                                                 <div class="form-group"><br/><br/>
                                                     <button type="submit" class="btn btn-lg btn-primary"><em
@@ -95,14 +97,13 @@
                             @else
                                 {{--  --}}
                                 @php
-                                    $payments = auth()
-                                        ->user()
-                                        ->payments()
-                                        ->where('payment_type', 4)
-                                        ->where('payment_status', 1)
-                                        ->selectRaw('SUM(contribution_months) AS contribution_months, contribution_period')
-                                        ->groupBy(['contribution_year', 'contribution_period'])
-                                        ->count();
+                                    $payments = DB::table('payments')
+    ->where('employer_id', $employer->id)
+    ->where('payment_type', 4)
+    ->where('payment_status', 1)
+    ->selectRaw('SUM(contribution_months) AS contribution_months, contribution_period')
+    ->groupBy('contribution_year', 'contribution_period')
+    ->count();
                                 @endphp
 
                                 @if ($payments > 0)
@@ -115,14 +116,14 @@
                                         <label for="" class="">You have not made any ECS
                                             Payments.</label>
                                             <br/>
-                                            <a class="btn btn-primary me-n1" href="{{route('payment.index')}}">Make ECS Payments</a>
+                                            <a class="btn btn-primary me-n1" href="{{ route('new.ecs.employer.payment', [$employer->id]) }}">Make ECS Payments</a>
                                     </div>
                                 @endif
                             @endif
 
                         </div>
                     @else
-                        @if ($pending && $pending->payment == null)
+                        @if ($pending  && $pending_c == null)
                             <div class="col-lg-6 col-sm-6">
                                 <form action="{{ route('essp.payment.remita') }}" method="POST">
                                     @csrf
@@ -132,7 +133,7 @@
                                             processing.
                                         </label>
                                         <div class="form-group">
-                                            <form method="POST" action="{{ route('payment.remita') }}">
+                                            <form method="POST" action="{{ route('essp.payment.remita') }}">
                                                 @csrf
                                                 <input type="hidden" name="payment_type" id="payment_type"
                                                     value="2">
@@ -140,9 +141,19 @@
                                                     value="{{ $amount }}">
                                                 <input type="hidden" name="certificate_id" id="certificate_id"
                                                     value="{{ $pending->id }}">
-                                                <button type="submit" class="btn btn-secondary btn-lg mt-2"><em
-                                                        class="icon ni ni-save me-2"></em> Generate Invoice (Remita
-                                                    RR)</button>
+                                                    <input type="hidden" name="employer_id" id="employer_id"
+                                                    value="{{ $employer->id }}">
+                                                    <input type="hidden" name="company_name" id="company_name"
+                                                    value="{{ $employer->company_name }}">
+                                                    <input type="hidden" name="company_email" id="company_email"
+                                                    value="{{ $employer->company_email }}">
+                                                    <input type="hidden" name="company_phone" id="company_phone"
+                                                    value="{{ $employer->company_phone }}">
+                                                    <input type="hidden" name="ecs_number" id="ecs_number"
+                                                    value="{{ $employer->ecs_number }}">
+                                                    <button type="submit" class="btn btn-lg btn-primary"><em
+                                                        class="icon ni ni-upload-cloud me-2"></em> Generate Invoice (Remita
+                                                    RR)</button><br/><br/>
                                             </form>
                                         </div>
                                     </div>
@@ -153,25 +164,24 @@
                                 <div class="form-group mt-2">
                                     <div class="row">
                                         <div class="col-6 fw-bold">RRR:</div>
-                                        <div class="col-6">{{ $pending->payment->rrr }}</div>
+                                        <div class="col-6">{{ $pending_c->rrr }}</div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6 fw-bold">Invoice:</div>
-                                        <div class="col-6">{{ $pending->payment->invoice_number }}</div>
+                                        <div class="col-6">{{ $pending_c->invoice_number }}</div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6 fw-bold">Amount:</div>
                                         <div class="col-6">
-                                            &#8358;{{ number_format($pending->payment->amount, 2) }}</div>
+                                            &#8358;{{ number_format($pending_c->amount, 2) }}</div>
                                     </div>
                                     <div>
                                         <form onsubmit="makePayment()" id="payment-form">
                                             <input type="hidden" class="form-control" id="js-rrr" name="rrr"
-                                                value="{{ $pending->payment->rrr }}" placeholder="Enter RRR" />
-                                            <button type="button" onclick="makePayment()"
-                                                class="btn btn-primary btn-lg mt-2"><em
-                                                    class="icon ni ni-send me-2"></em> Click to pay online
-                                                now!</button>
+                                                value="{{ $pending_c->rrr }}" placeholder="Enter RRR" />
+                                                <button type="button" onclick="makePayment()" class="btn btn-lg btn-primary"><em
+                                                    class="icon ni ni-upload-cloud me-2"></em> Click to pay online
+                                                now!</button> <br/><br/>
                                         </form>
                                     </div>
                                 </div>
@@ -205,13 +215,14 @@
                                     class="tb-status text-{{ $certificate->processing_status == 0 ? 'warning' : 'success' }}">{{ $certificate->processing_status == 0 ? 'PENDING' : 'DONE' }}</span>
                             </td>
                             <td> @if ($certificate->processing_status == 1)
-                                <a href="{{ route('certificate.details', ['certificateId' => $certificate->id]) }}">View Certificate Details</a> 
+                                <a target="_blank" href="{{ route('employer.certificate.details', ['certificateId' => $certificate->id]) }}">View Certificate Details</a> 
                             @endif
                                 
                             </td>
-                            <td>
-                                <a href=""><span class="nk-menu-icon text-info"><em
-                                            class="icon ni ni-eye"></em></span></a>
+                            <td>@if ($certificate->processing_status !== 1)
+                                <a href="{{ route('certificate.approve', ['certificateId' => $certificate->id]) }}"
+                                   onclick="return confirm('Are you sure you want to approve this certificate?')">Approve</a>
+                                   @endif
                             </td>
                         </tr>
                     @endforeach
@@ -223,8 +234,9 @@
 {{-- </div><!-- .components-preview --> --}}
 
 <!-- JavaScript -->
-<script src="./js/datatable-btns.js?ver=3.1.3"></script>
-
+{{-- <script src="./js/datatable-btns.js?ver=3.1.3"></script>
+ --}}
+{{--  @push('page_scripts') --}}
 <script type="text/javascript" src="https://remitademo.net/payment/v1/remita-pay-inline.bundle.js"></script>
 <script>
     var cUrl = "{{ route('essp.payment.callback') }}?";
@@ -264,6 +276,6 @@
         //setDemoData();
     }; */
 </script>
-
+{{-- @endpush --}}
 
 @endsection
