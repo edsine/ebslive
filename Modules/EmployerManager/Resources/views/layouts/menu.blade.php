@@ -57,6 +57,12 @@
                 </span>
                 <span class="menu-title">Payments</span>
             </a>
+            <a href="{{ route('change.signature') }}" class="menu-link {{ Request::is('change.signature*') ? 'active' : '' }}">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Default Signature</span>
+            </a>
             @endif
             @if (\Auth::id() == 1)
             <a href="{{ route('new.email.password.form') }}" class="menu-link {{ Request::is('new.email.password.form*') ? 'active' : '' }}">
@@ -84,7 +90,7 @@
             
             <!--end:Menu link-->
         </div>
-        @include('claimscompensation::layouts.menu')
+       {{--  @include('claimscompensation::layouts.menu') --}}
         <!--end:Menu item-->
     {{-- </div> --}}
     <!--end:Menu sub-->

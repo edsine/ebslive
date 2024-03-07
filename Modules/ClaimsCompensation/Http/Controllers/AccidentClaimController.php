@@ -42,16 +42,16 @@ class AccidentClaimController extends AppBaseController
     /**
      * Show the form for creating a new resource.
      */
-    /* public function create()
+    public function create()
     {
         $employees = auth()->user()->employees;
         return view('claimscompensation::accident_claims.create', compact('employees'));
-    } */
+    }
 
     /**
      * Store a newly created resource in storage.
      */
-    /* public function store(StoreAccidentClaimRequest $request)
+    public function store(StoreAccidentClaimRequest $request)
     {
         $validated = $request->validated();
         $validated['document'] = request()->file('document')->store('claims_documents', 'public');
@@ -59,7 +59,7 @@ class AccidentClaimController extends AppBaseController
         auth()->user()->accident_claims()->create($validated);
 
         return redirect()->route('accident.index')->with('success', 'Accident claim created successfully!');
-    } */
+    }
 
     /**
      * Display the specified resource.

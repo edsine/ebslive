@@ -83,6 +83,21 @@ Route::middleware(['auth'])->group(function(){
     Route::get('employer/certificate/{certificateId}/details', 'App\Http\Controllers\EmployerCertificateController@displayCertificateDetails')->name('employer.certificate.details');
     Route::get('employer/certificate/{certificateId}/download', 'App\Http\Controllers\EmployerCertificateController@downloadCertificateDetails')->name('employer.certificate.download');
    
+    Route::get('employer/deathclaims/{id}', 'App\Http\Controllers\EmployerCertificateController@deathIndex')->name('employer.deathclaims');
+    Route::get('employer/diseaseclaims/{id}', 'App\Http\Controllers\EmployerCertificateController@diseaseIndex')->name('employer.diseaseclaims');
+    Route::get('employer/accidentclaims/{id}', 'App\Http\Controllers\EmployerCertificateController@accidentIndex')->name('employer.accidentclaims');
+
+    Route::get('employer/death/claims/create/{id}', 'App\Http\Controllers\EmployerCertificateController@deathCreate')->name('employer.deathclaims.create');
+    Route::post('employer/death/claims/store', 'App\Http\Controllers\EmployerCertificateController@deathStore')->name('employer.deathclaims.store');
+    Route::get('employer/disease/claims/{id}', 'App\Http\Controllers\EmployerCertificateController@diseaseCreate')->name('employer.diseaseclaims.create');
+    Route::post('employer/disease/claims/store', 'App\Http\Controllers\EmployerCertificateController@diseaseStore')->name('employer.diseaseclaims.store');
+    Route::get('employer/accident/claims/{id}', 'App\Http\Controllers\EmployerCertificateController@accidentCreate')->name('employer.accidentclaims.create');
+    Route::post('employer/accident/claims/store', 'App\Http\Controllers\EmployerCertificateController@accidentStore')->name('employer.accidentclaims.store');
+   
+    Route::get('employer/death/claims/show/{id}', 'App\Http\Controllers\EmployerCertificateController@deathShow')->name('employer.death.claims.show');
+    Route::get('employer/disease/claims/show/{id}', 'App\Http\Controllers\EmployerCertificateController@diseaseShow')->name('employer.disease.claims.show');
+    Route::get('employer/accident/claims/show/{id}', 'App\Http\Controllers\EmployerCertificateController@accidentShow')->name('employer.accident.claims.show');
+
 });
 
 

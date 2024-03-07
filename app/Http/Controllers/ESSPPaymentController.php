@@ -36,7 +36,8 @@ class ESSPPaymentController extends AppBaseController
     {
         
           $payments = Payment::where('employer_id', $id)->paginate(10);
-        return view('payments.payment-list', compact('payments'));
+          $employer = DB::table('employers')->where('id', $id)->first();
+        return view('payments.payment-list', compact('payments','employer'));
     }
     
 
@@ -143,29 +144,27 @@ class ESSPPaymentController extends AppBaseController
 // exit();
         if ($data['statuscode'] == "025" && $data['RRR']) {
             //add record to transactions table
-            $payment = DB::table('payments')->insertGetId([
+            $paymentId = DB::table('payments')->insertGetId([
                 'employer_id' => $request->employer_id,
                 'payment_type' => $request->payment_type,
-               // 'payment_employee' => $request->employees,
                 'rrr' => $data['RRR'],
                 'invoice_number' => $lastInvoice,
                 'invoice_generated_at' => now(),
                 'invoice_duration' => now()->addYear()->format('Y-m-d'),
                 'payment_status' => 0,
                 'amount' => $amount,
-                // below for ECS payments
                 'contribution_year' => $request->year ?? null,
                 'contribution_period' => $request->contribution_period ?? null,
                 'contribution_months' => $request->number_of_months ?? null,
                 'employees' => $request->employees,
             ]);
-
+            
             //for certificate request, link payment to certificates
             if ($request->payment_type == 2) {
                 DB::table('certificates')
-    ->where('employer_id', $request->employer_id)
-    ->where('id', $request->certificate_id)
-    ->update(['payment_id' => $payment->id]);
+                    ->where('employer_id', $request->employer_id)
+                    ->where('id', $request->certificate_id)
+                    ->update(['payment_id' => $paymentId]);
             }
 
             //redirect to home
@@ -214,7 +213,7 @@ class ESSPPaymentController extends AppBaseController
 
             //if already processed
             if ($payment->payment_status == 1) {
-                return redirect()->route('essp.payments')->with('info', 'Payment already processed!');
+                return redirect()->route('employer.payment.list', ['id' => $payment->employer_id])->with('info', 'Payment already processed!');
             }
 
             //update payments
@@ -249,24 +248,32 @@ class ESSPPaymentController extends AppBaseController
             Storage::put('public/invoices/invoice_' . $payment->id . '.pdf', $content);
 
             //send mail with invoice notification
-            Mail::to($payment->employer->company_email)->send(new PaymentStatusMail($payment));
+            try {
+                Mail::to($payment->employer->company_email)->send(new PaymentStatusMail($payment));
+            } catch (\Exception $e) {
+                // Log or handle the error as needed
+                // For example:
+                Log::error('Error sending payment status email: ' . $e->getMessage());
+                // You can also add a flash message to notify the user about the error
+                //return redirect()->back()->with('error', 'Failed to send payment status email.');
+            }
 
             Storage::delete('public/invoices/invoice_' . $payment->id . '.pdf');
 
-            return redirect()->route('essp.payments')->with('success', $payment->payment_type == 1 ? 'Registration Payment successful!' : 'ECS Payment successful!');
+            return redirect()->route('employer.payment.list', ['id' => $payment->employer_id])->with('success', $payment->payment_type == 1 ? 'Registration Payment successful!' : 'ECS Payment successful!');
         } else { //if payment was not successful
             //get and update transaction
             $payment = Payment::where('rrr', $request->ref)->first();
 
             //if already processed
             if ($payment->payment_status == 1)
-                return redirect()->route('essp.payments')->with('info', 'Payment already processed!');
+                return redirect()->route('employer.payment.list', ['id' => $payment->employer_id])->with('info', 'Payment already processed!');
 
             //update payments
             $payment->payment_status = 2;
             $payment->save();
 
-            return redirect()->route('essp.payments')->with('info', $result['responseMsg']);
+            return redirect()->route('employer.payment.list', ['id' => $payment->employer_id])->with('info', $result['responseMsg']);
         }
     }
     public function pendingPayment(Request $request, $id)

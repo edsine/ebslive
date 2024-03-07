@@ -17,9 +17,25 @@
                           @if (DB::table('employees')->where('employer_id', $employer->id)->count() > 0)
                           <a target="_blank" href="{{ route('new.ecs.employer.payment', [$employer->id]) }}">Make ECS Payment</a>
 @endif
-@if (DB::table('certificates')->where('employer_id', $employer->id)->count() < 1 || DB::table('certificates')->where('employer_id', $employer->id)->latest()->value('payment_status')  == 1)
-                          <a target="_blank" href="{{ route('employer.certificate', [$employer->id]) }}">Generate Certificate</a>
-@endif
+@php
+                                    $payments = DB::table('payments')
+    ->where('employer_id', $employer->id)
+    ->where('payment_type', 4)
+    ->where('payment_status', 1)
+    ->selectRaw('SUM(contribution_months) AS contribution_months, contribution_period')
+    ->groupBy('contribution_year', 'contribution_period')
+    ->count();
+                                @endphp
+    @if($payments > 0)
+@if (DB::table('certificates')->where('employer_id', $employer->id)->count() < 1 || DB::table('certificates')->where('employer_id', $employer->id)->latest()->value('payment_status')  == 0)
+                          <a target="_blank" href="{{ route('employer.certificate', [$employer->id]) }}">Certificate</a>
+@else
+<a target="_blank" href="{{ route('employer.deathclaims', [$employer->id]) }}">Death Claims</a>
+<a target="_blank" href="{{ route('employer.diseaseclaims', [$employer->id]) }}">Disease Claims</a>
+<a target="_blank" href="{{ route('employer.accidentclaims', [$employer->id]) }}">Accident Claims</a>
+
+                          @endif
+                          @endif
                     
                         </div>
                       </div>

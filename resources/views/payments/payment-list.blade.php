@@ -5,9 +5,13 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Employer Payments</h1>
+                <h6 class="title">ECS Payment for {{ $employer->contact_firstname .' '.$employer->contact_surname ?? '' }} {{ '['.$employer->company_name.']' ?? '' }}</h6>
+
             </div>
-            
+            <div class="col-sm-6 " style="text-align: end"><a href="{{ route('employer.employees', [$employer->id]) }}" class="btn btn-primary"><em
+                class="icon ni ni-sign-kobo"></em><span>Go To Employer Menu</span></a>
+   
+</div>
         </div>
     </div>
 </section>
@@ -27,7 +31,7 @@
                     <th>Payment Status</th>
                     <th>Payment Date</th>
                     <th>Confirmation</th>
-                   {{--  <th>Action</th> --}}
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +61,33 @@
                                     class="nk-menu-icon text-secondary"><em class="icon ni ni-download text-teal"></em></span></a>
                             @endif --}}
                        {{--  </td> --}}
+                       <td>
+                        @if($payment->payment_status == 1)
+                            <form action="{{ route('approvePayment', $payment->id) }}" method="post" id="approveForm{{$payment->id}}">
+                                @csrf
+                                @method('PATCH')
+                                @if($payment->approval_status != 1)
+                                <a href="#" title="Approve Payment" onclick="confirmApprove({{$payment->id}})">
+                                    <span class="nk-menu-icon text-primary">Approve
+                                </a>
+                                @endif
+                            </form>
+                        @endif
+                    </td>
+                    
+                    <script>
+                        function confirmApprove(paymentId) {
+                            var confirmation = window.confirm('Are you sure you want to approve this payment?');
+                    
+                            if (confirmation) {
+                                // If the user clicks "OK" in the confirmation dialog, submit the form
+                                document.getElementById('approveForm' + paymentId).submit();
+                            } else {
+                                // If the user clicks "Cancel" in the confirmation dialog, do nothing
+                            }
+                        }
+                    </script>
+                    
                     </tr>
                 @endforeach
             </tbody>

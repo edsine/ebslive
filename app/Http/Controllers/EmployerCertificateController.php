@@ -14,6 +14,15 @@ use Modules\EmployerManager\Models\Employer;
 use Illuminate\Http\Request;
 use App\Models\Signature;
 use App\Http\Controllers\AppBaseController;
+use Modules\ClaimsCompensation\Models\DeathClaim;
+use Modules\ClaimsCompensation\Models\DiseaseClaim;
+use Modules\ClaimsCompensation\Models\AccidentClaim;
+use App\Http\Requests\StoreDeathClaimRequest;
+use App\Http\Requests\UpdateDeathClaimRequest;
+use App\Http\Requests\StoreDiseaseClaimRequest;
+use App\Http\Requests\UpdateDiseaseClaimRequest;
+use App\Http\Requests\StoreAccidentClaimRequest;
+use App\Http\Requests\UpdateAccidentClaimRequest;
 
 class EmployerCertificateController extends AppBaseController
 {
@@ -124,7 +133,13 @@ if (
 
         $amount = 50000;
         $employer = $user;
-        return view('certificates.index', compact('employer','certificates', 'amount', 'pending', 'certificate_years', 'latestPayment'));
+        $pending_c = DB::table('certificates')
+    ->join('payments', 'certificates.payment_id', '=', 'payments.id')
+    ->select('payments.*', 'certificates.*')
+    ->where('certificates.employer_id', $user->id)
+    ->latest('payments.created_at')
+    ->first();
+        return view('certificates.index', compact('pending_c','employer','certificates', 'amount', 'pending', 'certificate_years', 'latestPayment'));
     }
 
 
@@ -181,7 +196,9 @@ if (
         $validated = $request->validated();
         $validated['application_letter'] = request()->file('application_letter')->store('application_letters', 'public');
 
-        $certificate = auth()->user()->certificates()->create($validated);
+        $validated['employer_id'] = $request->employer_id;
+
+        $certificate = DB::table('certificates')->insertGetId($validated);
 
         return redirect()->back()->with('success', 'Certificate request submitted successfully!');
     }
@@ -357,5 +374,129 @@ if (
         $pdf = PDF::loadView('certificates.details', compact('certificate', 'totalEmployees', 'paymentsAmount', 'currentYearExpiration', 'lastThreeYears', 'qrCode'));
 
         return $pdf->download('certificate_details.pdf');
+    }
+
+    public function deathIndex(Request $request, $id)
+    {
+        //
+        $claims = DB::table('death_claims')
+    ->join('employees', 'death_claims.employee_id', '=', 'employees.id')
+    ->select('death_claims.*', 'employees.*')
+    ->where('death_claims.employer_id', $id)
+    ->get();
+    $employer = DB::table('employers')->where('id', $id)->first();
+        return view('death_claims.index', compact('claims','employer'));
+    }
+
+    public function diseaseIndex(Request $request, $id)
+    {
+        //
+        $claims = DB::table('disease_claims')
+    ->join('employees', 'disease_claims.employee_id', '=', 'employees.id')
+    ->select('disease_claims.*', 'employees.*')
+    ->where('disease_claims.employer_id', $id)
+    ->get();
+    $employer = DB::table('employers')->where('id', $id)->first();
+        return view('disease_claims.index', compact('claims','employer'));
+    }
+
+    public function accidentIndex(Request $request, $id)
+    {
+        //
+        $claims = DB::table('accident_claims')
+    ->join('employees', 'accident_claims.employee_id', '=', 'employees.id')
+    ->select('accident_claims.*', 'employees.*')
+    ->where('accident_claims.employer_id', $id)
+    ->get();
+    $employer = DB::table('employers')->where('id', $id)->first();
+        return view('accident_claims.index', compact('claims','employer'));
+    }
+    public function deathCreate(Request $request, $id)
+    {
+        $employer = DB::table('employers')->where('id', $id)->first();
+        $employees = DB::table('employees')->where('employer_id', $id)->get();
+        return view('death_claims.create', compact('employer','employees'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function deathStore(StoreDeathClaimRequest $request)
+    {
+        $validated = $request->validated();
+        $validated['document'] = request()->file('document')->store('claims_documents', 'public');
+
+        $validated['employer_id'] = $request->employer_id;
+        $validated['employee_sort_code'] = $request->employee_sort_code ?? 1;
+        $validated['employer_sort_code'] = $request->employer_sort_code ?? 1;
+       
+       $deathClaimId = DB::table('death_claims')->insertGetId($validated);
+
+        return redirect()->route('employer.deathclaims', ['id' => $request->employer_id])->with('success', 'Death claim created successfully!');
+    }
+
+    public function diseaseCreate(Request $request, $id)
+    {
+        $employer = DB::table('employers')->where('id', $id)->first();
+        $employees = DB::table('employees')->where('employer_id', $id)->get();
+        return view('disease_claims.create', compact('employer','employees'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function diseaseStore(StoreDiseaseClaimRequest $request)
+    {
+        $validated = $request->validated();
+        $validated['document'] = request()->file('document')->store('claims_documents', 'public');
+
+        $validated['employer_id'] = $request->employer_id;
+        
+       $deathClaimId = DB::table('disease_claims')->insertGetId($validated);
+
+        return redirect()->route('employer.diseaseclaims', ['id' => $request->employer_id])->with('success', 'Disease claim created successfully!');
+    }
+
+    public function accidentCreate(Request $request, $id)
+    {
+        $employer = DB::table('employers')->where('id', $id)->first();
+        $employees = DB::table('employees')->where('employer_id', $id)->get();
+        return view('accident_claims.create', compact('employer','employees'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function accidentStore(StoreAccidentClaimRequest $request)
+    {
+        $validated = $request->validated();
+        $validated['document'] = request()->file('document')->store('claims_documents', 'public');
+
+        $validated['employer_id'] = $request->employer_id;
+       
+       $deathClaimId = DB::table('accident_claims')->insertGetId($validated);
+
+        return redirect()->route('employer.accidentclaims', ['id' => $request->employer_id])->with('success', 'Accident claim created successfully!');
+    }
+
+    public function deathShow($id)
+    {
+        $incident = DeathClaim::findOrFail($id);
+
+        return view('death_claims.show', compact('incident'));
+    }
+
+    public function diseaseShow($id)
+    {
+        $incident = DiseaseClaim::findOrFail($id);
+
+        return view('disease_claims.show', compact('incident'));
+    }
+
+    public function accidentShow($id)
+    {
+        $incident = AccidentClaim::findOrFail($id);
+
+        return view('accident_claims.show', compact('incident'));
     }
 }

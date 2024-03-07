@@ -43,16 +43,16 @@ class DiseaseClaimController extends AppBaseController
     /**
      * Show the form for creating a new resource.
      */
-    /*  public function create()
+     public function create()
     {
         $employees = auth()->user()->employees;
         return view('claimscompensation::disease_claims.create', compact('employees'));
-    } */
+    }
 
     /**
      * Store a newly created resource in storage.
      */
-    /* public function store(StoreDiseaseClaimRequest $request)
+    public function store(StoreDiseaseClaimRequest $request)
     {
         $validated = $request->validated();
         $validated['document'] = request()->file('document')->store('claims_documents', 'public');
@@ -60,7 +60,7 @@ class DiseaseClaimController extends AppBaseController
         auth()->user()->disease_claims()->create($validated);
 
         return redirect()->route('death.index')->with('success', 'Disease claim created successfully!');
-    } */
+    }
 
     /**
      * Display the specified resource.

@@ -77,8 +77,33 @@
                         </td>
 
                         <td style="width: 120px">
-                            {!! Form::open(['route' => ['employers.destroy', $employer->id], 'method' => 'delete']) !!}
+                            
                             <div class='btn-group'>
+                                
+                                @if($employer->paid_registration == 1)
+                                <form action="{{ route('approve.employer.status', $employer->id) }}" method="post" id="approveForm1{{$employer->id}}">
+                                    @csrf
+                                    @method('PATCH')
+                                    <a href="#" title="Approve Employer" onclick="confirmApproved({{$employer->id}})"
+                                        class='btn btn-default btn-xs'>
+                                    <i class="fa fa-check" style="font-weight: bolder"></i>
+                                    </a>
+                                    <input type="hidden" name="employer_id" value="{{ $employer->id }}"/>
+                                   <input type="submit" name="submit" id="form1" style="display: none;"/>
+                                </form>
+                                @else
+                                <form action="{{ route('approve.employer.status', $employer->id) }}" method="post" id="approveForm{{$employer->id}}">
+                                    @csrf
+                                    @method('PATCH')
+                                    <a href="#" title="Approve Employer" onclick="confirmApprove({{$employer->id}})"
+                                        class='btn btn-default btn-xs'>
+                                    <i class="fa fa-check" style="font-weight: bolder"></i>
+                                    </a>
+                                    <input type="hidden" name="employer_id" value="{{ $employer->id }}"/>
+                                    <input type="submit" name="submit" id="form2" style="display: none;"/>
+
+                                </form>
+                            @endif
                                 <a href="{{ route('employers.show', [$employer->id]) }}" class='btn btn-default btn-xs'>
                                     <i class="far fa-eye"></i>
                                 </a>
@@ -89,14 +114,43 @@
                                     class='btn btn-default btn-xs'>
                                     <i class="far fa-user"></i>
                                 </a>
+                                {!! Form::open(['route' => ['employers.destroy', $employer->id], 'method' => 'delete']) !!}
                                 {!! Form::button('<i class="far fa-trash-alt"></i>', [
                                     'type' => 'submit',
                                     'class' => 'btn btn-danger btn-xs',
                                     'onclick' => "return confirm('Are you sure?')",
                                 ]) !!}
+                                 {!! Form::close() !!}
                             </div>
-                            {!! Form::close() !!}
+                           
                         </td>
+                        
+                        
+                        <script>
+                            function confirmApprove(paymentId) {
+                                var confirmation = window.confirm('This employer have not paid for registration fee yet. Are you sure you want to proceed with the approval?');
+                        
+                                if (confirmation) {
+                                    // If the user clicks "OK" in the confirmation dialog, submit the form
+                                    // document.getElementById('approveForm' + paymentId).submit();
+                                    $('#form2').click();
+                                } else {
+                                    // If the user clicks "Cancel" in the confirmation dialog, do nothing
+                                }
+                            }
+                            function confirmApproved(paymentId) {
+                                var confirmation = window.confirm('Are you sure you want to approve this employer?');
+                        
+                                if (confirmation) {
+                                    // If the user clicks "OK" in the confirmation dialog, submit the form
+                                    //document.getElementById('approveForm1' + paymentId).submit();
+                                    $('#form1').click();
+                                } else {
+                                    // If the user clicks "Cancel" in the confirmation dialog, do nothing
+                                }
+                            }
+                        </script>
+                        
                     </tr>
                 @endforeach
             </tbody>
@@ -213,9 +267,6 @@
     </div>
 </div>
   
-</div>
-
-{{-- the end of the entire tab content --}}
 </div>
 
 

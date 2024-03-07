@@ -42,16 +42,16 @@ class DeathClaimController extends AppBaseController
     /**
      * Show the form for creating a new resource.
      */
-    /* public function create()
+    public function create()
     {
         $employees = auth()->user()->employees;
         return view('claimscompensation::death_claims.create', compact('employees'));
-    } */
+    }
 
     /**
      * Store a newly created resource in storage.
      */
-    /* public function store(StoreDeathClaimRequest $request)
+    public function store(StoreDeathClaimRequest $request)
     {
         $validated = $request->validated();
         $validated['document'] = request()->file('document')->store('claims_documents', 'public');
@@ -59,7 +59,7 @@ class DeathClaimController extends AppBaseController
         auth()->user()->death_claims()->create($validated);
 
         return redirect()->route('death.index')->with('success', 'Death claim created successfully!');
-    } */
+    }
 
     /**
      * Display the specified resource.
