@@ -5,6 +5,7 @@ namespace Modules\Shared\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Assetmanager\Models\Assetmanager;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
 use OwenIt\Auditing\Contracts\Auditable;
 use Modules\HumanResource\Models\Event;
@@ -66,6 +67,10 @@ use SebastianBergmann\CodeCoverage\Report\Xml\Unit;
         'branch_id'
     ];
 
+
+    public function assetmanager(){
+        return $this->hasMany(Assetmanager::class,'department_id');
+    }
     protected $casts = [
         'department_unit' => 'string',
         'description' => 'string'/* ,

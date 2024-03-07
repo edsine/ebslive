@@ -12,7 +12,7 @@
             <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-6 my-0 pt-1">
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
-                    <a href="{{ route('home') }}" class=" text-hover"><b>-- Home --</b></a>
+                    {{-- <a href="{{ route('home') }}" class=" text-hover"><b>-- Home --</b></a> --}}
                 </li>
                 <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
                     <!--begin::Title-->
@@ -22,7 +22,7 @@
                     <span class="h-20px border-gray-300 border-start mx-4"></span>
                     <!--end::Separator-->
                     <!--begin::Breadcrumb-->
-                    <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-6 my-1">
+                    {{-- <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-6 my-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
                             <a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Maraba</a>
@@ -44,7 +44,7 @@
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-dark">Claims</li>
                         <!--end::Item-->
-                    </ul>
+                    </ul> --}}
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Item-->

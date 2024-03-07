@@ -12,5 +12,6 @@
     "Approval": true,
     "FormBuilder": true,
     "Accounting": true,
-    "HRMSystem": true
+    "HRMSystem": true,
+    "Assetmanager": true
 }
