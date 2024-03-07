@@ -1,0 +1,13 @@
+{
+    "name": "Assetmanager",
+    "alias": "assetmanager",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Assetmanager\\Providers\\AssetmanagerServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

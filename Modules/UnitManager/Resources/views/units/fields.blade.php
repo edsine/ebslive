@@ -26,11 +26,11 @@
             $.get(`${homeUrl}/units/staff/${selectedDepartmentId}`, function (users) {
                 $('#userSelect').empty().append('<option value="">Select Unit Head</option>');
                 var u = JSON.stringify(users);
-                    
+
                 $.each(users, function (index, user) {
                     $('#userSelect').append(`<option value="${user.id}">${user.first_name} ${user.last_name}</option>`);
                 });
-            
+
             });
         } else {
             $('#userSelect').empty().append('<option value="">Select Unit Head</option>');

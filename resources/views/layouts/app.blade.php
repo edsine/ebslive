@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <title>{{ config('app.name') }}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    
+
     {{-- <style>
         #aa a{
             display: none
         }
     </style> --}}
-    
-    
+
+    <link rel="stylesheet" href="//cdn.datatables.net/2.0.1/css/dataTables.dataTables.min.css">
+    <script src="//cdn.datatables.net/2.0.1/js/dataTables.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    
+
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <!-- Adding the apex chart -->
 
@@ -23,17 +25,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.44.0/apexcharts.min.js"></script>
 
 
-{{-- 
+{{--
     <script src="{{ asset('node_modules/apexcharts/dist/apexcharts.min.js') }}"></script> --}}
 
     {{-- <script src="{{ url('node_modules/apexcharts/dist/apexcharts.min.js') }}"></script> --}}
 
 
- 
-   
+
+
 {{-- <script src="{{asset('new_assets/assets/js/jscolor.js')}}"></script>
 <script src="{{asset('new_assets/assets/js/custom.js')}}"></script> --}}
-   
+
 {{-- <script src="{{asset('new_assets/assets/plugins/apexcharts.min.js')}}"></script>
     --}}
     <!-- Custom Asset Start -->
@@ -411,16 +413,16 @@
     <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
         <!--begin::Page-->
         <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
-            
+
             <!--begin::Header-->
             @include('layouts.header')
-            
+
             <!--end::Header-->
             <!--begin::Wrapper-->
             <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
 
 <div class="container-fluid">
- 
+
                 <!--begin::Sidebar-->
                 @include('layouts.sidebar')
                 <!--end::Sidebar-->
@@ -444,7 +446,7 @@
     function hideCards() {
         var clockInCard = document.getElementById("clockInCard");
         var announcementCard = document.getElementById("announcementCard");
-        
+
         clockInCard.style.opacity = "0";
         announcementCard.style.opacity = "0";
 
@@ -538,7 +540,7 @@ document.getElementById("clock_in").addEventListener("click", clockIn);
 // document.getElementById("clock_in").addEventListener("click", function() {
 //     // Simulate a successful clock-in action.
 //     const currentTime = new Date().toLocaleTimeString();
-    
+
 //     // Display a SweetAlert success message.
 //     Swal.fire({
 //         icon: 'success',
@@ -613,9 +615,9 @@ document.getElementById("clock_in").addEventListener("click", clockIn);
 {{-- <script src="{{asset('new_assets/assets/js/plugins/flatpickr.min.js')}}"></script> --}}
 <script src="{{asset('new_assets/assets/js/plugins/main.min.js')}}"></script>
 
-{{-- 
+{{--
 <script> --}}
-  
+
     <script>
          $(document).ready(function () {
     /* if ($(".datatable").length > 0) {
@@ -657,12 +659,12 @@ function daterange() {
             mainColor: '#006400',
             bubbleBackground:'#006400',
             aboutLink: 'nsitf.gov.ng'
-            
+
         };
     </script>
-   
+
     <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
-    
+
 </body>
 
 </html>
