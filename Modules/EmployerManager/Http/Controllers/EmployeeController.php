@@ -11,6 +11,9 @@ use Modules\EmployerManager\Repositories\EmployeeRepository;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use Modules\EmployerManager\Models\Employer;
+use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
+use Modules\EmployerManager\Imports\EmployeesImport;
 
 class EmployeeController extends AppBaseController
 {
@@ -35,7 +38,7 @@ class EmployeeController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new Employee.
+     * Show the form for creating a new Employee. 
      */
     public function create()
     {
@@ -51,6 +54,12 @@ class EmployeeController extends AppBaseController
         return view('employermanager::employees.create', compact('employer','state', 'local_govt', 'employerData'));
     }
 
+    public function createBulkEmployees(Request $request, $id)
+    {
+        $employer = Employer::findorFail($id);
+        return view('employermanager::employees.create_bulk', compact('employer'));
+    }
+
     /**
      * Store a newly created Employee in storage.
      */
@@ -63,6 +72,27 @@ class EmployeeController extends AppBaseController
         Flash::success('Employee saved successfully.');
 
         return redirect(route('employer.employees', $employee->employer_id));
+    }
+
+    public function uploadbulk(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'excel' => 'required|file|mimes:xlsx,xls|max:10240',
+            'employer_id' => 'required', // Add validation for employer_id
+        ]);
+
+        $employer_id = $request->employer_id;
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)
+                ->withInput();
+        }
+        
+
+        Excel::import(new EmployeesImport($employer_id), request()->file('excel'));
+
+        return redirect()->route('employer.employees', $employer_id)->with('success', 'Bulk Employees uploaded successfully!');
     }
 
     /**

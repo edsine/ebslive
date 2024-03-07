@@ -31,6 +31,9 @@ Route::resource('employees', Modules\EmployerManager\Http\Controllers\EmployeeCo
 
 Route::get('employer/create-employees/{id}', 'EmployeeController@createEmployee')->name('employer.create-employees');
 
+Route::get('employer/create/bulk/employees/{id}', 'EmployeeController@createBulkEmployees')->name('employer.create.bulk.employees');
+Route::post('/employer/employee/uploadbulk', [Modules\EmployerManager\Http\Controllers\EmployeeController::class,'uploadbulk'])->name('employer.employee.uploadbulk');
+
 Route::get('employer/ecs/payment/{id}', 'EmployerController@employerECSPayment')->name('employer.ecs.payment');
 
 Route::patch('/approve-employer-status/{id}', 'EmployerController@approveEmployer')->name('approve.employer.status');

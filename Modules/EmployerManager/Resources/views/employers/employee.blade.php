@@ -13,6 +13,7 @@
                         <button class="dropbtn"><i class="fas fa-caret-down" style="color: #fff"></i> Menu</button>
                         <div class="dropdown-content">
                           <a target="_blank" href="{{ route('employer.create-employees',  $employer->id) }}">Add New Employee</a>
+                          <a target="_blank" href="{{ route('employer.create.bulk.employees',  $employer->id) }}">Add Bulk Employees</a>
                           <a target="_blank" href="{{ route('employer.payment.list', [$employer->id]) }}">Payment List</a>
                           @if (DB::table('employees')->where('employer_id', $employer->id)->count() > 0)
                           <a target="_blank" href="{{ route('new.ecs.employer.payment', [$employer->id]) }}">Make ECS Payment</a>
