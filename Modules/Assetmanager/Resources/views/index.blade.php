@@ -52,7 +52,7 @@
 
                                 <td>{{$type->user?$type->user->first_name . ' ' .$type->user->last_name : 'All Staff'}}</td>
                                 <td>{{$type->department?$type->department->department_unit: 'All Staff'}}</td>
-                                <td>{{ $type->assettag }}</td>
+                                {{-- <td>{{ $type->assettag }}</td> --}}
                                 <td>{{ $type->name }}</td>
                                 <td>{{ $type->brand ? $type->brand->name : '' }}</td>
                                 <td>{{ $type->assettype ? $type->assettype->name : '' }}</td>
@@ -211,7 +211,7 @@
                                 <div class="col-6">
                                     <div class="form-group mt-3">
                                         <label> Select Department</label>
-                                        {!! Form::select('dept_id', $dept, null, ['class' => 'form-control form-select', 'id' => 'departmentSelect']) !!}
+                                        {!! Form::select('department_id', $dept, null, ['class' => 'form-control form-select', 'id' => 'departmentSelect']) !!}
                                     </div>
                                 </div>
                                 <div class="col-6">

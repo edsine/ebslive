@@ -7,9 +7,11 @@ use App\Models\Branch;
 use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Modules\Shared\Models\Department;
 use Modules\Assetmanager\Models\Brand;
 use Modules\Assetmanager\Models\Supply;
+use Modules\WorkflowEngine\Models\Staff;
 use Modules\Assetmanager\Models\Location;
 use Modules\Assetmanager\Models\Assettype;
 use Illuminate\Contracts\Support\Renderable;
@@ -23,7 +25,7 @@ class AssetmanagerController extends Controller
      */
     public function index()
     {
-        $types = Assetmanager::paginate(10);
+        $types = Assetmanager::orderBy('id','desc')->paginate(10);
         $supply= Supply::get()->pluck('name','id');
         $brand= Brand::get()->pluck('name','id');
         $asset= Assettype::get()->pluck('name','id');
@@ -45,6 +47,22 @@ class AssetmanagerController extends Controller
         'location',
         'brand',
         'asset'));
+    }
+
+    public function assetdashboard(){
+
+
+        $user= Auth::user();
+
+        $myasset= Assetmanager::where('user_id',$user->user_id)->get()->count();
+        $mydept= Assetmanager::where('department_id',$user->department_id)->get()->count();
+        $data=Assetmanager::all();
+
+        $totalsupply= Supply::all()->count();
+        $totalbrand=Brand::all()->count();
+        $totalstaff=Staff::all()->count();
+
+        return view('assetmanager::dashboard', compact('data','myasset','mydept','totalsupply','totalbrand','totalstaff'));
     }
 
     /**
@@ -70,11 +88,15 @@ class AssetmanagerController extends Controller
         // dd($input);
 
         $checkboxValue = $request->input('check');
-        if ($input['check']) {
+        if ($checkboxValue ) {
+
+
 
             $input['department_id'] = $request->input('department_id');
             $input['user_id'] = $request->input('user_id');
         } else {
+
+
 
             unset($input['department_id']);
             unset($input['user_id']);

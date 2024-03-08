@@ -26,8 +26,10 @@ class Assetmanager extends Model
         'status',
         'picture',
         'description',
-        'branch_id'
-        
+        'branch_id',
+        'user_id',
+        'department_id'
+
     ];
 
 
