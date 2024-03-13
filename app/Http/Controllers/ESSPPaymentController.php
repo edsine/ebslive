@@ -47,10 +47,22 @@ class ESSPPaymentController extends AppBaseController
         $payment = Payment::findOrFail($id);
 
         // Update the payment status or perform any other necessary actions
-        $payment->update(['approval_status' => 1]); // Assuming '1' represents the approved status
+        $payment->update(['payment_status' => 1,'approval_status' => 1]); // Assuming '1' represents the approved status
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Payment approved successfully');
+    }
+
+    public function rejectPayment($id)
+    {
+        // Find the payment by ID
+        $payment = Payment::findOrFail($id);
+
+        // Update the payment status or perform any other necessary actions
+        $payment->update(['payment_status' => 0,'approval_status' => 0]); // Assuming '1' represents the approved status
+
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Payment rejected successfully');
     }
 
     public function generateRemita(Request $request)
