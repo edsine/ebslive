@@ -46,8 +46,10 @@
                                 class="tb-status text-{{ $payment->payment_status != 1 ? 'warning' : 'success' }}">{{ $payment->payment_status != 1 ? 'PENDING' : 'PAID' }}</span>
                         </td>
                         <td>{{ $payment->paid_at }}</td>
-                        <td><span
-                                class="tb-status text-warning">{{ $payment->approval_status == 0 ? 'Awaiting Approval' : '' }}</span>
+                        <td>
+                            <span class="tb-status text-danger">
+                                {{ $payment->approval_status == 0 ? 'Awaiting Approval' : ($payment->approval_status == 2 ? 'Rejected' : '') }}
+                            </span>
                         </td>
                        {{--  <td> --}}
                             {{-- @if ($payment->payment_status != 1)
@@ -73,6 +75,15 @@
                                 @endif
                             </form>
                         @endif
+                        @if($payment->approval_status == 1)
+                        <form action="{{ route('rejectPayment', $payment->id) }}" method="post" id="rejectForm{{$payment->id}}">
+                            @csrf
+                            @method('PATCH')
+                            <a href="#" title="Reject Payment" onclick="confirmReject({{$payment->id}})">
+                                <span class="nk-menu-icon text-danger">Reject
+                            </a>
+                        </form>
+                    @endif
                     </td>
                     
                     <script>
@@ -86,6 +97,16 @@
                                 // If the user clicks "Cancel" in the confirmation dialog, do nothing
                             }
                         }
+                        function confirmReject(paymentId) {
+                                var confirmation = window.confirm('Are you sure you want to reject this payment?');
+                        
+                                if (confirmation) {
+                                    // If the user clicks "OK" in the confirmation dialog, submit the form
+                                    document.getElementById('rejectForm' + paymentId).submit();
+                                } else {
+                                    // If the user clicks "Cancel" in the confirmation dialog, do nothing
+                                }
+                            }
                     </script>
                     
                     </tr>

@@ -63,6 +63,15 @@
                                     @endif
                                 </form>
                             @endif
+                            @if($payment->approval_status == 1)
+                                <form action="{{ route('rejectPayment', $payment->id) }}" method="post" id="rejectForm{{$payment->id}}">
+                                    @csrf
+                                    @method('PATCH')
+                                    <a href="#" title="Reject Payment" onclick="confirmReject({{$payment->id}})">
+                                        <span class="nk-menu-icon text-danger">Reject
+                                    </a>
+                                </form>
+                            @endif
                         </td>
                         
                         <script>
@@ -72,6 +81,16 @@
                                 if (confirmation) {
                                     // If the user clicks "OK" in the confirmation dialog, submit the form
                                     document.getElementById('approveForm' + paymentId).submit();
+                                } else {
+                                    // If the user clicks "Cancel" in the confirmation dialog, do nothing
+                                }
+                            }
+                            function confirmReject(paymentId) {
+                                var confirmation = window.confirm('Are you sure you want to reject this payment?');
+                        
+                                if (confirmation) {
+                                    // If the user clicks "OK" in the confirmation dialog, submit the form
+                                    document.getElementById('rejectForm' + paymentId).submit();
                                 } else {
                                     // If the user clicks "Cancel" in the confirmation dialog, do nothing
                                 }
