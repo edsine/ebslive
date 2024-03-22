@@ -167,29 +167,102 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Asset By Type</h4>
-                    <canvas id="pieChart"></canvas>
+                    <canvas id="assetbytype"></canvas>
                 </div>
             </div>
         </div>
         <div class="col-lg-6 grid-margin stretch-card">
             <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Asset By Title</h4>
-                <canvas id="doughnutChart"></canvas>
-              </div>
+                <div class="card-body">
+                    <h4 class="card-title">Asset By Title</h4>
+                    <canvas id="assetbytitle"></canvas>
+                </div>
             </div>
-          </div>
+        </div>
     </div>
     <!--end ::row-->
 
 
 
 
-</div>
+    </div>
 
 
 
 
     <!--end::Tables Widget 12-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "{{ route('getassetbytype') }}",
+            dataType: "json",
+            success: function(data) {
+                var type = [];
+                var amount = [];
+                var color = [];
+
+                var dynamicColors = function() {
+                    var r = Math.floor(Math.random() * 255);
+                    var g = Math.floor(Math.random() * 255);
+                    var b = Math.floor(Math.random() * 255);
+                    return "rgb(" + r + "," + g + "," + b + ")";
+                };
+
+                for (var i in data) {
+                    type.push(data[i].name);
+                    amount.push(data[i].id);
+                    color.push(dynamicColors());
+
+                }
+
+                var databytype = document.getElementById("assetbytype");
+                var bytype = new Chart(databytype, {
+                    type: 'doughnut',
+                    legendPosition: 'bottom',
+                    data: {
+                        labels: type,
+                        datasets: [{
+                            label: "<?php echo ('type'); ?>",
+                            data: amount,
+                            backgroundColor: color,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            position: 'bottom',
+                        },
+
+                    }
+                });
+            }
+        });
+    </script>
+
+
+    {{-- <script>
+        const assetbytype = document.getElementById('assetbytype');
+        new Chart(assetbytype, {
+            type: 'pie',
+            data: {
+                labels: {{ json_encode($assetData->pluck('name'))}}
+                // labels: data.map(row => row.year),
+                datasets: [{
+                    label: '# asset by type',
+                    data: {{json_encode($assetData->count())}},
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {}
+        });
+    </script> --}}
     </div>
 @endsection

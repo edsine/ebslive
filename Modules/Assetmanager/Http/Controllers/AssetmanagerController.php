@@ -49,6 +49,18 @@ class AssetmanagerController extends Controller
         'asset'));
     }
 
+  public function assetbytype(){
+    $data = \DB::table('assetmanagers')
+        ->leftJoin('assettypes', 'assettypes.id', '=', 'assetmanagers.assettype_id')
+        ->groupBy('assettypes.id')
+        ->groupBy('assettypes.name')
+        ->groupBy('assetmanagers.id') // Include assetmanagers.id in the GROUP BY clause
+
+        ->get();
+    return response($data);
+}
+
+
     public function assetdashboard(){
 
 
@@ -57,6 +69,10 @@ class AssetmanagerController extends Controller
         $myasset= Assetmanager::where('user_id',$user->user_id)->get()->count();
         $mydept= Assetmanager::where('department_id',$user->department_id)->get()->count();
         $data=Assetmanager::all();
+
+
+
+
 
         $totalsupply= Supply::all()->count();
         $totalbrand=Brand::all()->count();
