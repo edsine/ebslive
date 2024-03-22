@@ -20,6 +20,8 @@ use Modules\Assetmanager\Http\Controllers\AssettypeController;
 Route::prefix('assetmanager')->group(function() {
     Route::get('/', 'AssetmanagerController@index');
     Route::get('/assetdashboard', 'AssetmanagerController@assetdashboard')->name('assetdashboard')->middleware('auth');
+
+    Route::get('assetbytype','AssetmanagerController@assetbytype')->name('getassetbytype')->middleware('auth');
 });
 
 // Route::get('theuser/{department}','AssetmanagerController@getusersbydepart')->name('users.by.department');
