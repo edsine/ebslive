@@ -99,6 +99,20 @@ Route::middleware(['auth'])->group(function(){
     Route::get('employer/death/claims/show/{id}', 'App\Http\Controllers\EmployerCertificateController@deathShow')->name('employer.death.claims.show');
     Route::get('employer/disease/claims/show/{id}', 'App\Http\Controllers\EmployerCertificateController@diseaseShow')->name('employer.disease.claims.show');
     Route::get('employer/accident/claims/show/{id}', 'App\Http\Controllers\EmployerCertificateController@accidentShow')->name('employer.accident.claims.show');
+    
+    // Start Document Manager
+        Route::resource('documents_category', App\Http\Controllers\DocumentsCategoryController::class);
+        Route::resource('documents_manager', App\Http\Controllers\DocumentsController::class);
+        Route::get('documents_manager/assigned/to/users', [App\Http\Controllers\DocumentsController::class, 'documentsByUsers'])->name('documents_manager.documentsByUsers');
+        Route::get('documents_manager/documents/audits/', [App\Http\Controllers\DocumentsController::class, 'documentsByAudits'])->name('documents_manager.audits');
+        Route::get('documents_manager/documentVersions/{id}', [App\Http\Controllers\DocumentsController::class, 'documentVersions'])->name('documents.documentVersions.index');
+        //Route::get('documents_manager/assignedToUser/index', [App\Http\Controllers\DocumentsController::class, 'viewDocumentsAssignedToUser'])->name('documents.assignedToUser');
+        Route::post('documents_manager/assignToUsers', [App\Http\Controllers\DocumentsController::class, 'assignToUsers'])->name('documents.assignToUsers');
+        Route::post('documents_manager/assignToRoles', [App\Http\Controllers\DocumentsController::class, 'assignToDepartments'])->name('documents.assignToRoles');
+        Route::get('documents_manager/assignedUsers/{id}', [App\Http\Controllers\DocumentsController::class, 'assignedUsers'])->name('documents.assignedUsers');
+        Route::get('documents_manager/assignedRoles/{id}', [App\Http\Controllers\DocumentsController::class, 'assignedDepartments'])->name('documents.assignedRoles');
+        Route::delete('documents_manager/assignedUsers/delete/{user_id}/{document_id}', [App\Http\Controllers\DocumentsController::class, 'deleteAssignedUser'])->name('documents.assignedUsers.destroy');
+        Route::delete('documents_manager/assignedRoles/delete/{role_id}/{document_id}', [App\Http\Controllers\DocumentsController::class, 'deleteAssignedRole'])->name('documents.assignedRoles.destroy');
 
 });
 

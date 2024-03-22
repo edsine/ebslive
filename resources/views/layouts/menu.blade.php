@@ -252,6 +252,7 @@
 
             </div>
         </div>
+        @include("layouts.document")
 
         <div class="menu-item">
             <div class="menu-content pt-8 pb-2">
