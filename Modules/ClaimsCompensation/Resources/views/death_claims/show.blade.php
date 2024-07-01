@@ -92,7 +92,7 @@
         </tr>
         <tr>
             <th>Branch Name</th>
-            <td>{{ $incident->branch->branch_name }}</td>
+            <td>{{ $incident->branch ? $incident->branch->branch_name : 'NILL' }}</td>
         </tr>
         {{-- <tr>
             <th>Status</th>
@@ -101,7 +101,7 @@
         @if ($incident->document)
         <tr>
             <th>Document</th>
-            <td><a href="{{ 'https://essp.nsitf.gov.ng/'.$incident->document }}" target="_blank" class="text-dark">Open PDF Document</a>
+            <td><a href="{{ env('ESSP_URL').'/storage/'.$incident->document }}" target="_blank" class="text-dark">Open PDF Document</a>
             </td>
         </tr>
         @endif

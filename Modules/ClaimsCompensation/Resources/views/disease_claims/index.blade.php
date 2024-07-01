@@ -44,7 +44,7 @@
                             <th>Gender</th>
                             <th>Claim Date</th>
                             <th>Approval Status</th>
-                            {{-- <th>Manage</th> --}}
+                            <th>Manage</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -57,7 +57,7 @@
                                 <td>
                                     <span class="tb-status text-{{$claim->status ==0 ? 'warning' : 'success'}}">{{$claim->status ? 'APPROVED' : 'PENDING'}}</span>
                                 </td>
-                                {{-- <td>
+                                <td>
                                     @if (!$claim->request && $claim->status == 0)
                                         <a class="btn btn-primary"
                                             onclick="event.preventDefault();
@@ -70,7 +70,7 @@
                                             <input type="hidden" name="id" id="id" value="{{ $claim->id }}">
                                         </form>
                                     @endif
-                                </td> --}}
+                                </td>
                                 <td>
                                     <a href="{{ route('disease.claims.show', ['id' => $claim->id]) }}" class="text-dark"><i class="fa fa-eye"></i> View Details</a>
 

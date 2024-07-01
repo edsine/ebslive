@@ -40,6 +40,10 @@
 </div>
 <!--end:Menu item-->
 
+@if(auth()->user()->staff->department_id==16 || auth()->user()->hasRole('super-admin'))
+@include('claimscompensation::layouts.menu')
+@endif
+
 @if(auth()->user()->staff->department_id==5 || auth()->user()->hasRole('super-admin'))
 <!--begin:Menu item-->
 <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
