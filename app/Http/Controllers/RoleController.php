@@ -80,7 +80,8 @@ class RoleController extends AppBaseController
      */
     public function show($id)
     {
-        $role = $this->roleRepository->find($id);
+        //$role = $this->roleRepository->find($id);
+        $role = Role::find($id);
 
         if (empty($role)) {
             Flash::error('Role not found');
@@ -124,6 +125,7 @@ class RoleController extends AppBaseController
         return view('roles.edit')->with([
             'role' => $role,
             'permissions' => $permissions,
+            'role_id' => $id,
         ]);
     }
 
@@ -152,10 +154,26 @@ class RoleController extends AppBaseController
         }
 
         $input =  $request->all();
+        
+       // $role->syncPermissions($request->get('permissions') ?? []);
         $role = $this->roleRepository->update($input, $id);
+        $role->syncPermissions([]);
+        // Update new permissions
         $role->syncPermissions($request->get('permissions') ?? []);
+        /* $role = Role::find($id);
+        
+        // Retrieve existing permissions
+        $currentPermissions = $role->permissions()->pluck('id')->toArray();
+        
+        // Detach existing permissions
+        $role->permissions()->detach($currentPermissions);
+        
+        // Attach new permissions
+        $newPermissions = $request->input('permissions', []);
+        $role->permissions()->attach($newPermissions); */
+        
 
-        Flash::success('Role updated successfully.');
+        Flash::success('Permissions updated successfully.');
 
         return redirect(route('roles.index'));
     }

@@ -100,7 +100,7 @@
                                                 $modelObject = ('Modules\\Shared\\Models\\' . explode('\\', $flow->approval_scopeable_type)[3])::where('id', $flow->approval_scopeable_id)->first();
                                             }
                                         @endphp
-                                        <br /><small>{{ $flow->approval_scopeable_id != null ? (explode('\\', $flow->approval_scopeable_type)[3] == 'Department' ? $modelObject->department_unit : $modelObject->name) : '' }}</small>
+                                        <br /><small>{{ $flow->approval_scopeable_id != null ? (explode('\\', $flow->approval_scopeable_type)[3] == 'Department' ? $modelObject->name : $modelObject->name) : '' }}</small>
                                     </span>
                                     {{-- @foreach ($flow->roles as $scope)
                                         <span>
@@ -110,7 +110,7 @@
                                                     $modelObject = ('Modules\\Shared\\Models\\' . explode('\\', $scope->pivot->scopeable_type)[3])::where('id', $scope->pivot->scopeable_id)->first();
                                                 }
                                             @endphp
-                                            <br /><small>{{ $scope->pivot->scopeable_id != null ? (explode('\\', $scope->pivot->scopeable_type)[3] == 'Department' ? $modelObject->department_unit : $modelObject->name) : '' }}</small>
+                                            <br /><small>{{ $scope->pivot->scopeable_id != null ? (explode('\\', $scope->pivot->scopeable_type)[3] == 'Department' ? $modelObject->name : $modelObject->name) : '' }}</small>
                                         </span>
                                     @endforeach --}}
                                 </td>

@@ -35,7 +35,7 @@
                     <tbody>
                         @foreach ($assigned_departments as $assigned_department)
                             <tr>
-                                <td>{{ $assigned_department->department->department_unit }}</td>
+                                <td>{{ $assigned_department->department->name }}</td>
                                 <td style="width: 120px">
                                     {!! Form::open(['route' => ['memos.assignedDepartments.destroy',$assigned_department->department_id,  $memo->id], 'method' => 'delete']) !!}
                                     <div class='btn-group'>

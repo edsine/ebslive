@@ -45,7 +45,7 @@ class TransferController extends AppBaseController
     {
         if(Auth::user()->can('create transfer'))
         {
-            $departments = Department::get()->pluck('department_unit', 'id');
+            $departments = Department::get()->pluck('name', 'id');
             $branches    = Branch::get()->pluck('branch_name', 'id');
             $employees = User::get()->map(function ($user) {
                 return [
@@ -134,7 +134,7 @@ class TransferController extends AppBaseController
     {
         if(Auth::user()->can('edit transfer'))
         {
-            $departments = Department::get()->pluck('department_unit', 'id');
+            $departments = Department::get()->pluck('name', 'id');
             $branches    = Branch::get()->pluck('branch_name', 'id');
             $employees = User::get()->map(function ($user) {
                 return [

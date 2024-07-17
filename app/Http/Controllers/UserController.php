@@ -7,6 +7,7 @@ use view;
 
 use Response;
 use App\Models\User;
+use App\Models\Level;
 use App\Mail\EBSMail;
 use App\Models\Signature;
 use Laracasts\Flash\Flash;
@@ -105,7 +106,7 @@ class UserController extends AppBaseController
             ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
             ->join('departments', 'staff.department_id', '=', 'departments.id')
             ->join('branches', 'staff.branch_id', '=', 'branches.id')
-            ->select('users.id', 'roles.name as role', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name');
+            ->select('users.id', 'roles.name as role', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.name', 'branches.branch_name');
 
         $noroleQuery = DB::table('users')
             ->leftJoin('staff', 'users.id', '=', 'staff.user_id')
@@ -113,7 +114,7 @@ class UserController extends AppBaseController
             ->whereNull('model_has_roles.role_id')
             ->join('departments', 'staff.department_id', '=', 'departments.id')
             ->join('branches', 'staff.branch_id', '=', 'branches.id')
-            ->select('users.id', DB::raw("NULL as role"), 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name');
+            ->select('users.id', DB::raw("NULL as role"), 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.name', 'branches.branch_name');
          
         }else{
             $usersQuery = DB::table('users')
@@ -123,7 +124,7 @@ class UserController extends AppBaseController
             ->join('departments', 'staff.department_id', '=', 'departments.id')
             ->join('branches', 'staff.branch_id', '=', 'branches.id')
             ->where('staff.branch_id',$userbranch_id)
-            ->select('users.id', 'roles.name as role', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name');
+            ->select('users.id', 'roles.name as role', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.name', 'branches.branch_name');
 
         $noroleQuery = DB::table('users')
             ->leftJoin('staff', 'users.id', '=', 'staff.user_id')
@@ -132,7 +133,7 @@ class UserController extends AppBaseController
             ->join('departments', 'staff.department_id', '=', 'departments.id')
             ->join('branches', 'staff.branch_id', '=', 'branches.id')
             ->where('staff.branch_id',$userbranch_id)
-            ->select('users.id', DB::raw("NULL as role"), 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name');
+            ->select('users.id', DB::raw("NULL as role"), 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.name', 'branches.branch_name');
 
          }
 
@@ -281,10 +282,11 @@ class UserController extends AppBaseController
         $roles = $this->roleRepository->all()->pluck('name', 'id');
         $roles->prepend('Select role', '');
         $branch = $this->branchRepository->all()->pluck('branch_name', 'id');
+        $levels = Level::all()->pluck('name', 'id');
       
       
-        $department = $this->departmentRepository->all()->pluck('department_unit', 'id');
-        return view('users.create', compact('roles', 'branch', 'department', 'rank'));
+        $department = $this->departmentRepository->all()->pluck('name', 'id');
+        return view('users.create', compact('roles', 'branch', 'department', 'rank', 'levels'));
     }
 
     public function newWebmail()
@@ -581,10 +583,11 @@ class UserController extends AppBaseController
         $branch = $this->branchRepository->all()->pluck('branch_name', 'id');
 
         
-        $department = $this->departmentRepository->all()->pluck('department_unit', 'id');
+        $department = $this->departmentRepository->all()->pluck('name', 'id');
 
 
         $rank = Ranking::all()->pluck('name', 'id');
+        $levels = Level::all()->pluck('name', 'id');
 
         if (empty($user)) {
             Flash::error('User not a staff so it can not be edited');
@@ -606,7 +609,7 @@ class UserController extends AppBaseController
 
         return view('users.edit', compact('user','roles',
         'branch', 'department', 'id',
-         'rank','userrole','single_user'));
+         'rank','userrole','single_user', 'levels'));
     }
 
     /**

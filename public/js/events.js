@@ -66,7 +66,7 @@ $(document).ready(function() {
             response.departments.forEach(function(department) {
                 departmentsDropdown.append($('<option>', {
                     value: department.id,
-                    text: department.department_unit
+                    text: department.name
                 }));
             });
 

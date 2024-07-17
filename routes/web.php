@@ -17,6 +17,7 @@ use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\ZoomMeetingController;
 use Modules\Accounting\Http\Controllers\ReportController;
 use App\Http\Controllers\ESSPPaymentController;
+use App\Http\Controllers\ReminderController;
 
 
 /*
@@ -30,6 +31,100 @@ use App\Http\Controllers\ESSPPaymentController;
 |
 */
 
+// Start Document Manager
+Route::group(['middleware' => ['auth']], function () {
+
+Route::delete('/documents-category/{id}', 'App\Http\Controllers\DocumentsCategoryController@ajaxDestroy')->name('documents_category.ajax_destroy');
+Route::resource('documents_category', App\Http\Controllers\DocumentsCategoryController::class);
+Route::resource('documents_manager', App\Http\Controllers\DocumentsController::class);
+Route::get('documents_manager/assigned/to/users', [App\Http\Controllers\DocumentsController::class, 'documentsByUsers'])->name('documents_manager.documentsByUsers');
+Route::get('documents_manager/documents/audits/', [App\Http\Controllers\DocumentsController::class, 'documentsByAudits'])->name('documents_manager.audits');
+Route::get('documents_manager/documentVersions/{id}', [App\Http\Controllers\DocumentsController::class, 'documentVersions'])->name('documents.documentVersions.index');
+//Route::get('documents_manager/assignedToUser/index', [App\Http\Controllers\DocumentsController::class, 'viewDocumentsAssignedToUser'])->name('documents.assignedToUser');
+Route::post('documents_manager/assignToUsers', [App\Http\Controllers\DocumentsController::class, 'assignToUsers'])->name('documents.assignToUsers');
+Route::post('documents_manager/assignToRoles', [App\Http\Controllers\DocumentsController::class, 'assignToDepartments'])->name('documents.assignToRoles');
+Route::get('documents_manager/assignedUsers/{id}', [App\Http\Controllers\DocumentsController::class, 'assignedUsers'])->name('documents.assignedUsers');
+Route::get('documents_manager/assignedRoles/{id}', [App\Http\Controllers\DocumentsController::class, 'assignedDepartments'])->name('documents.assignedRoles');
+Route::delete('documents_manager/assignedUsers/delete/{user_id}/{document_id}', [App\Http\Controllers\DocumentsController::class, 'deleteAssignedUser'])->name('documents.assignedUsers.destroy');
+Route::delete('documents_manager/assignedRoles/delete/{role_id}/{document_id}', [App\Http\Controllers\DocumentsController::class, 'deleteAssignedRole'])->name('documents.assignedRoles.destroy');
+Route::get('documents_manager/delete/{id}', [App\Http\Controllers\DocumentsController::class, 'delete'])->name('documents_manager.delete');
+Route::post('documents_manager/add', [App\Http\Controllers\DocumentsController::class, 'add'])->name('documents_manager.add');
+Route::get('/documents_manager/version/{id}', 'App\Http\Controllers\DocumentsController@documentsVersion')->name('documents_manager.version');
+Route::get('/documents_manager/comment/{id}', 'App\Http\Controllers\DocumentsController@documentsComment')->name('documents_manager.comment');
+Route::post('documents_manager/add_comment', [App\Http\Controllers\DocumentsController::class, 'addComment'])->name('documents_manager.add_comment');
+Route::post('documents_manager/send_email', [App\Http\Controllers\DocumentsController::class, 'sendEmail'])->name('documents_manager.send_email');
+Route::get('/documents_manager/share/{id}', 'App\Http\Controllers\DocumentsController@shareDocument')->name('documents_manager.share');
+Route::post('documents_manager/shareuser', [App\Http\Controllers\DocumentsController::class, 'shareUser'])->name('documents_manager.shareuser');
+Route::post('documents_manager/sharerole', [App\Http\Controllers\DocumentsController::class, 'shareRole'])->name('documents_manager.sharerole');
+Route::get('/documents_manager/shared/user', 'App\Http\Controllers\DocumentsController@sharedUser')->name('documents_manager.shareduser');
+Route::get('/documents_manager/shared/role', 'App\Http\Controllers\DocumentsController@sharedRole')->name('documents_manager.sharedrole');
+
+Route::post('/generate-file-no', 'App\Http\Controllers\DocumentsCategoryController@generateFileNo');
+
+Route::get('/documents_manager/shared/user/file', 'App\Http\Controllers\DocumentsController@sharedUserFile')->name('documents_manager.shareduserfile');
+Route::post('documents_manager/shareuserfile', [App\Http\Controllers\DocumentsController::class, 'shareUserFile'])->name('documents_manager.shareuserfile');
+
+Route::post('/store-clicked-link', 'App\Http\Controllers\DocumentsController@storeClickedLink')->name('store_clicked_link');
+Route::get('/fetch-clicked-links', 'App\Http\Controllers\DocumentsController@fetchClickedLinks')->name('fetch_clicked_links');
+
+//End of document manager
+
+//Start of incoming documents
+Route::get('incoming_document_dashboard', [App\Http\Controllers\IncomingDocumentsController::class, 'dashboard'])->name('incoming_document_dashboard');
+Route::resource('incoming_documents_category', App\Http\Controllers\IncomingDocumentsCategoryController::class);
+Route::post('/generate-incoming-file-no', 'App\Http\Controllers\IncomingDocumentsCategoryController@generateFileNo');
+
+Route::resource('incoming_documents_manager', App\Http\Controllers\IncomingDocumentsController::class);
+Route::get('incoming_documents_manager/assigned/to/users', [App\Http\Controllers\IncomingDocumentsController::class, 'documentsByUsers'])->name('incoming_documents_manager.documentsByUsers');
+Route::get('incoming_documents_manager/documents/audits/', [App\Http\Controllers\IncomingDocumentsController::class, 'documentsByAudits'])->name('incoming_documents_manager.audits');
+Route::get('incoming_documents_manager/documentVersions/{id}', [App\Http\Controllers\IncomingDocumentsController::class, 'documentVersions'])->name('incoming_documents.documentVersions.index');
+//Route::get('incoming_documents_manager/assignedToUser/index', [App\Http\Controllers\IncomingDocumentsController::class, 'viewDocumentsAssignedToUser'])->name('incoming_documents.assignedToUser');
+Route::post('incoming_documents_manager/assignToUsers', [App\Http\Controllers\IncomingDocumentsController::class, 'assignToUsers'])->name('incoming_documents.assignToUsers');
+Route::post('incoming_documents_manager/assignToRoles', [App\Http\Controllers\IncomingDocumentsController::class, 'assignToDepartments'])->name('incoming_documents.assignToRoles');
+Route::get('incoming_documents_manager/assignedUsers/{id}', [App\Http\Controllers\IncomingDocumentsController::class, 'assignedUsers'])->name('incoming_documents.assignedUsers');
+Route::get('incoming_documents_manager/assignedRoles/{id}', [App\Http\Controllers\IncomingDocumentsController::class, 'assignedDepartments'])->name('incoming_documents.assignedRoles');
+Route::delete('incoming_documents_manager/assignedUsers/delete/{user_id}/{document_id}', [App\Http\Controllers\IncomingDocumentsController::class, 'deleteAssignedUser'])->name('incoming_documents.assignedUsers.destroy');
+Route::delete('incoming_documents_manager/assignedRoles/delete/{role_id}/{document_id}', [App\Http\Controllers\IncomingDocumentsController::class, 'deleteAssignedRole'])->name('incoming_documents.assignedRoles.destroy');
+Route::get('incoming_documents_manager/delete/{id}', [App\Http\Controllers\IncomingDocumentsController::class, 'delete'])->name('incoming_documents_manager.delete');
+Route::post('incoming_documents_manager/add', [App\Http\Controllers\IncomingDocumentsController::class, 'add'])->name('incoming_documents_manager.add');
+Route::get('/incoming_documents_manager/version/{id}', 'App\Http\Controllers\IncomingDocumentsController@documentsVersion')->name('incoming_documents_manager.version');
+Route::get('/incoming_documents_manager/comment/{id}', 'App\Http\Controllers\IncomingDocumentsController@documentsComment')->name('incoming_documents_manager.comment');
+Route::post('incoming_documents_manager/add_comment', [App\Http\Controllers\IncomingDocumentsController::class, 'addComment'])->name('incoming_documents_manager.add_comment');
+Route::post('incoming_documents_manager/send_email', [App\Http\Controllers\IncomingDocumentsController::class, 'sendEmail'])->name('incoming_documents_manager.send_email');
+Route::get('/incoming_documents_manager/share/{id}', 'App\Http\Controllers\IncomingDocumentsController@shareDocument')->name('incoming_documents_manager.share');
+Route::post('incoming_documents_manager/shareuser', [App\Http\Controllers\IncomingDocumentsController::class, 'shareUser'])->name('incoming_documents_manager.shareuser');
+Route::post('incoming_documents_manager/sharerole', [App\Http\Controllers\IncomingDocumentsController::class, 'shareRole'])->name('incoming_documents_manager.sharerole');
+Route::get('/incoming_documents_manager/shared/user', 'App\Http\Controllers\IncomingDocumentsController@sharedUser')->name('incoming_documents_manager.shareduser');
+Route::get('/incoming_documents_manager/shared/role', 'App\Http\Controllers\IncomingDocumentsController@sharedRole')->name('incoming_documents_manager.sharedrole');
+Route::get('/incoming_documents_manager/all_documents/secretary', 'App\Http\Controllers\IncomingDocumentsController@secretary')->name('incoming_documents_manager.all_documents.secretary');
+//Route::get('incoming_documents_manager/create', 'App\Http\Controllers\IncomingDocumentsController@create')->name('incoming_documents_manager.create');
+Route::get('/incoming_documents_manager/shared/user/file', 'App\Http\Controllers\IncomingDocumentsController@sharedUserFile')->name('incoming_documents_manager.shareduserfile');
+Route::post('incoming_documents_manager/shareuserfile', [App\Http\Controllers\IncomingDocumentsController::class, 'shareUserFile'])->name('incoming_documents_manager.shareuserfile');
+
+
+Route::resource('roles', RoleController::class);
+// demo admin role
+Route::get('demo_roles/{id}', 'App\Http\Controllers\RoleController@demo_edit')->name('demo_roles');
+Route::post('demo_update/{id}', 'App\Http\Controllers\RoleController@demo_update')->name('demo_update');
+
+Route::post('incoming_documents_manager/share_secretary', [App\Http\Controllers\IncomingDocumentsController::class, 'shareSecretary'])->name('incoming_documents_manager.share_secretary');
+
+Route::resource('reminder', ReminderController::class);
+    // Route::view('dash','dms.dashboard');
+    Route::get('documentloginaudit', [ReminderController::class, 'loginaudit'])->name('loginaudit');
+
+
+    Route::get('dash', [ReminderController::class, 'dashboard'])->name('dash');
+});
+
+Route::get('/new/incoming', 'App\Http\Controllers\IncomingDocumentsController@add_document')->name('add.new.incoming.document');
+Route::get('/area/office/incoming', 'App\Http\Controllers\IncomingDocumentsController@area_office_document')->name('area.office.incoming.document');
+
+Route::post('/add/new/incoming/store/', 'App\Http\Controllers\IncomingDocumentsController@store')->name('incoming_store');
+
+Route::post('/add/new/incoming/store/now/', 'App\Http\Controllers\IncomingDocumentsController@store_now')->name('incoming_store_now');
+
+//end incoming document
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'clockIn'])->name('home');
     Route::post('/home/clock-in', [HomeController::class, 'clockIn'])->name('clock-in');

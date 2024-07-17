@@ -114,7 +114,7 @@
                                     $department = \Modules\Shared\Models\Department::where('id', $designation->department_id)->first();
                                 @endphp
                                 <tr>
-                                    <td>{{ !empty($department->department_unit)?$department->department_unit:'' }}</td>
+                                    <td>{{ !empty($department->name)?$department->name:'' }}</td>
                                     <td>{{ $designation->name }}</td>
 
                                     <td class="Action">

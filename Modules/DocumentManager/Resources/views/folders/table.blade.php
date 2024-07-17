@@ -19,7 +19,7 @@
                         <td>{{ $folder->description }}</td>
                         <td>{{ $folder->branch ? $folder->branch->branch_name : '' }}</td>
                         {{-- <td>{{ $folder->department ? $folder->department->name : '' }}</td> --}}
-                        <td>{{ $folder->department ? $folder->department->department_unit : '' }}</td>
+                        <td>{{ $folder->department ? $folder->department->name : '' }}</td>
                         <td style="width: 120px">
                             {!! Form::open(['route' => ['folders.destroy', $folder->id], 'method' => 'delete']) !!}
                             <div class='btn-group'>

@@ -178,7 +178,7 @@
                                 @endphp
                                 <tr>
                                     <td>{{ !empty($appraisal->branches)?$appraisal->branches->branch_name:'' }}</td>
-                                    <td>{{ !empty($appraisal->employees)?!empty($appraisal->staff->department)?$appraisal->staff->department->department_unit:'':'' }}</td>
+                                    <td>{{ !empty($appraisal->employees)?!empty($appraisal->staff->department)?$appraisal->staff->department->name:'':'' }}</td>
                                     <td>{{ !empty($appraisal->employees)?!empty($appraisal->employees->designation)?$appraisal->employees->designation->name:'':'' }}</td>
                                     <td>{{!empty($appraisal->employees)?$appraisal->employees->first_name.' '.$appraisal->employees->last_name:'' }}</td>
 

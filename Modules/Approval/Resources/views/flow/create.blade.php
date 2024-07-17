@@ -107,7 +107,7 @@
                             <select name="department" id="department" class="form-control" multiple size="3">
                                 <option value="0">All</option>
                                 @foreach ($departments as $department)
-                                    <option value="{{ $department->id }}">{{ $department->department_unit }}</option>
+                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -194,7 +194,7 @@
             var departments = '';
             var dp = {!! json_encode($departments) !!};
             dp.forEach(el => {
-                departments += '<option value="' + el.id + '">' + el.department_unit + '</option>';
+                departments += '<option value="' + el.id + '">' + el.name + '</option>';
             });
 
             var branches = '';

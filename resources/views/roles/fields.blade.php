@@ -2,6 +2,7 @@
 <div class="form-group col-sm-12">
     {!! Form::label('name', 'Name') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    {{-- <input type="hidden" value="{{ $role_id }}" name="role_id"/> --}}
 </div>
 
 <div class="form-group col-sm-12">

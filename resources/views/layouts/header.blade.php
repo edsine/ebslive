@@ -154,7 +154,7 @@ use Illuminate\Support\Facades\Auth;
                                          <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                              <!--begin::Symbol-->
                                              <div class="symbol symbol-40px me-4">
-                                                 <img src="{{asset('assets/media/avatars/300-6.jpg')}}" alt="" />
+                                                 <img src="{{asset('assets/media/avatars/blank.png')}}" alt="" />
                                              </div>
                                              <!--end::Symbol-->
                                              <!--begin::Title-->
@@ -1465,7 +1465,7 @@ use Illuminate\Support\Facades\Auth;
         @if (auth()->user()->staff && auth()->user()->staff->profile_picture)
         <img src="{{ asset('storage/' .  auth()->user()->staff->profile_picture) }}" alt="{{ auth()->user()->staff->profile_picture }}">
         @else
-        <img src="assets/media/avatars/300-1.jpg" alt="image" />
+        <img src="assets/media/avatars/blank.png" alt="image" />
         @endif 
         
         {{-- <img src="{{asset('assets/media/avatars/blank.png')}}" alt="user" /> --}}
@@ -1480,7 +1480,7 @@ use Illuminate\Support\Facades\Auth;
                     @if (auth()->user()->staff && auth()->user()->staff->profile_picture)
                     <img src="{{ asset('storage/' .  auth()->user()->staff->profile_picture) }}" alt="{{ auth()->user()->staff->profile_picture }}">
                     @else
-                    <img src="assets/media/avatars/300-1.jpg" alt="image" />
+                    <img src="assets/media/avatars/blank.png" alt="image" />
                     @endif
                      {{-- <img alt="Logo" src="{{asset('assets/media/avatars/blank.png')}}" /> --}}
                  </div>

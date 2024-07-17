@@ -17,18 +17,20 @@
         @include('flash::message')
 
         <div class="clearfix"></div>
+        
+@can('view document audit trail')
 
         <div class="card">
             <div class="card-body p-5">
-                <div class="table-responsive1">
-                    <table class="table" id="document-table">
+                <div class="table-responsive">
+                    <table class="table align-middle gs-0 gy-4" id="order-listing">
                         <thead>
                             <tr>
-                                <th>S/N</th>
-                                <th>Name</th>
+                                <th>Document Title</th>
                                 <th>By Whom</th>
+                                <th>Assigned To</th>
                                 <th>Document URL</th>
-                                <th>Document Category</th>
+                                <th>Department Name / File No.</th>
                                 <th>Action Date</th>
                                 <th>Operation</th>
                             </tr>
@@ -36,15 +38,25 @@
                         <tbody>
                             @php $n =1; @endphp
                             @foreach ($documents as $document)
-                                
+                            @php
+                            $document->category = $categories[$document->category_id] ?? null;
+                        @endphp
                                 <tr>
-                                    <td>{{ $n++ }}</td>
+                                    
                                     <td>{{ $document->title }}</td>
                                     {{-- <td>{{ $document->description }}</td> --}}
-                                    <td>{{ $document->first_name ? $document->first_name. ' '.$document->last_name : '' }}</td>
+                                    <td>{{ $document->created_by_first_name ? $document->created_by_first_name. ' '.$document->created_by_last_name : '' }}</td>
+                                    <td>{{ $document->assigned_to_first_name }} {{ $document->assigned_to_last_name }}</td>
                                     <td>{{ substr($document->document_url, 10) }}</td>
-                                    
-                                    <td>{{ $document->category_name ?? 'NILL' }}</td>
+                                    <td>
+                                        @if ($document->category)
+                                            {{ $document->category->department->name ?? '' }}
+                                            /
+                                            {{ $document->category_name ?? 'NILL' }}
+                                        @else
+                                        {{ $document->category_name ?? 'NILL' }}
+                                        @endif
+                                    </td>
                                     <td>{{ $document->createdAt }}</td>
                                     <td>{{ $document->event }}</td>
                                     
@@ -54,17 +66,14 @@
                     </table>
                 </div>
             
-                <div class="card-footer clearfix">
-                    <div class="float-right">
-                        @include('adminlte-templates::common.paginate', ['records' => $documents])
-                    </div>
-                </div>
+                
             </div>
             
             
            
             
         </div>
+        @endcan
     </div>
 
 @endsection

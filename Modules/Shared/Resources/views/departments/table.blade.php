@@ -13,7 +13,7 @@
             <tbody>
             @foreach($departments as $department)
                 <tr>
-                    <td>{{ $department->department_unit }}</td>
+                    <td>{{ $department->name }}</td>
                     <td>{{ $department->description }}</td>
                    {{--  <td>{{ $department->branch ? $department->branch->branch_name : '' }}</td> --}}
                     <td  style="width: 120px">

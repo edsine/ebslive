@@ -171,7 +171,7 @@
                                 @endphp
                                 <tr>
                                     <td>{{ !empty($indicator->branches)?$indicator->branches->branch_name:'' }}</td>
-                                    <td>{{ !empty($indicator->departments)?$indicator->departments->department_unit:'' }}</td>
+                                    <td>{{ !empty($indicator->departments)?$indicator->departments->name:'' }}</td>
                                     <td>{{ !empty($indicator->designations)?$indicator->designations->name:'' }}</td>
                                     <td>
 

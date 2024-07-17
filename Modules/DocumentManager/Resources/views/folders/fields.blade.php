@@ -44,7 +44,7 @@
                
                     
                 $.each(users, function (index, user) {
-                    $('#departmentSelect').append(`<option value="${user.id}">${user.department_unit}</option>`);
+                    $('#departmentSelect').append(`<option value="${user.id}">${user.name}</option>`);
                 // alert('ff');
                 });
             
@@ -74,7 +74,7 @@
                
                     
                 $.each(users, function (index, user) {
-                    $('#departmentSelect').append(`<option value="${user.id}">${user.department_unit}</option>`);
+                    $('#departmentSelect').append(`<option value="${user.id}">${user.name}</option>`);
                 // alert('ff');
                 });
             

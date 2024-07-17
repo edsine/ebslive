@@ -9,7 +9,7 @@
         <div class="col-md-6 mt-2">
             <div class="info text-sm font-style">
                 <strong>{{__('Department')}} : </strong>
-                <span>{{ !empty($indicator->departments)?$indicator->departments->department_unit:'' }}</span>
+                <span>{{ !empty($indicator->departments)?$indicator->departments->name:'' }}</span>
             </div>
         </div>
         <div class="col-md-6 mt-3">

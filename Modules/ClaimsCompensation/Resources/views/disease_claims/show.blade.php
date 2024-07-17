@@ -109,7 +109,7 @@
         @if ($incident->document)
         <tr>
             <th>Document</th>
-            <td><a href="{{ env('ESSP_URL').'/storage/'.$incident->document }}" target="_blank" class="text-dark">Open PDF Document</a>
+            <td><a href="{{ env('ESSP_URL').'/storage/'.$incident->document }}" target="_blank" class="text-dark">View File</a>
             </td>
         </tr>
         @endif

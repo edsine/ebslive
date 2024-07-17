@@ -14,8 +14,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
     public $fillable = [
         'role_id',
+        'user_id',
         'document_id',
-        'assigned_by'
+        'assigned_by',
+        'start_date',
+        'end_date',
+        'is_download',
     ];
 
     protected $casts = [

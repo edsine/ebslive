@@ -75,7 +75,7 @@ class UnitController extends AppBaseController
         $users = [
             '0' => 'Select Unit Head'
         ];
-        $departments = $this->departmentRepository->all()->pluck("department_unit","id");
+        $departments = $this->departmentRepository->all()->pluck("name","id");
         $departments->prepend('Select Department', '');
         return view('unitmanager::units.create')->with(['departments'=> $departments,'users'=> $users]);
        
@@ -175,7 +175,7 @@ class UnitController extends AppBaseController
         $users = [
             '0' => 'Select Unit Head'
         ];
-        $departments = $this->departmentRepository->all()->pluck("department_unit","id");
+        $departments = $this->departmentRepository->all()->pluck("name","id");
         $departments->prepend('Select Department', '');
         return view('unitmanager::units.edit')->with(['departments' => $departments, 'users' => $users, 'unit' => $unit]);
     }

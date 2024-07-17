@@ -20,21 +20,33 @@ class Documents extends Model implements Auditable
         'description',
         'created_by',
         'category_id',
-        'document_url'
+        'document_url',
+        'department_id',
+        'branch_id',
     ];
 
     protected $casts = [
         'title' => 'string',
         'description' => 'string',
         'created_by' => 'integer',
-        'category_id' => 'integer'
+        'category_id' => 'integer',
+        'department_id' => 'integer',
+        'branch_id' => 'integer',
     ];
 
     public static array $rules = [
         'title' => 'required|unique:documents_manager,title',
         'file' => 'required|file|max:2048',
         'description' => 'required',
+        'department_id' => 'required',
+        'branch_id' => 'required',
     ];
+    
+
+    public function department()
+{
+    return $this->belongsTo(Department::class, 'department_id', 'id');
+}
 
     public function createdBy(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
@@ -54,5 +66,16 @@ class Documents extends Model implements Auditable
     public function assignedRoles(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(\Modules\DocumentManager\Models\MemoHasDepartment::class);
+    }
+    public function reminder(){
+        return $this->hasMany(Reminder::class,'documents_manager_id');
+    }
+
+    /**
+     * Get the categories that owns the document.
+     */
+    public function categories()
+    {
+        return $this->belongsTo(DocumentsCategory::class, 'category_id');
     }
 }

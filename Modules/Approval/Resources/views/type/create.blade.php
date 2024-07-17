@@ -118,7 +118,7 @@
                             <select name="department" id="department" class="form-control" multiple size="3">
                                 <option value="null">All</option>
                                 @foreach ($departments as $department)
-                                    <option value="{{ $department->id }}">{{ $department->department_unit }}</option>
+                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
                                 @endforeach
                             </select>
                         </div>

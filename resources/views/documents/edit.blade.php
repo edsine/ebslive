@@ -23,11 +23,11 @@
 
             <div class="card-body">
                 <div class="row">
-                    @include('documents.fields')
+                    @include('documents.editfields')
                 </div>
             </div>
 
-            <div class="card-footer">
+            <div class="card-footer" style="margin-bottom: 30px;">
                 {!! Form::submit('SUBMIT', ['class' => 'btn btn-primary']) !!}
                 <a href="{{ route('documents_manager.index') }}" class="btn btn-default"> Cancel </a>
             </div>

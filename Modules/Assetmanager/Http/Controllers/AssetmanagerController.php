@@ -35,7 +35,7 @@ class AssetmanagerController extends Controller
         $location=Branch::get()->pluck('branch_name','id');
 
 
-        $dept= Department::get()->pluck('department_unit','id');
+        $dept= Department::get()->pluck('name','id');
 
 
         $user=User::get()->pluck('first_name','id');

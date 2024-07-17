@@ -26,6 +26,7 @@ class UpdateDocumentsCategoryRequest extends FormRequest
            
             'name' => 'required|string',
             'description' => 'nullable|string',
+            'department_id' => 'nullable|integer',
             
         ];
     }

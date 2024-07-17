@@ -185,7 +185,7 @@ class AnnouncementController extends AppBaseController
             if($announcement->created_by == Auth::user()->creatorId())
             {
                 $branch      = Branch::get()->pluck('branch_name', 'id');
-                $departments = Department::get()->pluck('department_unit', 'id');
+                $departments = Department::get()->pluck('name', 'id');
 
                 return view('hrmsystem::announcement.edit', compact('announcement', 'branch', 'departments'));
             }
@@ -270,13 +270,13 @@ class AnnouncementController extends AppBaseController
 
         /* if($request->branch_id == 0)
         {
-            $departments = Department::get()->pluck('department_unit', 'id')->toArray();
+            $departments = Department::get()->pluck('name', 'id')->toArray();
         }
         else
         {
-            $departments = Department::where('branch_id', $request->branch_id)->get()->pluck('department_unit', 'id')->toArray();
+            $departments = Department::where('branch_id', $request->branch_id)->get()->pluck('name', 'id')->toArray();
         } */
-        $departments = Department::get()->pluck('department_unit', 'id')->toArray();
+        $departments = Department::get()->pluck('name', 'id')->toArray();
 
         return response()->json($departments);
     }

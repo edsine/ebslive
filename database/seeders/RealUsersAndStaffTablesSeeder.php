@@ -63,7 +63,7 @@ class RealUsersAndStaffTablesSeeder extends Seeder
 
         foreach ($all_departments as $all_department) {
             $departments = [
-                'department_unit' => $all_department->dep_unit,
+                'name' => $all_department->dep_unit,
                 'status' => $all_department->status,
                 //'description'=>$all_department->branch_code,
                 //'branch_id'=>$all_department->last_ecsnumber,

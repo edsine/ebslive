@@ -36,7 +36,7 @@ class EventController extends Controller
     public function index_json_data()
     {
       //  $events = Event::all(['id', 'title', 'start', 'end']); // Fetch the events
-    $departments = Department::all(['id', 'department_unit']); // Fetch the departments
+    $departments = Department::all(['id', 'name']); // Fetch the departments
     $rankings = Ranking::all(['id', 'name']); // Fetch the rankings
 
     return response()->json([

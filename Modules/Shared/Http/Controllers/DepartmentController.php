@@ -51,8 +51,8 @@ class DepartmentController extends AppBaseController
     {
         $searchTerm = $request->input('term');
 
-        $departments = Department::where('department_unit', 'like', '%' . $searchTerm . '%')
-            ->get(['id', 'department_unit']);
+        $departments = Department::where('name', 'like', '%' . $searchTerm . '%')
+            ->get(['id', 'name']);
 
         return response()->json($departments);
     }

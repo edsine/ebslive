@@ -146,7 +146,7 @@
                                     <div class="col-md-6">
                                         <div class="info text-sm font-style">
                                             <strong class="font-bold">{{__('Department')}} :</strong>
-                                            <span>{{!empty($employee->department)?$employee->department->department_unit:''}}</span>
+                                            <span>{{!empty($employee->department)?$employee->department->name:''}}</span>
                                         </div>
                                     </div>
 

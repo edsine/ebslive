@@ -6,7 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1>
-                        Create Document
+                        Create Document...
                     </h1>
                 </div>
             </div>
@@ -27,27 +27,13 @@
                 <div class="row">
                     @include('documents.fields')
 
-                
-                    <div class="col-sm-12 row mb-3">
-                        <!-- Roles and users Field -->
-
-<div class="form-group col-sm-6">
-    {!! Form::label('roles', 'Role(s):') !!}
-    {!! Form::select('roles[]', $roles, null, ['class' => 'form-control', 'id' => 'roleSelect', 'multiple' => 'multiple']) !!}
-</div>
-
-<div class="form-group col-sm-6">
-    {!! Form::label('users', 'User(s):') !!}
-    {!! Form::select('users[]', $users, null, ['class' => 'form-control', 'id' => 'userSelect', 'multiple' => 'multiple']) !!}
-</div>
 
 
-                    </div>
                 </div>
 
             </div>
 
-            <div class="card-footer">
+            <div class="card-footer" style="margin-bottom: 30px;">
                 {!! Form::submit('SUBMIT', ['class' => 'btn btn-primary']) !!}
                 <a href="{{ route('documents_manager.index') }}" class="btn btn-default"> Cancel </a>
             </div>
@@ -63,7 +49,7 @@
 <style>
     textarea.select2-search__field{
        width: 100%;
-       
+
     }
     .select2-container .select2-search--inline .select2-search__field {
     box-sizing: border-box;
@@ -145,7 +131,7 @@
                     data: function(params) {
                         return {
                             search: {
-                                department_unit: params.term
+                                name: params.term
                             },
                             limit: 10 // Number of departments per page
                         };
@@ -156,7 +142,7 @@
                         $.each(data.data, function(index, department) {
                             options.push({
                                 id: department.id,
-                                text: department.department_unit
+                                text: department.name
                             });
                         });
 

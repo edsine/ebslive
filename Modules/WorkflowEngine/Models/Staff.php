@@ -58,7 +58,7 @@ class Staff extends Model implements Auditable
     ];
 
     protected $casts = [
-        'department_unit' => 'string',
+        'name' => 'string',
         'status' => 'integer',
     ];
 
@@ -84,7 +84,7 @@ class Staff extends Model implements Auditable
         return $this->belongsTo(Region::class);
     }
     /* public static array $rules = [
-        'department_unit' => 'required|unique:departments,department_unit',
+        'name' => 'required|unique:departments,name',
         'status' => 'required',
     ]; */
 

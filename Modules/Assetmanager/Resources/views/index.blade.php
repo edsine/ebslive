@@ -51,7 +51,7 @@
                                 </td> --}}
 
                                 <td>{{$type->user?$type->user->first_name . ' ' .$type->user->last_name : 'All Staff'}}</td>
-                                <td>{{$type->department?$type->department->department_unit: 'All Staff'}}</td>
+                                <td>{{$type->department?$type->department->name: 'All Staff'}}</td>
                                 {{-- <td>{{ $type->assettag }}</td> --}}
                                 <td>{{ $type->name }}</td>
                                 <td>{{ $type->brand ? $type->brand->name : '' }}</td>

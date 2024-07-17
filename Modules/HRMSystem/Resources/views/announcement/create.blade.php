@@ -39,7 +39,7 @@
                 <select class="form-control select" name="department_id[]" id="department_id" placeholder="Select Department" >
                     <option value="">{{__('Select Department')}}</option>
                     @foreach($departments as $departments)
-                        <option value="{{ $departments->id }}">{{ $departments->department_unit }}</option>
+                        <option value="{{ $departments->id }}">{{ $departments->name }}</option>
                     @endforeach
                 </select>
             </div>

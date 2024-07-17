@@ -14,7 +14,7 @@
             @foreach($units as $unit)
                 <tr>
                     <td>{{ $unit->unit_name }}</td>
-                    <td>{{ $unit->department->department_unit }}</td>
+                    <td>{{ $unit->department->name }}</td>
                     <td>{{ $unit->created_at }}</td>
                     <td>{{ $unit->updated_at }}</td>
                     

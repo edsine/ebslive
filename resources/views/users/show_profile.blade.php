@@ -14,7 +14,7 @@
                     @if (auth()->user()->staff && auth()->user()->staff->profile_picture)
                     <img src="{{ asset('storage/' .  auth()->user()->staff->profile_picture) }}" alt="{{ auth()->user()->staff->profile_picture }}">
                     @else
-                    <img src="assets/media/avatars/300-1.jpg" alt="image" />
+                    <img src="assets/media/avatars/blank.png" alt="image" />
                     @endif
                     <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px"></div>
                 </div>
@@ -367,7 +367,7 @@
             <!--begin::Col-->
             
             <div class="col-lg-8">
-                <span class="fw-bolder fs-6 text-gray-800"> {{auth()->user()->staff->department->department_unit}}</span>
+                <span class="fw-bolder fs-6 text-gray-800"> {{auth()->user()->staff->department->name}}</span>
             </div>
             <!--end::Col-->
         </div>

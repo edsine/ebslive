@@ -494,7 +494,7 @@ class JobApplicationController extends AppBaseController
         $company_settings = Utility::settings();
         $documents        = Document::get();
         $branches         = Branch::get()->pluck('branch_name', 'id');
-        $departments      = Department::get()->pluck('department_unit', 'id');
+        $departments      = Department::get()->pluck('name', 'id');
         $designations     = Designation::where('created_by', Auth::user()->creatorId())->get()->pluck('name', 'id');
         $employees        = User::get();
         $employeesId      = Auth::user()->employeeIdFormat($this->employeeNumber());

@@ -5,7 +5,7 @@
 /* CREATE TABLE `departments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `department_unit` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `branch_id` bigint(20) UNSIGNED NOT NULL,
@@ -18,7 +18,7 @@
 -- Dumping data for table `departments`
 --
 
-INSERT INTO `departments` (`id`, `name`, `department_unit`, `status`, `description`, `branch_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+INSERT INTO `departments` (`id`, `name`, `name`, `status`, `description`, `branch_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, NULL, 'General Administration & Services ', 1, NULL, 2, '2023-05-14 11:56:48', '2023-05-14 11:50:29', NULL),
 (2, NULL, 'Human Resource Management', 1, NULL, 2, '2023-05-14 11:56:48', '2023-05-14 11:50:29', NULL),
 (3, NULL, 'ICT', 1, NULL, 2, '2023-05-14 11:56:48', '2023-05-14 11:50:29', NULL),

@@ -17,6 +17,13 @@
                     {!! Form::label('ranking_id', 'Rank') !!}
                     {!! Form::select('ranking_id', $rank, null, ['class' => 'form-control form-control-solid border border-2 form-select']) !!}
                 </div>
+                <div class="d-flex flex-column col-md-12 mb-8 fv-row">
+                    {!! Form::label('level_id', 'Levels') !!}
+                    {!! Form::select('level_id', $levels, null, [
+                        'class' => 'form-control form-control-solid border border-2 form-select',
+                        'required' => 'required'
+                    ]) !!}
+                </div>
 
                 <!-- Role Field -->
                 <div class="d-flex flex-column col-md-12 mb-8 fv-row">

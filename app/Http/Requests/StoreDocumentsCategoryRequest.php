@@ -23,8 +23,9 @@ class StoreDocumentsCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:documents_categories,name',
+            'name' => 'required|integer',
             'description' => 'nullable|string',
+            'department_id' => 'nullable|integer',
         ];
     }
 }

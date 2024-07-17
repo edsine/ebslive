@@ -32,7 +32,7 @@ class DesignationController extends AppBaseController
         if(Auth::user()->can('create designation'))
         {
             $departments = Department::get();
-            $departments = $departments->pluck('department_unit', 'id');
+            $departments = $departments->pluck('name', 'id');
 
             return view('hrmsystem::designation.create', compact('departments'));
         }
@@ -89,7 +89,7 @@ class DesignationController extends AppBaseController
             {
 
                 $departments = Department::get();
-            $departments = $departments->pluck('department_unit', 'id');
+            $departments = $departments->pluck('name', 'id');
 
                 return view('hrmsystem::designation.edit', compact('designation', 'departments'));
             }

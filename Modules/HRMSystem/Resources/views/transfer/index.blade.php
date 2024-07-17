@@ -120,7 +120,7 @@
                                     <td>{{ !empty($transfer->employee())?$transfer->employee()->first_name.' '.$transfer->employee()->last_name:'' }}</td>
                                     @endrole
                                     <td>{{ !empty($transfer->branch())?$transfer->branch()->branch_name:'' }}</td>
-                                    <td>{{ !empty($transfer->department())?$transfer->department()->department_unit:'' }}</td>
+                                    <td>{{ !empty($transfer->department())?$transfer->department()->name:'' }}</td>
                                     <td>{{  \Auth::user()->dateFormat($transfer->transfer_date) }}</td>
                                     <td>{{ $transfer->description }}</td>
                                     @if(Gate::check('edit transfer') || Gate::check('delete transfer'))

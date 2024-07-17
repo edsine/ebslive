@@ -48,7 +48,7 @@
                     data: function(params) {
                         return {
                             search: {
-                                department_unit: params.term
+                                name: params.term
                             },
                             limit: 10 // Number of departments per page
                         };
@@ -59,7 +59,7 @@
                         $.each(data.data, function(index, department) {
                             options.push({
                                 id: department.id,
-                                text: department.department_unit
+                                text: department.name
                             });
                         });
 

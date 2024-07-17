@@ -47,7 +47,7 @@ class IndicatorController extends AppBaseController
     {
         $brances     = Branch::get()->pluck('branch_name', 'id');
         $performance     = PerformanceType::where('created_by', '=', Auth::user()->creatorId())->get();
-        $departments = Department::get()->pluck('department_unit', 'id');
+        $departments = Department::get()->pluck('name', 'id');
         $departments->prepend('Select Department', '');
         return view('hrmsystem::indicator.create', compact( 'brances', 'departments','performance'));
     }
@@ -116,7 +116,7 @@ class IndicatorController extends AppBaseController
 
             $performance     = PerformanceType::where('created_by', '=', Auth::user()->creatorId())->get();
             $brances        = Branch::get()->pluck('branch_name', 'id');
-            $departments    = Department::get()->pluck('department_unit', 'id');
+            $departments    = Department::get()->pluck('name', 'id');
             $departments->prepend('Select Department', '');
 
             $ratings = json_decode($indicator->rating,true);

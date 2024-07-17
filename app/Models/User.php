@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Vender;
+use App\Models\Level;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Shared\Models\Branch;
 use Illuminate\Support\Facades\DB;
@@ -71,7 +72,8 @@ class User extends Authenticatable implements Auditable
         'documents',
         'tax_payer_id',
         'salary',
-        'salary_type'
+        'salary_type',
+        'level_id',
 
     ];
 
@@ -91,6 +93,10 @@ class User extends Authenticatable implements Auditable
      * @var array<string, string>
      */
 
+     public function level(){
+        return $this->belongsTo(Level::class);
+    }
+    
      public function assetmanager(){
         return $this->hasMany(Assetmanager::class,'user_id');
      }

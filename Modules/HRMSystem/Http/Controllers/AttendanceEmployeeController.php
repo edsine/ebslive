@@ -27,7 +27,7 @@ class AttendanceEmployeeController extends AppBaseController
             $branch = Branch::get()->pluck('branch_name', 'id');
             $branch->prepend('Select Branch', '');
 
-            $department = Department::get()->pluck('department_unit', 'id');
+            $department = Department::get()->pluck('name', 'id');
             $department->prepend('Select Department', '');
 
            /*  if(Auth::user()->type != 'client' && Auth::user()->type != 'company')
@@ -543,7 +543,7 @@ class AttendanceEmployeeController extends AppBaseController
             $branch = Branch::get()->pluck('branch_name', 'id');
             $branch->prepend('Select Branch', '');
 
-            $department = Department::get()->pluck('department_unit', 'id');
+            $department = Department::get()->pluck('name', 'id');
             $department->prepend('Select Department', '');
 
             $employees = [];

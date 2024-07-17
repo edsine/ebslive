@@ -70,7 +70,7 @@ class UserRepository extends BaseRepository
       
         ->join('departments', 'staff.department_id', '=', 'departments.id')
         ->join('branches', 'staff.branch_id', '=', 'branches.id')
-        ->select('users.id', 'roles.name as role', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status','departments.department_unit','branches.branch_name')
+        ->select('users.id', 'roles.name as role', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status','departments.name','branches.branch_name')
      
         ->paginate(10);
     }
@@ -83,7 +83,7 @@ class UserRepository extends BaseRepository
         ->whereNull('model_has_roles.role_id')
         ->join('departments', 'staff.department_id', '=', 'departments.id')
         ->join('branches', 'staff.branch_id', '=', 'branches.id')
-        ->select('users.id', DB::raw("NULL as role"), 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.department_unit', 'branches.branch_name')
+        ->select('users.id', DB::raw("NULL as role"), 'users.first_name', 'users.middle_name', 'users.last_name', 'users.email', 'users.status', 'departments.name', 'branches.branch_name')
         
         ->paginate(10);
    

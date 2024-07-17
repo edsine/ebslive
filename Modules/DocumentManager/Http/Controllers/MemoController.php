@@ -101,7 +101,7 @@ class MemoController extends AppBaseController
             return redirect()->back();
         }
 
-        $departments = $this->departmentRepository->all()->pluck('department_unit', 'id');
+        $departments = $this->departmentRepository->all()->pluck('name', 'id');
        // $departments->prepend('Select department', '');
         $users1 = $this->userRepository->all();
 

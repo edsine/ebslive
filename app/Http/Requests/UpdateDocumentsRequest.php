@@ -24,9 +24,16 @@ class UpdateDocumentsRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Documents::$rules;
+        /* $rules = Documents::$rules;
         $id = $this->route('document');
         $rules['title'] = 'required|unique:documents,title,' . $id;
-        return $rules;
+        return $rules; */
+        return [
+           
+           /*  'title' => 'required|string',
+            'description' => 'required|string',
+            'file' => 'nullable', */
+            
+        ];
     }
 }
