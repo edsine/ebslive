@@ -265,7 +265,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', UserController::class);
     Route::get('/minister',[HomeController::class,'minister'])->name('minister');
     
- Route::get('users/{id}', 'UserController@show')->name('users.show');
+ //Route::get('users/{id}', 'UserController@show')->name('users.show');
 Route::get('certicate',[CertificateController::class,'index'])->name('certicate');
 
     Route::get('/active', [UserController::class,'getactive'])->name('active');
