@@ -147,11 +147,11 @@ class RoleController extends AppBaseController
             return redirect(route('roles.index'));
         }
 
-        if ($role->name == 'super-admin') {
+        /* if ($role->name == 'super-admin') {
             Flash::error('Cannot edit super admin role');
 
             return redirect(route('roles.index'));
-        }
+        } */
 
         $input =  $request->all();
         

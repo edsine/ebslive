@@ -34,7 +34,7 @@ class MemosPermissionsSeeder extends Seeder
             return ['name' => $permission, 'guard_name' => 'web'];
         });
 
-        Permission::insert($permissions->toArray());
+        //Permission::insert($permissions->toArray());
 
         // Assign permissions to Super admin role
         $super_admin_role = Role::first();

@@ -119,7 +119,7 @@ Route::resource('product-unit', ProductServiceUnitController::class)->middleware
 
 Route::post('product-category/getaccount', [ProductServiceCategoryController::class, 'getAccount'])->name('productServiceCategory.getaccount')->middleware(['auth']);
 
-Route::get('productservice/index', [ProductServiceController::class, 'index'])->name('productservice.index');
+//Route::get('productservice/index', [ProductServiceController::class, 'index'])->name('productservice.index');
 Route::get('productservice/{id}/detail', [ProductServiceController::class, 'warehouseDetail'])->name('productservice.detail');
 Route::post('empty-cart', [ProductServiceController::class, 'emptyCart'])->middleware(['auth']);
 Route::post('warehouse-empty-cart', [ProductServiceController::class, 'warehouseemptyCart'])->name('warehouse-empty-cart')->middleware(['auth']);
