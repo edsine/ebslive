@@ -32,11 +32,14 @@ class ModulesPermissionsSeeder extends Seeder
             'view document audit trail',
             'view login audit trail',
             'create files',
+            'read files',
+            'update files',
+            'delete files',
         ];
 
         // Create permissions
         foreach ($permissions as $permissionName) {
-            Permission::create(['name' => $permissionName]);
+            //Permission::create(['name' => $permissionName]);
         }
 
         // Assign permissions to super-admin role
