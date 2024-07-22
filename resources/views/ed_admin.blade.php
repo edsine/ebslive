@@ -154,7 +154,7 @@
             <!--begin::Body-->
             <div class="card-body my-3">
                 <span class="float-end">
-                    <div class="text-white fw-bold fs-2 mb-2 mt-5">Total Ope Request</div>
+                    <div class="text-white fw-bold fs-2 mb-2 mt-5">Total OPE Request</div>
                 </span>
                 <a href="#" class="card-title fw-bold text-warning fs-5 mb-3 d-block"></a>
                 <div class="py-1">

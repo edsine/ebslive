@@ -427,7 +427,7 @@
                 @include('layouts.sidebar')
                 <!--end::Sidebar-->
                 <!--begin::Main-->
-                <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                <div class="app-main flex-column flex-row-fluid " id="kt_app_main" style="min-height: 500px;">
                     <!--begin::Content wrapper-->
                     @include('layouts.content')
                     <!--end::Content wrapper-->

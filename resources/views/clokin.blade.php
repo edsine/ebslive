@@ -50,7 +50,7 @@
                                 <!-- End of Dummy Data -->
                             </tbody>
                         </table>
-                        <center><b>No any announcements at the moment</b></center>
+                        <center><b>No announcements at the moment</b></center>
                     </div>
                     <BR>
                 </div>

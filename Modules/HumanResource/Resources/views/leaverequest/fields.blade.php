@@ -19,7 +19,7 @@
         </div>
         <div class="fv-row">
             <div class="row">
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-6 mb-4">
                     {!! Form::label('type', 'SELECT LEAVE TYPE.:') !!}
                     <select name="type" class="form-control form-control-solid border border-2 form-select" required id="leave_type">
                         @foreach ($leavetype as $item )
@@ -29,26 +29,27 @@
                     </select>
                 </div>
 
-                <div class="form-group col-sm-6">
-                    {!! Form::label('date_start_new', 'DATE REQUESTED TO COMMENCE PRESENT LEAVE:') !!}
+                <div class="form-group col-sm-6 mb-4">
+                    {{-- {!! Form::label('date_start_new', 'DATE REQUESTED TO COMMENCE PRESENT LEAVE:') !!} --}}
+                    {!! Form::label('date_start_new', 'DATE REQUESTED TO COMMENCE LEAVE:') !!}
                     {!! Form::date('date_start_new', null, ['class' => 'form-control form-control-solid border border-2 ','id'=>'date_start']) !!}
                 </div>
 
 
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-6 mb-4">
                     {!! Form::label('number_days', 'NUMBER OF DAYS:') !!}
                     {!! Form::number('number_days', null, ['class' => 'form-control form-control-solid border border-2 ','readonly'=>true,'id'=>'number_days']) !!}
                 </div>
 
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-6 mb-4">
                     {!! Form::label('daystaken', 'Number of days to take:') !!}
                     {!! Form::number('daystaken', null, ['class' => 'form-control form-control-solid border border-2 ','placeholder'=>'input the number of days to take','id'=>'days']) !!}
                 </div>
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-6 mb-4">
                     {!! Form::label('end_date', 'EXPECTED DATE TO RESUME:') !!}
                     {!! Form::text('end_date', null, ['class' => 'form-control form-control-solid border border-2 ','placeholder'=>'the date for you to resume','id'=>'end_date','readonly'=>true]) !!}
                 </div>
-                <div class="form-group my-5 col-sm-6">
+                <div class="form-group my-5 col-sm-6 mb-4">
                     {!!Form::button('Update',['class'=>'btn btn-info','id'=>'u']) !!}
                 </div>
             </div>

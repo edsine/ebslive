@@ -105,7 +105,7 @@ class DTARequestsController extends AppBaseController
 
         $department = $this->staffRepository->getByUserId($user_id);
         if (!$department) {
-            Flash::error('Admin can not add new DTA Request. DTA request should be added by a staff only');
+            Flash::error('Admin cannot add new DTA Request. DTA request should be added by a staff only');
             return redirect(route('dtarequests.index'));
         } else {
 
@@ -113,7 +113,7 @@ class DTARequestsController extends AppBaseController
 
             $unit_head_id = $this->dtaRequestsRepository->isUnitHeadInSameDepartment($user_id, $department_id);
             if (!$unit_head_id) {
-                Flash::error("You can not add new dta request because you don'\t have a unit head in your department. Contact administrator for assistance.");
+                Flash::error("You cannot add new a dta request because you don'\t have a unit head in your department. Contact administrator for assistance.");
                 return redirect(route('dtarequests.index'));
             }
 
@@ -131,7 +131,7 @@ class DTARequestsController extends AppBaseController
                 return view('dtarequests::dtarequests.create')->with(['department_head_data' => $department_head_data, 'branches' => $branches, 'unit_head_data' => $unit_head_data]);
             } else {
                 # code...
-                Flash::error('You can not create a DTA request because there is no unit head in your department.');
+                Flash::error('You cannot create a DTA request because there is no unit head in your department.');
                 return redirect(route('dtarequests.index'));
             }
         }
@@ -149,7 +149,7 @@ class DTARequestsController extends AppBaseController
         $uid = Auth::id();
         $staff_id = $this->staffRepository->getByUserId($uid);
         if (!$staff_id) {
-            Flash::error('Admin can not add new DTA Request. DTA request should be added by a staff only');
+            Flash::error('Admin cannot add new DTA Request. DTA request should be added by a staff only');
             return redirect(route('dtarequests.index'));
         } else {
             try {

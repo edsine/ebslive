@@ -211,7 +211,7 @@
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
-                        <span class="menu-title">DashBoard </span>
+                        <span class="menu-title">Dashboard </span>
                     </a>
                 </div>
                 <div class="menu-item">

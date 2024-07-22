@@ -140,7 +140,7 @@
                 <div class="card-body d-flex flex-column p-0">
                     <div class="d-flex flex-stack flex-grow-1 card-p">
                         <div class="d-flex flex-column me-2">
-                            <a href="#" class="text-dark text-hover-primary fw-bold fs-3">Total Brand</a>
+                            <a href="#" class="text-dark text-hover-primary fw-bold fs-3">Total No of Brand</a>
                             <span class="text-muted fw-semibold mt-1">
                             </span>
                         </div>
