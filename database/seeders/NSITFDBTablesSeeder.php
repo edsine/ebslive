@@ -26,7 +26,7 @@ class NSITFDBTablesSeeder extends Seeder
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-        $path = 'database/db/ebsnsitf1.sql';
+        $path = 'database/db/ebsnsitf2.sql';
         DB::unprepared(file_get_contents($path));
         $this->command->info('All tables seeded!');
 
