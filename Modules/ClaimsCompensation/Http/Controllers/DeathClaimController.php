@@ -28,10 +28,10 @@ class DeathClaimController extends AppBaseController
             Auth::user()->hasRole('MER') || Auth::user()->hasRole('ED FINANCE & ACCOUNT') ||
             Auth::user()->hasRole('AUDIT') || Auth::user()->hasRole('GM')
         ) {
-            $claims = DeathClaim::with('employee')->get();
+            $claims = DeathClaim::with('employee')->orderBy('id','desc')->get();
         } else if ($deathClaims->count() > 0 || Auth::user()->hasRole('Branch Manager')) {
 
-            $claims = DeathClaim::with('employee')->where('branch_id', auth()->user()->staff->branch_id)->get();
+            $claims = DeathClaim::with('employee')->where('branch_id', auth()->user()->staff->branch_id)->orderBy('id','desc')->get();
             
         }else {
             return redirect()->back()->with('error', __('Permission denied.'));

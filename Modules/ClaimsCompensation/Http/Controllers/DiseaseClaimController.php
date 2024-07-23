@@ -29,10 +29,10 @@ class DiseaseClaimController extends AppBaseController
             Auth::user()->hasRole('AUDIT') || Auth::user()->hasRole('GM')
         ) {
             
-            $claims = DiseaseClaim::with('employee')->get();
+            $claims = DiseaseClaim::with('employee')->orderBy('id','desc')->get();
         } else if ($deathClaims->count() > 0 || Auth::user()->hasRole('Branch Manager')) {
 
-            $claims = DiseaseClaim::with('employee')->where('branch_id', auth()->user()->staff->branch_id)->get();
+            $claims = DiseaseClaim::with('employee')->where('branch_id', auth()->user()->staff->branch_id)->orderBy('id','desc')->get();
         } else {
             return redirect()->back()->with('error', __('Permission denied.'));
         }

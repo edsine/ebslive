@@ -28,10 +28,10 @@ class AccidentClaimController extends AppBaseController
             Auth::user()->hasRole('MER') || Auth::user()->hasRole('ED FINANCE & ACCOUNT') ||
             Auth::user()->hasRole('AUDIT') || Auth::user()->hasRole('GM')
         ) {
-            $claims = AccidentClaim::with('employee')->get();
+            $claims = AccidentClaim::with('employee')->orderBy('id','desc')->get();
         } else if ($deathClaims->count() > 0 || Auth::user()->hasRole('Branch Manager')) {
 
-            $claims = AccidentClaim::with('employee')->where('branch_id', auth()->user()->staff->branch_id)->get();
+            $claims = AccidentClaim::with('employee')->where('branch_id', auth()->user()->staff->branch_id)->orderBy('id','desc')->get();
         } else {
             return redirect()->back()->with('error', __('Permission denied.'));
         }

@@ -79,7 +79,7 @@
                     </span>
                     <!--end::Svg Icon-->
                 </span>
-                <span class="menu-title spicyj">My Task</span>
+                <span class="menu-title spicyj">Employer Module</span>
                 <span class="menu-arrow"></span>
             </span>
             <div class="menu-sub menu-sub-accordion menu-active-bg">
@@ -142,7 +142,7 @@
         </div>
 
 
-        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion" style="display: none">
             <span class="menu-link">
                 <span class="menu-icon">
                     <!--begin::Svg Icon | path: icons/duotune/general/gen022.svg-->
@@ -259,7 +259,7 @@
                 <span class="menu-section text-muted text-uppercase fs-8 ls-1">GENERAL TASK</span>
             </div>
         </div>
-        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion" >
             <span class="menu-link">
                 <span class="menu-icon">
                     <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
@@ -276,7 +276,7 @@
                     </span>
                     <!--end::Svg Icon-->
                 </span>
-                <span class="menu-title spicyj">Tags</span>
+                <span class="menu-title spicyj">Internal Processes</span>
                 <span class="menu-arrow"></span>
             </span>
             <div class="menu-sub menu-sub-accordion menu-active-bg">
@@ -299,7 +299,7 @@
         @include('hrmsystem::layouts.menu')
 
         @if (auth()->user()->staff->department_id == 5 || auth()->user()->hasRole('super-admin'))
-            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+            <div data-kt-menu-trigger="click" class="menu-item menu-accordion" style="display: none">
                 <span class="menu-link">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
@@ -379,8 +379,8 @@
 
             </div>
         </div>
-        @include('formbuilder::layouts.menu')
-        <div class="menu-item">
+       {{--  @include('formbuilder::layouts.menu') --}}
+        <div class="menu-item" style="display: none">
             <!--begin:Menu link-->
             <span class="menu-link">
                 <span class="menu-icon">

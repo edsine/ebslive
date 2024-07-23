@@ -45,8 +45,24 @@
 @endif
 
 @if(auth()->user()->staff->department_id==5 || auth()->user()->hasRole('super-admin'))
+<div class="menu-sub menu-sub-accordion">
+    <!--begin:Menu item-->
+    <div class="menu-item">
+        <!--begin:Menu link-->
+        {{-- <a href="" class="menu-link {{ Request::is('folders*') ? 'active' : '' }}"> --}}
+            <a href="{{ route('certificates') }}" class="menu-link {{ Request::is('certificates*') ? 'active' : '' }}">
+            <span class="menu-bullet">
+                <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title">Certificates</span>
+        </a>
+        <!--end:Menu link-->
+    </div>
+    <!--end:Menu item-->
+</div>
 <!--begin:Menu item-->
-<div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
+<div data-kt-menu-trigger="click" class="menu-item here menu-accordion" style="display: none">
+    
     <!--begin:Menu link-->
     <span class="menu-link">
         <span class="menu-icon">
@@ -109,7 +125,7 @@
         <div class="menu-item">
             <!--begin:Menu link-->
             {{-- <a href="" class="menu-link {{ Request::is('folders*') ? 'active' : '' }}"> --}}
-            <a href="" class="menu-link ">
+                <a href="{{ route('certicate') }}" class="menu-link {{ Request::is('folders*') ? 'active' : '' }}">
                 <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
                 </span>
@@ -127,7 +143,7 @@
 
 @if(auth()->user()->staff->department_id==12 || auth()->user()->hasRole('super-admin'))
 <!--begin:Menu item-->
-<div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
+<div data-kt-menu-trigger="click" class="menu-item here menu-accordion" style="display: none">
     <!--begin:Menu link-->
     <span class="menu-link">
         <span class="menu-icon">
@@ -223,7 +239,7 @@
 @endif
 @if(auth()->user()->staff->department_id==17 || auth()->user()->hasRole('super-admin'))
 <!--begin:Menu item-->
-<div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
+<div data-kt-menu-trigger="click" class="menu-item here menu-accordion" style="display: none">
     <!--begin:Menu link-->
     <span class="menu-link">
         <span class="menu-icon">
@@ -336,7 +352,7 @@
 @endif
 @if(auth()->user()->staff->department_id==13 || auth()->user()->hasRole('super-admin'))
 <!--begin:Menu item-->
-<div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
+<div data-kt-menu-trigger="click" class="menu-item here menu-accordion" style="display: none">
     <!--begin:Menu link-->
     <span class="menu-link">
         <span class="menu-icon">
