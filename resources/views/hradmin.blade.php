@@ -256,7 +256,7 @@
               <!--begin::Title-->
               <h3 class="card-title align-items-start flex-column">
                 <span class="card-label fw-bold text-dark">Events Calendar</span>
-                <span class="text-gray-400 pt-2 fw-semibold fs-6">All events and schedule</span>
+                <span class="text-gray-400 pt-2 fw-semibold fs-6">All events and schedules</span>
               </h3>
               <div class="float-end">
                 <button id="add-event-button" class="btn btn-primary py-3" data-toggle="modal" data-target="#event-modal">Add Event</button>

@@ -23,10 +23,10 @@
                     <table class="table" id="memos-table">
                         <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Created By</th>
-                                <th>Document URL</th>
-                                <th>Created At</th>
+                                <th class="fw-bold">Title</th>
+                                <th class="fw-bold">Created By</th>
+                                <th class="fw-bold">Document URL</th>
+                                <th class="fw-bold">Created At</th>
                                 {{-- <th>Action</th> --}}
                             </tr>
                         </thead>

@@ -22,7 +22,7 @@
                 <span class="float-end">
                     <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5"></div>
                 </span>
-                <a href="#" class="card-title fw-bold text-success fs-5 mb-3 d-block">Total Number ICT Staff</a>
+                <a href="#" class="card-title fw-bold text-success fs-4 mb-3 d-block">Total Number of ICT Staff</a>
 
                 <div class="py-1">
                     <span class="text-dark fs-1 fw-bold me-2">{{$ictstaff}}</span>
@@ -44,7 +44,7 @@
                 <span class="float-end">
                     <div class="text-white fw-bold fs-2 mb-2 mt-5"></div>
                 </span>
-                <a href="#" class="card-title fw-bold text-warning fs-5 mb-3 d-block">Total Number Of Staff With Work Tools</a>
+                <a href="#" class="card-title fw-bold text-warning fs-4 mb-3 d-block">Total Number Of Staff With Work Tools</a>
                 <div class="py-1">
                     <span class="text-white fs-1 fw-bold me-2">50</span>
                     <span class="fw-semibold text-muted fs-7"></span>
@@ -65,7 +65,7 @@
                 <span class="float-end">
                     <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5"></div>
                 </span>
-                <a href="#" class="card-title fw-bold text-primary fs-5 mb-3 d-block">Total Number Of Staff Without Work Tools</a>
+                <a href="#" class="card-title fw-bold text-primary fs-4 mb-3 d-block">Total Number Of Staff Without Work Tools</a>
                 <div class="py-1">
                     <span class="text-dark fs-1 fw-bold me-2">100</span>
                     <span class="fw-semibold text-muted fs-7"></span>
@@ -96,7 +96,7 @@
                     </svg>
                 </span>
                 <span class="float-end">
-                    <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5">Number Of Staff with worktools but Not Functional </div>
+                    <div class="text-gray-900 fw-bold fs-3 mb-2 mt-5">Number of Staff with Non-functional Work Tools. </div>
                 </span>
                 <!--end::Svg Icon-->
                 <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5">40</div>
@@ -122,7 +122,7 @@
                 </span>
                 <!--end::Svg Icon-->
                 <span class="float-end">
-                    <div class="text-success fw-bold fs-2 mb-2 mt-5">Other ICT Equipment</div>
+                    <div class="text-success fw-bold fs-3 mb-2 mt-5">Other ICT Equipment</div>
                 </span>
                 <div class="text-dark  fw-bold fs-2 mb-2 mt-5">25</div>
                 <div class="fw-semibold text-gray-100"></div>
@@ -146,7 +146,7 @@
                 </span>
                 <!--end::Svg Icon-->
                 <span class="float-end">
-                    <div class="text-success fw-bold fs-2 mb-2 mt-5">Total Number Of New Systems</div>
+                    <div class="text-success fw-bold fs-3 mb-2 mt-5">Total Number Of New Systems</div>
                 </span>
                 <div class="text-dark  fw-bold fs-2 mb-2 mt-5"></div>
                 <div class="fw-semibold text-gray-100"></div>
@@ -195,7 +195,7 @@
     <!--begin::Card body-->
     <div class="card-body d-flex align-items-end px-0 pb-0">
         <!--begin::Chart-->
-        <div id="kt_card_widget_6_chart" class="w-100" style="height: 80px"></div>
+        <div id="kt_card_widget_6_chart" class="w-100" style="min-height: 80px"></div>
         <!--end::Chart-->
     </div>
     <!--end::Card body-->

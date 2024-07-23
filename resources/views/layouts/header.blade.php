@@ -41,9 +41,9 @@ use Illuminate\Support\Facades\Auth;
              <div class="app-navbar float-end flex-shrink-0">
                  <!--begin::Username-->
                  <div class="d-flex flex-column">
-                     <div class="fw-bold d-flex align-items-center fs-5 mt-5 pt-3">{{'Hello,'. ' '. $user->first_name. ' ' . $user->last_name  }} 
+                     <div class="fw-bold d-flex align-items-center fs-5 mt-3 pt-3 ">{{'Hello,'. ' '. $user->first_name. ' ' . $user->last_name  }} 
                         {{-- <span class=" fw-bold p-2 text-bg-success rounded-pill text-uppercase ms-4">  {{auth()->user()->roles->pluck('name')[0]}} </span> --}}
-                        <span class=" fw-bold p-2 text-bg-success rounded-pill text-uppercase ms-4"> {{ auth()->user()->roles->isNotEmpty() ? auth()->user()->roles->pluck('name')->first() : 'no role yet' }}
+                        <span class=" fw-bold py-2 px-5 text-bg-success text-white  rounded-pill text-uppercase ms-4"> {{ auth()->user()->roles->isNotEmpty() ? auth()->user()->roles->pluck('name')->first() : 'no role yet' }}
                         </span>
                         @php
                           
