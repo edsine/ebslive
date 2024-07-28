@@ -654,8 +654,8 @@ function daterange() {
     <script>
         var botmanWidget = {
             aboutText: 'Start the conversation with hi',
-            introMessage: "WELCOME TO  NSITF chatbots",
-            title:'NSITF Chat Bots ',
+            introMessage: "WELCOME TO  NSITF chatbot",
+            title:'NSITF Chat Bot ',
             mainColor: '#006400',
             bubbleBackground:'#006400',
             aboutLink: 'nsitf.gov.ng'

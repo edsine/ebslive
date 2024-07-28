@@ -235,7 +235,7 @@
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
-                        <span class="menu-title">List Of Suppliers</span>
+                        <span class="menu-title">List of Suppliers</span>
                     </a>
                 </div>
                 <div class="menu-item">

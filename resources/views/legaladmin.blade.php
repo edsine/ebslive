@@ -296,7 +296,7 @@
                                 </div>
                                 <!--end::Info-->
                                 <!--begin::Subtitle-->
-                                <span class="text-gray-400 pt-1 fw-bold fs-6">Total No of Employers</span>
+                                <span class="text-gray-400 pt-1 fw-bold fs-6">Total No. of Employers</span>
                                 <!--end::Subtitle-->
                             </div>
                             <!--end::Title-->

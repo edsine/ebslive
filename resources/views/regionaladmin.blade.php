@@ -160,7 +160,7 @@
 							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalbranchinregion}}
 							
 							</div>
-							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF BRANCH IN MY REGION</b></div>
+							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF BRANCHES IN MY REGION</b></div>
 						</div>
 						<!--end::Body-->
 					</a>
@@ -187,7 +187,7 @@
 							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totaldepartmentinregion}}
 							
 							</div>
-							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF DEPARTMENT</b></div>
+							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF DEPARTMENTS</b></div>
 						</div>
 						<!--end::Body-->
 					</a>
@@ -241,7 +241,7 @@
 							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalunitinregion}}
 							
 							</div>
-							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF UNIT</b></div>
+							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF UNITS</b></div>
 						</div>
 						<!--end::Body-->
 					</a>
@@ -275,7 +275,7 @@
 							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalemployersinbranch}}
 							
 							</div>
-							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF EMPLOYER</b></div>
+							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF EMPLOYERS</b></div>
 						</div>
 						<!--end::Body-->
 					</a>
@@ -302,7 +302,7 @@
 							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalcerticateinbranches}}
 							
 							</div>
-							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF CERTIFICATE ISSUED</b></div>
+							<div class="fw-bold" style="color:green"><b>TOTAL NO. OF CERTIFICATES ISSUED</b></div>
 						</div>
 						<!--end::Body-->
 					</a>
@@ -329,7 +329,7 @@
 							<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">0
 							
 							</div>
-							<div class="fw-bold" style="color:green"><b>CLAIMS NOTIFICATION</b></div>
+							<div class="fw-bold" style="color:green"><b>CLAIMS NOTIFICATIONS</b></div>
 						</div>
 						<!--end::Body-->
 					</a>

@@ -23,7 +23,7 @@
 												</span>
 												<!--end::Svg Icon-->
 												<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">57</div>
-												<div class="fw-bold"><b>Total No OF Branch Offices</b></div>
+												<div class="fw-bold"><b>Total No. OF Branch Offices</b></div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -44,7 +44,7 @@
 												</span>
 												<!--end::Svg Icon-->
 												<div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">{{$totalregion}}</div>
-												<div class="fw-bold text-gray-100">Total No Of Regional Offices</div>
+												<div class="fw-bold text-gray-100">Total No. Of Regional Offices</div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -65,7 +65,7 @@
 												<!--end::Svg Icon-->
 												
 												<div class="text-white fw-bolder fs-2 mb-2 mt-5">{{$totaldept}}</div>
-												<div class="fw-bold text-white">Total No Of Departments</div>
+												<div class="fw-bold text-white">Total No. Of Departments</div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -131,7 +131,7 @@
 															</div>
 															<!--end::Info-->
 															<!--begin::Description-->
-															<span class="fs-6 fw-bold text-gray-400">Total No Of Management Staff</span>
+															<span class="fs-6 fw-bold text-gray-400">Total No. Of Management Staff</span>
 															<!--end::Description-->
 														</div>
 														<!--end::Statistics-->
@@ -159,7 +159,7 @@
 															<!--end::Info-->
 															<!--begin::Subtitle-->
 															<span class="text-gray-400 pt-1 fw-bold fs-6">
-Total No of Funds Staff</span>
+Total No. of Funds Staff</span>
 															<!--end::Subtitle-->
 														</div>
 														<!--end::Title-->
@@ -197,7 +197,7 @@ Total No of Funds Staff</span>
 															<!--end::Statistics-->
 															<!--begin::Description-->
 															<span class="fs-6 fw-bold text-gray-400">
-Total No of Certificate Issued</span>
+Total No. of Certificate Issued</span>
 															<!--end::Description-->
 														</div>
 														<!--end::Statistics-->
@@ -220,7 +220,7 @@ Total No of Certificate Issued</span>
 															<!--end::Amount-->
 															<!--begin::Subtitle-->
 															<span class="text-gray-400 pt-1 fw-bold fs-6">
-Total No of Employers</span>
+Total No. of Employers</span>
 															<!--end::Subtitle-->
 														</div>
 														<!--end::Title-->

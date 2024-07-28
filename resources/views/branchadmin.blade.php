@@ -68,7 +68,7 @@
 												<!--end::Svg Icon-->
 												
 												<div class="text-white fw-bolder fs-2 mb-2 mt-5">{{$totaldept}}</div>
-												<div class="fw-bold text-white">Total No Of Departments</div>
+												<div class="fw-bold text-white">Total No. Of Departments</div>
 											</div>
 											<!--end::Body-->
 										</a>
@@ -203,7 +203,7 @@ Total Branch Staff</span>
 															<!--end::Statistics-->
 															<!--begin::Description-->
 															<span class="fs-6 fw-bold text-gray-400">
-Total No of Certificate Issued</span>
+Total No. of Certificate Issued</span>
 															<!--end::Description-->
 														</div>
 														<!--end::Statistics-->

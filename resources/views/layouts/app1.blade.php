@@ -753,11 +753,11 @@
     <script>
         var botmanWidget = {
             aboutText: 'Start the conversation with hi',
-            introMessage: "WELCOME TO  NIWA chatbots",
-            title: 'NIWA Chat Bots ',
+            introMessage: "WELCOME TO  NSITF chatbot",
+            title: 'NSITF Chat Bot ',
             mainColor: '#0000FF',
             bubbleBackground: '#0000FF',
-            aboutLink: 'niwa.gov.ng'
+            aboutLink: 'nsitf.gov.ng'
 
         };
     </script>

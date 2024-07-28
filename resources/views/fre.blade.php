@@ -752,7 +752,7 @@
                     </div>
                     <!--end::Info-->
                     <!--begin::Description-->
-                    <span class="fs-6 fw-semibold text-gray-400">Total No. oF Risk Assigned To Users</span>
+                    <span class="fs-6 fw-semibold text-gray-400">Total No.. oF Risk Assigned To Users</span>
                     <!--end::Description-->
                   </div>
                   <!--end::Statistics-->

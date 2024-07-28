@@ -5,7 +5,7 @@
         <div class="container-fluid float-end">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1> List Of Brand</h1>
+                    <h1> List Of Brands</h1>
                 </div>
                 <div class="col-sm-6">
                     <button type="button" class="btn btn-primary float-end" data-toggle="modal" data-target="#atp">

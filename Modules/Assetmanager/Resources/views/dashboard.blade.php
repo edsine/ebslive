@@ -9,7 +9,7 @@
                 <div class="card-body d-flex flex-column p-0">
                     <div class="d-flex flex-stack flex-grow-1 card-p">
                         <div class="d-flex flex-column me-2">
-                            <a href="#" class="text-dark text-hover-primary fw-bold fs-3">Total Asset Assigned To Me
+                            <a href="#" class="text-dark text-hover-primary fw-bold fs-3">Total Assets Assigned To Me
                             </a>
                             <span class="text-muted fw-semibold mt-1">
                             </span>
@@ -37,7 +37,7 @@
                     <div class="d-flex flex-stack flex-grow-1 card-p">
                         <div class="d-flex flex-column me-2">
                             <a href="#" class="text-dark text-hover-primary fw-bold fs-3"> Total Departmental
-                                Asset</a>
+                                Assets</a>
                             <span class="text-muted fw-semibold mt-1">
                             </span>
                         </div>
@@ -61,7 +61,7 @@
                 <div class="card-body d-flex flex-column p-0">
                     <div class="d-flex flex-stack flex-grow-1 card-p">
                         <div class="d-flex flex-column me-2">
-                            <a href="#" class="text-dark text-hover-primary fw-bold fs-3">Total Asset</a>
+                            <a href="#" class="text-dark text-hover-primary fw-bold fs-3">Total Assets</a>
                             <span class="text-muted fw-semibold mt-1">
                             </span>
                         </div>
@@ -115,8 +115,8 @@
                 <div class="card-body d-flex flex-column p-0">
                     <div class="d-flex flex-stack flex-grow-1 card-p">
                         <div class="d-flex flex-column me-2">
-                            <a href="#" class="text-dark text-hover-primary fw-bold fs-3"> Total Suppliers
-                                Asset</a>
+                            <a href="#" class="text-dark text-hover-primary fw-bold fs-3"> Total Suppliers'
+                                Assets</a>
                             <span class="text-muted fw-semibold mt-1">
                             </span>
                         </div>
@@ -140,7 +140,7 @@
                 <div class="card-body d-flex flex-column p-0">
                     <div class="d-flex flex-stack flex-grow-1 card-p">
                         <div class="d-flex flex-column me-2">
-                            <a href="#" class="text-dark text-hover-primary fw-bold fs-3">Total No of Brand</a>
+                            <a href="#" class="text-dark text-hover-primary fw-bold fs-3">Total No. of Brands</a>
                             <span class="text-muted fw-semibold mt-1">
                             </span>
                         </div>
