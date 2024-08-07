@@ -6,7 +6,16 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Risk Management Overview</h1>
+                    {{-- <h1>Risk Management Overview</h1> --}}
+                    <h1>
+                        @php
+                            $staff = Auth()->user()->staff ?? null;
+                            $departmentName = $staff?->department?->name ?? 'Department Name Not Available';
+                            $branchName = $staff?->branch?->branch_name ?? 'Branch Name Not Available';
+                        @endphp
+                        
+                        {{ $departmentName }}: {{ $branchName }} <b style="color: #000">Overview</b>
+                    </h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-end" href="{{ route('users.create') }}">

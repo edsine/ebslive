@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class="text-black-50 pt-5">Informal Sector<b style="color: #000"> Overview</b></h1>
+{{-- <h1 class="text-black-50 pt-5">Informal Sector<b style="color: #000"> Overview</b></h1> --}}
+<h1 class="text-black-50 pt-5">
+  @php
+      $staff = Auth()->user()->staff ?? null;
+      $departmentName = $staff?->department?->name ?? 'Department Name Not Available';
+      $branchName = $staff?->branch?->branch_name ?? 'Branch Name Not Available';
+  @endphp
+  
+  {{ $departmentName }}: {{ $branchName }} <b style="color: #000">Overview</b>
+</h1>
 <br>
 
 <!--begin::Row-->

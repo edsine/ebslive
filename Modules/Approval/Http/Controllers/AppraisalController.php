@@ -49,8 +49,8 @@ if (auth()->user()->staff == null) {
             requests.staff_id = $staffId
             AND requests.order <> requests.next_step
         )
-    );
-";
+    )
+ORDER BY requests.created_at DESC;";
 
 // Execute the raw SQL query
 $requests = DB::select($sqlQuery);

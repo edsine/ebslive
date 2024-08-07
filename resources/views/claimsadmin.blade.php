@@ -7,7 +7,16 @@
   {{-- end::Sweet-alert --}}
   <!--begin::Row-->
   <div class="row g-5 g-xl-8 pt-5">
-    <h1 class="text-black-50 pt-5">Claims and Compensations: <b style="color: #000">Overview</b></h1>
+    {{-- <h1 class="text-black-50 pt-5">Claims and Compensations: <b style="color: #000">Overview</b></h1> --}}
+    <h1 class="text-black-50 pt-5">
+      @php
+          $staff = Auth()->user()->staff ?? null;
+          $departmentName = $staff?->department?->name ?? 'Department Name Not Available';
+          $branchName = $staff?->branch?->branch_name ?? 'Branch Name Not Available';
+      @endphp
+      
+      {{ $departmentName }}: {{ $branchName }} <b style="color: #000">Overview</b>
+  </h1>
     @include('clokin')
     <div class="col-xl-12">
     <button id="showButton" onclick="showCards()">

@@ -12,6 +12,7 @@ use Flash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Modules\Approval\Models\Request as ModelsRequest;
 
 class AccidentClaimController extends AppBaseController
 {
@@ -91,7 +92,12 @@ class AccidentClaimController extends AppBaseController
             'staff_id' => auth()->user()->staff->id,
             'type_id' => 7, //for accident claim flow
             'order' => 1, //order/step of the flow
+            'next_step' => 1,
             'action_id' => 1, //action taken id 1= create
+        ]);
+        ModelsRequest::where('id', $approval_request->id)->update([
+            'next_step' => 1,
+            // Add other columns and their values as needed
         ]);
 
         Flash::success('Accident Claim request initiated successfully.');

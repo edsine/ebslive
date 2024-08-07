@@ -12,6 +12,7 @@ use Flash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Modules\Approval\Models\Request as ModelsRequest;
 
 class DiseaseClaimController extends AppBaseController
 {
@@ -92,7 +93,12 @@ class DiseaseClaimController extends AppBaseController
             'staff_id' => auth()->user()->staff->id,
             'type_id' => 8, //for disease claim flow
             'order' => 1, //order/step of the flow
+            'next_step' => 1,
             'action_id' => 1, //action taken id 1= create
+        ]);
+        ModelsRequest::where('id', $approval_request->id)->update([
+            'next_step' => 1,
+            // Add other columns and their values as needed
         ]);
 
         Flash::success('Disease Claim request initiated successfully.');
